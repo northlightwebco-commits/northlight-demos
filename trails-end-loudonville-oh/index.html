@@ -263,10 +263,10 @@ var words=['Pizza','Bar','Family dining','Mohican State Park','Loudonville','Tra
 for(var k=0;k<2;k++)words.forEach(function(w){h+='<span>'+w+'</span>'});
 document.getElementById('mq').innerHTML=h;
 
-var top=document.getElementById('top'),pg=document.getElementById('prog'),gl=document.getElementById('glow');
+var tp=document.getElementById('top'),pg=document.getElementById('prog'),gl=document.getElementById('glow');
 function sc(){
   var y=scrollY,m=document.documentElement.scrollHeight-innerHeight;
-  top.classList.toggle('solid',y>30);
+  tp.classList.toggle('solid',y>30);
   pg.style.transform='scaleX('+(m>0?y/m:0)+')';
   if(!rm&&y<innerHeight)gl.style.transform='translateY('+(y*.25)+'px)';
 }
