@@ -1,45 +1,327 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Spencer’s Chophouse &amp; Tavern — Creston, IA (preview)</title><meta name="robots" content="noindex,nofollow"><meta name="description" content="Preview of a new website for Spencer’s Chophouse &amp; Tavern in Creston, IA. Not the official website."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@600;700&amp;family=Work+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"><style>
-:root{--bg:#1a1411;--ink:#f1e6d3;--mu:#b9a78e;--card:#251c17;--line:#3a2c24;--ac:#d9822b;--acd:#a96522;--acs:#392615;--r:8px;--onac:#101010;--head:'Zilla Slab',Georgia,serif;--body:'Work Sans',system-ui,sans-serif}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 var(--body);-webkit-font-smoothing:antialiased}
-h1,h2,h3{font-family:var(--head);font-weight:700;line-height:1.1;margin:0;letter-spacing:-.01em}a{color:inherit}img{max-width:100%;display:block}
-.ribbon{background:var(--ac);color:var(--onac);text-align:center;font:600 13px/1 var(--body);padding:9px 12px}
-.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
-header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-header.top .wrap{display:flex;align-items:center;gap:22px;min-height:62px}header.top b{font:700 20px var(--head)}
-nav{margin-left:auto;display:flex;gap:20px}nav a{text-decoration:none;font-weight:600;font-size:15px;color:var(--mu)}nav a:hover{color:var(--ink)}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 26px;border-radius:calc(var(--r)*2);font:700 15px var(--body);text-decoration:none;background:var(--ac);color:var(--onac);border:2px solid var(--ac);transition:transform .2s,box-shadow .2s}
-.btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px color-mix(in srgb,var(--ac) 45%,transparent)}.btn.alt{background:transparent;color:var(--ink);border-color:var(--line)}.btn.alt:hover{border-color:var(--ac)}
-.hero{padding:72px 0 64px;position:relative;overflow:hidden}.hero .wrap{display:grid;gap:40px;align-items:center;position:relative}
-.hero.split .wrap{grid-template-columns:1.1fr .9fr}.hero.center{text-align:center}.hero.center .wrap{justify-items:center}.hero.stack .wrap{text-align:center;justify-items:center}
-.kicker{font:700 13px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--ac)}.hero h1{font-size:clamp(40px,8vw,76px);margin:14px 0 16px}.hero.huge h1{font-size:clamp(52px,12vw,132px);line-height:.95}
-.lead{font-size:19px;color:var(--mu);max-width:36em;margin:0 0 26px}.hero.center .lead,.hero.stack .lead{margin-left:auto;margin-right:auto}
-.btns{display:flex;gap:12px;flex-wrap:wrap}.hero.center .btns,.hero.stack .btns{justify-content:center}
-.art{width:min(360px,80%);animation:float 6s ease-in-out infinite;filter:drop-shadow(0 20px 30px rgba(0,0,0,.18))}.hero.center .art,.hero.stack .art{width:min(240px,60%);margin-bottom:6px}
-.hero.split .art{justify-self:center;width:min(380px,90%)}.hero.huge .art{display:none}
-.blob{position:absolute;border-radius:50%;background:var(--acs);z-index:0;pointer-events:none}.b1{width:520px;height:520px;right:-140px;top:-160px}.b2{width:300px;height:300px;left:-100px;bottom:-140px;opacity:.7}
-@keyframes float{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-12px) rotate(1deg)}}
-section{padding:68px 0}section h2{font-size:clamp(30px,5vw,46px);margin-bottom:8px}.sub{color:var(--mu);margin:0 0 30px;max-width:40em}
-.alt-bg{background:var(--card)}.tag{display:inline-block;font:700 11px var(--body);letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:99px;background:var(--acs);color:var(--acd);vertical-align:middle;margin-left:10px}
-.dark .tag{color:var(--ac);border:1px solid color-mix(in srgb,var(--ac) 45%,transparent)}.dark .note{border:1px solid var(--line)}
-.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}.tile{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px}.tile h3{font-size:20px;margin-bottom:6px}.tile p{margin:0;color:var(--mu);font-size:15px}
-.ic{width:46px;height:46px;border-radius:calc(var(--r)*.7);background:var(--acs);color:var(--ac);display:grid;place-items:center;margin-bottom:14px;font-size:22px}
-.menu.cards{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}.menu.cards .sec{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px}
-.menu.list .sec{padding:6px 0 24px}.menu.list .sec+.sec{border-top:1px solid var(--line);padding-top:26px}.menu.columns{columns:2 320px;column-gap:44px}.menu.columns .sec{break-inside:avoid;margin-bottom:30px}
-.sec h3{font-size:24px;margin-bottom:12px;color:var(--ac)}.item{display:flex;gap:14px;align-items:baseline;padding:9px 0}.item .n{font-weight:700}.item .d{color:var(--mu);font-size:14.5px;display:block;font-weight:400}
-.item .dots{flex:1;border-bottom:2px dotted var(--line);transform:translateY(-4px);min-width:20px}.item .p{font-weight:700;color:var(--ac);white-space:nowrap}
-.favs{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:28px}.fav{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px 22px;text-align:center;transition:transform .25s,border-color .25s}
-.fav:hover{transform:translateY(-6px);border-color:var(--ac)}.fav .em{font-size:58px;line-height:1;display:block;margin-bottom:10px;filter:drop-shadow(0 8px 10px rgba(0,0,0,.18))}.fav b{font:700 20px var(--head);display:block}.fav .d{color:var(--mu);font-size:14px;display:block;margin:4px 0 8px}.fav .p{color:var(--ac);font-weight:700}
-.note{display:flex;gap:10px;align-items:center;padding:12px 16px;border-radius:var(--r);background:var(--acs);color:var(--ink);font-size:14px;margin:0 0 22px}
-.two{display:grid;gap:26px;grid-template-columns:1fr 1fr}table.hours{width:100%;border-collapse:collapse}table.hours td{padding:10px 0;border-bottom:1px solid var(--line)}table.hours td:last-child{text-align:right;font-weight:700}
-.map{border:0;width:100%;height:340px;border-radius:var(--r);background:var(--line)}.photos{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}.photos img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r)}
-.cta{text-align:center;background:var(--ac);color:var(--onac);border-radius:calc(var(--r)*1.6);padding:52px 26px}.cta h2{color:var(--onac)}.cta p{margin:10px auto 24px;max-width:34em;opacity:.92}.cta .btn{background:var(--onac);color:var(--ac);border-color:var(--onac)}
-footer{padding:36px 0 48px;text-align:center;color:var(--mu);font-size:15px;border-top:1px solid var(--line)}footer small{display:block;margin-top:6px;opacity:.8}
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}.reveal.in{opacity:1;transform:none}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Spencer’s Chophouse & Tavern · Creston, IA</title>
+<meta name="description" content="Spencer’s Chophouse & Tavern on North Walnut Street in Creston, Iowa. Steak.">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#121010;--red:#c9261b;--mus:#ffc83d;--bg:#f1f0ea;--w:#fff;--b:4px solid var(--ink);--sh:8px 8px 0 var(--ink)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:'Space Mono',ui-monospace,monospace;background:var(--bg);color:var(--ink);font-size:1rem;line-height:1.6;overflow-x:hidden}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,.disp{font-family:'Archivo Black',Impact,sans-serif;font-weight:400;line-height:1;text-wrap:balance;overflow-wrap:break-word}
+.wrap{width:min(1180px,100% - 2.5rem);margin-inline:auto}
+section{padding:clamp(3.5rem,9vw,7rem) 0}
+.eyebrow{display:inline-block;font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;background:var(--ink);color:var(--mus);padding:.3rem .7rem;margin-bottom:1rem}
+h2{font-size:clamp(2rem,6vw,4rem);margin-bottom:1.5rem}
+#prog{position:fixed;top:0;left:0;right:0;height:6px;background:var(--red);transform:scaleX(0);transform-origin:0 50%;z-index:100}
 
+/* preview slots */
+.np-banner{background:var(--ink);color:var(--mus);text-align:center;font-size:.8rem;padding:.5rem 1rem;letter-spacing:.04em}
+.np-banner a{color:#fff}
+.btn{display:inline-block;font-family:'Archivo Black',sans-serif;font-size:1rem;text-decoration:none;background:var(--mus);color:var(--ink);border:var(--b);padding:.85rem 1.4rem;box-shadow:6px 6px 0 var(--ink);cursor:pointer;transition:transform .2s,box-shadow .2s;will-change:transform}
+.btn:hover,.btn:focus-visible{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--ink)}
+.btn:active{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--ink)}
+.btn.alt{background:var(--w)}
+.btn.red{background:var(--red);color:#fff}
+.map{border:var(--b);box-shadow:var(--sh);background:var(--w);overflow:hidden}
+.map iframe{width:100%;min-height:300px;border:0;display:block}
+.maplinks{display:flex;flex-wrap:wrap;gap:.7rem;padding:1rem}
+.maplinks a{font-weight:700;background:var(--mus);border:3px solid var(--ink);padding:.4rem .8rem;text-decoration:none;transition:transform .2s}
+.maplinks a:hover{transform:translateY(-3px)}
+.mapcredit{font-size:.72rem;padding:0 1rem 1rem;opacity:.8}
+.np-cta{background:var(--red);color:#fff;border:var(--b);box-shadow:12px 12px 0 var(--ink);padding:clamp(1.5rem,5vw,3.5rem);display:flex;flex-direction:column;gap:1rem;align-items:flex-start;position:relative}
+.np-cta h2,.np-cta h3{font-size:clamp(1.8rem,5vw,3.2rem)}
+.np-cta small{font-size:.8rem;opacity:.95}
+.np-cta .btn{color:var(--ink)}
+.np-cta .btn.alt{background:#fff}
 
-body::before{content:"";position:fixed;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.015) 0 3px,transparent 3px 9px);pointer-events:none;z-index:0}.hero h1{letter-spacing:.01em;text-transform:uppercase}
+/* header */
+header{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:var(--b);transition:padding .3s,background .3s,box-shadow .3s}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 0;transition:padding .3s}
+header.sc{background:var(--mus);box-shadow:0 6px 0 var(--ink)}
+header.sc .bar{padding:.55rem 0}
+.logo{font-family:'Archivo Black';text-decoration:none;font-size:1.1rem;white-space:nowrap}
+.logo span{color:var(--red)}
+nav ul{display:flex;gap:1.4rem;list-style:none}
+nav a{font-weight:700;text-decoration:none;text-transform:uppercase;font-size:.85rem;letter-spacing:.06em;background:linear-gradient(var(--ink),var(--ink)) 0 100%/0 3px no-repeat;transition:background-size .25s;padding-bottom:2px}
+nav a:hover{background-size:100% 3px}
+#mb{display:none;font:inherit;font-weight:700;background:var(--w);border:3px solid var(--ink);padding:.4rem .8rem;cursor:pointer}
+@media(max-width:760px){
+ #mb{display:block}
+ nav{position:absolute;left:0;right:0;top:100%;background:var(--mus);border-bottom:var(--b);display:none}
+ nav.open{display:block}
+ nav ul{flex-direction:column;gap:0}
+ nav a{display:block;padding:1rem 1.25rem;border-top:3px solid var(--ink);background:none}
+}
 
+/* hero */
+.hero{padding:clamp(2.5rem,6vw,5rem) 0 0;overflow:hidden}
+.hg{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center}
+@media(max-width:860px){.hg{grid-template-columns:1fr}}
+h1{font-size:clamp(2.1rem,7.4vw,5.6rem);margin-bottom:1.4rem}
+h1 em{font-style:normal;color:var(--red)}
+.hero p{max-width:34ch;font-size:1.1rem;margin-bottom:1.8rem}
+.cta-row{display:flex;flex-wrap:wrap;gap:1rem}
+.vis{position:relative;will-change:transform}
+.vis svg{width:100%;height:auto;overflow:visible}
+.draw{stroke-dasharray:400;stroke-dashoffset:400;animation:dr 1.4s .9s ease forwards}
+@keyframes dr{to{stroke-dashoffset:0}}
+.steam{animation:st 3s ease-in-out infinite;opacity:0;transform-box:fill-box}
+.steam:nth-of-type(2){animation-delay:.9s}.steam:nth-of-type(3){animation-delay:1.8s}
+@keyframes st{0%{transform:translateY(14px);opacity:0}30%{opacity:.9}100%{transform:translateY(-26px);opacity:0}}
+.steak{animation:fl 5s ease-in-out infinite;transform-origin:50% 60%}
+@keyframes fl{50%{transform:rotate(-2deg) translateY(-6px)}}
+.huge{font-family:'Archivo Black';font-size:clamp(4rem,22vw,16rem);line-height:.85;color:var(--ink);padding:clamp(1.5rem,4vw,3rem) 0 0;white-space:nowrap}
+.huge span{display:inline-block;animation:pop .7s cubic-bezier(.2,1.4,.4,1) both}
+.huge span:nth-child(1){animation-delay:.2s}.huge span:nth-child(2){animation-delay:.28s}.huge span:nth-child(3){animation-delay:.36s}.huge span:nth-child(4){animation-delay:.44s}.huge span:nth-child(5){animation-delay:.52s}.huge span:nth-child(6){animation-delay:.6s;color:var(--red)}
+@keyframes pop{from{transform:translateY(60%) rotate(6deg);opacity:0}}
+.hero .in{animation:up .8s both}
+.hero .in:nth-child(2){animation-delay:.15s}.hero .in:nth-child(3){animation-delay:.3s}.hero .in:nth-child(4){animation-delay:.45s}
+@keyframes up{from{transform:translateY(30px);opacity:0}}
 
-@media(max-width:820px){nav{display:none}.hero.split .wrap,.two{grid-template-columns:1fr}.hero{padding:44px 0}section{padding:46px 0}.b1{width:340px;height:340px}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
-</style></head><body class="dark"><div class="ribbon">Preview created by Northlight Web. Not the official website.</div><header class="top"><div class="wrap"><b>Spencer’s Chophouse &amp; Tavern</b><nav><a href="#menu">Menu</a><a href="#visit">Hours &amp; location</a><a href="#contact">Contact</a></nav></div></header><section class="hero split"><div class="blob b1"></div><div class="blob b2"></div><div class="wrap"><div><div class="kicker">Restaurant · Creston, IA</div><h1>Spencer’s Chophouse &amp; Tavern</h1><p class="lead">Welcome to Spencer’s Chophouse &amp; Tavern in Creston, IA. Come hungry, stay a while.</p><div class="btns"><a class="btn" href="#menu">See the menu</a><a class="btn alt" href="#visit">Find us</a></div></div><div class="art"><svg viewBox="0 0 400 400" role="img" aria-label="Illustration"><ellipse cx="200" cy="340" rx="130" ry="18" fill="#000" opacity=".25"/><path d="M110 120h150l-14 210H124z" fill="var(--ac)"/><path d="M260 150h38a34 34 0 0 1 0 84h-30" fill="none" stroke="var(--ac)" stroke-width="18"/><path d="M104 120c0-40 30-56 80-56s80 16 80 56z" fill="#fff" opacity=".92"/><path d="M140 170v130M185 170v130M230 170v130" stroke="#fff" stroke-opacity=".28" stroke-width="10" stroke-linecap="round"/></svg></div></div></section><section style="padding-top:30px"><div class="wrap"><h2>Favorites<span class="tag">Example</span></h2><div class="favs"><div class="fav reveal"><span class="em" aria-hidden="true">🧀</span><b>Loaded nachos</b><span class="d">&nbsp;</span><span class="p">$10.00</span></div><div class="fav reveal"><span class="em" aria-hidden="true">🍔</span><b>Bacon cheeseburger</b><span class="d">&nbsp;</span><span class="p">$12.50</span></div><div class="fav reveal"><span class="em" aria-hidden="true">🍺</span><b>Local lager</b><span class="d">&nbsp;</span><span class="p">$5.00</span></div></div></div></section><section id="menu" class="alt-bg"><div class="wrap"><h2>Menu<span class="tag">Example</span></h2><p class="note">✦ This is an <b>example menu</b> that shows how your menu would look. Your real dishes and prices go here.</p><div class="menu list"><div class="sec reveal"><h3>Starters</h3><div class="item"><div><span class="n">Loaded nachos</span></div><span class="dots"></span><span class="p">$10.00</span></div><div class="item"><div><span class="n">Wings</span><span class="d">Your choice of sauce</span></div><span class="dots"></span><span class="p">$11.00</span></div><div class="item"><div><span class="n">Onion rings</span></div><span class="dots"></span><span class="p">$7.00</span></div></div><div class="sec reveal"><h3>Mains</h3><div class="item"><div><span class="n">Bacon cheeseburger</span></div><span class="dots"></span><span class="p">$12.50</span></div><div class="item"><div><span class="n">Fish sandwich</span></div><span class="dots"></span><span class="p">$11.50</span></div><div class="item"><div><span class="n">Chicken tenders</span></div><span class="dots"></span><span class="p">$10.50</span></div></div><div class="sec reveal"><h3>On tap</h3><div class="item"><div><span class="n">Local lager</span></div><span class="dots"></span><span class="p">$5.00</span></div><div class="item"><div><span class="n">Pale ale</span></div><span class="dots"></span><span class="p">$5.50</span></div></div></div></div></section><section id="visit"><div class="wrap"><h2>Hours &amp; location</h2><div class="two" style="margin-top:24px"><div><div class="tile reveal"><h3 style="margin-bottom:10px">Opening hours<span class="tag">Example hours</span></h3><table class="hours"><tr><td>Mon</td><td>7 AM – 3 PM</td></tr><tr><td>Tue</td><td>7 AM – 3 PM</td></tr><tr><td>Wed</td><td>7 AM – 3 PM</td></tr><tr><td>Thu</td><td>7 AM – 3 PM</td></tr><tr><td>Fri</td><td>7 AM – 8 PM</td></tr><tr><td>Sat</td><td>8 AM – 8 PM</td></tr><tr><td>Sun</td><td>Closed</td></tr></table></div><div class="tile reveal" style="margin-top:18px"><h3 style="margin-bottom:6px">Address</h3><p style="margin:0">119 North Walnut Street, Creston, IA 50801</p></div></div><div class="reveal"><iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-94.36603,41.05237,-94.35403,41.06437&amp;layer=mapnik&amp;marker=41.05837,-94.36003"></iframe><p style="margin:12px 0 0"><a href="https://www.openstreetmap.org/?mlat=41.05837&amp;mlon=-94.36003#map=17/41.05837/-94.36003" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=41.05837,-94.36003" target="_blank" rel="noopener noreferrer">Get directions</a></p><p style="margin:6px 0 0;font-size:13px;color:var(--mu)">Map © OpenStreetMap contributors</p></div></div></div></section><section><div class="wrap"><h2>What your new website does</h2><div class="grid" style="margin-top:24px"><div class="tile reveal"><div class="ic">📱</div><h3>Great on phones</h3><p>Most guests look you up on a phone. This page fits every screen.</p></div><div class="tile reveal"><div class="ic">🍽️</div><h3>Your menu, always current</h3><p>Change a dish or a price and the site updates the same day.</p></div><div class="tile reveal"><div class="ic">📍</div><h3>Hours &amp; map in one tap</h3><p>Guests see when you&#x27;re open and can get directions instantly.</p></div><div class="tile reveal"><div class="ic">✉️</div><h3>Easy to reach you</h3><p>A clear way to contact you, right on the page.</p></div></div></div></section><section id="contact"><div class="wrap"><h2>Get in touch</h2><p class="sub">Questions? Send Spencer’s Chophouse &amp; Tavern an email.</p><div class="btns"><a class="btn" href="mailto:spencerschophouse@yahoo.com">spencerschophouse@yahoo.com</a></div></div></section><section><div class="wrap"><div class="cta reveal"><h2>Like what you see?</h2><p>This is a free preview made for Spencer’s Chophouse &amp; Tavern. A site like this is <b>$299</b>, ready in days. Reply to my email, and I'll make it yours.</p><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20Spencer’s%20Chophouse%20&amp;%20Tavern">Get this website</a></div></div></section><footer><div class="wrap">Preview created by Northlight Web. Not the official website.<small>Spencer’s Chophouse &amp; Tavern · Creston, IA</small></div></footer><script>const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));</script></body></html>
+/* marquee */
+.mq{background:var(--ink);color:var(--mus);border-block:var(--b);overflow:hidden;white-space:nowrap;padding:.9rem 0}
+.mq div{display:inline-flex;animation:mq 28s linear infinite}
+.mq span{font-family:'Archivo Black';font-size:1.3rem;padding-right:2rem;text-transform:uppercase}
+.mq span::after{content:"✦";color:var(--red);padding-left:2rem}
+.mq:hover div{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* offer */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.8rem}
+.card{background:var(--w);border:var(--b);box-shadow:var(--sh);padding:1.6rem;transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translate(-4px,-4px) rotate(-.6deg);box-shadow:12px 12px 0 var(--ink)}
+.card:nth-child(1){background:var(--red);color:#fff}
+.card:nth-child(2){background:var(--mus)}
+.card h3{font-size:1.9rem;margin-bottom:.7rem}
+.card .n{font-family:'Archivo Black';font-size:3rem;opacity:.35;display:block;line-height:1}
+
+/* menu */
+#menu{background:var(--mus);border-block:var(--b)}
+.note{background:var(--w);border:var(--b);padding:1rem 1.2rem;margin-bottom:2.2rem;box-shadow:6px 6px 0 var(--ink);font-weight:700;max-width:70ch}
+.tag{display:inline-block;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;background:var(--red);color:#fff;padding:.1rem .45rem;vertical-align:middle;margin-left:.4rem}
+.mg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.8rem;align-items:start}
+.mc{background:var(--w);border:var(--b);box-shadow:var(--sh);padding:1.5rem}
+.mc h3{font-size:1.7rem;margin-bottom:1rem;border-bottom:var(--b);padding-bottom:.6rem}
+.mc li{list-style:none;padding:.55rem .4rem;margin-inline:-.4rem;transition:transform .2s,background .2s}
+.mc li:hover{transform:translateX(8px);background:var(--mus)}
+.row{display:flex;align-items:baseline;gap:.5rem}
+.row b{font-family:'Archivo Black';font-weight:400;font-size:1.1rem}
+.row i{flex:1;border-bottom:3px dotted var(--ink);min-width:12px;transform:translateY(-4px)}
+.mc small{display:block;font-size:.85rem}
+
+/* hours */
+.hl{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start}
+@media(max-width:860px){.hl{grid-template-columns:1fr}}
+.hours{background:var(--w);border:var(--b);box-shadow:var(--sh);padding:1.4rem;margin-bottom:1.6rem}
+.hours h3{font-size:1.4rem;margin-bottom:.8rem}
+.hours li{list-style:none;display:flex;justify-content:space-between;gap:1rem;padding:.45rem .5rem;border-bottom:2px solid var(--ink)}
+.hours li:last-child{border:0}
+.hours li.today{background:var(--mus);font-weight:700}
+.addr{display:flex;flex-wrap:wrap;gap:1rem;align-items:center}
+.addr address{font-style:normal;font-weight:700}
+#cp{font:inherit;font-weight:700}
+
+/* contact */
+#contact{background:var(--ink);color:#fff}
+#contact .eyebrow{background:var(--mus);color:var(--ink)}
+#contact p{max-width:40ch;margin-bottom:1.6rem}
+#contact .btn{color:var(--ink)}
+.cts{display:flex;flex-wrap:wrap;gap:1rem}
+.ctaw{padding-bottom:clamp(3rem,8vw,6rem)}
+footer{padding:1.5rem 0;font-size:.85rem}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(34px);transition:opacity .7s,transform .7s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i,0)*110ms)}
+.js .rv.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+ .js .rv{opacity:1;transform:none}
+ .draw{stroke-dashoffset:0}.steam{opacity:.6}
+ .mq{overflow-x:auto}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div id="prog"></div>
+<header id="hd">
+ <div class="wrap bar">
+  <a class="logo" href="#top">Spencer’s<span>.</span></a>
+  <button id="mb" aria-expanded="false" aria-controls="nv">Menu</button>
+  <nav id="nv" aria-label="Main">
+   <ul>
+    <li><a href="#offer">Steak</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#visit">Hours &amp; location</a></li>
+    <li><a href="#contact">Contact</a></li>
+   </ul>
+  </nav>
+ </div>
+</header>
+
+<main id="top">
+<section class="hero">
+ <div class="wrap">
+  <div class="hg">
+   <div>
+    <span class="eyebrow in">Creston, Iowa</span>
+    <h1 class="in">Spencer’s <em>Chophouse</em> &amp; Tavern</h1>
+    <p class="in">Steak, at 119 North Walnut Street.</p>
+    <div class="cta-row in">
+     <a class="btn red" href="#menu">See the menu</a>
+     <a class="btn alt" href="#visit">Find us</a>
+    </div>
+   </div>
+   <div class="vis" id="vis" aria-hidden="true">
+    <svg viewBox="0 0 400 340" role="img" focusable="false">
+     <path class="steam" d="M130 60c-14-14 14-26 0-42" fill="none" stroke="#121010" stroke-width="6" stroke-linecap="round"/>
+     <path class="steam" d="M200 52c-14-14 14-26 0-42" fill="none" stroke="#121010" stroke-width="6" stroke-linecap="round"/>
+     <path class="steam" d="M270 60c-14-14 14-26 0-42" fill="none" stroke="#121010" stroke-width="6" stroke-linecap="round"/>
+     <g class="steak">
+      <path d="M70 190C40 120 110 66 200 76c100 5 170 50 150 130-15 70-100 110-180 100-60-8-85-55-100-116Z" transform="translate(14 14)" fill="#121010"/>
+      <path d="M70 190C40 120 110 66 200 76c100 5 170 50 150 130-15 70-100 110-180 100-60-8-85-55-100-116Z" fill="#c9261b" stroke="#121010" stroke-width="8" stroke-linejoin="round"/>
+      <path d="M92 190C72 135 125 92 200 98c82 4 135 40 120 106-12 55-85 88-150 80-45-6-66-42-78-94Z" fill="none" stroke="#ffc83d" stroke-width="6" stroke-dasharray="2 14" stroke-linecap="round"/>
+      <circle cx="262" cy="170" r="34" fill="#fff" stroke="#121010" stroke-width="8"/>
+      <circle cx="262" cy="170" r="12" fill="#ffc83d" stroke="#121010" stroke-width="5"/>
+      <path class="draw" d="M120 150l60 70" stroke="#121010" stroke-width="9" stroke-linecap="round" fill="none"/>
+      <path class="draw" d="M100 190l60 70" stroke="#121010" stroke-width="9" stroke-linecap="round" fill="none" style="animation-delay:1.1s"/>
+      <path class="draw" d="M150 120l60 70" stroke="#121010" stroke-width="9" stroke-linecap="round" fill="none" style="animation-delay:1.3s"/>
+     </g>
+    </svg>
+   </div>
+  </div>
+  <div class="huge" aria-hidden="true"><span>S</span><span>t</span><span>e</span><span>a</span><span>k</span><span>.</span></div>
+ </div>
+</section>
+
+<div class="mq" aria-hidden="true"><div>
+ <span>Steak</span><span>Chophouse</span><span>Tavern</span><span>Creston</span><span>Iowa</span><span>North Walnut Street</span>
+ <span>Steak</span><span>Chophouse</span><span>Tavern</span><span>Creston</span><span>Iowa</span><span>North Walnut Street</span>
+</div></div>
+
+<section id="offer">
+ <div class="wrap">
+  <span class="eyebrow rv">What we’re about</span>
+  <h2 class="rv">One word on the menu board.</h2>
+  <div class="cards">
+   <article class="card rv" style="--i:0"><span class="n">01</span><h3>Steak</h3><p>It’s the specialty and the whole point of a chophouse.</p></article>
+   <article class="card rv" style="--i:1"><span class="n">02</span><h3>Tavern</h3><p>A place to sit down, settle in and stay a while.</p></article>
+   <article class="card rv" style="--i:2"><span class="n">03</span><h3>Creston, IA</h3><p>Find us on North Walnut Street, in the heart of town.</p></article>
+  </div>
+ </div>
+</section>
+
+<section id="menu">
+ <div class="wrap">
+  <span class="eyebrow rv">Menu <span class="tag">Example</span></span>
+  <h2 class="rv">Menu</h2>
+  <p class="note rv">This is an example menu that shows how your menu would look. Your real dishes and prices go here.</p>
+  <div class="mg">
+   <div class="mc rv" style="--i:0">
+    <h3>Starters <span class="tag">Example</span></h3>
+    <ul>
+     <li><div class="row"><b>Loaded nachos</b><i></i><b>$10.00</b></div></li>
+     <li><div class="row"><b>Wings</b><i></i><b>$11.00</b></div><small>Your choice of sauce</small></li>
+     <li><div class="row"><b>Onion rings</b><i></i><b>$7.00</b></div></li>
+    </ul>
+   </div>
+   <div class="mc rv" style="--i:1">
+    <h3>Mains <span class="tag">Example</span></h3>
+    <ul>
+     <li><div class="row"><b>Bacon cheeseburger</b><i></i><b>$12.50</b></div></li>
+     <li><div class="row"><b>Fish sandwich</b><i></i><b>$11.50</b></div></li>
+     <li><div class="row"><b>Chicken tenders</b><i></i><b>$10.50</b></div></li>
+    </ul>
+   </div>
+   <div class="mc rv" style="--i:2">
+    <h3>On tap <span class="tag">Example</span></h3>
+    <ul>
+     <li><div class="row"><b>Local lager</b><i></i><b>$5.00</b></div></li>
+     <li><div class="row"><b>Pale ale</b><i></i><b>$5.50</b></div></li>
+    </ul>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="visit">
+ <div class="wrap">
+  <span class="eyebrow rv">Hours &amp; location</span>
+  <h2 class="rv">Come on in.</h2>
+  <div class="hl">
+   <div class="rv">
+    <div class="hours">
+     <h3>Hours <span class="tag">Example hours</span></h3>
+     <ul id="hl">
+      <li><span>Mon</span><span>7 AM – 3 PM</span></li>
+      <li><span>Tue</span><span>7 AM – 3 PM</span></li>
+      <li><span>Wed</span><span>7 AM – 3 PM</span></li>
+      <li><span>Thu</span><span>7 AM – 3 PM</span></li>
+      <li><span>Fri</span><span>7 AM – 8 PM</span></li>
+      <li><span>Sat</span><span>8 AM – 8 PM</span></li>
+      <li><span>Sun</span><span>Closed</span></li>
+     </ul>
+    </div>
+    <div class="addr">
+     <address>119 North Walnut Street<br>Creston, IA 50801</address>
+     <button class="btn alt" id="cp" type="button" data-a="119 North Walnut Street, Creston, IA 50801">Copy address</button>
+    </div>
+   </div>
+   <div class="rv" style="--i:1"><iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-94.36603,41.05237,-94.35403,41.06437&amp;layer=mapnik&amp;marker=41.05837,-94.36003"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=41.05837&amp;mlon=-94.36003#map=17/41.05837/-94.36003" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=41.05837,-94.36003" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="contact">
+ <div class="wrap">
+  <span class="eyebrow rv">Contact</span>
+  <h2 class="rv">Say hello.</h2>
+  <p class="rv">Questions about Spencer’s Chophouse &amp; Tavern? Send a note.</p>
+  <div class="cts rv"><a class="btn" href="mailto:spencerschophouse@yahoo.com">spencerschophouse@yahoo.com</a> </div>
+ </div>
+</section>
+
+<section class="ctaw">
+ <div class="wrap rv"><section class="np-cta" id="offer"><h2>Want this for Spencer’s Chophouse &amp; Tavern?</h2><p>This is a free preview made for Spencer’s Chophouse &amp; Tavern. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20Spencer%E2%80%99s%20Chophouse%20%26%20Tavern&amp;body=Yes%2C%20please%20make%20this%20site%20for%20Spencer%E2%80%99s%20Chophouse%20%26%20Tavern.">Make it mine</a></p></section></div>
+</section>
+</main>
+
+<footer><div class="wrap">Spencer’s Chophouse &amp; Tavern · 119 North Walnut Street, Creston, IA 50801</div></footer>
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · Spencer’s Chophouse &amp; Tavern</div>
+<script>
+(function(){
+var d=document,de=d.documentElement,rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+de.classList.add('js');
+var hd=d.getElementById('hd'),pg=d.getElementById('prog'),vis=d.getElementById('vis');
+function sc(){var y=scrollY,h=de.scrollHeight-innerHeight;
+ hd.classList.toggle('sc',y>40);
+ pg.style.transform='scaleX('+(h>0?y/h:0)+')';
+ if(!rm&&vis&&y<900)vis.style.transform='translateY('+(y*.12)+'px) rotate('+(y*.01)+'deg)';}
+addEventListener('scroll',sc,{passive:true});sc();
+var rv=d.querySelectorAll('.rv');
+if('IntersectionObserver' in window&&!rm){
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.12});
+ rv.forEach(function(el){io.observe(el)});
+}else rv.forEach(function(el){el.classList.add('on')});
+var mb=d.getElementById('mb'),nv=d.getElementById('nv');
+mb.addEventListener('click',function(){var o=nv.classList.toggle('open');mb.setAttribute('aria-expanded',o)});
+nv.addEventListener('click',function(e){if(e.target.tagName==='A'){nv.classList.remove('open');mb.setAttribute('aria-expanded',false)}});
+var cp=d.getElementById('cp');
+cp.addEventListener('click',function(){var t=cp.dataset.a,done=function(){cp.textContent='Copied!';setTimeout(function(){cp.textContent='Copy address'},1800)};
+ if(navigator.clipboard)navigator.clipboard.writeText(t).then(done,done);else done();});
+var days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],t=days[new Date().getDay()];
+d.querySelectorAll('#hl li').forEach(function(li){if(li.firstChild.textContent===t)li.classList.add('today')});
+if(!rm&&matchMedia('(hover:hover)').matches)d.querySelectorAll('.btn').forEach(function(b){
+ b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.15-3)+'px,'+((e.clientY-r.top-r.height/2)*.25-3)+'px)'});
+ b.addEventListener('mouseleave',function(){b.style.transform=''});
+});
+})();
+</script>
+</body>
+</html>

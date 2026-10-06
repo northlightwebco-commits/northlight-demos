@@ -1,72 +1,278 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>New Wong&#x27;s Chinese Restaurant — Wickliffe, OH (preview)</title><meta name="robots" content="noindex,nofollow"><meta name="description" content="Preview of a new website for New Wong&#x27;s Chinese Restaurant in Wickliffe, OH. Not the official website."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@600;700&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"><style>
-:root{--bg:#101012;--ink:#f3eee6;--mu:#a39e95;--card:#18181c;--line:#2a2a30;--ac:#e63946;--acd:#b32c37;--acs:#32171a;--r:4px;--onac:#ffffff;--head:'Noto Serif',Georgia,serif;--body:'Inter',system-ui,sans-serif}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 var(--body);-webkit-font-smoothing:antialiased}
-h1,h2,h3{font-family:var(--head);font-weight:700;line-height:1.1;margin:0;letter-spacing:-.01em}a{color:inherit}img{max-width:100%;display:block}
-.ribbon{background:var(--ac);color:var(--onac);text-align:center;font:600 13px/1 var(--body);padding:9px 12px}
-.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
-header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-header.top .wrap{display:flex;align-items:center;gap:22px;min-height:62px}header.top b{font:700 20px var(--head)}
-nav{margin-left:auto;display:flex;gap:20px}nav a{text-decoration:none;font-weight:600;font-size:15px;color:var(--mu)}nav a:hover{color:var(--ink)}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 26px;border-radius:calc(var(--r)*2);font:700 15px var(--body);text-decoration:none;background:var(--ac);color:var(--onac);border:2px solid var(--ac);transition:transform .2s,box-shadow .2s}
-.btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px color-mix(in srgb,var(--ac) 45%,transparent)}.btn.alt{background:transparent;color:var(--ink);border-color:var(--line)}.btn.alt:hover{border-color:var(--ac)}
-.hero{padding:72px 0 64px;position:relative;overflow:hidden}.hero .wrap{display:grid;gap:40px;align-items:center;position:relative}
-.hero.split .wrap{grid-template-columns:1.1fr .9fr}.hero.center{text-align:center}.hero.center .wrap{justify-items:center}.hero.stack .wrap{text-align:center;justify-items:center}
-.kicker{font:700 13px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--ac)}.hero h1{font-size:clamp(40px,8vw,76px);margin:14px 0 16px}.hero.huge h1{font-size:clamp(52px,12vw,132px);line-height:.95}
-.lead{font-size:19px;color:var(--mu);max-width:36em;margin:0 0 26px}.hero.center .lead,.hero.stack .lead{margin-left:auto;margin-right:auto}
-.btns{display:flex;gap:12px;flex-wrap:wrap}.hero.center .btns,.hero.stack .btns{justify-content:center}
-.art{width:min(360px,80%);animation:float 6s ease-in-out infinite;filter:drop-shadow(0 20px 30px rgba(0,0,0,.18))}.hero.center .art,.hero.stack .art{width:min(240px,60%);margin-bottom:6px}
-.hero.split .art{justify-self:center;width:min(380px,90%)}.hero.huge .art{display:none}
-.blob{position:absolute;border-radius:50%;background:var(--acs);z-index:0;pointer-events:none}.b1{width:520px;height:520px;right:-140px;top:-160px}.b2{width:300px;height:300px;left:-100px;bottom:-140px;opacity:.7}
-@keyframes float{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-12px) rotate(1deg)}}
-section{padding:68px 0}section h2{font-size:clamp(30px,5vw,46px);margin-bottom:8px}.sub{color:var(--mu);margin:0 0 30px;max-width:40em}
-.alt-bg{background:var(--card)}.tag{display:inline-block;font:700 11px var(--body);letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:99px;background:var(--acs);color:var(--acd);vertical-align:middle;margin-left:10px}
-.dark .tag{color:var(--ac);border:1px solid color-mix(in srgb,var(--ac) 45%,transparent)}.dark .note{border:1px solid var(--line)}
-.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}.tile{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px}.tile h3{font-size:20px;margin-bottom:6px}.tile p{margin:0;color:var(--mu);font-size:15px}
-.ic{width:46px;height:46px;border-radius:calc(var(--r)*.7);background:var(--acs);color:var(--ac);display:grid;place-items:center;margin-bottom:14px;font-size:22px}
-.menu.cards{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}.menu.cards .sec{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px}
-.menu.list .sec{padding:6px 0 24px}.menu.list .sec+.sec{border-top:1px solid var(--line);padding-top:26px}.menu.columns{columns:2 320px;column-gap:44px}.menu.columns .sec{break-inside:avoid;margin-bottom:30px}
-.sec h3{font-size:24px;margin-bottom:12px;color:var(--ac)}.item{display:flex;gap:14px;align-items:baseline;padding:9px 0}.item .n{font-weight:700}.item .d{color:var(--mu);font-size:14.5px;display:block;font-weight:400}
-.item .dots{flex:1;border-bottom:2px dotted var(--line);transform:translateY(-4px);min-width:20px}.item .p{font-weight:700;color:var(--ac);white-space:nowrap}
-.favs{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:28px}.fav{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px 22px;text-align:center;transition:transform .25s,border-color .25s}
-.fav:hover{transform:translateY(-6px);border-color:var(--ac)}.fav .em{font-size:58px;line-height:1;display:block;margin-bottom:10px;filter:drop-shadow(0 8px 10px rgba(0,0,0,.18))}.fav b{font:700 20px var(--head);display:block}.fav .d{color:var(--mu);font-size:14px;display:block;margin:4px 0 8px}.fav .p{color:var(--ac);font-weight:700}
-.note{display:flex;gap:10px;align-items:center;padding:12px 16px;border-radius:var(--r);background:var(--acs);color:var(--ink);font-size:14px;margin:0 0 22px}
-.two{display:grid;gap:26px;grid-template-columns:1fr 1fr}table.hours{width:100%;border-collapse:collapse}table.hours td{padding:10px 0;border-bottom:1px solid var(--line)}table.hours td:last-child{text-align:right;font-weight:700}
-.map{border:0;width:100%;height:340px;border-radius:var(--r);background:var(--line)}.photos{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}.photos img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r)}
-.cta{text-align:center;background:var(--ac);color:var(--onac);border-radius:calc(var(--r)*1.6);padding:52px 26px}.cta h2{color:var(--onac)}.cta p{margin:10px auto 24px;max-width:34em;opacity:.92}.cta .btn{background:var(--onac);color:var(--ac);border-color:var(--onac)}
-footer{padding:36px 0 48px;text-align:center;color:var(--mu);font-size:15px;border-top:1px solid var(--line)}footer small{display:block;margin-top:6px;opacity:.8}
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}.reveal.in{opacity:1;transform:none}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>New Wong's Chinese Restaurant · Wickliffe, OH</title>
+<meta name="description" content="Chinese. Dine in, take it to go. 30160 Euclid Avenue, Wickliffe, OH.">
+<link href="https://fonts.googleapis.com/css2?family=Limelight&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#170505;--ink2:#240808;--gold:#d9c381;--pale:#d7d7b1;--red:#ff0000;--deep:#b30000;--ff-d:'Limelight',Georgia,serif;--ff-b:'Jost',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--ink);color:var(--pale);font:400 1.05rem/1.65 var(--ff-b);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--ff-d);font-weight:400;color:var(--gold);text-wrap:balance;overflow-wrap:break-word;line-height:1.08}
+h2{font-size:clamp(1.9rem,6vw,3.6rem)}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+section{padding:clamp(64px,10vw,120px) 0;position:relative}
+.eyebrow{font:600 .78rem/1 var(--ff-b);letter-spacing:.32em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.eyebrow:before{content:"";width:40px;height:2px;background:var(--red)}
+#bar{position:fixed;top:0;left:0;height:3px;width:100%;background:var(--red);transform:scaleX(0);transform-origin:0 50%;z-index:100}
+.np-banner{background:var(--gold);color:var(--ink);font-size:.82rem;text-align:center;padding:8px 14px;position:relative;z-index:60}
+.np-banner a{color:var(--ink)}
+header{position:sticky;top:0;z-index:50;transition:background .4s,box-shadow .4s}
+header .in{display:flex;align-items:center;justify-content:space-between;height:76px;transition:height .4s}
+header.sc{background:rgba(23,5,5,.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(217,195,129,.35)}
+header.sc .in{height:60px}
+.logo{font-family:var(--ff-d);color:var(--gold);text-decoration:none;font-size:1.25rem}
+.logo b{color:var(--red);font-weight:400}
+nav ul{display:flex;gap:30px;list-style:none}
+nav a{text-decoration:none;font-size:.82rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;position:relative;padding:6px 0}
+nav a:after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--red);transform:scaleX(0);transition:transform .35s;transform-origin:left}
+nav a:hover:after{transform:scaleX(1)}
+.burger{display:none;background:none;border:1px solid var(--gold);color:var(--gold);width:44px;height:44px;cursor:pointer;font-size:1.2rem}
+@media(max-width:780px){
+.burger{display:block}
+nav{position:fixed;inset:0 0 auto 0;top:0;background:var(--ink);padding:100px 28px 40px;transform:translateY(-105%);transition:transform .5s cubic-bezier(.7,0,.2,1);z-index:-1;border-bottom:3px solid var(--red)}
+nav.open{transform:none}
+nav ul{flex-direction:column;gap:18px}
+nav a{font-size:1.1rem}
+header .in{position:relative;z-index:2}
+}
+.btn{display:inline-block;background:var(--gold);color:var(--ink);text-decoration:none;font:600 .9rem/1 var(--ff-b);letter-spacing:.14em;text-transform:uppercase;padding:16px 26px;border:2px solid var(--gold);cursor:pointer;transition:transform .3s,background .3s,color .3s;will-change:transform}
+.btn:hover{transform:translateY(-3px);background:var(--ink);color:var(--gold)}
+.btn.alt{background:transparent;color:var(--gold)}
+.btn.alt:hover{background:var(--gold);color:var(--ink)}
+small{font-size:.85rem;opacity:.85}
+/* hero */
+.hero{min-height:calc(100svh - 76px);display:grid;align-items:center;padding:40px 0 80px;overflow:hidden;background:radial-gradient(ellipse at 75% 45%,#4a0a0a 0,transparent 60%),var(--ink)}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
+.hero h1{font-size:clamp(2.5rem,9.5vw,6.6rem);letter-spacing:.01em;margin:6px 0 10px}
+.hero h1 span{display:block;font-family:var(--ff-b);font-weight:500;font-size:clamp(.85rem,2.6vw,1.3rem);letter-spacing:.42em;text-transform:uppercase;color:var(--pale);margin-top:14px}
+.lead{font-size:clamp(1.15rem,3vw,1.6rem);max-width:30ch;margin:20px 0 32px;color:var(--pale)}
+.lead em{color:var(--gold);font-style:normal}
+.hero .cta{display:flex;flex-wrap:wrap;gap:14px}
+.moon{position:relative;width:min(440px,86vw);aspect-ratio:1;margin-inline:auto}
+.moon svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.moon .ring{fill:none;stroke:var(--gold);stroke-width:1.5;stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 2.6s .4s forwards cubic-bezier(.6,0,.2,1)}
+.moon .ring.r{stroke:var(--red);stroke-width:3;animation-delay:.9s}
+.moon .spin{transform-origin:50% 50%;animation:spin 60s linear infinite}
+.moon .spin2{transform-origin:50% 50%;animation:spin 90s linear infinite reverse}
+.disc{position:absolute;inset:14%;border-radius:50%;overflow:hidden;background:radial-gradient(circle,#7a0d0d,#2a0707);border:4px solid var(--gold);box-shadow:0 0 0 8px var(--ink),0 0 0 10px var(--red),0 30px 80px rgba(255,0,0,.25)}
+.disc img{width:100%;height:100%;object-fit:cover}
+.chip{position:absolute;width:30%;aspect-ratio:1;border-radius:50%;overflow:hidden;border:3px solid var(--gold);background:#3a0909;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+.chip img{width:100%;height:100%;object-fit:cover}
+.chip.a{right:-4%;bottom:6%}.chip.b{left:-6%;top:8%;width:24%}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes up{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:none}}
+@keyframes pop{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:none}}
+.hero .e{animation:up 1s both cubic-bezier(.2,.7,.2,1)}
+.hero .e1{animation-delay:.1s}.hero .e2{animation-delay:.25s}.hero .e3{animation-delay:.45s}.hero .e4{animation-delay:.6s}
+.moon .disc,.moon .chip{animation:pop 1.1s .7s both cubic-bezier(.2,.7,.2,1)}
+.px{will-change:transform}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.moon{order:-1;width:min(300px,72vw)}.hero{padding-top:20px}}
+/* marquee */
+.marq{background:var(--red);color:var(--ink);overflow:hidden;white-space:nowrap;padding:14px 0;border-block:3px solid var(--gold)}
+.marq div{display:inline-flex;gap:36px;animation:mq 30s linear infinite;padding-left:36px}
+.marq span{font-family:var(--ff-d);font-size:1.25rem;color:#fff;text-shadow:0 1px 0 #000}
+.marq span:after{content:"◆";margin-left:36px;color:var(--gold)}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* offer */
+.offer{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.card{border:1px solid rgba(217,195,129,.5);padding:34px 26px;position:relative;background:var(--ink2);transition:transform .4s,border-color .4s,box-shadow .4s}
+.card:before{content:"";position:absolute;inset:6px;border:1px solid rgba(255,0,0,.55);pointer-events:none}
+.card:hover{transform:translateY(-8px);border-color:var(--gold);box-shadow:0 20px 40px rgba(255,0,0,.15)}
+.card h3{font-size:1.7rem;margin-bottom:8px}
+.card svg{width:44px;height:44px;margin-bottom:16px;stroke:var(--red);fill:none;stroke-width:2}
+@media(max-width:780px){.offer{grid-template-columns:1fr}}
+/* menu */
+.menu{background:var(--ink2);border-block:1px solid rgba(217,195,129,.35)}
+.tag{display:inline-block;border:1px solid var(--gold);color:var(--gold);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;padding:4px 10px;margin-left:10px;vertical-align:middle;font-family:var(--ff-b)}
+.note{margin:16px 0 40px;padding:14px 18px;border-left:4px solid var(--red);background:rgba(255,0,0,.08);max-width:62ch}
+.msecs{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.msecs h3{font-size:1.6rem;padding-bottom:12px;border-bottom:2px solid var(--red);margin-bottom:10px}
+.it{display:flex;align-items:baseline;gap:8px;padding:12px 0;transition:transform .3s,color .3s}
+.it:hover{transform:translateX(8px);color:var(--gold)}
+.it i{flex:1;border-bottom:1px dotted rgba(217,195,129,.5);transform:translateY(-4px);min-width:12px}
+.it b{font-weight:500;color:var(--gold)}
+.it small{display:block;flex-basis:100%}
+.it .nm{font-weight:500}
+.mlink{margin-top:44px}
+@media(max-width:860px){.msecs{grid-template-columns:1fr;gap:28px}}
+/* hours */
+.hl{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,70px);align-items:start}
+.hours{list-style:none;margin:22px 0}
+.hours li{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(217,195,129,.3)}
+.hours li:hover{color:var(--gold)}
+.addr{font-style:normal;font-size:1.2rem;margin:18px 0}
+.copy{background:none;border:1px solid var(--gold);color:var(--gold);font:500 .8rem var(--ff-b);letter-spacing:.14em;text-transform:uppercase;padding:10px 16px;cursor:pointer;transition:background .3s,color .3s}
+.copy:hover{background:var(--gold);color:var(--ink)}
+.map{border:2px solid var(--gold);padding:6px;background:var(--ink2)}
+.map iframe{width:100%;border:0;display:block;min-height:300px}
+.maplinks{display:flex;flex-wrap:wrap;gap:14px;margin-top:12px}
+.maplinks a{color:var(--gold)}
+.mapcredit{font-size:.75rem;opacity:.7;margin-top:8px}
+@media(max-width:860px){.hl{grid-template-columns:1fr}}
+/* photos */
+.gal{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:18px;margin-top:40px}
+.ph{aspect-ratio:1;overflow:hidden;border:2px solid var(--gold);padding:6px;background:var(--ink2);position:relative}
+.ph:nth-child(1){aspect-ratio:auto;grid-row:span 1}
+.ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .5s}
+.ph:hover img{transform:scale(1.08);filter:saturate(1.2)}
+.ph.bad{background:radial-gradient(circle,#7a0d0d,#2a0707)}
+@media(max-width:700px){.gal{grid-template-columns:1fr}.ph{aspect-ratio:4/3}}
+/* about + contact */
+.about p{font-size:clamp(1.2rem,3vw,1.7rem);max-width:30ch;font-family:var(--ff-d);color:var(--gold);line-height:1.35}
+.about p em{color:var(--red);font-style:normal}
+.contact{text-align:center;border-top:1px solid rgba(217,195,129,.35)}
+.contact .eyebrow{justify-content:center}
+.contact .row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+.np-cta{margin:0 auto;max-width:760px;padding:clamp(28px,5vw,52px);border:3px double var(--gold);background:linear-gradient(160deg,#5a0b0b,#1c0505);text-align:center;box-shadow:0 0 0 8px var(--ink),0 0 0 10px var(--red)}
+.np-cta .btn{margin:6px}
+.ctawrap{padding:20px 0 100px}
+footer{padding:30px 0}
+/* reveal */
+.js .rv{opacity:0;transform:translateY(36px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0)*110ms)}
+.js .rv.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+html{scroll-behavior:auto}
+*,*:before,*:after{animation:none!important;transition:none!important}
+.js .rv{opacity:1;transform:none}
+.moon .ring{stroke-dashoffset:0}
+.marq{overflow-x:auto}
+}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div id="bar"></div>
+<header id="hd"><div class="wrap in">
+<a class="logo" href="#top">New Wong<b>'</b>s</a>
+<button class="burger" id="bg" aria-label="Menu" aria-expanded="false">☰</button>
+<nav id="nv"><ul>
+<li><a href="#offer">Dine in &amp; Takeout</a></li><li><a href="#menu">Menu</a></li><li><a href="#visit">Hours &amp; location</a></li><li><a href="#photos">Photos</a></li><li><a href="#contact">Contact</a></li>
+</ul></nav>
+</div></header>
 
+<main id="top">
+<div class="hero"><div class="wrap">
+<div>
+<div class="eyebrow e e1">Wickliffe, Ohio</div>
+<h1 class="e e2">New Wong's<span>Chinese Restaurant</span></h1>
+<p class="lead e3">Chinese. <em>Dine in,</em> take it to go.</p>
+<div class="cta e4"><a class="btn mag" href="#menu">See the menu</a><a class="btn alt mag" href="#visit">Find us</a></div>
+</div>
+<div class="moon px" data-s=".04">
+<svg viewBox="0 0 400 400" aria-hidden="true">
+<circle class="ring" cx="200" cy="200" r="196"/>
+<circle class="ring r" cx="200" cy="200" r="184"/>
+<g class="spin"><circle class="ring" cx="200" cy="200" r="170" style="stroke-dasharray:6 14;stroke-dashoffset:0;animation:none"/></g>
+<g class="spin2"><path class="ring" d="M200 8 L392 200 L200 392 L8 200 Z" style="opacity:.5"/></g>
+</svg>
+<div class="disc"><img src="http://newwongsrestaurant.com/images/Home/BoxImage/Pork_Chop.png" alt="A dish from New Wong's kitchen" loading="lazy" onerror="this.remove()"></div>
+<div class="chip a"><img src="http://newwongsrestaurant.com/images/Home/BoxImage/Boiled_Beef.png" alt="Another dish from New Wong's" loading="lazy" onerror="this.remove()"></div>
+<div class="chip b"><img src="http://newwongsrestaurant.com/images/Home/BoxImage/Beef_Pan_Fried_Noodle.png" alt="Noodle dish from New Wong's" loading="lazy" onerror="this.remove()"></div>
+</div>
+</div></div>
 
+<div class="marq" aria-hidden="true"><div>
+<span>Chinese</span><span>Dine in</span><span>Takeout</span><span>Wickliffe, OH</span><span>Euclid Avenue</span>
+<span>Chinese</span><span>Dine in</span><span>Takeout</span><span>Wickliffe, OH</span><span>Euclid Avenue</span>
+<span>Chinese</span><span>Dine in</span><span>Takeout</span><span>Wickliffe, OH</span><span>Euclid Avenue</span>
+<span>Chinese</span><span>Dine in</span><span>Takeout</span><span>Wickliffe, OH</span><span>Euclid Avenue</span>
+</div></div>
 
+<section id="offer"><div class="wrap">
+<div class="eyebrow rv">What we do</div>
+<h2 class="rv">Chinese food, your way to the table.</h2>
+<div class="offer">
+<div class="card rv" style="--i:1"><svg viewBox="0 0 48 48"><path d="M8 24h32a16 16 0 0 1-32 0zM18 14c0-4 4-4 4-8M28 14c0-4 4-4 4-8"/></svg><h3>Chinese</h3><p>Our kitchen's cuisine, from the first bite to the last.</p></div>
+<div class="card rv" style="--i:2"><svg viewBox="0 0 48 48"><path d="M10 6v14a4 4 0 0 0 4 4v18M18 6v14M14 6v14M34 6c-5 4-6 12-2 18h-2v18"/></svg><h3>Dine in</h3><p>Sit down at Euclid Avenue and stay a while.</p></div>
+<div class="card rv" style="--i:3"><svg viewBox="0 0 48 48"><path d="M10 16h28l-3 26H13zM17 16a7 7 0 0 1 14 0"/></svg><h3>Takeout</h3><p>Take it to go, hot and packed up.</p></div>
+</div></div></section>
 
+<section id="menu" class="menu"><div class="wrap">
+<div class="eyebrow rv">Menu</div>
+<h2 class="rv">Menu <span class="tag">Example</span></h2>
+<p class="note rv">This is an example menu that shows how your menu would look. Your real dishes and prices go here.</p>
+<div class="msecs">
+<div class="rv" style="--i:0"><h3>Starters</h3>
+<div class="it"><span class="nm">Egg rolls</span><i></i><b>$4.50</b><small>Two pieces</small></div>
+<div class="it"><span class="nm">Crab rangoon</span><i></i><b>$5.50</b></div>
+<div class="it"><span class="nm">Hot &amp; sour soup</span><i></i><b>$4.00</b></div></div>
+<div class="rv" style="--i:1"><h3>Entrees</h3>
+<div class="it"><span class="nm">General Tso's chicken</span><i></i><b>$13.50</b></div>
+<div class="it"><span class="nm">Beef &amp; broccoli</span><i></i><b>$14.00</b></div>
+<div class="it"><span class="nm">Vegetable lo mein</span><i></i><b>$11.50</b></div></div>
+<div class="rv" style="--i:2"><h3>Sides</h3>
+<div class="it"><span class="nm">Steamed rice</span><i></i><b>$2.50</b></div>
+<div class="it"><span class="nm">Fried rice</span><i></i><b>$4.50</b></div></div>
+</div>
+<div class="mlink rv"><a class="btn alt mag" href="http://newwongsrestaurant.com/menu.html" target="_blank" rel="noopener">View the current menu</a></div>
+</div></section>
 
-@media(max-width:820px){nav{display:none}.hero.split .wrap,.two{grid-template-columns:1fr}.hero{padding:44px 0}section{padding:46px 0}.b1{width:340px;height:340px}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+<section id="visit"><div class="wrap hl">
+<div>
+<div class="eyebrow rv">Hours &amp; location</div>
+<h2 class="rv">Hours &amp; location <span class="tag">Example hours</span></h2>
+<ul class="hours rv">
+<li><span>Mon</span><span>7 AM – 3 PM</span></li><li><span>Tue</span><span>7 AM – 3 PM</span></li><li><span>Wed</span><span>7 AM – 3 PM</span></li><li><span>Thu</span><span>7 AM – 3 PM</span></li><li><span>Fri</span><span>7 AM – 8 PM</span></li><li><span>Sat</span><span>8 AM – 8 PM</span></li><li><span>Sun</span><span>Closed</span></li>
+</ul>
+<address class="addr rv" id="addr">30160 Euclid Avenue,<br>Wickliffe, OH 44092</address>
+<button class="copy rv" id="cp" type="button">Copy address</button>
+</div>
+<div class="rv" style="--i:2"><iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-81.46668,41.60988,-81.45468,41.62188&amp;layer=mapnik&amp;marker=41.61588,-81.46068"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=41.61588&amp;mlon=-81.46068#map=17/41.61588/-81.46068" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=41.61588,-81.46068" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p></div>
+</div></section>
 
-.mnav{display:none}.mnav summary{list-style:none;cursor:pointer;font:700 15px var(--body);padding:8px 14px;border:1px solid var(--line);border-radius:99px}.mnav summary::-webkit-details-marker{display:none}
-.mnav div{position:absolute;right:22px;top:58px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:10px;display:grid;min-width:190px;box-shadow:0 18px 40px rgba(0,0,0,.2)}.mnav a{padding:10px 12px;text-decoration:none;font-weight:600}
-header.nav-center .wrap{flex-direction:column;gap:2px;padding:10px 22px}header.nav-center nav{margin:0}
-header.nav-pill{background:none;border:0;backdrop-filter:none;top:10px}header.nav-pill .wrap{max-width:980px;background:color-mix(in srgb,var(--card) 92%,transparent);border:1px solid var(--line);border-radius:99px;padding:0 26px;backdrop-filter:blur(10px)}
-header.nav-minimal nav a:not(.btn){display:none}header.nav-minimal nav .btn{min-height:40px;padding:0 18px}
-.hero.band{background:var(--ac);color:var(--onac)}.hero.band .blob{display:none}.hero.band .wrap{grid-template-columns:1.1fr .9fr}.hero.band .kicker,.hero.band .lead{color:var(--onac);opacity:.9}
-.hero.band .btn{background:var(--onac);color:var(--ac);border-color:var(--onac)}.hero.band .btn.alt{background:transparent;color:var(--onac);border-color:color-mix(in srgb,var(--onac) 55%,transparent)}.hero.band .art{justify-self:center}
-.hero.poster .wrap{border:3px solid var(--ink);border-radius:var(--r);padding:46px;background:var(--card);box-shadow:10px 10px 0 var(--ac);grid-template-columns:1.2fr .8fr}.hero.poster .art{justify-self:center;width:min(300px,90%)}
-.since{display:inline-flex;gap:8px;align-items:baseline;margin:0 0 18px;padding:8px 16px;border-radius:99px;background:var(--acs);color:var(--acd);font:700 14px var(--body)}.dark .since{color:var(--ac);border:1px solid color-mix(in srgb,var(--ac) 45%,transparent)}.since b{font-size:22px}
-.strip{overflow:hidden;background:var(--ac);color:var(--onac);padding:13px 0;white-space:nowrap}.strip .track{display:inline-flex;gap:38px;animation:marq 28s linear infinite;font:700 14px var(--body);letter-spacing:.12em;text-transform:uppercase}
-@keyframes marq{to{transform:translateX(-50%)}}
-.chips{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 22px}.chips button{font:700 14px var(--body);padding:9px 16px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;transition:all .2s}.chips button.on,.chips button:hover{background:var(--ac);color:var(--onac);border-color:var(--ac)}
-.sec.off{display:none}table.hours tr.today td{background:var(--acs);font-weight:700}table.hours tr.today td:first-child{border-radius:10px 0 0 10px;padding-left:10px}table.hours tr.today td:last-child{border-radius:0 10px 10px 0;padding-right:10px}
-.faq details{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:0 22px;margin-bottom:12px}.faq summary{cursor:pointer;font:700 17px var(--body);padding:18px 0;list-style:none;display:flex;justify-content:space-between;gap:14px}.faq summary::after{content:"+";color:var(--ac);font-size:22px;line-height:1}.faq details[open] summary::after{content:"–"}.faq p{margin:0 0 18px;color:var(--mu)}
-.glance{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.glance span{padding:10px 18px;border-radius:99px;border:1px solid var(--line);background:var(--card);font-weight:700;font-size:15px}
-.stickybar{display:none}.prog{position:fixed;left:0;top:0;height:4px;width:0;background:var(--ac);z-index:60}
-@media(max-width:820px){.mnav{display:block;margin-left:auto;position:relative}header.nav-center .mnav{margin:0}.hero.band .wrap,.hero.poster .wrap{grid-template-columns:1fr}.hero.poster .wrap{padding:28px}
-.stickybar{display:flex;gap:8px;position:fixed;left:10px;right:10px;bottom:10px;z-index:50;padding:8px;background:color-mix(in srgb,var(--card) 94%,transparent);border:1px solid var(--line);border-radius:99px;backdrop-filter:blur(10px);box-shadow:0 10px 30px rgba(0,0,0,.25)}.stickybar .btn{flex:1;min-height:44px;padding:0 10px}body.has-sticky{padding-bottom:80px}}
-</style></head><body class="dark"><div class="ribbon">Preview created by Northlight Web. Not the official website.</div><header class="top nav-center"><div class="wrap"><b>New Wong&#x27;s Chinese Restaurant</b><nav><a href="#menu">Menu</a><a href="#visit">Hours &amp; location</a><a href="#photos">Photos</a><a href="#contact">Contact</a></nav><details class="mnav"><summary>Menu ☰</summary><div><a href="#menu">Menu</a><a href="#visit">Hours &amp; location</a><a href="#photos">Photos</a><a href="#contact">Contact</a></div></details></div></header><section class="hero center"><div class="blob b1"></div><div class="blob b2"></div><div class="wrap"><div><div class="kicker">Chinese · Wickliffe, OH</div><h1>New Wong&#x27;s Chinese Restaurant</h1><p class="lead">Chinese. Dine in, take it to go.</p><div class="btns"><a class="btn" href="#menu">What&#x27;s on the menu</a><a class="btn alt" href="#visit">Get directions</a></div></div><div class="art"><svg viewBox="0 0 400 400" role="img" aria-label="Illustration"><ellipse cx="200" cy="340" rx="140" ry="18" fill="#000" opacity=".2"/><path d="M60 200h280a140 130 0 0 1-280 0z" fill="var(--ac)"/><path d="M70 205h260" stroke="#fff" stroke-opacity=".5" stroke-width="6"/><path d="M120 190c20-40 40-40 60 0M200 190c20-40 40-40 60 0" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" opacity=".85"/><rect x="220" y="40" width="10" height="160" rx="5" fill="var(--ink)" transform="rotate(14 225 120)"/><rect x="250" y="40" width="10" height="160" rx="5" fill="var(--ink)" transform="rotate(8 255 120)"/></svg></div></div></section><section style="padding-top:30px"><div class="wrap"><h2>Favorites<span class="tag">Example</span></h2><div class="favs"><div class="fav reveal"><span class="em" aria-hidden="true">🥐</span><b>Egg rolls</b><span class="d">Two pieces</span><span class="p">$4.50</span></div><div class="fav reveal"><span class="em" aria-hidden="true">🍗</span><b>General Tso&#x27;s chicken</b><span class="d">&nbsp;</span><span class="p">$13.50</span></div><div class="fav reveal"><span class="em" aria-hidden="true">🍵</span><b>Steamed rice</b><span class="d">&nbsp;</span><span class="p">$2.50</span></div></div></div></section><section id="visit"><div class="wrap"><h2>Hours &amp; location</h2><div class="two" style="margin-top:24px"><div><div class="tile reveal"><h3 style="margin-bottom:10px">Opening hours<span class="tag">Example hours</span></h3><table class="hours"><tr><td>Mon</td><td>7 AM – 3 PM</td></tr><tr><td>Tue</td><td>7 AM – 3 PM</td></tr><tr><td>Wed</td><td>7 AM – 3 PM</td></tr><tr><td>Thu</td><td>7 AM – 3 PM</td></tr><tr><td>Fri</td><td>7 AM – 8 PM</td></tr><tr><td>Sat</td><td>8 AM – 8 PM</td></tr><tr><td>Sun</td><td>Closed</td></tr></table></div><div class="tile reveal" style="margin-top:18px"><h3 style="margin-bottom:6px">Address</h3><p style="margin:0">30160 Euclid Avenue, Wickliffe, OH 44092</p></div></div><div class="reveal"><iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-81.46668,41.60988,-81.45468,41.62188&amp;layer=mapnik&amp;marker=41.61588,-81.46068"></iframe><p style="margin:12px 0 0"><a href="https://www.openstreetmap.org/?mlat=41.61588&amp;mlon=-81.46068#map=17/41.61588/-81.46068" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=41.61588,-81.46068" target="_blank" rel="noopener noreferrer">Get directions</a></p><p style="margin:6px 0 0;font-size:13px;color:var(--mu)">Map © OpenStreetMap contributors</p></div></div></div></section><section id="menu" class="alt-bg"><div class="wrap"><h2>Menu<span class="tag">Example</span></h2><p class="note">✦ This is an <b>example menu</b> that shows how your menu would look. Your real dishes and prices go here.</p><p style="margin:0 0 22px"><a class="btn alt" href="http://newwongsrestaurant.com/menu.html" target="_blank" rel="noopener noreferrer">View the current menu</a></p><div class="chips"><button class="on" data-f="all">All</button><button data-f="0">Starters</button><button data-f="1">Entrees</button><button data-f="2">Sides</button></div><div class="menu columns"><div class="sec reveal" data-i="0"><h3>Starters</h3><div class="item"><div><span class="n">Egg rolls</span><span class="d">Two pieces</span></div><span class="dots"></span><span class="p">$4.50</span></div><div class="item"><div><span class="n">Crab rangoon</span></div><span class="dots"></span><span class="p">$5.50</span></div><div class="item"><div><span class="n">Hot &amp; sour soup</span></div><span class="dots"></span><span class="p">$4.00</span></div></div><div class="sec reveal" data-i="1"><h3>Entrees</h3><div class="item"><div><span class="n">General Tso&#x27;s chicken</span></div><span class="dots"></span><span class="p">$13.50</span></div><div class="item"><div><span class="n">Beef &amp; broccoli</span></div><span class="dots"></span><span class="p">$14.00</span></div><div class="item"><div><span class="n">Vegetable lo mein</span></div><span class="dots"></span><span class="p">$11.50</span></div></div><div class="sec reveal" data-i="2"><h3>Sides</h3><div class="item"><div><span class="n">Steamed rice</span></div><span class="dots"></span><span class="p">$2.50</span></div><div class="item"><div><span class="n">Fried rice</span></div><span class="dots"></span><span class="p">$4.50</span></div></div></div></div></section><section id="faq"><div class="wrap"><h2>Good to know</h2><div class="faq" style="margin-top:24px"><details class="reveal"><summary>Where can I find you?</summary><p>New Wong&#x27;s Chinese Restaurant is at 30160 Euclid Avenue, Wickliffe, OH. Use the map above for directions.</p></details><details class="reveal"><summary>Can I order takeout?</summary><p>Yes, takeout is available.</p></details></div></div></section><section id="contact"><div class="wrap"><h2>Get in touch</h2><p class="sub">Questions? Send New Wong&#x27;s Chinese Restaurant an email.</p><div class="btns"><a class="btn" href="mailto:support@newwongsrestaurant.com">support@newwongsrestaurant.com</a></div></div></section><section><div class="wrap"><div class="cta reveal"><h2>Like what you see?</h2><p>This is a free preview made for New Wong&#x27;s Chinese Restaurant. A site like this is <b>$299</b> one time, ready in days. Reply to my email, and I'll make it yours.</p><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20New%20Wong&#x27;s%20Chinese%20Restaurant">Get this website</a><p style="font-size:13px;margin-top:18px;opacity:.85">Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and unlimited small changes.</p></div></div></section><footer><div class="wrap">Preview created by Northlight Web. Not the official website.<small>New Wong&#x27;s Chinese Restaurant · Wickliffe, OH</small></div></footer>
+<section id="photos" style="padding-top:0"><div class="wrap">
+<div class="eyebrow rv">Photos</div>
+<h2 class="rv">From the kitchen.</h2>
+<div class="gal">
+<div class="ph rv" style="--i:0"><img src="http://newwongsrestaurant.com/images/Home/BoxImage/Pork_Chop.png" alt="Dish from New Wong's" loading="lazy" onerror="this.parentNode.classList.add('bad');this.remove()"></div>
+<div class="ph rv" style="--i:1"><img src="http://newwongsrestaurant.com/images/Home/BoxImage/Boiled_Beef.png" alt="Dish from New Wong's" loading="lazy" onerror="this.parentNode.classList.add('bad');this.remove()"></div>
+<div class="ph rv" style="--i:2"><img src="http://newwongsrestaurant.com/images/Home/BoxImage/Beef_Pan_Fried_Noodle.png" alt="Noodle dish from New Wong's" loading="lazy" onerror="this.parentNode.classList.add('bad');this.remove()"></div>
+</div></div></section>
+
+<section class="about" style="padding-top:0"><div class="wrap">
+<p class="rv">Chinese food on Euclid Avenue. <em>Dine in</em> or take it to go.</p>
+</div></section>
+
+<section id="contact" class="contact"><div class="wrap">
+<div class="eyebrow rv">Contact</div>
+<h2 class="rv">Say hello.</h2>
+<div class="row rv"><a class="btn" href="mailto:support@newwongsrestaurant.com">support@newwongsrestaurant.com</a> </div>
+</div></section>
+
+<div class="ctawrap"><div class="wrap rv"><section class="np-cta" id="offer"><h2>Want this for New Wong&#x27;s Chinese Restaurant?</h2><p>This is a free preview made for New Wong&#x27;s Chinese Restaurant. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20New%20Wong%27s%20Chinese%20Restaurant&amp;body=Yes%2C%20please%20make%20this%20site%20for%20New%20Wong%27s%20Chinese%20Restaurant.">Make it mine</a></p></section></div></div>
+</main>
+<footer><div class="wrap"><small>New Wong's Chinese Restaurant · 30160 Euclid Avenue, Wickliffe, OH 44092</small></div></footer>
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · New Wong&#x27;s Chinese Restaurant</div>
 <script>
-const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-const chips=document.querySelectorAll('.chips button');chips.forEach(b=>b.addEventListener('click',()=>{chips.forEach(x=>x.classList.toggle('on',x===b));document.querySelectorAll('.menu .sec').forEach(s=>s.classList.toggle('off',b.dataset.f!=='all'&&s.dataset.i!==b.dataset.f))}));
-(function(){const D=['sun','mon','tue','wed','thu','fri','sat'],t=new Date().getDay();document.querySelectorAll('table.hours tr').forEach(r=>{const l=r.cells[0].textContent.toLowerCase().replace(/[^a-z–\-]/g,'');const m=l.match(/^([a-z]{3})[a-z]*[–\-]([a-z]{3})/);let hit=false;if(m){const a=D.indexOf(m[1]),z=D.indexOf(m[2]);if(a>=0&&z>=0)hit=a<=z?(t>=a&&t<=z):(t>=a||t<=z)}else hit=l.slice(0,3)===D[t];if(hit)r.classList.add('today')})})();
-const y=document.getElementById('yrs');if(y){const n=new Date().getFullYear()-(+y.dataset.since);if(n>0)y.textContent=n+' years';}
-const pg=document.querySelector('.prog');if(pg)addEventListener('scroll',()=>{pg.style.width=(100*scrollY/(document.documentElement.scrollHeight-innerHeight||1))+'%'},{passive:true});
+(function(){
+var d=document,rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+var hd=d.getElementById('hd'),bar=d.getElementById('bar'),nv=d.getElementById('nv'),bg=d.getElementById('bg');
+var px=d.querySelectorAll('.px');
+function on(){var y=scrollY,h=d.documentElement.scrollHeight-innerHeight;
+hd.classList.toggle('sc',y>20);bar.style.transform='scaleX('+(h>0?y/h:0)+')';
+if(!rm)px.forEach(function(e){e.style.transform='translateY('+(y*parseFloat(e.dataset.s)*-1)+'px)'})}
+addEventListener('scroll',on,{passive:true});on();
+bg.onclick=function(){var o=nv.classList.toggle('open');bg.setAttribute('aria-expanded',o);bg.textContent=o?'✕':'☰'};
+nv.querySelectorAll('a').forEach(function(a){a.onclick=function(){nv.classList.remove('open');bg.textContent='☰'}});
+var rv=d.querySelectorAll('.rv');
+if('IntersectionObserver' in window&&!rm){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.12});rv.forEach(function(e){io.observe(e)})}
+else rv.forEach(function(e){e.classList.add('on')});
+if(!rm)d.querySelectorAll('.mag').forEach(function(b){
+b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.18)+'px,'+((e.clientY-r.top-r.height/2)*.25-3)+'px)'});
+b.addEventListener('mouseleave',function(){b.style.transform=''})});
+var cp=d.getElementById('cp');
+cp.onclick=function(){var t='30160 Euclid Avenue, Wickliffe, OH 44092';
+var done=function(){cp.textContent='Copied ✓';setTimeout(function(){cp.textContent='Copy address'},2000)};
+if(navigator.clipboard)navigator.clipboard.writeText(t).then(done,done);else done()};
+})();
 </script>
-</body></html>
+</body>
+</html>

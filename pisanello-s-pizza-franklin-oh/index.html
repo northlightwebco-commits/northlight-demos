@@ -1,72 +1,316 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pisanello&#x27;s Pizza — Franklin, OH (preview)</title><meta name="robots" content="noindex,nofollow"><meta name="description" content="Preview of a new website for Pisanello&#x27;s Pizza in Franklin, OH. Not the official website."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"><style>
-:root{--bg:#0e0e12;--ink:#f4efe6;--mu:#a9a196;--card:#17171d;--line:#2b2b34;--ac:#d4a85a;--acd:#a58346;--acs:#2e271e;--r:6px;--onac:#101010;--head:'Playfair Display',Georgia,serif;--body:'Inter',system-ui,sans-serif}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 var(--body);-webkit-font-smoothing:antialiased}
-h1,h2,h3{font-family:var(--head);font-weight:700;line-height:1.1;margin:0;letter-spacing:-.01em}a{color:inherit}img{max-width:100%;display:block}
-.ribbon{background:var(--ac);color:var(--onac);text-align:center;font:600 13px/1 var(--body);padding:9px 12px}
-.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
-header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-header.top .wrap{display:flex;align-items:center;gap:22px;min-height:62px}header.top b{font:700 20px var(--head)}
-nav{margin-left:auto;display:flex;gap:20px}nav a{text-decoration:none;font-weight:600;font-size:15px;color:var(--mu)}nav a:hover{color:var(--ink)}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 26px;border-radius:calc(var(--r)*2);font:700 15px var(--body);text-decoration:none;background:var(--ac);color:var(--onac);border:2px solid var(--ac);transition:transform .2s,box-shadow .2s}
-.btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px color-mix(in srgb,var(--ac) 45%,transparent)}.btn.alt{background:transparent;color:var(--ink);border-color:var(--line)}.btn.alt:hover{border-color:var(--ac)}
-.hero{padding:72px 0 64px;position:relative;overflow:hidden}.hero .wrap{display:grid;gap:40px;align-items:center;position:relative}
-.hero.split .wrap{grid-template-columns:1.1fr .9fr}.hero.center{text-align:center}.hero.center .wrap{justify-items:center}.hero.stack .wrap{text-align:center;justify-items:center}
-.kicker{font:700 13px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--ac)}.hero h1{font-size:clamp(40px,8vw,76px);margin:14px 0 16px}.hero.huge h1{font-size:clamp(52px,12vw,132px);line-height:.95}
-.lead{font-size:19px;color:var(--mu);max-width:36em;margin:0 0 26px}.hero.center .lead,.hero.stack .lead{margin-left:auto;margin-right:auto}
-.btns{display:flex;gap:12px;flex-wrap:wrap}.hero.center .btns,.hero.stack .btns{justify-content:center}
-.art{width:min(360px,80%);animation:float 6s ease-in-out infinite;filter:drop-shadow(0 20px 30px rgba(0,0,0,.18))}.hero.center .art,.hero.stack .art{width:min(240px,60%);margin-bottom:6px}
-.hero.split .art{justify-self:center;width:min(380px,90%)}.hero.huge .art{display:none}
-.blob{position:absolute;border-radius:50%;background:var(--acs);z-index:0;pointer-events:none}.b1{width:520px;height:520px;right:-140px;top:-160px}.b2{width:300px;height:300px;left:-100px;bottom:-140px;opacity:.7}
-@keyframes float{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-12px) rotate(1deg)}}
-section{padding:68px 0}section h2{font-size:clamp(30px,5vw,46px);margin-bottom:8px}.sub{color:var(--mu);margin:0 0 30px;max-width:40em}
-.alt-bg{background:var(--card)}.tag{display:inline-block;font:700 11px var(--body);letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:99px;background:var(--acs);color:var(--acd);vertical-align:middle;margin-left:10px}
-.dark .tag{color:var(--ac);border:1px solid color-mix(in srgb,var(--ac) 45%,transparent)}.dark .note{border:1px solid var(--line)}
-.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}.tile{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px}.tile h3{font-size:20px;margin-bottom:6px}.tile p{margin:0;color:var(--mu);font-size:15px}
-.ic{width:46px;height:46px;border-radius:calc(var(--r)*.7);background:var(--acs);color:var(--ac);display:grid;place-items:center;margin-bottom:14px;font-size:22px}
-.menu.cards{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}.menu.cards .sec{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px}
-.menu.list .sec{padding:6px 0 24px}.menu.list .sec+.sec{border-top:1px solid var(--line);padding-top:26px}.menu.columns{columns:2 320px;column-gap:44px}.menu.columns .sec{break-inside:avoid;margin-bottom:30px}
-.sec h3{font-size:24px;margin-bottom:12px;color:var(--ac)}.item{display:flex;gap:14px;align-items:baseline;padding:9px 0}.item .n{font-weight:700}.item .d{color:var(--mu);font-size:14.5px;display:block;font-weight:400}
-.item .dots{flex:1;border-bottom:2px dotted var(--line);transform:translateY(-4px);min-width:20px}.item .p{font-weight:700;color:var(--ac);white-space:nowrap}
-.favs{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:28px}.fav{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px 22px;text-align:center;transition:transform .25s,border-color .25s}
-.fav:hover{transform:translateY(-6px);border-color:var(--ac)}.fav .em{font-size:58px;line-height:1;display:block;margin-bottom:10px;filter:drop-shadow(0 8px 10px rgba(0,0,0,.18))}.fav b{font:700 20px var(--head);display:block}.fav .d{color:var(--mu);font-size:14px;display:block;margin:4px 0 8px}.fav .p{color:var(--ac);font-weight:700}
-.note{display:flex;gap:10px;align-items:center;padding:12px 16px;border-radius:var(--r);background:var(--acs);color:var(--ink);font-size:14px;margin:0 0 22px}
-.two{display:grid;gap:26px;grid-template-columns:1fr 1fr}table.hours{width:100%;border-collapse:collapse}table.hours td{padding:10px 0;border-bottom:1px solid var(--line)}table.hours td:last-child{text-align:right;font-weight:700}
-.map{border:0;width:100%;height:340px;border-radius:var(--r);background:var(--line)}.photos{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}.photos img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r)}
-.cta{text-align:center;background:var(--ac);color:var(--onac);border-radius:calc(var(--r)*1.6);padding:52px 26px}.cta h2{color:var(--onac)}.cta p{margin:10px auto 24px;max-width:34em;opacity:.92}.cta .btn{background:var(--onac);color:var(--ac);border-color:var(--onac)}
-footer{padding:36px 0 48px;text-align:center;color:var(--mu);font-size:15px;border-top:1px solid var(--line)}footer small{display:block;margin-top:6px;opacity:.8}
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}.reveal.in{opacity:1;transform:none}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pisanello's Pizza · Franklin, OH</title>
+<meta name="description" content="Pisanello's Pizza at 355 South Main Street, Franklin, OH. Pizza, hours and directions.">
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{--g:#0e2b1e;--g2:#163d2b;--r:#e8401f;--r2:#c2310f;--w:#fbf3e4;--p:#f6efe2;--ink:#14231a;--mut:#4b5a50}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--p);color:var(--ink);line-height:1.55;overflow-x:hidden;font-size:17px}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:'Bowlby One',Impact,sans-serif;font-weight:400;line-height:1;text-wrap:balance;letter-spacing:.005em}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+.prog{position:fixed;top:0;left:0;height:4px;width:100%;background:var(--r);transform:scaleX(0);transform-origin:0 50%;z-index:100}
+/* banner slots */
+.np-banner{background:#000;color:#fff;font-size:.85rem;text-align:center;padding:8px 14px}
+.np-banner a{color:#ffd9cf}
+/* header */
+header.top{position:sticky;top:0;z-index:50;background:var(--g);color:var(--w);transition:box-shadow .3s,background .3s}
+header.top.sc{box-shadow:0 8px 30px rgba(0,0,0,.35);background:rgba(14,43,30,.96)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px;transition:transform .3s}
+.logo{font-family:'Bowlby One',sans-serif;text-decoration:none;font-size:1.1rem;white-space:nowrap}
+.logo b{color:var(--r);font-weight:400}
+nav ul{display:flex;gap:26px;list-style:none;padding:0}
+nav a{text-decoration:none;font-weight:500;font-size:.95rem;position:relative;padding:6px 0}
+nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--r);transform:scaleX(0);transform-origin:0;transition:transform .3s}
+nav a:hover::after{transform:scaleX(1)}
+.burger{display:none;background:none;border:2px solid var(--w);color:var(--w);border-radius:8px;padding:8px 12px;font:inherit;font-weight:700;cursor:pointer}
+@media(max-width:760px){
+ .burger{display:block}
+ nav{position:absolute;top:64px;left:0;right:0;background:var(--g);max-height:0;overflow:hidden;transition:max-height .4s}
+ nav.open{max-height:320px}
+ nav ul{flex-direction:column;gap:0;padding:8px 20px 18px}
+ nav a{display:block;padding:12px 0;font-size:1.1rem}
+}
+/* hero */
+.hero{background:var(--g);color:var(--w);position:relative;overflow:hidden;padding:56px 0 90px}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 40%,rgba(232,64,31,.28),transparent 55%)}
+.hero .wrap{position:relative;display:grid;gap:36px;align-items:center}
+.kick{display:inline-flex;gap:10px;align-items:center;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem;color:#ffb199}
+.badge{display:inline-flex;align-items:center;gap:8px;border:1.5px solid rgba(251,243,228,.4);border-radius:99px;padding:6px 14px;font-size:.88rem;font-weight:500;margin-top:20px}
+.badge i{width:9px;height:9px;border-radius:50%;background:#9aa;display:block}
+.badge.on i{background:#4ade80;box-shadow:0 0 0 0 rgba(74,222,128,.7);animation:pulse 2s infinite}
+.badge.off i{background:#ff7a5c}
+@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
+h1{font-size:clamp(2.5rem,9.4vw,7.2rem);margin:14px 0 10px}
+h1 span{display:block;white-space:nowrap}
+h1 .l2{color:var(--r)}
+.lead{font-size:clamp(1.1rem,2.4vw,1.4rem);max-width:30ch;color:#e9dfcb}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.plate{position:relative;width:min(78vw,460px);aspect-ratio:1;margin-inline:auto}
+.plate .pz{position:absolute;inset:9%;border-radius:50%;overflow:hidden;background:var(--r2);box-shadow:0 0 0 10px #f1c27d,0 0 0 14px var(--r2),0 30px 60px rgba(0,0,0,.45)}
+.plate .pz img{width:100%;height:100%;object-fit:cover}
+.plate svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.ring{fill:none;stroke:var(--w);stroke-width:1.2;stroke-dasharray:4 7;transform-origin:50% 50%;animation:spin 60s linear infinite;opacity:.6}
+.draw{fill:none;stroke:var(--r);stroke-width:2;stroke-dasharray:1;stroke-dashoffset:1;animation:dr 2.2s .5s ease forwards}
+@keyframes dr{to{stroke-dashoffset:0}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.fallback{position:absolute;inset:0;display:grid;place-items:center}
+.pz.nofoto img{display:none}
+.pz.nofoto{background:conic-gradient(from 20deg,#e8401f 0 45deg,#f1c27d 0 90deg,#e8401f 0 135deg,#f1c27d 0 180deg,#e8401f 0 225deg,#f1c27d 0 270deg,#e8401f 0 315deg,#f1c27d 0)}
+@media(min-width:900px){.hero .wrap{grid-template-columns:1.25fr .9fr}.plate{width:100%;max-width:480px}h1{font-size:clamp(3rem,6.6vw,6.6rem)}}
+/* entrance */
+.in{opacity:0;transform:translateY(26px);animation:up .9s cubic-bezier(.2,.7,.2,1) forwards}
+.in.d1{animation-delay:.1s}.in.d2{animation-delay:.25s}.in.d3{animation-delay:.4s}.in.d4{animation-delay:.55s}.in.d5{animation-delay:.7s}
+@keyframes up{to{opacity:1;transform:none}}
+.plate{opacity:0;transform:scale(.8) rotate(-18deg);animation:pl 1.3s .3s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes pl{to{opacity:1;transform:none}}
+.px{will-change:transform}
+/* buttons */
+.btn{display:inline-block;background:var(--r);color:#fff;text-decoration:none;font-weight:700;padding:14px 26px;border-radius:99px;border:2px solid var(--r);transition:transform .25s,background .25s,box-shadow .25s;cursor:pointer;font:inherit;font-weight:700;will-change:transform}
+.btn:hover{background:var(--r2);border-color:var(--r2);box-shadow:0 10px 24px rgba(232,64,31,.4)}
+.btn.alt{background:transparent;color:inherit;border-color:currentColor}
+.btn.alt:hover{background:rgba(255,255,255,.12);box-shadow:none}
+.btn:focus-visible,a:focus-visible,button:focus-visible{outline:3px solid #ffd54a;outline-offset:3px}
+small{font-size:.85rem}
+/* marquee */
+.mq{background:var(--r);color:#fff;overflow:hidden;white-space:nowrap;padding:14px 0;font-family:'Bowlby One',sans-serif;font-size:1.15rem;transform:rotate(-1.2deg);margin:-26px -10px 0;position:relative;z-index:2}
+.mq div{display:inline-block;animation:mq 30s linear infinite}
+.mq span{margin:0 18px}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* sections */
+section{padding:96px 0}
+.eyebrow{font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem;color:var(--r2);margin-bottom:12px}
+h2{font-size:clamp(2rem,6vw,4rem);margin-bottom:18px;color:var(--g)}
+.offer{display:grid;gap:30px}
+.big{font-family:'Bowlby One',sans-serif;font-size:clamp(5rem,26vw,16rem);line-height:.85;color:var(--r);position:relative;display:inline-block}
+.big svg{position:absolute;left:0;bottom:-14px;width:100%;height:24px;overflow:visible}
+.big path{fill:none;stroke:var(--g);stroke-width:5;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;pathLength:1}
+.offer p{max-width:44ch;font-size:1.2rem}
+@media(min-width:800px){.offer{grid-template-columns:auto 1fr;align-items:end;gap:60px}}
+/* menu */
+.menu{background:var(--g);color:var(--w)}
+.menu h2{color:var(--w)}
+.tag{display:inline-block;background:#ffd54a;color:#14231a;font-weight:700;border-radius:6px;padding:3px 10px;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;vertical-align:middle;margin-left:10px}
+.note{max-width:60ch;color:#e9dfcb;border-left:4px solid var(--r);padding-left:14px;margin-bottom:44px}
+.cols{display:grid;gap:22px}
+@media(min-width:860px){.cols{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--g2);border:1.5px solid rgba(251,243,228,.15);border-radius:18px;padding:28px;transition:transform .35s,border-color .35s,box-shadow .35s}
+.card:hover{transform:translateY(-8px) rotate(-.6deg);border-color:var(--r);box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.card h3{font-size:1.7rem;color:#ffb199;margin-bottom:18px}
+.it{display:flex;align-items:baseline;gap:8px;padding:10px 0;transition:transform .25s}
+.it:hover{transform:translateX(6px)}
+.it b{font-weight:700}
+.it i{flex:1;border-bottom:2px dotted rgba(251,243,228,.35);transform:translateY(-4px);min-width:12px}
+.it em{font-style:normal;font-weight:700;color:#ffd54a}
+.it p{width:100%;flex-basis:100%;font-size:.9rem;color:#cfd8cf;margin-top:-6px;order:5}
+.it{flex-wrap:wrap}
+/* hours */
+.loc{display:grid;gap:40px}
+@media(min-width:900px){.loc{grid-template-columns:1fr 1.1fr}}
+.hrs{list-style:none;padding:0;margin:18px 0 26px;border-top:2px solid var(--g)}
+.hrs li{display:flex;justify-content:space-between;gap:14px;padding:13px 10px;border-bottom:1.5px solid rgba(14,43,30,.2);transition:background .25s}
+.hrs li:hover{background:rgba(232,64,31,.08)}
+.hrs li.today{background:var(--g);color:var(--w);border-radius:8px;border-color:transparent}
+.hrs li.today span:first-child::after{content:" · today";color:#ffb199}
+.addr{display:inline-flex;gap:10px;align-items:center;background:#fff;border:2px solid var(--g);border-radius:14px;padding:12px 16px;font:inherit;font-weight:500;color:var(--ink);cursor:pointer;text-align:left;transition:transform .25s,box-shadow .25s}
+.addr:hover{transform:translateY(-3px);box-shadow:0 8px 0 var(--g)}
+.addr small{color:var(--r2);font-weight:700}
+.map{border-radius:18px;overflow:hidden;border:2px solid var(--g);background:#fff}
+.map iframe{width:100%;min-height:340px;border:0;display:block}
+.maplinks{display:flex;flex-wrap:wrap;gap:10px;padding:12px}
+.maplinks a{color:var(--g);font-weight:700}
+.mapcredit{font-size:.75rem;padding:0 12px 10px;color:var(--mut)}
+/* contact */
+.contact{background:var(--r);color:#fff;text-align:center;position:relative;overflow:hidden}
+.contact h2{color:#fff;margin-inline:auto}
+.contact p{max-width:40ch;margin:0 auto 26px;font-size:1.15rem}
+.contact .row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.contact .btn{background:var(--g);border-color:var(--g)}
+.contact .btn:hover{background:#000;border-color:#000}
+.np-cta{background:var(--g);color:var(--w);border-radius:22px;padding:38px 28px;margin:0 auto;max-width:760px;text-align:center;border:3px dashed #ffd54a}
+.cta-sec{background:var(--p);padding:80px 0}
+footer{background:var(--g);color:#cfd8cf;padding:30px 0;font-size:.9rem;text-align:center}
+/* reveal */
+.js .rv{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0)*110ms)}
+.js .rv.show{opacity:1;transform:none}
+.js .big path{transition:stroke-dashoffset 1.4s .3s ease}
+.js .rv.show .big path,.js .big.show path{stroke-dashoffset:0}
+.big path{stroke-dasharray:1;stroke-dashoffset:1}
+html:not(.js) .big path{stroke-dashoffset:0}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ *,*::before,*::after{animation:none!important;transition:none!important}
+ .in,.plate,.js .rv{opacity:1!important;transform:none!important}
+ .draw,.big path{stroke-dashoffset:0!important}
+ .mq div{transform:none}.mq{overflow:auto}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div class="prog" id="prog"></div>
+<header class="top" id="top">
+ <div class="wrap bar">
+  <a class="logo" href="#home">Pisanello's <b>Pizza</b></a>
+  <button class="burger" id="bg" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav id="nav" aria-label="Main">
+   <ul>
+    <li><a href="#pizza">Pizza</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#visit">Hours &amp; location</a></li>
+    <li><a href="#contact">Contact</a></li>
+   </ul>
+  </nav>
+ </div>
+</header>
 
+<main id="home">
+<div class="hero">
+ <div class="wrap">
+  <div>
+   <div class="kick in d1">Franklin, Ohio · South Main Street</div>
+   <h1 class="in d2"><span>Pisanello's</span><span class="l2">Pizza</span></h1>
+   <p class="lead in d3">Pizza. Straight to the point, straight from the oven.</p>
+   <div class="badge in d4" id="badge" hidden><i></i><span id="btxt"></span></div>
+   <div class="hero-actions in d5">
+    <a class="btn alt" href="https://onboarding.arrowpos.com/pisanellos_franklin" target="_blank" rel="noopener noreferrer">Order online</a>
+    <a class="btn alt" href="#visit">Find us</a>
+   </div>
+  </div>
+  <div class="plate px" data-px="0.06">
+   <div class="pz" id="pz">
+    <img src="http://www.pisanellosoffranklin.com/mainpie002.jpg" alt="A pizza from Pisanello's Pizza" loading="lazy" onerror="this.parentNode.classList.add('nofoto')">
+   </div>
+   <svg viewBox="0 0 100 100" aria-hidden="true">
+    <circle class="ring" cx="50" cy="50" r="49"/>
+    <circle class="draw" cx="50" cy="50" r="46" pathLength="1"/>
+   </svg>
+  </div>
+ </div>
+</div>
+<div class="mq" aria-hidden="true"><div id="mq"></div></div>
 
+<section id="pizza">
+ <div class="wrap offer">
+  <div class="rv"><span class="big">Pizza.<svg viewBox="0 0 300 24" preserveAspectRatio="none"><path d="M3 14 C40 2 70 24 110 12 S190 2 230 14 S280 18 297 8" pathLength="1"/></svg></span></div>
+  <div class="rv" style="--i:2">
+   <div class="eyebrow">What we make</div>
+   <p>That's the specialty at 355 South Main Street. Come in, pick your pie, and eat it while it's hot.</p>
+  </div>
+ </div>
+</section>
 
-.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:1px;background:linear-gradient(90deg,transparent,var(--ac),transparent)}.sec h3{font-style:italic}
+<section class="menu" id="menu">
+ <div class="wrap">
+  <div class="eyebrow rv" style="color:#ffb199">The menu</div>
+  <h2 class="rv">Menu<span class="tag">Example</span></h2>
+  <p class="note rv">This is an example menu that shows how your menu would look. Your real dishes and prices go here.</p>
+  <div class="cols">
+   <div class="card rv" style="--i:0"><h3>Pizza</h3>
+    <div class="it"><b>Margherita</b><i></i><em>$12.00</em><p>Tomato, mozzarella, basil</p></div>
+    <div class="it"><b>Pepperoni</b><i></i><em>$13.50</em></div>
+    <div class="it"><b>Supreme</b><i></i><em>$16.00</em></div>
+   </div>
+   <div class="card rv" style="--i:1"><h3>Pasta</h3>
+    <div class="it"><b>Spaghetti &amp; meatballs</b><i></i><em>$13.50</em></div>
+    <div class="it"><b>Fettuccine Alfredo</b><i></i><em>$13.00</em></div>
+    <div class="it"><b>Baked lasagna</b><i></i><em>$14.50</em></div>
+   </div>
+   <div class="card rv" style="--i:2"><h3>Starters</h3>
+    <div class="it"><b>Garlic bread</b><i></i><em>$5.00</em></div>
+    <div class="it"><b>House salad</b><i></i><em>$6.50</em></div>
+   </div>
+  </div>
+ </div>
+</section>
 
-@media(max-width:820px){nav{display:none}.hero.split .wrap,.two{grid-template-columns:1fr}.hero{padding:44px 0}section{padding:46px 0}.b1{width:340px;height:340px}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+<section id="visit">
+ <div class="wrap loc">
+  <div>
+   <div class="eyebrow rv">Come by</div>
+   <h2 class="rv">Hours &amp; location</h2>
+   <ul class="hrs rv" id="hrs">
+    <li data-d="1,2,3,4"><span>Mon–Thu</span><span>10:30 am – 8:00 pm</span></li>
+    <li data-d="5"><span>Friday</span><span>10:30 am – 9:00 pm</span></li>
+    <li data-d="6"><span>Saturday</span><span>10:30 am – 8:00 pm</span></li>
+    <li data-d="0"><span>Sunday</span><span>Closed</span></li>
+   </ul>
+   <button class="addr rv" id="addr" type="button" aria-label="Copy address"><span>355 South Main Street<br>Franklin, OH 45005</span><small id="cp">Copy</small></button>
+  </div>
+  <div class="rv" style="--i:2"><iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-84.31057,39.55418,-84.29857,39.56618&amp;layer=mapnik&amp;marker=39.56018,-84.30457"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=39.56018&amp;mlon=-84.30457#map=17/39.56018/-84.30457" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=39.56018,-84.30457" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p></div>
+ </div>
+</section>
 
-.mnav{display:none}.mnav summary{list-style:none;cursor:pointer;font:700 15px var(--body);padding:8px 14px;border:1px solid var(--line);border-radius:99px}.mnav summary::-webkit-details-marker{display:none}
-.mnav div{position:absolute;right:22px;top:58px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:10px;display:grid;min-width:190px;box-shadow:0 18px 40px rgba(0,0,0,.2)}.mnav a{padding:10px 12px;text-decoration:none;font-weight:600}
-header.nav-center .wrap{flex-direction:column;gap:2px;padding:10px 22px}header.nav-center nav{margin:0}
-header.nav-pill{background:none;border:0;backdrop-filter:none;top:10px}header.nav-pill .wrap{max-width:980px;background:color-mix(in srgb,var(--card) 92%,transparent);border:1px solid var(--line);border-radius:99px;padding:0 26px;backdrop-filter:blur(10px)}
-header.nav-minimal nav a:not(.btn){display:none}header.nav-minimal nav .btn{min-height:40px;padding:0 18px}
-.hero.band{background:var(--ac);color:var(--onac)}.hero.band .blob{display:none}.hero.band .wrap{grid-template-columns:1.1fr .9fr}.hero.band .kicker,.hero.band .lead{color:var(--onac);opacity:.9}
-.hero.band .btn{background:var(--onac);color:var(--ac);border-color:var(--onac)}.hero.band .btn.alt{background:transparent;color:var(--onac);border-color:color-mix(in srgb,var(--onac) 55%,transparent)}.hero.band .art{justify-self:center}
-.hero.poster .wrap{border:3px solid var(--ink);border-radius:var(--r);padding:46px;background:var(--card);box-shadow:10px 10px 0 var(--ac);grid-template-columns:1.2fr .8fr}.hero.poster .art{justify-self:center;width:min(300px,90%)}
-.since{display:inline-flex;gap:8px;align-items:baseline;margin:0 0 18px;padding:8px 16px;border-radius:99px;background:var(--acs);color:var(--acd);font:700 14px var(--body)}.dark .since{color:var(--ac);border:1px solid color-mix(in srgb,var(--ac) 45%,transparent)}.since b{font-size:22px}
-.strip{overflow:hidden;background:var(--ac);color:var(--onac);padding:13px 0;white-space:nowrap}.strip .track{display:inline-flex;gap:38px;animation:marq 28s linear infinite;font:700 14px var(--body);letter-spacing:.12em;text-transform:uppercase}
-@keyframes marq{to{transform:translateX(-50%)}}
-.chips{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 22px}.chips button{font:700 14px var(--body);padding:9px 16px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;transition:all .2s}.chips button.on,.chips button:hover{background:var(--ac);color:var(--onac);border-color:var(--ac)}
-.sec.off{display:none}table.hours tr.today td{background:var(--acs);font-weight:700}table.hours tr.today td:first-child{border-radius:10px 0 0 10px;padding-left:10px}table.hours tr.today td:last-child{border-radius:0 10px 10px 0;padding-right:10px}
-.faq details{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:0 22px;margin-bottom:12px}.faq summary{cursor:pointer;font:700 17px var(--body);padding:18px 0;list-style:none;display:flex;justify-content:space-between;gap:14px}.faq summary::after{content:"+";color:var(--ac);font-size:22px;line-height:1}.faq details[open] summary::after{content:"–"}.faq p{margin:0 0 18px;color:var(--mu)}
-.glance{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.glance span{padding:10px 18px;border-radius:99px;border:1px solid var(--line);background:var(--card);font-weight:700;font-size:15px}
-.stickybar{display:none}.prog{position:fixed;left:0;top:0;height:4px;width:0;background:var(--ac);z-index:60}
-@media(max-width:820px){.mnav{display:block;margin-left:auto;position:relative}header.nav-center .mnav{margin:0}.hero.band .wrap,.hero.poster .wrap{grid-template-columns:1fr}.hero.poster .wrap{padding:28px}
-.stickybar{display:flex;gap:8px;position:fixed;left:10px;right:10px;bottom:10px;z-index:50;padding:8px;background:color-mix(in srgb,var(--card) 94%,transparent);border:1px solid var(--line);border-radius:99px;backdrop-filter:blur(10px);box-shadow:0 10px 30px rgba(0,0,0,.25)}.stickybar .btn{flex:1;min-height:44px;padding:0 10px}body.has-sticky{padding-bottom:80px}}
-</style></head><body class="dark has-sticky"><div class="ribbon">Preview created by Northlight Web. Not the official website.</div><header class="top nav-center"><div class="wrap"><b>Pisanello&#x27;s Pizza</b><nav><a href="#menu">Menu</a><a href="#visit">Hours &amp; location</a><a href="#contact">Contact</a></nav><details class="mnav"><summary>Menu ☰</summary><div><a href="#menu">Menu</a><a href="#visit">Hours &amp; location</a><a href="#contact">Contact</a></div></details></div></header><section class="hero center"><div class="blob b1"></div><div class="blob b2"></div><div class="wrap"><div><div class="kicker">Pizza · Franklin, OH</div><h1>Pisanello&#x27;s Pizza</h1><p class="lead">Pizza.</p><div class="btns"><a class="btn" href="#menu">Browse the menu</a><a class="btn alt" href="https://onboarding.arrowpos.com/pisanellos_franklin" target="_blank" rel="noopener noreferrer">Order online</a></div></div><div class="art"><svg viewBox="0 0 400 400" role="img" aria-label="Illustration"><ellipse cx="200" cy="340" rx="140" ry="18" fill="#000" opacity=".12"/><path d="M200 330 70 90a230 230 0 0 1 260 0z" fill="#f2b84b"/><path d="M200 300 95 108a200 200 0 0 1 210 0z" fill="var(--ac)" opacity=".85"/><circle cx="160" cy="150" r="18" fill="#a4161a"/><circle cx="235" cy="170" r="18" fill="#a4161a"/><circle cx="198" cy="225" r="18" fill="#a4161a"/><path d="M70 90a230 230 0 0 1 260 0" fill="none" stroke="#c98a2a" stroke-width="16" stroke-linecap="round"/></svg></div></div></section><section style="padding-top:30px"><div class="wrap"><h2>Favorites<span class="tag">Example</span></h2><div class="favs"><div class="fav reveal"><span class="em" aria-hidden="true">🍕</span><b>Margherita</b><span class="d">Tomato, mozzarella, basil</span><span class="p">$12.00</span></div><div class="fav reveal"><span class="em" aria-hidden="true">🍝</span><b>Spaghetti &amp; meatballs</b><span class="d">&nbsp;</span><span class="p">$13.50</span></div><div class="fav reveal"><span class="em" aria-hidden="true">🍽️</span><b>Garlic bread</b><span class="d">&nbsp;</span><span class="p">$5.00</span></div></div></div></section><section id="menu" class="alt-bg"><div class="wrap"><h2>Menu<span class="tag">Example</span></h2><p class="note">✦ This is an <b>example menu</b> that shows how your menu would look. Your real dishes and prices go here.</p><div class="chips"><button class="on" data-f="all">All</button><button data-f="0">Pizza</button><button data-f="1">Pasta</button><button data-f="2">Starters</button></div><div class="menu list"><div class="sec reveal" data-i="0"><h3>Pizza</h3><div class="item"><div><span class="n">Margherita</span><span class="d">Tomato, mozzarella, basil</span></div><span class="dots"></span><span class="p">$12.00</span></div><div class="item"><div><span class="n">Pepperoni</span></div><span class="dots"></span><span class="p">$13.50</span></div><div class="item"><div><span class="n">Supreme</span></div><span class="dots"></span><span class="p">$16.00</span></div></div><div class="sec reveal" data-i="1"><h3>Pasta</h3><div class="item"><div><span class="n">Spaghetti &amp; meatballs</span></div><span class="dots"></span><span class="p">$13.50</span></div><div class="item"><div><span class="n">Fettuccine Alfredo</span></div><span class="dots"></span><span class="p">$13.00</span></div><div class="item"><div><span class="n">Baked lasagna</span></div><span class="dots"></span><span class="p">$14.50</span></div></div><div class="sec reveal" data-i="2"><h3>Starters</h3><div class="item"><div><span class="n">Garlic bread</span></div><span class="dots"></span><span class="p">$5.00</span></div><div class="item"><div><span class="n">House salad</span></div><span class="dots"></span><span class="p">$6.50</span></div></div></div></div></section><section id="visit"><div class="wrap"><h2>Hours &amp; location</h2><div class="two" style="margin-top:24px"><div><div class="tile reveal"><h3 style="margin-bottom:10px">Opening hours</h3><ul style="list-style:none;padding:0;margin:0"><li style="padding:8px 0;border-bottom:1px solid var(--line)">Mon-Thurs 10:30am until 8:00pm, Fri 10:30am until 9:00pm</li><li style="padding:8px 0;border-bottom:1px solid var(--line)">Sat 10:30am until 8pm, Closed Sunday</li></ul></div><div class="tile reveal" style="margin-top:18px"><h3 style="margin-bottom:6px">Address</h3><p style="margin:0">355 South Main Street, Franklin, OH 45005</p></div></div><div class="reveal"><iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-84.31057,39.55418,-84.29857,39.56618&amp;layer=mapnik&amp;marker=39.56018,-84.30457"></iframe><p style="margin:12px 0 0"><a href="https://www.openstreetmap.org/?mlat=39.56018&amp;mlon=-84.30457#map=17/39.56018/-84.30457" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=39.56018,-84.30457" target="_blank" rel="noopener noreferrer">Get directions</a></p><p style="margin:6px 0 0;font-size:13px;color:var(--mu)">Map © OpenStreetMap contributors</p></div></div></div></section><section><div class="wrap"><h2>What your new website does</h2><div class="grid" style="margin-top:24px"><div class="tile reveal"><div class="ic">🔗</div><h3>One link to share</h3><p>Put it on your Facebook page, receipts or table cards.</p></div><div class="tile reveal"><div class="ic">🖼️</div><h3>Shows off your food</h3><p>Room for your own photos whenever you have them.</p></div><div class="tile reveal"><div class="ic">📱</div><h3>Great on phones</h3><p>Most guests look you up on their mobile. This page fits every screen.</p></div><div class="tile reveal"><div class="ic">📍</div><h3>Hours &amp; map in one tap</h3><p>Guests see when you&#x27;re open and can get directions instantly.</p></div></div></div></section><section id="contact"><div class="wrap"><h2>Get in touch</h2><p class="sub">Questions? Send Pisanello&#x27;s Pizza an email.</p><div class="btns"><a class="btn" href="mailto:tlccatering355@yahoo.com">tlccatering355@yahoo.com</a></div></div></section><section><div class="wrap"><div class="cta reveal"><h2>Your website, ready in days.</h2><p>This is a free preview made for Pisanello&#x27;s Pizza. A site like this is <b>$299</b> one time, ready in days. Reply to my email, and I'll make it yours.</p><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20Pisanello&#x27;s%20Pizza">Let&#x27;s do it</a><p style="font-size:13px;margin-top:18px;opacity:.85">Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and unlimited small changes.</p></div></div></section><div class="stickybar"><a class="btn alt" href="#menu">Menu</a><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=39.56018,-84.30457" target="_blank" rel="noopener noreferrer">Directions</a></div><footer><div class="wrap">Preview created by Northlight Web. Not the official website.<small>Pisanello&#x27;s Pizza · Franklin, OH</small></div></footer>
+<section class="contact" id="contact">
+ <div class="wrap">
+  <h2 class="rv">Say hello.</h2>
+  <p class="rv">Questions about Pisanello's Pizza? Send a note.</p>
+  <div class="row rv"><a class="btn" href="mailto:tlccatering355@yahoo.com">tlccatering355@yahoo.com</a> <a class="btn alt" href="https://onboarding.arrowpos.com/pisanellos_franklin" target="_blank" rel="noopener noreferrer">Order online</a></div>
+ </div>
+</section>
+
+<div class="cta-sec"><div class="wrap rv"><section class="np-cta" id="offer"><h2>Want this for Pisanello&#x27;s Pizza?</h2><p>This is a free preview made for Pisanello&#x27;s Pizza. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20Pisanello%27s%20Pizza&amp;body=Yes%2C%20please%20make%20this%20site%20for%20Pisanello%27s%20Pizza.">Make it mine</a></p></section></div></div>
+</main>
+
+<footer><div class="wrap">Pisanello's Pizza · 355 South Main Street, Franklin, OH 45005</div></footer>
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · Pisanello&#x27;s Pizza</div>
 <script>
-const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-const chips=document.querySelectorAll('.chips button');chips.forEach(b=>b.addEventListener('click',()=>{chips.forEach(x=>x.classList.toggle('on',x===b));document.querySelectorAll('.menu .sec').forEach(s=>s.classList.toggle('off',b.dataset.f!=='all'&&s.dataset.i!==b.dataset.f))}));
-(function(){const D=['sun','mon','tue','wed','thu','fri','sat'],t=new Date().getDay();document.querySelectorAll('table.hours tr').forEach(r=>{const l=r.cells[0].textContent.toLowerCase().replace(/[^a-z–\-]/g,'');const m=l.match(/^([a-z]{3})[a-z]*[–\-]([a-z]{3})/);let hit=false;if(m){const a=D.indexOf(m[1]),z=D.indexOf(m[2]);if(a>=0&&z>=0)hit=a<=z?(t>=a&&t<=z):(t>=a||t<=z)}else hit=l.slice(0,3)===D[t];if(hit)r.classList.add('today')})})();
-const y=document.getElementById('yrs');if(y){const n=new Date().getFullYear()-(+y.dataset.since);if(n>0)y.textContent=n+' years';}
-const pg=document.querySelector('.prog');if(pg)addEventListener('scroll',()=>{pg.style.width=(100*scrollY/(document.documentElement.scrollHeight-innerHeight||1))+'%'},{passive:true});
+(function(){
+var $=function(s){return document.querySelector(s)},rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+// marquee from real words
+var w=["Pizza","Pisanello's","Franklin, OH","South Main Street","Pizza","Closed Sunday","Open Mon–Sat"],h="";
+for(var k=0;k<4;k++)w.forEach(function(x){h+="<span>"+x+"</span><span>●</span>"});
+$('#mq').innerHTML=h;
+// nav
+var nav=$('#nav'),bg=$('#bg');
+bg.onclick=function(){var o=nav.classList.toggle('open');bg.setAttribute('aria-expanded',o)};
+nav.querySelectorAll('a').forEach(function(a){a.onclick=function(){nav.classList.remove('open');bg.setAttribute('aria-expanded',false)}});
+// scroll: progress, header, parallax
+var px=document.querySelectorAll('.px'),tk=false;
+function sc(){var y=scrollY,m=document.documentElement.scrollHeight-innerHeight;
+ $('#prog').style.transform='scaleX('+(m>0?y/m:0)+')';
+ $('#top').classList.toggle('sc',y>20);
+ if(!rm&&y<1200)px.forEach(function(e){e.style.transform='translateY('+(y*e.dataset.px*-1)+'px) rotate('+(y*.03)+'deg)'});
+ tk=false}
+addEventListener('scroll',function(){if(!tk){tk=true;requestAnimationFrame(sc)}},{passive:true});sc();
+// reveals
+var rv=document.querySelectorAll('.rv');
+if('IntersectionObserver' in window){
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}})},{threshold:.15});
+ rv.forEach(function(e){io.observe(e)});
+}else rv.forEach(function(e){e.classList.add('show')});
+// magnetic buttons
+if(!rm&&matchMedia('(hover:hover)').matches)document.addEventListener('mousemove',function(ev){
+ document.querySelectorAll('.btn').forEach(function(b){var r=b.getBoundingClientRect(),dx=ev.clientX-(r.left+r.width/2),dy=ev.clientY-(r.top+r.height/2);
+  b.style.transform=Math.hypot(dx,dy)<90?'translate('+dx*.2+'px,'+dy*.3+'px)':''})});
+// copy address
+$('#addr').onclick=function(){var t="355 South Main Street, Franklin, OH 45005",d=function(){$('#cp').textContent='Copied';setTimeout(function(){$('#cp').textContent='Copy'},1800)};
+ if(navigator.clipboard)navigator.clipboard.writeText(t).then(d,function(){});else d()};
+// hours (Eastern time)
+try{
+ var H={0:null,1:[630,1200],2:[630,1200],3:[630,1200],4:[630,1200],5:[630,1260],6:[630,1200]};
+ var p=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'short',hour:'numeric',minute:'numeric',hour12:false}).formatToParts(new Date()),o={};
+ p.forEach(function(x){o[x.type]=x.value});
+ var di=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(o.weekday),min=(+o.hour%24)*60+ +o.minute;
+ if(di<0||isNaN(min))throw 0;
+ var f=function(m){var hh=Math.floor(m/60),mm=m%60;return(hh%12||12)+(mm?':'+('0'+mm).slice(-2):':00')+(hh<12?' am':' pm')};
+ var t=H[di],on=t&&min>=t[0]&&min<t[1],txt;
+ if(on)txt='Open now · until '+f(t[1]);
+ else{var n=null,add=0;
+  if(t&&min<t[0])n=['today',t[0]];
+  else for(add=1;add<=7&&!n;add++){var tt=H[(di+add)%7];if(tt)n=[add==1?'tomorrow':['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][(di+add)%7],tt[0]]}
+  txt='Closed now · opens '+n[0]+' '+f(n[1])}
+ var b=$('#badge');$('#btxt').textContent=txt;b.className='badge in d4 '+(on?'on':'off');b.hidden=false;
+ document.querySelectorAll('#hrs li').forEach(function(li){if(li.dataset.d.split(',').indexOf(''+di)>-1)li.classList.add('today')});
+}catch(e){}
+})();
 </script>
-</body></html>
+</body>
+</html>
