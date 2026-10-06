@@ -1,15 +1,404 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>The Drift — Winterset, IA (preview)</title><meta name="robots" content="noindex,nofollow"><meta name="description" content="Preview of a new website for The Drift in Winterset, IA. Not the official website."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Tilt+Neon&amp;family=Exo+2:wght@400;600;700&amp;display=swap" rel="stylesheet"><style>:root{--bg:#241226;--ink:#fbe9e2;--mu:#bfa0b3;--card:#2e1a31;--line:#4a2c4e;--ac:#e6ff7a;--ac2:#ff7dc0;--onac:#111111;--onac2:#111111;--head:'Tilt Neon',Georgia,serif;--body:'Exo 2',system-ui,sans-serif}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;-webkit-font-smoothing:antialiased}img{max-width:100%;display:block}a{color:inherit}
-.tag{display:inline-block;font-size:.62em;letter-spacing:.1em;text-transform:uppercase;padding:.2em .7em;vertical-align:middle;margin-left:.8em;border:1px solid currentColor;opacity:.75;font-family:var(--body);font-weight:600;border-radius:99px}
-.maplinks{margin:10px 0 0;font-size:14px}.mapcredit{margin:4px 0 0;font-size:12px;opacity:.7}iframe.map{border:0;width:100%;height:340px;display:block}
-.reallink{margin:0 0 18px}.menu{}.hr{list-style:none;margin:0;padding:0}.hr li{display:flex;justify-content:space-between;gap:16px;padding:8px 0}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}.mi{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:10px;padding:7px 0}.mi .mn{order:0}.mi .ml{order:1;flex:1;min-width:14px;border-bottom:2px dotted currentColor;opacity:.3;transform:translateY(-4px)}.mi .mp{order:2;white-space:nowrap}.mi .md{order:3;flex-basis:100%;font-size:.82em;opacity:.7}.mh{margin:0 0 8px}.note{margin:0 0 20px;font-size:.85em;opacity:.85}
-body{background:repeating-linear-gradient(0deg,transparent 0 31px,rgba(255,255,255,.035) 31px 33px),repeating-linear-gradient(90deg,transparent 0 63px,rgba(255,255,255,.03) 63px 65px),var(--bg);color:var(--ink);font:400 18px/1.55 var(--body)}
-.ribbon{background:#000;color:var(--mu);text-align:center;font:600 12px var(--body);padding:8px;letter-spacing:.08em}.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
-h1,h2,h3{font-family:var(--head);font-weight:400}h1{font-size:clamp(46px,9vw,104px);line-height:1.02;text-align:center;margin:56px 0 12px;color:#fff;text-shadow:0 0 6px var(--ac2),0 0 18px var(--ac2),0 0 44px var(--ac2),0 0 90px var(--ac);animation:fl 5s infinite}@keyframes fl{0%,18%,22%,60%,100%{opacity:1}20%{opacity:.55}61%{opacity:.8}}
-.sub{text-align:center;color:var(--ac);text-shadow:0 0 10px var(--ac);letter-spacing:.3em;text-transform:uppercase;font-size:14px}.lede{text-align:center;color:var(--mu);margin:20px auto 0;max-width:32em}
-h2{font-size:clamp(28px,4.5vw,44px);color:var(--ac);text-shadow:0 0 8px var(--ac),0 0 26px var(--ac);margin:56px 0 18px;text-align:center}.tube{border:3px solid var(--ac2);border-radius:18px;box-shadow:0 0 12px var(--ac2),inset 0 0 12px rgba(0,0,0,.4),0 0 40px rgba(255,255,255,.04);padding:26px 28px;background:rgba(0,0,0,.25)}
-.menu{columns:2 300px;column-gap:44px}.ms{break-inside:avoid;margin-bottom:24px}.mh{font-size:24px;color:var(--ac2);text-shadow:0 0 8px var(--ac2)}.mp{color:var(--ac);text-shadow:0 0 8px var(--ac);font-weight:700}.mi .ml{opacity:.25}.hr li{border-bottom:1px solid rgba(255,255,255,.12)}.hr .t{color:var(--ac2);text-shadow:0 0 8px var(--ac2)}
-.two{display:grid;gap:30px;grid-template-columns:1fr 1fr;align-items:start}iframe.map{height:310px;border:3px solid var(--ac);border-radius:18px;box-shadow:0 0 16px var(--ac);filter:invert(.92) hue-rotate(180deg) saturate(.7)}
-.btn{display:inline-block;padding:12px 26px;border:3px solid var(--ac);color:var(--ac);text-decoration:none;font:700 18px var(--head);border-radius:99px;box-shadow:0 0 14px var(--ac),inset 0 0 12px rgba(255,255,255,.06);text-shadow:0 0 8px var(--ac);margin:4px 10px 4px 0}.btn:hover{background:var(--ac);color:var(--onac);text-shadow:none}.btn.alt{border-color:var(--ac2);color:var(--ac2);box-shadow:0 0 14px var(--ac2);text-shadow:0 0 8px var(--ac2)}
-.photos{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}.photos img{border:3px solid var(--ac2);border-radius:14px;box-shadow:0 0 14px var(--ac2);aspect-ratio:4/3;object-fit:cover}.himg{border:3px solid var(--ac2);border-radius:18px;box-shadow:0 0 20px var(--ac2);margin:26px auto 0;max-width:560px}
-#offer{margin:60px 0 30px;text-align:center}#offer h2{text-align:center;margin-top:0}#offer p{max-width:560px;margin:10px auto}.foot{background:#000;color:var(--mu);text-align:center;padding:18px 10px;font-size:13px}.foot small{display:block;opacity:.7}.tag{color:var(--ac2)}@media(max-width:780px){.two{grid-template-columns:1fr}}@media(prefers-reduced-motion:reduce){h1{animation:none}}</style></head><body class="a-neon"><div class="ribbon">Preview created by Northlight Web. Not the official website.</div><div class="wrap"><h1>The Drift</h1><p class="sub">Bar &amp; grill · Winterset, IA</p><p class="lede">Dine in, sit on the patio.</p><h2 id="menu">Menu <span class="tag">Example</span></h2><div class="tube"><p class="note">This is an <b>example menu</b> that shows how your menu would look. Your real dishes and prices go here.</p><div class="menu"><div class="ms"><h3 class="mh">Starters</h3><div class="mi"><span class="mn">Loaded nachos</span><span class="ml"></span><span class="mp">$10.00</span></div><div class="mi"><span class="mn">Wings</span><span class="md">Your choice of sauce</span><span class="ml"></span><span class="mp">$11.00</span></div><div class="mi"><span class="mn">Onion rings</span><span class="ml"></span><span class="mp">$7.00</span></div></div><div class="ms"><h3 class="mh">Mains</h3><div class="mi"><span class="mn">Bacon cheeseburger</span><span class="ml"></span><span class="mp">$12.50</span></div><div class="mi"><span class="mn">Fish sandwich</span><span class="ml"></span><span class="mp">$11.50</span></div><div class="mi"><span class="mn">Chicken tenders</span><span class="ml"></span><span class="mp">$10.50</span></div></div><div class="ms"><h3 class="mh">On tap</h3><div class="mi"><span class="mn">Local lager</span><span class="ml"></span><span class="mp">$5.00</span></div><div class="mi"><span class="mn">Pale ale</span><span class="ml"></span><span class="mp">$5.50</span></div></div></div></div><h2 id="visit">Hours &amp; location</h2><div class="two"><div class="tube"><span class="tag">Example hours</span><ul class="hr"><li><span class="d">Mon</span><span class="t">7 AM – 3 PM</span></li><li><span class="d">Tue</span><span class="t">7 AM – 3 PM</span></li><li><span class="d">Wed</span><span class="t">7 AM – 3 PM</span></li><li><span class="d">Thu</span><span class="t">7 AM – 3 PM</span></li><li><span class="d">Fri</span><span class="t">7 AM – 8 PM</span></li><li><span class="d">Sat</span><span class="t">8 AM – 8 PM</span></li><li><span class="d">Sun</span><span class="t">Closed</span></li></ul><p style="margin:14px 0 0">112 North 1st Avenue, Winterset, IA 50273</p></div><div><iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-94.02069,41.32894,-94.00869,41.34094&amp;layer=mapnik&amp;marker=41.33494,-94.01469"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=41.33494&amp;mlon=-94.01469#map=17/41.33494/-94.01469" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=41.33494,-94.01469" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p></div></div><section class="Get this website" id="offer"><h2>Want this for The Drift?</h2><p>This is a free preview made for The Drift. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20The%20Drift">Want this for The Drift?</a></p></section></div><footer class="foot">Preview created by Northlight Web. Not the official website.<small>The Drift · Winterset, IA</small></footer><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "447b80d0ee82462c955f2ec90efa9bdb"}'></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Drift | Bar &amp; Grill in Winterset, IA</title>
+<meta name="description" content="The Drift, bar & grill at 112 North 1st Avenue in Winterset, IA. Dine in, sit on the patio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#12161c; --ice:#e3f1f6; --snow:#fbfdfe; --fire:#ff5a1f; --sky:#8fd3ea; --mid:#3a4552;
+  --b:3px solid var(--ink); --sh:6px 6px 0 var(--ink);
+  --f1:'Bricolage Grotesque',system-ui,sans-serif; --f2:'DM Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:var(--f1);background:var(--ice);color:var(--ink);font-size:1.05rem;line-height:1.55;overflow-x:hidden}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{line-height:.95;text-wrap:balance;overflow-wrap:break-word}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+section{padding:clamp(64px,10vw,120px) 0;position:relative}
+.eyebrow{font-family:var(--f2);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;display:inline-block;background:var(--ink);color:var(--ice);padding:6px 12px;margin-bottom:18px}
+h2{font-weight:800;font-size:clamp(2.4rem,7vw,5rem);letter-spacing:-.03em;margin-bottom:28px}
+
+/* progress + banner */
+.prog{position:fixed;top:0;left:0;height:5px;width:100%;background:var(--fire);transform:scaleX(0);transform-origin:0 50%;z-index:100}
+.np-banner{background:var(--ink);color:var(--ice);font-family:var(--f2);font-size:.78rem;text-align:center;padding:9px 16px;letter-spacing:.03em}
+.np-banner a{color:var(--sky)}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:var(--ice);border-bottom:var(--b);transition:transform .3s,box-shadow .3s,background .3s}
+header.s{box-shadow:0 6px 0 var(--ink);background:var(--snow)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px;transition:height .3s}
+header.s .nav{height:56px}
+.logo{font-weight:800;font-size:1.5rem;letter-spacing:-.04em;text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo i{width:14px;height:14px;background:var(--fire);border:var(--b);border-radius:50%;display:block}
+nav ul{display:flex;gap:6px;list-style:none}
+nav a{font-family:var(--f2);font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;text-decoration:none;padding:8px 12px;border:3px solid transparent;display:block;transition:transform .2s,border-color .2s,background .2s}
+nav a:hover{border-color:var(--ink);background:var(--sky);transform:translateY(-2px) rotate(-1.5deg)}
+.burger{display:none;background:var(--fire);border:var(--b);width:46px;height:42px;cursor:pointer;box-shadow:3px 3px 0 var(--ink)}
+.burger span{display:block;width:22px;height:3px;background:var(--ink);margin:4px auto;transition:transform .25s,opacity .25s}
+.burger[aria-expanded=true] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded=true] span:nth-child(2){opacity:0}
+.burger[aria-expanded=true] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:820px){
+  .burger{display:block}
+  nav{position:absolute;left:0;right:0;top:100%;background:var(--snow);border-bottom:var(--b);display:none}
+  nav.open{display:block}
+  nav ul{flex-direction:column;padding:12px 20px 20px}
+  nav a{font-size:1rem;padding:12px 8px}
+}
+
+/* buttons (also slot buttons) */
+.btn{display:inline-block;font-family:var(--f1);font-weight:800;font-size:1rem;text-decoration:none;background:var(--fire);color:var(--ink);border:var(--b);padding:14px 24px;box-shadow:var(--sh);cursor:pointer;transition:transform .2s,box-shadow .2s;will-change:transform}
+.btn:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--ink)}
+.btn:active{transform:translate(4px,4px);box-shadow:2px 2px 0 var(--ink)}
+.btn.alt{background:var(--snow)}
+small{font-family:var(--f2);font-size:.78rem}
+
+/* hero */
+.hero{padding:clamp(40px,7vw,90px) 0 0;overflow:hidden;background:var(--ice)}
+.hero .wrap{position:relative;z-index:2}
+.kick{font-family:var(--f2);font-size:clamp(.78rem,2.4vw,1rem);text-transform:uppercase;letter-spacing:.14em;display:flex;flex-wrap:wrap;gap:10px;margin-bottom:10px}
+.kick span{border:var(--b);background:var(--snow);padding:4px 10px}
+.kick span:first-child{background:var(--fire)}
+h1{font-weight:800;letter-spacing:-.05em;font-size:clamp(3.4rem,21vw,15rem);line-height:.82;margin:.05em 0 .12em}
+h1 .the{display:block;font-size:.34em;letter-spacing:-.02em;line-height:1;margin-left:.06em}
+h1 .w{display:block;white-space:nowrap}
+h1 .w b{display:inline-block;font-weight:800}
+h1 .w b:nth-child(odd){color:var(--ink)}
+h1 .w b:nth-child(even){color:var(--fire);-webkit-text-stroke:0}
+.lead{font-size:clamp(1.3rem,3.4vw,2rem);font-weight:500;max-width:22ch;margin-bottom:28px;letter-spacing:-.02em;line-height:1.15}
+.hero-cta{display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding-bottom:70px}
+.drifts{position:absolute;inset:0;z-index:1;pointer-events:none}
+.drifts svg{position:absolute;will-change:transform}
+.d1{right:-6%;top:10%;width:min(520px,70vw)}
+.d2{left:-4%;bottom:-6%;width:min(1200px,160vw);min-width:900px}
+.flake{position:absolute;border:var(--b);border-radius:50%;background:var(--snow)}
+.flake.f1{width:46px;height:46px;right:14%;top:56%;background:var(--fire)}
+.flake.f2{width:22px;height:22px;right:30%;top:18%}
+.flake.f3{width:30px;height:30px;right:6%;top:78%;background:var(--sky)}
+
+/* marquee */
+.marq{background:var(--ink);color:var(--ice);border-block:var(--b);overflow:hidden;padding:14px 0;transform:rotate(-1.2deg);margin:-10px -10px 0;position:relative;z-index:3}
+.track{display:flex;width:max-content;animation:slide 32s linear infinite}
+.track span{font-weight:800;font-size:clamp(1.3rem,3.2vw,2.2rem);letter-spacing:-.02em;white-space:nowrap;padding-right:28px;text-transform:uppercase}
+.track span::after{content:"✦";color:var(--fire);margin-left:28px}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* offer */
+.offer{background:var(--snow);padding-top:clamp(80px,11vw,140px)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:28px}
+.card{border:var(--b);box-shadow:var(--sh);padding:28px;background:var(--ice);transition:transform .25s,box-shadow .25s}
+.card:nth-child(2){background:var(--sky)}
+.card:nth-child(3){background:var(--fire)}
+.card:hover{transform:translate(-4px,-4px) rotate(-1deg);box-shadow:11px 11px 0 var(--ink)}
+.card svg{width:64px;height:64px;margin-bottom:18px}
+.card h3{font-size:1.9rem;font-weight:800;letter-spacing:-.03em;margin-bottom:8px}
+.card p{font-size:1rem}
+
+/* menu */
+.menu{background:var(--ink);color:var(--ice)}
+.menu h2{color:var(--snow)}
+.menu .eyebrow{background:var(--fire);color:var(--ink)}
+.tag{display:inline-block;font-family:var(--f2);font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;background:var(--sky);color:var(--ink);padding:3px 9px;border:2px solid var(--ice);vertical-align:middle;margin-left:10px;transform:rotate(-2deg)}
+.note{font-family:var(--f2);font-size:.9rem;border:2px dashed var(--sky);padding:14px 16px;margin-bottom:40px;max-width:62ch}
+.msecs{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px}
+.msec{border:3px solid var(--ice);padding:26px;box-shadow:6px 6px 0 var(--fire);transition:transform .25s}
+.msec:hover{transform:translateY(-4px)}
+.msec h3{font-size:2rem;font-weight:800;margin-bottom:16px;color:var(--fire);letter-spacing:-.03em}
+.msec ul{list-style:none}
+.msec li{display:flex;align-items:baseline;gap:10px;padding:12px 0;border-top:2px dotted rgba(227,241,246,.4);transition:transform .2s,color .2s}
+.msec li:hover{transform:translateX(8px);color:var(--sky)}
+.msec li .n{font-weight:800;font-size:1.2rem}
+.msec li .d{display:block;font-family:var(--f2);font-size:.8rem;opacity:.85;font-weight:400}
+.msec li .p{margin-left:auto;font-family:var(--f2);font-weight:500;white-space:nowrap}
+
+/* hours */
+.hl{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(28px,5vw,64px);align-items:start}
+@media(max-width:860px){.hl{grid-template-columns:1fr}}
+table{width:100%;border-collapse:collapse;border:var(--b);box-shadow:var(--sh);background:var(--snow)}
+td{padding:13px 16px;border-bottom:2px solid var(--ink);font-family:var(--f2)}
+tr:last-child td{border-bottom:0}
+td:last-child{text-align:right}
+tr.today{background:var(--fire);font-weight:500}
+.addr{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin:22px 0}
+.addr address{font-style:normal;font-weight:800;font-size:1.3rem;letter-spacing:-.02em}
+.copy{font-family:var(--f2);font-size:.82rem;background:var(--snow);border:var(--b);padding:8px 14px;cursor:pointer;box-shadow:3px 3px 0 var(--ink);transition:transform .15s}
+.copy:hover{transform:translate(-2px,-2px)}
+.map{border:var(--b);box-shadow:var(--sh);background:var(--snow);overflow:hidden}
+.map iframe{display:block;width:100%;min-height:340px;border:0}
+.maplinks{display:flex;flex-wrap:wrap;gap:12px;padding:14px}
+.maplinks a{font-family:var(--f2);font-size:.85rem;font-weight:500;background:var(--sky);border:var(--b);padding:8px 14px;text-decoration:none;transition:transform .2s}
+.maplinks a:hover{transform:translateY(-3px) rotate(-1.5deg)}
+.mapcredit{font-family:var(--f2);font-size:.72rem;padding:0 14px 12px;color:var(--mid)}
+.mapcredit a{color:inherit}
+
+/* about */
+.about{background:var(--sky);border-block:var(--b);overflow:hidden}
+.about p{font-size:clamp(1.5rem,4.2vw,3rem);font-weight:800;letter-spacing:-.035em;line-height:1.05;max-width:20ch;text-wrap:balance}
+.about p em{font-style:normal;background:var(--fire);padding:0 .15em;border:var(--b);display:inline-block;transform:rotate(-2deg)}
+.about svg.sw{position:absolute;right:-40px;bottom:-30px;width:min(520px,80vw);opacity:.9}
+
+/* contact */
+.contact .box{border:var(--b);box-shadow:var(--sh);background:var(--snow);padding:clamp(24px,5vw,48px);display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+.contact h2{margin-bottom:8px;font-size:clamp(2rem,5vw,3.4rem)}
+.cbtns{display:flex;flex-wrap:wrap;gap:16px}
+
+/* CTA */
+.cta-sec{background:var(--ink);padding:clamp(60px,9vw,110px) 0}
+.np-cta{background:var(--fire);color:var(--ink);border:3px solid var(--ice);box-shadow:10px 10px 0 var(--sky);padding:clamp(26px,5vw,56px);transform:rotate(-1deg);transition:transform .3s}
+.np-cta:hover{transform:rotate(0)}
+.np-cta h2,.np-cta h3{font-weight:800;letter-spacing:-.03em;line-height:1;margin-bottom:12px;font-size:clamp(1.8rem,5vw,3.4rem)}
+.np-cta p{max-width:52ch;margin-bottom:16px}
+.np-cta .btn{background:var(--ink);color:var(--ice);box-shadow:5px 5px 0 var(--snow);margin:6px 10px 6px 0}
+.np-cta .btn.alt{background:var(--snow);color:var(--ink);box-shadow:5px 5px 0 var(--ink)}
+footer{background:var(--ink);color:var(--ice);padding:0 0 28px;font-family:var(--f2);font-size:.8rem;text-align:center}
+
+/* reveal: only hidden when JS runs */
+.js .rv{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0)*90ms)}
+.js .rv.in{opacity:1;transform:none}
+/* hero entrance */
+@keyframes rise{from{opacity:0;transform:translateY(60px) rotate(6deg)}to{opacity:1;transform:none}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-.06em)}}
+@keyframes floaty{0%,100%{transform:translate(0,0)}50%{transform:translate(14px,-18px)}}
+h1 .w b{animation:rise .9s cubic-bezier(.2,.8,.2,1) both,bob 5s ease-in-out infinite;animation-delay:calc(.15s + var(--k)*.09s),calc(1.2s + var(--k)*.25s)}
+h1 .the,.kick,.lead,.hero-cta{animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+.kick{animation-delay:.05s}.lead{animation-delay:.75s}.hero-cta{animation-delay:.9s}
+.flake{animation:floaty 7s ease-in-out infinite}.f2{animation-delay:-2s}.f3{animation-delay:-4s}
+.draw path{stroke-dasharray:1400;stroke-dashoffset:1400;animation:dr 3s .4s ease forwards}
+@keyframes dr{to{stroke-dashoffset:0}}
+.noscript-draw path{stroke-dashoffset:0}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .js .rv{opacity:1;transform:none}
+  .draw path{stroke-dashoffset:0}
+  .track{width:auto;flex-wrap:wrap}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div class="prog" id="prog" aria-hidden="true"></div>
+
+<header id="hd">
+  <div class="wrap nav">
+    <a class="logo" href="#top"><i></i>The Drift</a>
+    <button class="burger" id="bg" aria-label="Menu" aria-expanded="false" aria-controls="nv"><span></span><span></span><span></span></button>
+    <nav id="nv" aria-label="Main">
+      <ul>
+        <li><a href="#offer">Inside &amp; out</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#visit">Hours &amp; location</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="drifts" aria-hidden="true">
+    <svg class="d1 draw" data-p=".25" viewBox="0 0 520 300" fill="none" stroke="#12161c" stroke-width="3" stroke-linecap="round">
+      <path d="M0 250 C90 120 170 120 260 190 S430 260 520 90"/>
+      <path d="M0 280 C100 170 180 170 270 230 S440 290 520 140" stroke="#ff5a1f"/>
+      <path d="M20 215 C110 90 190 90 280 150 S440 220 520 40" stroke="#3a4552" stroke-dasharray="2 12"/>
+    </svg>
+    <svg class="d2" data-p="-.12" viewBox="0 0 1200 220" preserveAspectRatio="none">
+      <path d="M0 220 V150 C120 60 220 60 340 130 S560 190 700 110 S960 40 1200 120 V220Z" fill="#fbfdfe" stroke="#12161c" stroke-width="3"/>
+    </svg>
+    <span class="flake f1"></span><span class="flake f2"></span><span class="flake f3"></span>
+  </div>
+  <div class="wrap">
+    <div class="kick"><span>Bar &amp; grill</span><span>Winterset, IA</span></div>
+    <h1 aria-label="The Drift">
+      <span class="the" style="--k:0">The</span>
+      <span class="w" aria-hidden="true"><b style="--k:1">D</b><b style="--k:2">r</b><b style="--k:3">i</b><b style="--k:4">f</b><b style="--k:5">t</b></span>
+    </h1>
+    <p class="lead">Dine in, sit on the patio.</p>
+    <div class="hero-cta">
+      <a class="btn" href="#menu" data-mag>See the menu</a>
+      <a class="btn alt" href="#visit" data-mag>Find us</a>
+    </div>
+  </div>
+</section>
+
+<div class="marq" aria-hidden="true">
+  <div class="track" id="tr">
+    <span>Bar &amp; grill</span><span>Dine in</span><span>Patio</span><span>On tap</span><span>Wheelchair accessible</span><span>North 1st Avenue</span><span>Winterset</span>
+    <span>Bar &amp; grill</span><span>Dine in</span><span>Patio</span><span>On tap</span><span>Wheelchair accessible</span><span>North 1st Avenue</span><span>Winterset</span>
+  </div>
+</div>
+
+<section class="offer" id="offer">
+  <div class="wrap">
+    <span class="eyebrow rv">What you get</span>
+    <h2 class="rv" style="--i:1">Pull up a seat.</h2>
+    <div class="cards">
+      <article class="card rv" style="--i:1">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#12161c" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 26h44v6a22 22 0 0 1-44 0z"/><path d="M54 28h4a4 4 0 0 1 0 14h-6M22 14c0-4 4-4 4-8M34 14c0-4 4-4 4-8"/></svg>
+        <h3>Dine in</h3>
+        <p>Grab a table inside and settle in.</p>
+      </article>
+      <article class="card rv" style="--i:2">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#12161c" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="48" cy="16" r="8"/><path d="M8 28h48M32 28v28M14 28 32 8l18 20"/></svg>
+        <h3>The patio</h3>
+        <p>Prefer fresh air? Take your drink and your food outside.</p>
+      </article>
+      <article class="card rv" style="--i:3">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#12161c" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="28" cy="10" r="4"/><path d="M28 18v18h16l6 14M28 26h14M22 30a14 14 0 1 0 18 22"/></svg>
+        <h3>Wheelchair accessible</h3>
+        <p>Everyone gets through the door.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <span class="eyebrow rv">Menu</span>
+    <h2 class="rv" style="--i:1">Bar food, no fuss <span class="tag">Example</span></h2>
+    <p class="note rv">This is an example menu that shows how your menu would look. Your real dishes and prices go here.</p>
+    <div class="msecs">
+      <div class="msec rv" style="--i:0">
+        <h3>Starters</h3>
+        <ul>
+          <li><span class="n">Loaded nachos</span><span class="p">$10.00</span></li>
+          <li><span><span class="n">Wings</span><span class="d">Your choice of sauce</span></span><span class="p">$11.00</span></li>
+          <li><span class="n">Onion rings</span><span class="p">$7.00</span></li>
+        </ul>
+      </div>
+      <div class="msec rv" style="--i:1">
+        <h3>Mains</h3>
+        <ul>
+          <li><span class="n">Bacon cheeseburger</span><span class="p">$12.50</span></li>
+          <li><span class="n">Fish sandwich</span><span class="p">$11.50</span></li>
+          <li><span class="n">Chicken tenders</span><span class="p">$10.50</span></li>
+        </ul>
+      </div>
+      <div class="msec rv" style="--i:2">
+        <h3>On tap</h3>
+        <ul>
+          <li><span class="n">Local lager</span><span class="p">$5.00</span></li>
+          <li><span class="n">Pale ale</span><span class="p">$5.50</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap hl">
+    <div>
+      <span class="eyebrow rv">Hours &amp; location</span>
+      <h2 class="rv" style="--i:1">Find The Drift <span class="tag" style="background:var(--fire)">Example hours</span></h2>
+      <table class="rv" style="--i:2" id="hrs">
+        <tr><td>Mon</td><td>7 AM – 3 PM</td></tr>
+        <tr><td>Tue</td><td>7 AM – 3 PM</td></tr>
+        <tr><td>Wed</td><td>7 AM – 3 PM</td></tr>
+        <tr><td>Thu</td><td>7 AM – 3 PM</td></tr>
+        <tr><td>Fri</td><td>7 AM – 8 PM</td></tr>
+        <tr><td>Sat</td><td>8 AM – 8 PM</td></tr>
+        <tr><td>Sun</td><td>Closed</td></tr>
+      </table>
+      <div class="addr rv" style="--i:3">
+        <address>112 North 1st Avenue<br>Winterset, IA 50273</address>
+        <button class="copy" id="cp" type="button" data-t="112 North 1st Avenue, Winterset, IA 50273">Copy address</button>
+      </div>
+    </div>
+    <div class="rv" style="--i:2"><iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-94.02069,41.32894,-94.00869,41.34094&amp;layer=mapnik&amp;marker=41.33494,-94.01469"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=41.33494&amp;mlon=-94.01469#map=17/41.33494/-94.01469" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=41.33494,-94.01469" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p></div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="wrap">
+    <p class="rv">A bar &amp; grill on North 1st Avenue in <em>Winterset.</em></p>
+  </div>
+  <svg class="sw" viewBox="0 0 520 200" fill="none" stroke="#12161c" stroke-width="3" aria-hidden="true"><path d="M0 200C80 80 160 80 240 130S420 180 520 40"/><path d="M0 170C80 60 160 60 240 110S420 160 520 10" stroke="#ff5a1f"/></svg>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="box rv">
+      <div>
+        <h2>Come on by.</h2>
+        <p>112 North 1st Avenue, Winterset, IA</p>
+      </div>
+      <div class="cbtns"> <a class="btn alt" href="#visit" data-mag>Hours &amp; map</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-sec">
+  <div class="wrap rv"><section class="np-cta" id="offer"><h2>Want this for The Drift?</h2><p>This is a free preview made for The Drift. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20The%20Drift&amp;body=Yes%2C%20please%20make%20this%20site%20for%20The%20Drift.">Make it mine</a></p></section></div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap" style="padding-top:26px">The Drift · 112 North 1st Avenue · Winterset, IA</div>
+</footer>
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · The Drift</div>
+
+<script>
+(function(){
+  var d=document,de=d.documentElement;
+  de.classList.add('js');
+  var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hd=d.getElementById('hd'),pg=d.getElementById('prog');
+  var par=[].slice.call(d.querySelectorAll('[data-p]'));
+  var tick=false;
+  function onS(){
+    var y=scrollY,h=de.scrollHeight-innerHeight;
+    hd.classList.toggle('s',y>20);
+    pg.style.transform='scaleX('+(h>0?y/h:0)+')';
+    if(!rm)par.forEach(function(e){e.style.transform='translate3d(0,'+(y*e.dataset.p)+'px,0)'});
+    tick=false;
+  }
+  addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(onS)}},{passive:true});
+  onS();
+
+  // reveals
+  var rv=[].slice.call(d.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window&&!rm){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+    rv.forEach(function(e){io.observe(e)});
+  }else rv.forEach(function(e){e.classList.add('in')});
+
+  // mobile menu
+  var bg=d.getElementById('bg'),nv=d.getElementById('nv');
+  bg.addEventListener('click',function(){var o=nv.classList.toggle('open');bg.setAttribute('aria-expanded',o)});
+  nv.addEventListener('click',function(e){if(e.target.tagName==='A'){nv.classList.remove('open');bg.setAttribute('aria-expanded',false)}});
+
+  // copy address
+  var cp=d.getElementById('cp');
+  cp.addEventListener('click',function(){
+    var t=cp.dataset.t;
+    function ok(){cp.textContent='Copied ✓';setTimeout(function(){cp.textContent='Copy address'},1800)}
+    if(navigator.clipboard)navigator.clipboard.writeText(t).then(ok,fb);else fb();
+    function fb(){var a=d.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';d.body.appendChild(a);a.select();try{d.execCommand('copy');ok()}catch(e){}a.remove()}
+  });
+
+  // highlight today's example row (no open/closed claim: hours are examples)
+  var rows=d.querySelectorAll('#hrs tr');
+  var i=(new Date().getDay()+6)%7;
+  if(rows[i])rows[i].classList.add('today');
+
+  // magnetic buttons
+  if(!rm&&matchMedia('(hover:hover)').matches){
+    d.querySelectorAll('.btn,[data-mag]').forEach(function(b){
+      b.addEventListener('pointermove',function(e){
+        var r=b.getBoundingClientRect();
+        b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.18)+'px,'+((e.clientY-r.top-r.height/2)*.25-2)+'px)';
+      });
+      b.addEventListener('pointerleave',function(){b.style.transform=''});
+    });
+  }
+})();
+</script>
+</body>
+</html>

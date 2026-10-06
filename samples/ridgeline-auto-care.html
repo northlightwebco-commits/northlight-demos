@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ridgeline Auto Care · Anytown, MN</title>
+<meta name="description" content="Ridgeline Auto Care, auto repair shop in Anytown, MN.">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0e1315;--bg2:#151c1f;--ink:#eef1ec;--mute:#a7b2ad;--amber:#ffb000;--line:rgba(238,241,236,.14);--ease:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 Manrope,system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3{font-family:'Big Shoulders Display',Impact,sans-serif;text-transform:uppercase;line-height:.92;letter-spacing:.01em;text-wrap:balance;overflow-wrap:break-word}
+a{color:inherit}
+.wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+section{padding:clamp(4rem,10vw,8rem) 0;position:relative}
+.eyebrow{color:var(--amber);font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:.78rem;margin-bottom:1rem;display:block}
+h2{font-size:clamp(2.4rem,8vw,5rem);font-weight:900;margin-bottom:1.5rem}
+#bar{position:fixed;top:0;left:0;height:3px;width:100%;background:var(--amber);transform:scaleX(0);transform-origin:left;z-index:100}
+.np-banner{background:var(--amber);color:#111;text-align:center;font-size:.8rem;font-weight:700;padding:.4rem 1rem}
+.np-banner a{color:#111}
+header{position:sticky;top:0;z-index:50;transition:background .3s,box-shadow .3s}
+header.s{background:rgba(14,19,21,.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:1.4rem;text-transform:uppercase;text-decoration:none;letter-spacing:.04em}
+.logo b{color:var(--amber)}
+nav ul{display:flex;gap:2rem;list-style:none;padding:0}
+nav a{text-decoration:none;font-weight:500;font-size:.95rem;position:relative}
+nav a::after{content:"";position:absolute;left:0;bottom:-4px;height:2px;width:100%;background:var(--amber);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
+nav a:hover::after{transform:scaleX(1)}
+.burger{display:none;background:none;border:1px solid var(--line);color:var(--ink);width:44px;height:44px;border-radius:8px;font-size:1.3rem;cursor:pointer}
+@media(max-width:760px){.burger{display:block}nav ul{position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:0;background:var(--bg2);padding:.5rem 1.25rem 1rem;display:none}nav ul.open{display:flex}nav li a{display:block;padding:.8rem 0;border-bottom:1px solid var(--line)}}
+/* hero */
+.hero{min-height:calc(100svh - 100px);display:flex;align-items:center;overflow:hidden;padding:4rem 0 9rem}
+.ridge{position:absolute;inset:auto 0 0 0;width:100%;height:60%;pointer-events:none}
+.ridge svg{width:100%;height:100%;display:block}
+.ridge path{fill:none;stroke:var(--amber);stroke-width:2;vector-effect:non-scaling-stroke}
+.r1 path{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 3.2s .4s var(--ease) forwards}
+.r2{opacity:.4}.r2 path{stroke:var(--ink);stroke-dasharray:1;stroke-dashoffset:1;animation:draw 3.8s .8s var(--ease) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.sun{position:absolute;right:12%;top:12%;width:clamp(90px,16vw,200px);aspect-ratio:1;border-radius:50%;border:2px solid var(--amber);opacity:.5}
+.hero h1{font-size:clamp(3rem,13vw,9.5rem);font-weight:900;max-width:11ch}
+.hero h1 em{font-style:normal;color:var(--amber)}
+.hero p{max-width:34rem;color:var(--mute);margin:1.5rem 0 2rem;font-size:1.15rem}
+.hero .in{opacity:0;transform:translateY(24px);animation:up .9s var(--ease) forwards}
+.hero .in:nth-child(2){animation-delay:.15s}.hero .in:nth-child(3){animation-delay:.3s}.hero .in:nth-child(4){animation-delay:.45s}
+@keyframes up{to{opacity:1;transform:none}}
+.btns{display:flex;flex-wrap:wrap;gap:.8rem}
+.btn{display:inline-block;background:var(--amber);color:#111;font-weight:700;text-decoration:none;padding:.9rem 1.5rem;border-radius:999px;border:2px solid var(--amber);transition:transform .25s var(--ease),filter .25s;cursor:pointer;font:inherit;font-weight:700}
+.btn:hover{transform:translateY(-3px);filter:brightness(1.1)}
+.btn.alt{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+/* marquee */
+.marq{border-block:1px solid var(--line);overflow:hidden;padding:1rem 0;background:var(--bg2)}
+.track{display:flex;width:max-content;animation:mq 30s linear infinite}
+.track span{font-family:'Big Shoulders Display',sans-serif;font-size:clamp(1.6rem,4vw,2.6rem);font-weight:700;text-transform:uppercase;padding-right:2rem;white-space:nowrap}
+.track span::after{content:"▲";color:var(--amber);font-size:.6em;margin-left:2rem;vertical-align:middle}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* offer */
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:1.8rem;transition:transform .35s var(--ease),border-color .35s}
+.card:hover{transform:translateY(-6px);border-color:var(--amber)}
+.card h3{font-size:2rem;color:var(--amber);margin-bottom:.6rem}
+.card p{color:var(--mute)}
+.tag{display:inline-block;border:1px solid var(--amber);color:var(--amber);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.15rem .6rem;border-radius:999px}
+/* services */
+.sec{margin-top:2.5rem}
+.sec h3{font-size:2rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:.5rem}
+.item{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:1rem .5rem;border-bottom:1px solid var(--line);transition:padding .3s var(--ease),background .3s}
+.item:hover{padding-left:1.2rem;background:var(--bg2)}
+.item strong{font-weight:700}
+.item small{display:block;color:var(--mute);font-size:.88rem}
+.price{font-family:'Big Shoulders Display',sans-serif;font-size:1.5rem;font-weight:700;color:var(--amber);white-space:nowrap;text-align:right}
+.note{margin-top:2rem;padding:1rem 1.2rem;border-left:3px solid var(--amber);background:var(--bg2);color:var(--mute)}
+/* hours */
+.hl{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem)}
+@media(max-width:820px){.hl{grid-template-columns:1fr}}
+.hours{list-style:none;padding:0;margin-top:1rem}
+.hours li{display:flex;justify-content:space-between;padding:.7rem 0;border-bottom:1px solid var(--line)}
+.hours span:last-child{color:var(--mute)}
+.map{border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--bg2)}
+.map iframe{width:100%;border:0;display:block;min-height:260px}
+.maplinks{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.8rem}
+.maplinks a{color:var(--amber)}
+.mapcredit{font-size:.75rem;color:var(--mute);margin-top:.5rem}
+/* contact / cta */
+.contact{text-align:center}
+.contact h2{margin-inline:auto;max-width:14ch}
+.contact .btns{justify-content:center}
+.np-cta{margin:3rem auto 0;max-width:760px;padding:2.2rem;border:2px solid var(--amber);border-radius:18px;background:linear-gradient(160deg,var(--bg2),var(--bg));text-align:center}
+.np-cta .btns,.np-cta .btn{margin:.3rem}
+.np-cta small{display:block;color:var(--mute);margin-top:.8rem}
+footer{padding:2rem 0;color:var(--mute);font-size:.9rem;border-top:1px solid var(--line);text-align:center}
+/* reveal */
+.js .rv{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:calc(var(--i,0)*90ms)}
+.js .rv.on{opacity:1;transform:none}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}.hero .in{opacity:1;transform:none}.r1 path,.r2 path{stroke-dashoffset:0}.js .rv{opacity:1;transform:none}.track{width:auto;flex-wrap:wrap}}
+</style>
+</head>
+<body>
+<div class="np-banner">Sample design by Northlight Web. Not a real business.</div>
+<div id="bar"></div>
+<header id="hd"><div class="wrap nav">
+<a class="logo" href="#top">Ridgeline <b>Auto Care</b></a>
+<button class="burger" id="bg" aria-label="Menu" aria-expanded="false">☰</button>
+<nav><ul id="mn"><li><a href="#offer">What we do</a></li><li><a href="#services">Services</a></li><li><a href="#visit">Hours</a></li><li><a href="#contact">Contact</a></li></ul></nav>
+</div></header>
+
+<main id="top">
+<section class="hero">
+<div class="sun" data-p=".25"></div>
+<div class="ridge r2" data-p=".15"><svg viewBox="0 0 1200 400" preserveAspectRatio="none"><path pathLength="1" d="M0 300 L120 240 L220 280 L340 170 L430 230 L560 110 L650 200 L760 150 L880 250 L990 190 L1100 260 L1200 220"/></svg></div>
+<div class="ridge r1" data-p=".35"><svg viewBox="0 0 1200 400" preserveAspectRatio="none"><path pathLength="1" d="M0 340 L90 310 L200 330 L300 250 L420 300 L520 200 L640 270 L740 180 L850 290 L960 240 L1080 310 L1200 270"/></svg></div>
+<div class="wrap" style="position:relative">
+<span class="eyebrow in">Auto repair · Anytown, MN</span>
+<h1 class="in">Ridgeline <em>Auto Care</em></h1>
+<p class="in">Keep your car on the road, mile after mile. Maintenance, repairs and tires in Anytown.</p>
+<div class="btns in"><a class="btn" href="#services">See example services</a><a class="btn alt" href="#visit">Hours &amp; location</a></div>
+</div>
+</section>
+
+<div class="marq" aria-hidden="true"><div class="track">
+<span>Maintenance</span><span>Repairs</span><span>Tires</span><span>Brakes</span><span>Battery</span><span>Diagnostics</span><span>Alignment</span><span>A/C</span>
+<span>Maintenance</span><span>Repairs</span><span>Tires</span><span>Brakes</span><span>Battery</span><span>Diagnostics</span><span>Alignment</span><span>A/C</span>
+</div></div>
+
+<section id="offer"><div class="wrap">
+<span class="eyebrow rv">What we do</span>
+<h2 class="rv">Your local auto repair shop</h2>
+<div class="cols">
+<div class="card rv" style="--i:1"><h3>Maintenance</h3><p>The regular care that keeps a car healthy.</p></div>
+<div class="card rv" style="--i:2"><h3>Repairs</h3><p>Brakes, battery and engine trouble, looked at properly.</p></div>
+<div class="card rv" style="--i:3"><h3>Tires &amp; more</h3><p>Tires, alignment and A/C, all under one roof.</p></div>
+</div></div></section>
+
+<section id="services" style="background:var(--bg2)"><div class="wrap">
+<span class="eyebrow rv">Services</span>
+<h2 class="rv">Services</h2>
+
+<div class="sec rv"><h3>Maintenance <span class="tag">Example</span></h3>
+<div class="item"><div><strong>Oil change</strong><small>Oil and filter</small></div><div class="price">from $49</div></div>
+<div class="item"><div><strong>Tire rotation</strong></div><div class="price">from $25</div></div>
+<div class="item"><div><strong>Fluid check</strong></div><div class="price">from $20</div></div></div>
+
+<div class="sec rv"><h3>Repairs <span class="tag">Example</span></h3>
+<div class="item"><div><strong>Brake service</strong><small>Inspection and pads</small></div><div class="price">from $120</div></div>
+<div class="item"><div><strong>Battery test &amp; replacement</strong></div><div class="price">from $30</div></div>
+<div class="item"><div><strong>Check-engine diagnostics</strong></div><div class="price">from $95</div></div></div>
+
+<div class="sec rv"><h3>Tires &amp; more <span class="tag">Example</span></h3>
+<div class="item"><div><strong>Tire mounting &amp; balance</strong></div><div class="price">from $20 per tire</div></div>
+<div class="item"><div><strong>Wheel alignment</strong></div><div class="price">from $89</div></div>
+<div class="item"><div><strong>A/C check</strong></div><div class="price">from $59</div></div></div>
+
+<p class="note rv">These are example services and prices that show how your service list would look. Your real services and prices go here.</p>
+</div></section>
+
+<section id="visit"><div class="wrap hl">
+<div class="rv">
+<span class="eyebrow">Hours &amp; location</span>
+<h2>Hours &amp; location</h2>
+<span class="tag">Example hours</span>
+<ul class="hours">
+<li><span>Mon</span><span>7 AM – 3 PM</span></li>
+<li><span>Tue</span><span>7 AM – 3 PM</span></li>
+<li><span>Wed</span><span>7 AM – 3 PM</span></li>
+<li><span>Thu</span><span>7 AM – 3 PM</span></li>
+<li><span>Fri</span><span>7 AM – 8 PM</span></li>
+<li><span>Sat</span><span>8 AM – 8 PM</span></li>
+<li><span>Sun</span><span>Closed</span></li>
+</ul>
+<p style="color:var(--mute);margin-top:1rem">Anytown, MN</p>
+</div>
+<div class="rv" style="--i:2"></div>
+</div></section>
+
+<section id="contact" class="contact" style="background:var(--bg2)"><div class="wrap">
+<span class="eyebrow rv">Contact</span>
+<h2 class="rv">Get in touch</h2>
+<div class="btns rv"> </div>
+</div></section>
+
+<section><div class="wrap"><section class="np-cta" id="offer"><h2>Want something like this?</h2><p>This is a sample design. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20Ridgeline%20Auto%20Care&amp;body=Yes%2C%20please%20make%20this%20site%20for%20Ridgeline%20Auto%20Care.">Make it mine</a></p></section></div></section>
+</main>
+
+<footer><div class="wrap">Ridgeline Auto Care · Anytown, MN</div></footer>
+<div class="np-banner">Sample design by Northlight Web. Not a real business. · Ridgeline Auto Care</div>
+<script>
+document.documentElement.classList.add('js');
+var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+var hd=document.getElementById('hd'),bar=document.getElementById('bar'),ps=[].slice.call(document.querySelectorAll('[data-p]'));
+function onS(){var y=scrollY,h=document.documentElement.scrollHeight-innerHeight;
+hd.classList.toggle('s',y>20);bar.style.transform='scaleX('+(h>0?y/h:0)+')';
+if(!rm&&y<innerHeight*1.2)ps.forEach(function(e){e.style.transform='translateY('+(y*e.dataset.p)+'px)'})}
+addEventListener('scroll',onS,{passive:true});onS();
+var bg=document.getElementById('bg'),mn=document.getElementById('mn');
+bg.onclick=function(){var o=mn.classList.toggle('open');bg.setAttribute('aria-expanded',o)};
+mn.addEventListener('click',function(e){if(e.target.tagName==='A'){mn.classList.remove('open');bg.setAttribute('aria-expanded',false)}});
+var rv=[].slice.call(document.querySelectorAll('.rv'));
+if('IntersectionObserver' in window&&!rm){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.12});rv.forEach(function(e){io.observe(e)})}
+else rv.forEach(function(e){e.classList.add('on')});
+if(!rm)document.querySelectorAll('.btn').forEach(function(b){
+b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.15)+'px,'+((e.clientY-r.top-r.height/2)*.25-3)+'px)'});
+b.addEventListener('mouseleave',function(){b.style.transform=''})});
+</script>
+</body>
+</html>

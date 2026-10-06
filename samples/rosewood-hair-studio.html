@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rosewood Hair Studio · Anytown, MN</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,800;1,600&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--wood:#5b1d2a;--deep:#3b1119;--rose:#d9667a;--blush:#f8e7e2;--petal:#f2c4c4;--sand:#fff6f2;--ink:#2a0f15;--r:28px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:Nunito,system-ui,sans-serif;background:var(--sand);color:var(--ink);line-height:1.6;overflow-x:hidden}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.05;text-wrap:balance;overflow-wrap:break-word}
+a{color:inherit}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+#bar{position:fixed;top:0;left:0;height:4px;width:100%;background:var(--rose);transform:scaleX(0);transform-origin:left;z-index:60}
+.np-banner{background:var(--deep);color:var(--blush);font-size:.85rem;padding:8px 16px;text-align:center}
+.np-banner a{color:var(--petal)}
+header{position:sticky;top:0;z-index:50;transition:background .3s,box-shadow .3s}
+header.s{background:rgba(255,246,242,.94);box-shadow:0 6px 24px rgba(91,29,42,.14);backdrop-filter:blur(8px)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.logo{font-family:Fraunces,serif;font-weight:800;text-decoration:none;color:var(--wood);font-size:1.2rem}
+nav ul{display:flex;gap:26px;list-style:none}
+nav a{text-decoration:none;font-weight:800;color:var(--wood);position:relative}
+nav a::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:2px;background:var(--rose);transform:scaleX(0);transition:transform .3s}
+nav a:hover::after{transform:scaleX(1)}
+.burger{display:none;background:var(--wood);color:#fff;border:0;border-radius:99px;padding:10px 18px;font:800 .95rem Nunito,sans-serif;cursor:pointer}
+.hero{position:relative;padding:clamp(48px,9vw,110px) 0 clamp(60px,9vw,120px);background:radial-gradient(circle at 80% 20%,var(--petal),transparent 55%),var(--blush);overflow:hidden}
+.hero .wrap{position:relative;z-index:2;display:grid;gap:26px}
+.kicker{font-weight:800;letter-spacing:.18em;text-transform:uppercase;font-size:.8rem;color:var(--wood)}
+h1{font-size:clamp(2.6rem,11.5vw,7.4rem);color:var(--wood);font-weight:800}
+h1 em{font-style:italic;font-weight:600;color:var(--rose);display:block}
+.lead{font-size:clamp(1.05rem,2.4vw,1.3rem);max-width:34ch}
+.grain{position:absolute;right:-8%;top:50%;width:min(60vw,560px);aspect-ratio:1;margin-top:calc(min(60vw,560px) / -2);z-index:1;will-change:transform}
+.grain i{position:absolute;border-radius:50%;border:3px solid var(--wood);opacity:.2;animation:ring 8s ease-in-out infinite alternate}
+.grain i:nth-child(1){inset:0}.grain i:nth-child(2){inset:12%;animation-delay:-1s}.grain i:nth-child(3){inset:24%;animation-delay:-2s}.grain i:nth-child(4){inset:36%;animation-delay:-3s}.grain i:nth-child(5){inset:46%;background:var(--rose);opacity:.55;border:0;animation-delay:-4s}
+@keyframes ring{from{transform:scale(.94) rotate(0)}to{transform:scale(1.04) rotate(8deg)}}
+.petal{position:absolute;width:70px;height:90px;background:var(--rose);border-radius:60% 40% 60% 40%;opacity:.55;z-index:1;animation:float 9s ease-in-out infinite alternate}
+.p1{left:6%;bottom:12%}.p2{right:30%;top:10%;width:46px;height:60px;animation-delay:-3s;background:var(--wood);opacity:.25}.p3{left:46%;bottom:6%;width:34px;height:44px;animation-delay:-5s}
+@keyframes float{from{transform:translateY(0) rotate(-10deg)}to{transform:translateY(-26px) rotate(14deg)}}
+.btn{display:inline-block;background:var(--wood);color:#fff;font-weight:800;text-decoration:none;padding:14px 28px;border-radius:99px;border:2px solid var(--wood);transition:transform .25s,box-shadow .25s;cursor:pointer;font-family:Nunito,sans-serif;font-size:1rem}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 0 var(--petal)}
+.btn.alt{background:transparent;color:var(--wood)}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap}
+.marq{background:var(--wood);color:var(--blush);overflow:hidden;white-space:nowrap;padding:16px 0;font-family:Fraunces,serif;font-style:italic;font-size:1.4rem}
+.marq div{display:inline-block;animation:slide 30s linear infinite}
+.marq span{margin:0 22px}.marq b{color:var(--rose)}
+@keyframes slide{to{transform:translateX(-50%)}}
+section{padding:clamp(56px,9vw,110px) 0}
+h2{font-size:clamp(2rem,6vw,3.6rem);color:var(--wood);margin-bottom:18px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin-top:30px}
+.card{background:var(--blush);border-radius:var(--r);padding:28px;transition:transform .3s,box-shadow .3s}
+.card:hover{transform:translateY(-8px) rotate(-1deg);box-shadow:0 18px 0 var(--petal)}
+.card h3{font-size:1.6rem;color:var(--wood);margin-bottom:8px}
+.tag{display:inline-block;background:var(--rose);color:var(--deep);font-weight:800;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;padding:4px 12px;border-radius:99px;vertical-align:middle}
+.svc{background:var(--deep);color:var(--blush)}
+.svc h2{color:#fff}
+.sgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;margin-top:30px}
+.sgrid h3{color:var(--petal);font-size:1.7rem;border-bottom:2px solid var(--rose);padding-bottom:8px;margin-bottom:10px}
+.it{display:flex;justify-content:space-between;gap:14px;padding:12px 10px;border-radius:14px;transition:background .25s,transform .25s}
+.it:hover{background:rgba(255,255,255,.08);transform:translateX(6px)}
+.it small{display:block;opacity:.8}
+.it .pr{font-family:Fraunces,serif;font-weight:800;color:var(--petal);font-size:1.2rem}
+.note{margin-top:30px;padding:16px 20px;border:2px dashed var(--rose);border-radius:18px}
+.hl{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:36px;align-items:start}
+.hours{list-style:none;margin-top:14px}
+.hours li{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--petal);font-weight:600}
+.map{border-radius:var(--r);overflow:hidden;background:var(--blush);margin-top:10px}
+.map iframe{width:100%;border:0;min-height:260px;display:block}
+.maplinks{display:flex;gap:12px;flex-wrap:wrap;padding:12px 0}
+.maplinks a{color:var(--wood);font-weight:800}
+.mapcredit{font-size:.75rem;opacity:.7}
+.contact{background:var(--blush);text-align:center}
+.contact .cta-row{justify-content:center;margin-top:18px}
+.np-cta{background:var(--wood);color:#fff;border-radius:var(--r);padding:clamp(28px,5vw,56px);text-align:center;margin:20px auto;box-shadow:12px 12px 0 var(--rose)}
+.np-cta .btn{background:#fff;color:var(--wood);border-color:#fff}
+.np-cta .btn.alt{background:transparent;color:#fff}
+.np-cta small{display:block;opacity:.85;margin-top:12px}
+footer{padding:28px 0;text-align:center;font-size:.9rem;color:var(--wood)}
+.js .rv{opacity:0;transform:translateY(34px);transition:opacity .8s,transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+.hero .wrap>*{animation:up .9s both cubic-bezier(.2,.7,.2,1)}
+.hero .wrap>*:nth-child(2){animation-delay:.12s}.hero .wrap>*:nth-child(3){animation-delay:.24s}.hero .wrap>*:nth-child(4){animation-delay:.36s}
+@keyframes up{from{opacity:0;transform:translateY(40px)}}
+@media(max-width:760px){
+.burger{display:block}
+nav ul{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;background:var(--sand);padding:18px 20px;gap:14px;box-shadow:0 14px 24px rgba(91,29,42,.16)}
+nav ul.open{display:flex}
+.grain{opacity:.6}
+}
+@media(prefers-reduced-motion:reduce){
+*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+.js .rv{opacity:1;transform:none}
+.marq{overflow-x:auto}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Sample design by Northlight Web. Not a real business.</div>
+<div id="bar"></div>
+<header id="hd">
+<div class="wrap nav">
+<a class="logo" href="#top">Rosewood</a>
+<button class="burger" id="bg" aria-expanded="false" aria-controls="menu">Menu</button>
+<nav><ul id="menu">
+<li><a href="#offer">Studio</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#visit">Hours &amp; location</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul></nav>
+</div>
+</header>
+
+<main id="top">
+<div class="hero">
+<div class="grain" id="gr" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+<span class="petal p1" aria-hidden="true"></span><span class="petal p2" aria-hidden="true"></span><span class="petal p3" aria-hidden="true"></span>
+<div class="wrap">
+<p class="kicker">Hair salon · Anytown, MN</p>
+<h1>Rosewood <em>Hair Studio</em></h1>
+<p class="lead">Cuts, color and styling in Anytown. Sit down, relax, leave feeling like yourself.</p>
+<div class="cta-row"><a class="btn" href="#services">See services</a><a class="btn alt" href="#visit">Hours &amp; location</a></div>
+</div>
+</div>
+
+<div class="marq" aria-hidden="true"><div>
+<span>Cuts</span><b>✿</b><span>Color</span><b>✿</b><span>Styling</span><b>✿</b><span>Blowout</span><b>✿</b><span>Highlights</span><b>✿</b><span>Updo</span><b>✿</b><span>Rosewood Hair Studio</span><b>✿</b><span>Anytown, MN</span><b>✿</b>
+<span>Cuts</span><b>✿</b><span>Color</span><b>✿</b><span>Styling</span><b>✿</b><span>Blowout</span><b>✿</b><span>Highlights</span><b>✿</b><span>Updo</span><b>✿</b><span>Rosewood Hair Studio</span><b>✿</b><span>Anytown, MN</span><b>✿</b>
+</div></div>
+
+<section id="offer"><div class="wrap">
+<h2 class="rv">What we do</h2>
+<p class="rv">A hair salon in Anytown, Minnesota, with three simple things on the chair.</p>
+<div class="cards">
+<div class="card rv" style="--d:.05s"><h3>Cuts</h3><p>Women's, men's and kids' haircuts.</p></div>
+<div class="card rv" style="--d:.15s"><h3>Color</h3><p>Root touch-ups, full color and highlights.</p></div>
+<div class="card rv" style="--d:.25s"><h3>Styling</h3><p>Blowouts, updos and deep conditioning.</p></div>
+</div>
+</div></section>
+
+<section id="services" class="svc"><div class="wrap">
+<h2 class="rv">Services <span class="tag">Example</span></h2>
+<div class="sgrid">
+<div class="rv"><h3>Cuts</h3>
+<div class="it"><div>Women's haircut<small>Shampoo, cut and style</small></div><span class="pr">$45</span></div>
+<div class="it"><div>Men's haircut</div><span class="pr">$25</span></div>
+<div class="it"><div>Kids' haircut<small>Ages 12 and under</small></div><span class="pr">$18</span></div></div>
+<div class="rv" style="--d:.1s"><h3>Color</h3>
+<div class="it"><div>Root touch-up</div><span class="pr">$65</span></div>
+<div class="it"><div>Full color</div><span class="pr">$95</span></div>
+<div class="it"><div>Highlights<small>Partial or full</small></div><span class="pr">$120</span></div></div>
+<div class="rv" style="--d:.2s"><h3>Styling</h3>
+<div class="it"><div>Blowout</div><span class="pr">$35</span></div>
+<div class="it"><div>Updo<small>For events</small></div><span class="pr">$70</span></div>
+<div class="it"><div>Deep conditioning</div><span class="pr">$20</span></div></div>
+</div>
+<p class="note rv">These are example services and prices that show how your price list would look. Your real services and prices go here.</p>
+</div></section>
+
+<section id="visit"><div class="wrap">
+<div class="hl">
+<div class="rv">
+<h2>Hours &amp; location</h2>
+<span class="tag">Example hours</span>
+<ul class="hours">
+<li><span>Mon</span><span>7 AM – 3 PM</span></li>
+<li><span>Tue</span><span>7 AM – 3 PM</span></li>
+<li><span>Wed</span><span>7 AM – 3 PM</span></li>
+<li><span>Thu</span><span>7 AM – 3 PM</span></li>
+<li><span>Fri</span><span>7 AM – 8 PM</span></li>
+<li><span>Sat</span><span>8 AM – 8 PM</span></li>
+<li><span>Sun</span><span>Closed</span></li>
+</ul>
+</div>
+<div class="rv" style="--d:.15s">
+<p><strong>Anytown, MN</strong></p>
+
+</div>
+</div>
+</div></section>
+
+<section id="contact" class="contact"><div class="wrap">
+<h2 class="rv">Book a seat</h2>
+<p class="rv">Send a note and we'll find you a time.</p>
+<div class="cta-row rv"> </div>
+</div></section>
+
+<section><div class="wrap"><section class="np-cta" id="offer"><h2>Want something like this?</h2><p>This is a sample design. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20Rosewood%20Hair%20Studio&amp;body=Yes%2C%20please%20make%20this%20site%20for%20Rosewood%20Hair%20Studio.">Make it mine</a></p></section></div></section>
+</main>
+
+<footer>Rosewood Hair Studio · Anytown, MN</footer>
+<div class="np-banner">Sample design by Northlight Web. Not a real business. · Rosewood Hair Studio</div>
+<script>
+document.documentElement.classList.add('js');
+var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+var bar=document.getElementById('bar'),hd=document.getElementById('hd'),gr=document.getElementById('gr');
+function sc(){var h=document.documentElement,m=h.scrollHeight-innerHeight,y=scrollY;
+bar.style.transform='scaleX('+(m>0?y/m:0)+')';
+hd.classList.toggle('s',y>20);
+if(!rm)gr.style.transform='translateY('+(y*.15)+'px) rotate('+(y*.05)+'deg)';}
+addEventListener('scroll',sc,{passive:true});sc();
+var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12});
+document.querySelectorAll('.rv').forEach(function(el){if(rm)el.classList.add('in');else io.observe(el)});
+var bg=document.getElementById('bg'),mn=document.getElementById('menu');
+bg.onclick=function(){var o=mn.classList.toggle('open');bg.setAttribute('aria-expanded',o)};
+mn.querySelectorAll('a').forEach(function(a){a.onclick=function(){mn.classList.remove('open');bg.setAttribute('aria-expanded',false)}});
+if(!rm)document.querySelectorAll('.btn').forEach(function(b){
+b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.15)+'px,'+((e.clientY-r.top-r.height/2)*.25-3)+'px)'});
+b.addEventListener('mouseleave',function(){b.style.transform=''})});
+</script>
+</body>
+</html>

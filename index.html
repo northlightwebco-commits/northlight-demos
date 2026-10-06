@@ -1,1 +1,225 @@
-<!doctype html><meta charset="utf-8"><meta name="robots" content="noindex"><title>Northlight Web previews</title><p>Northlight Web preview pages.</p>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Northlight Web: your website, built before you ask</title>
+<meta name="description" content="I make a free preview of a new website for your restaurant, café, bar, salon or garage. If you like it, it's $299. All by email.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070d17;--bg2:#0c1626;--card:#0f1b2e;--line:rgba(255,255,255,.09);--tx:#eef3f8;--mu:#9fb0c3;--g:#5ef2c0;--g2:#3fd0a1;--b:#6aa8ff;--p:#b392ff;--e:cubic-bezier(.2,.8,.2,1)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font:400 17px/1.65 "Manrope",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--g);outline-offset:3px;border-radius:8px}
+.wrap{width:min(1120px,calc(100% - 40px));margin:0 auto}
+h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:700;letter-spacing:-.02em;line-height:1.08;text-wrap:balance}
+h1{font-size:clamp(40px,6.4vw,84px)}
+h2{font-size:clamp(30px,4vw,52px)}
+h3{font-size:22px;line-height:1.2}
+em{font-style:italic;font-weight:500;color:var(--g)}
+.mu{color:var(--mu)}
+/* aurora */
+.aurora{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.aurora i{position:absolute;width:60vmax;height:34vmax;border-radius:50%;filter:blur(90px);opacity:.38;mix-blend-mode:screen}
+.aurora i:nth-child(1){left:-12%;top:-18%;background:radial-gradient(closest-side,var(--g),transparent);animation:d1 18s ease-in-out infinite alternate}
+.aurora i:nth-child(2){right:-18%;top:-8%;background:radial-gradient(closest-side,var(--b),transparent);animation:d2 22s ease-in-out infinite alternate}
+.aurora i:nth-child(3){left:22%;top:12%;width:44vmax;background:radial-gradient(closest-side,var(--p),transparent);opacity:.26;animation:d3 26s ease-in-out infinite alternate}
+@keyframes d1{to{transform:translate(14vw,8vh) rotate(18deg) scale(1.1)}}
+@keyframes d2{to{transform:translate(-12vw,14vh) rotate(-14deg) scale(.92)}}
+@keyframes d3{to{transform:translate(-8vw,-6vh) rotate(30deg) scale(1.15)}}
+.stars{position:absolute;inset:0;background-image:radial-gradient(1px 1px at 12% 22%,#fff8,transparent),radial-gradient(1px 1px at 78% 14%,#fff8,transparent),radial-gradient(1.5px 1.5px at 44% 64%,#fff6,transparent),radial-gradient(1px 1px at 90% 70%,#fff7,transparent),radial-gradient(1px 1px at 26% 82%,#fff6,transparent),radial-gradient(1px 1px at 60% 36%,#fff5,transparent);animation:tw 6s ease-in-out infinite alternate}
+@keyframes tw{to{opacity:.45}}
+/* header */
+header{position:sticky;top:0;z-index:30;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(7,13,23,.6);border-bottom:1px solid transparent;transition:border-color .3s}
+header.s{border-color:var(--line)}
+.bar{display:flex;align-items:center;gap:28px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-family:"Fraunces",serif;font-weight:700;font-size:21px;text-decoration:none}
+.logo b{width:26px;height:26px;border-radius:8px;background:conic-gradient(from 200deg,var(--g),var(--b),var(--p),var(--g));box-shadow:0 0 22px #5ef2c055}
+nav{margin-left:auto;display:flex;gap:26px;font-size:15px;font-weight:600}
+nav a{text-decoration:none;color:var(--mu);transition:color .25s}nav a:hover{color:var(--tx)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 24px;border-radius:999px;font-weight:700;font-size:16px;text-decoration:none;border:1px solid var(--line);transition:translate .3s var(--e),box-shadow .3s,background .3s;white-space:nowrap}
+.btn:hover{translate:0 -3px}
+.btn.p{background:linear-gradient(135deg,var(--g),var(--g2));color:#04281d;border-color:transparent;box-shadow:0 10px 30px -8px #5ef2c088}
+.btn.p:hover{box-shadow:0 16px 38px -8px #5ef2c0aa}
+.btn.s{background:rgba(255,255,255,.04)}.btn.s:hover{background:rgba(255,255,255,.09)}
+/* hero */
+.hero{position:relative;padding:clamp(56px,9vw,120px) 0 clamp(70px,9vw,120px);overflow:hidden}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center}
+.hero p.lead{font-size:clamp(18px,2vw,22px);color:var(--mu);max-width:34em;margin:26px 0 34px}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+.note{margin-top:20px;font-size:14px;color:var(--mu)}
+/* phone */
+.phone{width:min(300px,100%);margin-inline:auto;aspect-ratio:9/18.5;border-radius:42px;padding:11px;background:linear-gradient(160deg,#243756,#0b1424);border:1px solid #ffffff22;box-shadow:0 40px 80px -20px #000,0 0 80px -10px #5ef2c044;position:relative;animation:fl 7s ease-in-out infinite alternate}
+@keyframes fl{to{translate:0 -12px;rotate:1deg}}
+.screen{border-radius:32px;height:100%;background:#fbf7ef;overflow:hidden;position:relative;color:#2a1d12}
+.screen:before{content:"";position:absolute;left:50%;top:9px;translate:-50% 0;width:84px;height:20px;border-radius:12px;background:#000;z-index:3}
+.roll{position:absolute;inset:0 0 auto 0;animation:roll 14s ease-in-out infinite alternate}
+@keyframes roll{0%,8%{translate:0 0}92%,100%{translate:0 -62%}}
+.m-hero{padding:52px 18px 20px;background:linear-gradient(180deg,#e7c9a0,#fbf7ef)}
+.m-hero small{font-size:10px;letter-spacing:.14em;text-transform:uppercase;opacity:.7;font-weight:700}
+.m-hero b{display:block;font:700 30px/1 "Fraunces",serif;margin:8px 0 10px}
+.m-hero span{display:inline-block;background:#2a1d12;color:#fbf7ef;font-size:11px;font-weight:700;border-radius:99px;padding:6px 12px}
+.m-sec{padding:16px 18px}
+.m-sec h4{font:700 15px "Fraunces",serif;margin-bottom:8px}
+.m-row{display:flex;justify-content:space-between;font-size:11px;padding:6px 0;border-bottom:1px dashed #2a1d1233}
+.m-img{height:92px;border-radius:12px;margin:0 18px;background:radial-gradient(circle at 30% 30%,#ffd9a0,transparent 55%),linear-gradient(135deg,#c2703d,#7a3b1d)}
+.tag{display:inline-block;font-size:8px;font-weight:700;letter-spacing:.08em;border:1px solid currentColor;border-radius:99px;padding:1px 6px;margin-left:6px;opacity:.7;vertical-align:2px}
+/* sections */
+section{padding:clamp(64px,8vw,110px) 0;position:relative}
+.head{max-width:44em;margin-bottom:46px}
+.head p{color:var(--mu);margin-top:14px;font-size:19px}
+.marq{border-block:1px solid var(--line);background:var(--bg2);overflow:hidden;padding:18px 0}
+.marq div{display:flex;gap:44px;width:max-content;animation:mq 34s linear infinite;font:500 italic 26px "Fraunces",serif;color:#c8d6e6}
+.marq span:after{content:"✦";margin-left:44px;color:var(--g);font-style:normal;font-size:16px}
+@keyframes mq{to{translate:-50% 0}}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:s}
+.step{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px 24px;position:relative;overflow:hidden;transition:translate .4s var(--e),border-color .3s}
+.step:hover{translate:0 -6px;border-color:#5ef2c055}
+.step:before{counter-increment:s;content:counter(s);font:700 56px/1 "Fraunces",serif;color:#5ef2c022;position:absolute;right:16px;top:8px}
+.step h3{margin-bottom:10px}.step p{color:var(--mu);font-size:16px}
+.incl{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.incl div{padding:20px 22px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.025);display:flex;gap:14px;align-items:flex-start;transition:background .3s,border-color .3s}
+.incl div:hover{background:rgba(94,242,192,.06);border-color:#5ef2c044}
+.incl i{flex:none;width:28px;height:28px;border-radius:9px;background:#5ef2c01f;display:grid;place-items:center;color:var(--g);font-style:normal;font-weight:800}
+.incl b{display:block;font-weight:700}.incl span{color:var(--mu);font-size:15px}
+.price{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch}
+.box{border:1px solid var(--line);border-radius:28px;padding:38px;background:var(--card);position:relative;overflow:hidden}
+.box.main{background:linear-gradient(160deg,#10304a,#0c1c30);border-color:#5ef2c055}
+.box.main:after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(closest-side,#5ef2c066,transparent)}
+.big{font:700 clamp(64px,8vw,104px)/1 "Fraunces",serif;letter-spacing:-.04em}
+.big small{font-size:.28em;font-weight:500;color:var(--mu);letter-spacing:0}
+.box ul{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:12px}
+.box li{display:flex;gap:12px;color:#cfdbe8;font-size:16px}.box li:before{content:"✓";color:var(--g);font-weight:800}
+.samples{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.sc{border:1px solid var(--line);border-radius:24px;overflow:hidden;background:var(--card);text-decoration:none;display:block;transition:translate .4s var(--e),border-color .3s}
+.sc:hover{translate:0 -8px;border-color:#5ef2c066}
+.sc .shot{aspect-ratio:16/11;position:relative;overflow:hidden;background:#111}
+.sc iframe{width:250%;height:250%;border:0;transform:scale(.4);transform-origin:0 0;pointer-events:none;background:#fff}
+.sc .meta{padding:18px 22px}.sc b{display:block;font-family:"Fraunces",serif;font-size:21px}.sc span{color:var(--mu);font-size:14px}
+.faq details{border-top:1px solid var(--line);padding:22px 0}.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;font:700 20px "Fraunces",serif;list-style:none;display:flex;justify-content:space-between;gap:20px}
+.faq summary::-webkit-details-marker{display:none}.faq summary:after{content:"+";color:var(--g);font-size:28px;line-height:1;transition:rotate .3s}
+.faq details[open] summary:after{rotate:45deg}.faq p{color:var(--mu);margin-top:12px;max-width:46em}
+.about{display:grid;grid-template-columns:.7fr 1.3fr;gap:50px;align-items:center}
+.ph{aspect-ratio:1;border-radius:32px;background:conic-gradient(from 160deg,#123b44,#143060,#2b1f5c,#123b44);position:relative;display:grid;place-items:center;font:700 120px "Fraunces",serif;color:#ffffffd0;overflow:hidden}
+.ph:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 20%,#5ef2c055,transparent 55%)}
+.final{text-align:center;background:linear-gradient(180deg,var(--bg),#0b2230);overflow:hidden}
+.final .wrap{position:relative;z-index:1}
+.final p{color:var(--mu);font-size:20px;margin:18px auto 34px;max-width:30em}
+footer{padding:34px 0;border-top:1px solid var(--line);color:var(--mu);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+/* motion */
+.rv{opacity:1}
+.js .rv{opacity:0;translate:0 30px;transition:opacity .9s var(--e),translate .9s var(--e);transition-delay:var(--d,0ms)}
+.js .rv.in{opacity:1;translate:0 0}
+.hero h1,.hero .lead,.hero .cta,.hero .note{animation:up 1s var(--e) both}.hero .lead{animation-delay:.12s}.hero .cta{animation-delay:.24s}.hero .note{animation-delay:.34s}
+@keyframes up{from{opacity:0;translate:0 26px;filter:blur(8px)}to{opacity:1;translate:0 0;filter:none}}
+@media(max-width:900px){.hero .wrap,.price,.about{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.incl,.samples{grid-template-columns:1fr}nav a:not(.keep){display:none}.phone{max-width:240px}.ph{max-width:260px;font-size:90px}}
+@media(max-width:560px){.steps{grid-template-columns:1fr}.bar{gap:12px}.btn{padding:12px 20px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.js .rv{opacity:1;translate:0 0}}
+</style>
+</head>
+<body>
+<header id="hd"><div class="wrap bar">
+  <a class="logo" href="#top"><b></b>Northlight Web</a>
+  <nav><a href="#how">How it works</a><a href="#price">Price</a><a href="#examples">Examples</a><a href="#about">About</a><a class="keep btn p" style="padding:9px 20px;font-size:15px" href="mailto:northlightwebco@gmail.com?subject=A%20website%20for%20my%20business">Email me</a></nav>
+</div></header>
+
+<main id="top">
+<div class="hero">
+  <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div><div class="stars" aria-hidden="true"></div>
+  <div class="wrap">
+    <div>
+      <h1>I build your website first. <em>You decide second.</em></h1>
+      <p class="lead">I make a free preview of a new website for your restaurant, café, bar, salon or garage, with your name, your hours and your map. If you like it, it's $299. If you don't, you've lost nothing.</p>
+      <div class="cta"><a class="btn p" href="mailto:northlightwebco@gmail.com?subject=A%20website%20for%20my%20business">Email me about my place</a><a class="btn s" href="#examples">See what a preview looks like</a></div>
+      <p class="note">One person, one clear price. All by email, so everything is in writing.</p>
+    </div>
+    <div class="phone" aria-hidden="true"><div class="screen"><div class="roll">
+      <div class="m-hero"><small>Sample Bistro · Anytown</small><b>Come hungry.<br>Leave happy.</b><span>See the menu</span></div>
+      <div class="m-img"></div>
+      <div class="m-sec"><h4>Menu <span class="tag">EXAMPLE</span></h4><div class="m-row"><span>Soup of the day</span><span>$8</span></div><div class="m-row"><span>House burger</span><span>$13</span></div><div class="m-row"><span>Garden salad</span><span>$9</span></div><div class="m-row"><span>Apple pie</span><span>$6</span></div></div>
+      <div class="m-sec"><h4>Hours &amp; location</h4><div class="m-row"><span>Mon–Fri</span><span>8 AM – 8 PM</span></div><div class="m-row"><span>Sat</span><span>9 AM – 9 PM</span></div><div class="m-row"><span>Sun</span><span>Closed</span></div></div>
+      <div class="m-img" style="background:linear-gradient(135deg,#4a7bd0,#1c2f66);height:120px"></div>
+    </div></div></div>
+  </div>
+</div>
+
+<div class="marq" aria-hidden="true"><div><span>Restaurants</span><span>Cafés</span><span>Bars &amp; pubs</span><span>Hair salons</span><span>Barbershops</span><span>Auto repair</span><span>Restaurants</span><span>Cafés</span><span>Bars &amp; pubs</span><span>Hair salons</span><span>Barbershops</span><span>Auto repair</span></div></div>
+
+<section id="how"><div class="wrap">
+  <div class="head rv"><h2>Four steps. <em>You can stop at any of them.</em></h2><p>No forms, no meetings, no jargon. You see the website before you spend a cent.</p></div>
+  <div class="steps">
+    <div class="step rv"><h3>I build a preview</h3><p>I look up your place and make a real, working preview with your name, hours and map. It's free.</p></div>
+    <div class="step rv" style="--d:90ms"><h3>You look at it</h3><p>Open it on your phone, show your team. Tell me what you'd change, or tell me no.</p></div>
+    <div class="step rv" style="--d:180ms"><h3>You say yes</h3><p>Reply "yes" and pay the first half. I finish the site with your real menu and photos.</p></div>
+    <div class="step rv" style="--d:270ms"><h3>It goes live</h3><p>When you're happy, you pay the second half and the site goes live on a domain you own.</p></div>
+  </div>
+</div></section>
+
+<section style="background:var(--bg2)"><div class="wrap">
+  <div class="head rv"><h2>What your customers <em>actually look for</em></h2><p>Everything on one clean page that loads fast on a phone.</p></div>
+  <div class="incl">
+    <div class="rv"><i>1</i><p><b>Your menu or services</b><span>Easy to read, easy to update.</span></p></div>
+    <div class="rv" style="--d:70ms"><i>2</i><p><b>Opening hours</b><span>So nobody shows up when you're closed.</span></p></div>
+    <div class="rv" style="--d:140ms"><i>3</i><p><b>Map and directions</b><span>New customers find you in one tap.</span></p></div>
+    <div class="rv"><i>4</i><p><b>Your photos</b><span>Your food, your space, your people.</span></p></div>
+    <div class="rv" style="--d:70ms"><i>5</i><p><b>Made for phones</b><span>Most visitors will arrive on one.</span></p></div>
+    <div class="rv" style="--d:140ms"><i>6</i><p><b>An easy way to reach you</b><span>A button that opens an email to you.</span></p></div>
+  </div>
+</div></section>
+
+<section id="price"><div class="wrap">
+  <div class="head rv"><h2>One price. <em>No surprises.</em></h2></div>
+  <div class="price">
+    <div class="box main rv"><div class="big">$299 <small>one time</small></div>
+      <ul><li>A complete, custom-designed one-page website</li><li>Half up front, half when you're happy</li><li>You buy your own domain (about $12 a year), so you always own it</li><li>Small changes free for the first 30 days</li></ul></div>
+    <div class="box rv" style="--d:100ms"><div class="big">$29 <small>a month, optional</small></div>
+      <ul><li>Help with hosting and your domain</li><li>Small changes whenever you need them</li><li>Cancel any time</li><li>Prefer to do it yourself? Skip it. The site is yours either way.</li></ul></div>
+  </div>
+</div></section>
+
+<section id="examples" style="background:var(--bg2)"><div class="wrap">
+  <div class="head rv"><h2>Every place gets <em>its own look.</em></h2><p>These are sample designs for made-up businesses, to show the range. Yours is built around your place, with its own style, colors and details.</p></div>
+  <div class="samples" id="sampleGrid">
+    <a class="sc rv" style="--d:0ms" href="samples/harbor-and-pine.html"><div class="shot"><iframe src="samples/harbor-and-pine.html" title="Harbor &amp; Pine Café" loading="lazy" tabindex="-1"></iframe></div><div class="meta"><b>Harbor &amp; Pine Café</b><span>Sample café · made-up business · open to explore</span></div></a><a class="sc rv" style="--d:90ms" href="samples/rosewood-hair-studio.html"><div class="shot"><iframe src="samples/rosewood-hair-studio.html" title="Rosewood Hair Studio" loading="lazy" tabindex="-1"></iframe></div><div class="meta"><b>Rosewood Hair Studio</b><span>Sample hair salon · made-up business · open to explore</span></div></a><a class="sc rv" style="--d:180ms" href="samples/ridgeline-auto-care.html"><div class="shot"><iframe src="samples/ridgeline-auto-care.html" title="Ridgeline Auto Care" loading="lazy" tabindex="-1"></iframe></div><div class="meta"><b>Ridgeline Auto Care</b><span>Sample auto repair · made-up business · open to explore</span></div></a>
+  </div>
+</div></section>
+
+<section><div class="wrap faq">
+  <div class="head rv"><h2>Questions, <em>answered plainly</em></h2></div>
+  <details class="rv"><summary>Do I need to send you photos or text first?</summary><p>No. I start from what is publicly known about your place. After you say yes, you can send your real photos, your menu and any corrections.</p></details>
+  <details class="rv"><summary>What if I don't like the preview?</summary><p>Then say so, or say nothing. You owe nothing for the preview.</p></details>
+  <details class="rv"><summary>Who owns the website?</summary><p>You do. You buy the domain in your own name, and the website is yours to keep, with or without the monthly plan.</p></details>
+  <details class="rv"><summary>Why is everything by email?</summary><p>I'm based in Aalborg, Denmark, so email works best for both of us. It is also clear and written down, so nothing gets lost.</p></details>
+  <details class="rv"><summary>How do I pay?</summary><p>By invoice, in two halves: the first when you say yes, the second when you are happy with the finished site.</p></details>
+</div></section>
+
+<section id="about" style="background:var(--bg2)"><div class="wrap about">
+  <div class="ph rv" aria-hidden="true">R</div>
+  <div class="rv"><h2>Hi, I'm <em>Roman.</em></h2>
+    <p class="mu" style="margin-top:18px;font-size:19px">I build simple, modern websites for small, independent places, because I want local businesses to be found and to look their best online.</p>
+    <p class="mu" style="margin-top:14px;font-size:19px">I'm based in Aalborg, Denmark, and alongside my day job as an electromechanic I work with businesses in the US, entirely by email. You always deal directly with me.</p></div>
+</div></section>
+
+<section class="final"><div class="aurora" aria-hidden="true"><i></i><i></i></div><div class="wrap">
+  <h2 class="rv">Let's make your place <em>look as good as it is.</em></h2>
+  <p class="rv">Tell me the name of your place, and I'll show you what it could look like.</p>
+  <div class="rv"><a class="btn p" href="mailto:northlightwebco@gmail.com?subject=A%20website%20for%20my%20business">northlightwebco@gmail.com</a></div>
+</div></section>
+</main>
+<footer><div class="wrap"><span>© Northlight Web · Aalborg, Denmark</span><span>All contact is by email.</span></div></footer>
+<script>
+(function(){var d=document,h=d.documentElement;h.classList.add('js');
+var hd=d.getElementById('hd');function s(){hd.classList.toggle('s',scrollY>10)}addEventListener('scroll',s,{passive:true});s();
+var els=[].slice.call(d.querySelectorAll('.rv'));
+if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches){els.forEach(function(e){e.classList.add('in')});return}
+var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12,rootMargin:'0px 0px -5% 0px'});
+els.forEach(function(e){io.observe(e)});setTimeout(function(){els.forEach(function(e){e.classList.add('in')})},5000)})();
+</script>
+</body>
+</html>
