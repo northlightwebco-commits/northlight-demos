@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Know another local owner? · Northlight Web</title>
+<meta name="description" content="Pass this on to another local business owner. They get a free preview of their website, no strings attached.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="pages.css">
+<style>
+.pass{background:linear-gradient(135deg,#12243d,#0d1a2c);border:1px solid var(--line);border-radius:26px;padding:34px;position:relative;overflow:hidden}
+.pass:before{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(closest-side,rgba(94,242,192,.35),transparent)}
+.pass h3{font-size:30px;margin-bottom:10px;position:relative}
+.pass p{color:var(--mu);position:relative}
+.pass .u{margin-top:16px;font-weight:700;color:var(--g);position:relative;word-break:break-all}
+</style>
+</head>
+<body>
+<header><div class="wrap bar">
+  <a class="logo" href="./"><b></b>Northlight Web</a>
+  <nav><a href="./">Home</a><a href="order.html">Make it mine</a><a href="check.html">Free site check</a><a class="keep btn p" style="padding:9px 20px;font-size:15px" href="mailto:northlightwebco@gmail.com?subject=A%20website%20for%20my%20business">Email me</a></nav>
+</div></header>
+<main>
+<div class="aurora" aria-hidden="true"><i></i><i></i></div>
+<div class="hero"><div class="wrap">
+  <h1>Know another <em>local owner?</em></h1>
+  <p>If you have a friend with a restaurant, salon or garage, pass this on. They get a free preview of their website to look at first, no strings attached. And if you're a customer, I'll say thank you personally.</p>
+</div></div>
+<div class="sec"><div class="wrap">
+  <div class="pass"><h3>A free preview of your website, before you decide.</h3><p>Northlight Web builds simple, modern websites for small local places. You see yours first. Then you decide.</p><div class="u">northlightwebco-commits.github.io/northlight-demos</div></div>
+  <div class="card" style="margin-top:22px">
+    <h2 style="font-size:26px;margin-bottom:12px">Send it in one tap</h2>
+    <p class="mu" style="margin-bottom:14px">Edit the message if you like, then copy it or send it by email.</p>
+    <textarea id="msg" style="min-height:150px">Hey! I came across Northlight Web. They build simple, modern websites for local places like ours, and they make a free preview first so you can see it before deciding. Worth a look: https://northlightwebco-commits.github.io/northlight-demos/</textarea>
+    <p style="margin-top:14px;display:flex;gap:12px;flex-wrap:wrap"><button class="btn p" type="button" id="cp">Copy message</button><a class="btn s" id="ml" href="#">Send by email</a></p>
+  </div>
+</div></div>
+</main>
+<footer><div class="wrap"><span>© Northlight Web · Aalborg, Denmark</span><span><a href="./">Home</a><a href="order.html">Make it mine</a><a href="check.html">Free site check</a></span></div></footer>
+<script>
+(function(){var d=document,m=d.getElementById('msg'),a=d.getElementById('ml');
+function up(){a.href='mailto:?subject='+encodeURIComponent('A website idea for you')+'&body='+encodeURIComponent(m.value)}m.addEventListener('input',up);up();
+d.getElementById('cp').addEventListener('click',function(){var b=this;(navigator.clipboard?navigator.clipboard.writeText(m.value):Promise.reject()).catch(function(){m.select();d.execCommand('copy')}).then(function(){b.textContent='Copied'})})})();
+</script>
+</body>
+</html>

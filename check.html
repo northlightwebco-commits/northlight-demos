@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Free website check · Northlight Web</title>
+<meta name="description" content="Eight quick questions to see if your website is working for your place. Takes two minutes, nothing is sent anywhere.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="pages.css">
+<style>
+.q{display:flex;gap:16px;align-items:flex-start;padding:18px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.q:last-of-type{border-bottom:0}
+.q input{position:absolute;opacity:0}
+.q i{flex:none;width:28px;height:28px;border-radius:9px;border:2px solid var(--line);display:grid;place-items:center;transition:all .2s var(--e);margin-top:2px}
+.q input:checked+i{background:var(--g);border-color:var(--g)}
+.q input:checked+i:after{content:"";width:7px;height:13px;border:solid #05140e;border-width:0 3px 3px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.q input:focus-visible+i{outline:2px solid var(--g);outline-offset:3px}
+.q b{display:block;font-weight:600}
+.q span{display:block;font-size:15px;color:var(--mu)}
+.res{margin-top:26px;display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+.ring{--v:0;width:132px;height:132px;border-radius:50%;background:conic-gradient(var(--g) calc(var(--v)*1%),rgba(255,255,255,.08) 0);display:grid;place-items:center;flex:none;transition:background .4s}
+.ring div{width:104px;height:104px;border-radius:50%;background:var(--card);display:grid;place-items:center;font:700 34px "Fraunces",Georgia,serif}
+.ring small{font:500 13px "Manrope";color:var(--mu);display:block;text-align:center;margin-top:-6px}
+.tips{margin:14px 0 0;padding-left:20px;color:var(--mu);font-size:16px}.tips li{margin:6px 0}
+.cta{margin-top:24px;display:flex;gap:12px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<header><div class="wrap bar">
+  <a class="logo" href="./"><b></b>Northlight Web</a>
+  <nav><a href="./">Home</a><a href="order.html">Make it mine</a><a href="check.html" class="on">Free site check</a><a class="keep btn p" style="padding:9px 20px;font-size:15px" href="mailto:northlightwebco@gmail.com?subject=A%20website%20for%20my%20business">Email me</a></nav>
+</div></header>
+<main>
+<div class="aurora" aria-hidden="true"><i></i><i></i></div>
+<div class="hero"><div class="wrap">
+  <h1>Is your website <em>working</em> for you?</h1>
+  <p>Eight quick checks. Open your website on your phone, then tick what's true. Everything stays on your device.</p>
+</div></div>
+<div class="sec"><div class="wrap">
+<div class="card" id="box">
+  <label class="q"><input type="checkbox"><i></i><div><b>It loads quickly on my phone</b><span>On regular mobile data, not just Wi-Fi.</span></div></label>
+  <label class="q"><input type="checkbox"><i></i><div><b>I can read everything without zooming</b><span>Text is big enough and nothing runs off the screen.</span></div></label>
+  <label class="q"><input type="checkbox"><i></i><div><b>My opening hours are easy to find and correct</b><span>Including holiday hours.</span></div></label>
+  <label class="q"><input type="checkbox"><i></i><div><b>There's a button for directions</b><span>One tap opens the map.</span></div></label>
+  <label class="q"><input type="checkbox"><i></i><div><b>My menu or services are text, not a PDF</b><span>PDFs are slow and hard to read on a phone.</span></div></label>
+  <label class="q"><input type="checkbox"><i></i><div><b>There's an easy way to contact me</b><span>A clear email or message button, not a hidden form.</span></div></label>
+  <label class="q"><input type="checkbox"><i></i><div><b>It shows real photos of my place</b><span>Your own, not stock images.</span></div></label>
+  <label class="q"><input type="checkbox"><i></i><div><b>It matches my Google listing</b><span>Same name, same hours, same look.</span></div></label>
+  <div class="res"><div><div class="ring" id="ring"><div id="sc">0/8</div></div></div>
+    <div style="flex:1;min-width:240px"><h2 id="hd">Tick what's true for your site.</h2><ul class="tips" id="tips"></ul></div></div>
+  <div class="cta"><a class="btn p" href="order.html">I want a free preview of mine</a><a class="btn s" href="mailto:northlightwebco@gmail.com?subject=Free%20website%20check">Email me my result</a></div>
+  <p class="note">A free preview means I build a version of your site first. You look at it, then decide.</p>
+</div>
+</div></div>
+</main>
+<footer><div class="wrap"><span>© Northlight Web · Aalborg, Denmark</span><span><a href="./">Home</a><a href="order.html">Make it mine</a><a href="refer.html">Know another owner?</a></span></div></footer>
+<script>
+(function(){
+var d=document,boxes=[].slice.call(d.querySelectorAll('.q input')),tipsFor=['Slow sites lose visitors. Smaller images and a simpler page usually fix it.','Bigger text and a layout built for phones make a big difference.','Wrong hours send people to a locked door. Check Google and your site today.','Add a "Get directions" button that opens the map in one tap.','Turn the menu or service list into text on the page.','Put a clear contact button near the top of every page.','Real photos beat stock photos every time. Even a few help.','Make your website and Google listing say the same thing.'];
+var heads=['Tick what\'s true for your site.','Lots of room to improve. The good news: every one of these is fixable.','A decent start. A few fixes would help a lot.','Strong. Just a couple of things to polish.','Excellent. Your site is doing its job.'];
+function upd(){var n=boxes.filter(function(b){return b.checked}).length;d.getElementById('sc').textContent=n+'/8';d.getElementById('ring').style.setProperty('--v',n/8*100);
+  var any=boxes.some(function(b){return b.checked});var h=!any?0:n<=2?1:n<=5?2:n<=7?3:4;d.getElementById('hd').textContent=heads[h];
+  var li=boxes.map(function(b,i){return b.checked?'':'<li>'+tipsFor[i]+'</li>'}).join('');d.getElementById('tips').innerHTML=any?li:''}
+boxes.forEach(function(b){b.addEventListener('change',upd)});
+})();
+</script>
+</body>
+</html>

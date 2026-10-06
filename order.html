@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Make it mine · Northlight Web</title>
+<meta name="description" content="Said yes to your free preview? Tell us about your place and we'll build the real thing.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="pages.css">
+</head>
+<body>
+<header><div class="wrap bar">
+  <a class="logo" href="./"><b></b>Northlight Web</a>
+  <nav><a href="./">Home</a><a href="order.html" class="on">Make it mine</a><a href="check.html">Free site check</a><a class="keep btn p" style="padding:9px 20px;font-size:15px" href="mailto:northlightwebco@gmail.com?subject=A%20website%20for%20my%20business">Email me</a></nav>
+</div></header>
+<main>
+<div class="aurora" aria-hidden="true"><i></i><i></i></div>
+<div class="hero"><div class="wrap">
+  <h1>Make it <em>mine.</em></h1>
+  <p>You liked the preview. Tell me a little about your place and I'll build the real thing. This takes about two minutes, and nothing is sent until you press send in your own email.</p>
+</div></div>
+<div class="sec"><div class="wrap">
+<form class="card" id="f" autocomplete="on">
+  <div class="grid">
+    <div class="field"><label for="name">Name of your place *</label><input id="name" type="text" required placeholder="Maple Street Diner"></div>
+    <div class="field"><label for="kind">What kind of place? *</label><select id="kind" required><option value="">Choose one</option><option>Restaurant</option><option>Café</option><option>Bar or brewery</option><option>Hair salon</option><option>Barbershop</option><option>Auto repair shop</option><option>Something else</option></select></div>
+    <div class="field"><label for="city">City and state *</label><input id="city" type="text" required placeholder="Traverse City, MI"></div>
+    <div class="field"><label for="who">Your first name *</label><input id="who" type="text" required></div>
+  </div>
+  <div class="field"><label for="mail">Your email *</label><input id="mail" type="email" required placeholder="you@yourplace.com"></div>
+  <div class="field"><span class="lab">What should the site have?</span>
+    <div class="chk" id="want">
+      <label><input type="checkbox" value="Our menu or services" checked> Menu or services</label>
+      <label><input type="checkbox" value="Opening hours" checked> Opening hours</label>
+      <label><input type="checkbox" value="Directions / map" checked> Directions</label>
+      <label><input type="checkbox" value="Photos of the place"> Photos</label>
+      <label><input type="checkbox" value="A contact button" checked> Contact button</label>
+      <label><input type="checkbox" value="Links to Instagram / Facebook"> Instagram or Facebook links</label>
+    </div></div>
+  <div class="field"><label for="links">Links I should look at (your Instagram, Facebook, current site)</label><input id="links" type="text" placeholder="Optional"></div>
+  <div class="field"><span class="lab">Do you already own a web address (like yourplace.com)?</span>
+    <div class="chk" id="dom"><label><input type="radio" name="dom" value="Yes" > Yes</label><label><input type="radio" name="dom" value="No"> No</label><label><input type="radio" name="dom" value="Not sure" checked> Not sure</label></div></div>
+  <div class="field"><label for="more">Anything else I should know?</label><textarea id="more" placeholder="Optional. Special hours, what makes your place different, colors you like..."></textarea></div>
+  <button class="btn p" type="submit">Prepare my email</button>
+  <p class="note">This opens your email with everything filled in. You press send. I never see anything until you do.</p>
+  <div class="out" id="out"><p class="mu" style="margin-bottom:10px">If your email didn't open, copy this and send it to <b>northlightwebco@gmail.com</b>:</p><textarea id="txt" readonly></textarea><p style="margin-top:12px"><button class="btn s" type="button" id="cp">Copy text</button> <a class="btn p" id="ml" href="#">Open email again</a></p></div>
+</form>
+<div class="steps">
+  <div><b>1. You send it</b>I reply to confirm and tell you what I still need, such as photos.</div>
+  <div><b>2. I build it</b>I use your real details and photos, then send you a link to review.</div>
+  <div><b>3. You approve</b>Ask for changes until it feels right. Then we put it live.</div>
+</div>
+</div></div>
+</main>
+<footer><div class="wrap"><span>© Northlight Web · Aalborg, Denmark</span><span><a href="./">Home</a><a href="check.html">Free site check</a><a href="refer.html">Know another owner?</a></span></div></footer>
+<script>
+(function(){
+var d=document,f=d.getElementById('f');
+function v(i){return d.getElementById(i).value.trim()}
+f.addEventListener('submit',function(e){e.preventDefault();
+  var want=[].map.call(d.querySelectorAll('#want input:checked'),function(i){return '- '+i.value}).join('\n')||'- (nothing picked)';
+  var dom=(d.querySelector('input[name=dom]:checked')||{}).value||'Not sure';
+  var body=['Yes, please make this site for '+v('name')+'.','',
+    'Place: '+v('name')+' ('+v('kind')+')','City: '+v('city'),'My name: '+v('who'),'My email: '+v('mail'),'','What the site should have:',want,'',
+    'Links: '+(v('links')||'none'),'Own web address already: '+dom,'','Notes: '+(v('more')||'none'),'','Thanks!',v('who')].join('\n');
+  var subj='Yes, please make this site for '+v('name');
+  var href='mailto:northlightwebco@gmail.com?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
+  d.getElementById('txt').value='Subject: '+subj+'\n\n'+body;d.getElementById('ml').href=href;d.getElementById('out').classList.add('on');
+  location.href=href;
+});
+d.getElementById('cp').addEventListener('click',function(){var t=d.getElementById('txt');t.select();try{d.execCommand('copy');this.textContent='Copied'}catch(x){}});
+})();
+</script>
+</body>
+</html>
