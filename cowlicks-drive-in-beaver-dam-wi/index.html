@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cowlicks Drive-In · Ice cream in Beaver Dam, WI</title>
+<meta name="description" content="Cowlicks Drive-In at 301 Front Street, Beaver Dam, WI. Ice cream.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#12233f;
+  --navy2:#1b3157;
+  --pink:#ff86b0;
+  --cherry:#e8284f;
+  --butter:#ffd84a;
+  --milk:#fff8ee;
+  --ink:#12233f;
+  --r:22px;
+  --shadow:6px 6px 0 var(--navy);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--milk);color:var(--ink);line-height:1.55;overflow-x:hidden;font-size:17px}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:'Bagel Fat One','DM Sans',sans-serif;font-weight:400;line-height:1;text-wrap:balance;overflow-wrap:break-word}
+h2{font-size:clamp(2.1rem,7vw,4.2rem);margin-bottom:.4em}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+.eyebrow{display:inline-block;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem;background:var(--butter);color:var(--navy);border:2.5px solid var(--navy);border-radius:99px;padding:.3em .9em;margin-bottom:1rem}
+
+/* preview banner */
+.np-banner{background:var(--navy);color:var(--milk);text-align:center;font-size:.85rem;padding:.55rem 1rem;border-bottom:3px solid var(--butter)}
+.np-banner a{color:var(--butter)}
+
+/* progress */
+.progress{position:fixed;left:0;top:0;height:5px;width:100%;background:var(--cherry);transform:scaleX(0);transform-origin:left;z-index:100;pointer-events:none}
+
+/* header */
+.site-head{position:sticky;top:0;z-index:50;background:var(--milk);border-bottom:3px solid transparent;transition:box-shadow .3s,border-color .3s,background .3s}
+.site-head.scrolled{border-color:var(--navy);background:var(--butter);box-shadow:0 5px 0 var(--navy)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.7rem 0}
+.logo{font-family:'Bagel Fat One',sans-serif;font-size:1.45rem;text-decoration:none;display:flex;align-items:center;gap:.5rem;color:var(--navy)}
+.logo i{width:30px;height:30px;border-radius:50%;background:var(--pink);border:3px solid var(--navy);display:inline-block;position:relative}
+.logo i::after{content:"";position:absolute;left:8px;top:-9px;width:10px;height:12px;border:3px solid var(--navy);border-bottom:0;border-left:0;border-radius:0 12px 0 0}
+nav ul{list-style:none;display:flex;gap:.4rem;align-items:center}
+nav a{text-decoration:none;font-weight:700;padding:.45rem .9rem;border-radius:99px;border:2.5px solid transparent;transition:transform .25s,border-color .25s,background .25s;display:inline-block}
+nav a:hover{border-color:var(--navy);background:var(--pink);transform:translateY(-2px) rotate(-2deg)}
+.burger{display:none;background:var(--pink);border:3px solid var(--navy);border-radius:14px;width:48px;height:44px;cursor:pointer;box-shadow:3px 3px 0 var(--navy);align-items:center;justify-content:center;flex-direction:column;gap:5px}
+.burger span{display:block;width:22px;height:3px;background:var(--navy);border-radius:2px;transition:transform .3s,opacity .3s}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font:700 1rem 'DM Sans',sans-serif;text-decoration:none;background:var(--cherry);color:#fff;border:3px solid var(--navy);border-radius:99px;padding:.8em 1.5em;box-shadow:var(--shadow);cursor:pointer;transition:transform .2s,box-shadow .2s;will-change:transform}
+.btn:hover{transform:translate(-2px,-3px);box-shadow:9px 9px 0 var(--navy)}
+.btn:active{transform:translate(4px,4px);box-shadow:2px 2px 0 var(--navy)}
+.btn.alt{background:var(--butter);color:var(--navy)}
+small{font-size:.82rem;opacity:.85}
+
+/* hero */
+.hero{position:relative;background:var(--pink);border-bottom:4px solid var(--navy);overflow:hidden;padding:clamp(2.5rem,6vw,5rem) 0 0}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 1px 1px,rgba(18,35,63,.18) 2px,transparent 2.5px) 0 0/26px 26px;pointer-events:none}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:2rem;align-items:center}
+.hero h1{font-size:clamp(3rem,13.5vw,8.6rem);color:var(--navy);letter-spacing:-.01em;text-shadow:5px 5px 0 var(--milk)}
+.hero h1 span{display:block;white-space:nowrap}
+.hero h1 .di{font-size:.5em;color:var(--cherry);text-shadow:3px 3px 0 var(--navy);margin-top:.15em}
+.hero p.lead{font-size:clamp(1.15rem,2.5vw,1.5rem);font-weight:500;max-width:30ch;margin:1.3rem 0 1.8rem;color:var(--navy)}
+.hero .cta-row{display:flex;flex-wrap:wrap;gap:1rem;padding-bottom:3rem}
+.art{position:relative;display:flex;justify-content:center;padding-bottom:2rem}
+.art svg{width:min(380px,80%);height:auto;overflow:visible}
+.cone-wrap{will-change:transform}
+.swirl-line{stroke-dasharray:900;stroke-dashoffset:900;animation:draw 2.4s .5s ease forwards}
+.tuft{transform-origin:200px 74px;animation:sway 3.2s ease-in-out infinite}
+.sprinkle{animation:bob 3.5s ease-in-out infinite}
+.sprinkle:nth-of-type(2n){animation-delay:-1.2s}
+.sprinkle:nth-of-type(3n){animation-delay:-2.2s}
+.drip{transform-origin:center top;animation:drip 4s ease-in-out infinite}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes sway{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(9deg)}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes drip{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.18)}}
+.in{opacity:0;transform:translateY(34px);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
+.in.d1{animation-delay:.1s}.in.d2{animation-delay:.25s}.in.d3{animation-delay:.4s}.in.d4{animation-delay:.55s}
+@keyframes rise{to{opacity:1;transform:none}}
+
+/* marquee */
+.marquee{background:var(--navy);color:var(--butter);border-bottom:4px solid var(--navy);overflow:hidden;white-space:nowrap;padding:.9rem 0}
+.track{display:inline-flex;animation:scroll 28s linear infinite}
+.track span{font-family:'Bagel Fat One',sans-serif;font-size:clamp(1.3rem,3.5vw,2rem);padding:0 1.2rem;display:inline-flex;align-items:center;gap:2.4rem}
+.track span::after{content:"✦";color:var(--pink)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+section{padding:clamp(3.5rem,8vw,6.5rem) 0}
+
+/* offer */
+.offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2rem}
+.tile{background:#fff;border:3px solid var(--navy);border-radius:var(--r);padding:1.6rem;box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s}
+.tile:hover{transform:translate(-3px,-5px) rotate(-1deg);box-shadow:10px 10px 0 var(--navy)}
+.tile:nth-child(2){background:var(--butter)}
+.tile:nth-child(3){background:var(--pink)}
+.tile h3{font-size:1.8rem;margin-bottom:.5rem}
+.tile .ico{width:54px;height:54px;border-radius:50%;border:3px solid var(--navy);background:var(--milk);display:grid;place-items:center;font-size:1.5rem;margin-bottom:1rem}
+
+/* menu */
+#menu{background:var(--navy);color:var(--milk)}
+#menu .eyebrow{background:var(--pink)}
+.tag{display:inline-block;background:var(--butter);color:var(--navy);font-weight:700;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;padding:.15em .65em;border-radius:99px;margin-left:.5rem;vertical-align:middle}
+.note{background:var(--butter);color:var(--navy);border:3px solid var(--milk);border-radius:var(--r);padding:1rem 1.3rem;font-weight:500;margin:1rem 0 2.2rem;max-width:62ch}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.mcard{background:var(--milk);color:var(--navy);border:3px solid var(--navy);border-radius:var(--r);padding:1.5rem;box-shadow:6px 6px 0 var(--pink)}
+.mcard h3{font-size:1.7rem;margin-bottom:1rem;display:flex;flex-wrap:wrap;align-items:center;gap:.3rem}
+.mcard ul{list-style:none}
+.mcard li{display:flex;justify-content:space-between;gap:1rem;padding:.65rem .5rem;border-top:2px dashed rgba(18,35,63,.35);border-radius:10px;transition:background .25s,transform .25s}
+.mcard li:hover{background:var(--butter);transform:translateX(5px)}
+.mcard li b{display:block}
+.mcard li em{font-style:normal;font-size:.9rem;opacity:.8}
+.price{font-family:'Bagel Fat One',sans-serif;color:var(--cherry);white-space:nowrap}
+
+/* hours */
+.hl-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:2rem;align-items:start}
+.hours{background:#fff;border:3px solid var(--navy);border-radius:var(--r);box-shadow:var(--shadow);padding:1.4rem 1.5rem}
+.hours h3{font-size:1.6rem;margin-bottom:.8rem}
+.hours table{width:100%;border-collapse:collapse}
+.hours td{padding:.5rem .2rem;border-top:2px dashed rgba(18,35,63,.3)}
+.hours td:last-child{text-align:right;font-weight:700}
+.hours tr.today td{background:var(--butter)}
+.addr{margin:1rem 0;font-style:normal;font-size:1.15rem;font-weight:500}
+.copy{margin-top:.6rem}
+.map{border:3px solid var(--navy);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);background:#fff}
+.map iframe{display:block;width:100%;border:0;min-height:320px}
+.maplinks{display:flex;flex-wrap:wrap;gap:.7rem;padding:.9rem}
+.maplinks a{font-weight:700;background:var(--butter);border:2.5px solid var(--navy);border-radius:99px;padding:.4em 1em;text-decoration:none;transition:transform .2s}
+.maplinks a:hover{transform:translateY(-3px)}
+.mapcredit{font-size:.75rem;padding:0 .9rem .8rem;opacity:.75}
+
+/* about + contact */
+#about{background:var(--butter);border-block:4px solid var(--navy)}
+.about-in{display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:center}
+.stamp{width:150px;height:150px;border-radius:50%;background:var(--cherry);border:4px solid var(--navy);color:#fff;display:grid;place-items:center;text-align:center;font-family:'Bagel Fat One',sans-serif;font-size:1.25rem;line-height:1.05;box-shadow:var(--shadow);animation:spin 18s linear infinite}
+.stamp span{display:block;animation:spin 18s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+#about p{font-size:1.25rem;max-width:40ch;font-weight:500}
+#contact .box{background:var(--pink);border:3px solid var(--navy);border-radius:32px;padding:clamp(1.6rem,5vw,3.5rem);box-shadow:8px 8px 0 var(--navy);display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center;justify-content:space-between}
+#contact .btns{display:flex;flex-wrap:wrap;gap:1rem}
+
+/* CTA */
+.np-cta{width:min(1000px,100% - 40px);margin:2rem auto 4rem;background:var(--navy);color:var(--milk);border:4px solid var(--navy);border-radius:32px;padding:clamp(1.6rem,5vw,3rem);box-shadow:10px 10px 0 var(--cherry);position:relative}
+.np-cta h2,.np-cta h3{color:var(--butter)}
+.np-cta p{margin:.6rem 0 1.2rem}
+.np-cta .btn{margin:.3rem .5rem .3rem 0}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(40px) scale(.98);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i,0) * 110ms)}
+.js .rv.show{opacity:1;transform:none}
+
+@media (max-width:900px){
+  .hero-grid,.hl-grid{grid-template-columns:1fr}
+  .offer-grid,.menu-grid{grid-template-columns:1fr}
+  .art{order:-1;padding-bottom:0}
+  .art svg{width:min(240px,60%)}
+  .hero .cta-row{padding-bottom:2.5rem}
+}
+@media (max-width:760px){
+  .burger{display:flex}
+  nav{position:absolute;left:0;right:0;top:100%;background:var(--milk);border-bottom:4px solid var(--navy);display:none}
+  nav.open{display:block}
+  nav ul{flex-direction:column;align-items:stretch;padding:1rem 20px 1.4rem}
+  nav a{display:block;font-size:1.2rem}
+  .about-in{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .in,.js .rv{opacity:1!important;transform:none!important}
+  .swirl-line{stroke-dashoffset:0}
+  .track{transform:none}
+  .marquee{white-space:normal}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div class="progress" id="prog"></div>
+
+<header class="site-head" id="siteHead">
+  <div class="wrap bar">
+    <a class="logo" href="#home"><i></i>Cowlicks</a>
+    <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainnav"><span></span><span></span><span></span></button>
+    <nav id="mainnav" aria-label="Main">
+      <ul>
+        <li><a href="#offer">Treats</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#visit">Hours &amp; location</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="home">
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow in d1">Beaver Dam, WI</span>
+        <h1 class="in d2"><span>Cowlicks</span><span class="di">Drive-In</span></h1>
+        <p class="lead in d3">Ice cream, piled high with a little curl on top.</p>
+        <div class="cta-row in d4">
+          <a class="btn" href="#menu">See the menu</a>
+          <a class="btn alt" href="#visit">Find us on Front Street</a>
+        </div>
+      </div>
+      <div class="art in d3" aria-hidden="true">
+        <div class="cone-wrap" id="coneWrap">
+          <svg viewBox="0 0 400 560" role="img" aria-label="Soft-serve ice cream cone with a curl on top">
+            <g class="sprinkle"><circle cx="40" cy="120" r="9" fill="#ffd84a" stroke="#12233f" stroke-width="3"/></g>
+            <g class="sprinkle"><circle cx="360" cy="170" r="12" fill="#e8284f" stroke="#12233f" stroke-width="3"/></g>
+            <g class="sprinkle"><circle cx="330" cy="40" r="7" fill="#fff8ee" stroke="#12233f" stroke-width="3"/></g>
+            <g class="sprinkle"><circle cx="70" cy="260" r="7" fill="#fff8ee" stroke="#12233f" stroke-width="3"/></g>
+            <polygon points="120,300 280,300 200,545" fill="#ffd84a" stroke="#12233f" stroke-width="7" stroke-linejoin="round"/>
+            <path d="M150 340 L250 400 M250 340 L150 400 M172 395 L228 440 M228 395 L172 450 M120 300 L238 520 M280 300 L162 520" stroke="#12233f" stroke-width="4" fill="none" opacity=".45" stroke-linecap="round"/>
+            <path d="M90 300 C70 300 70 245 120 245 L280 245 C330 245 330 300 310 300 Z" fill="#fff8ee" stroke="#12233f" stroke-width="7" stroke-linejoin="round"/>
+            <path class="drip" d="M130 298 v28 a14 14 0 0 0 28 0 v-28 Z" fill="#fff8ee" stroke="#12233f" stroke-width="6" stroke-linejoin="round"/>
+            <path d="M115 245 C100 245 105 190 150 190 L250 190 C295 190 300 245 285 245 Z" fill="#ff86b0" stroke="#12233f" stroke-width="7" stroke-linejoin="round"/>
+            <path d="M140 190 C130 190 135 140 175 140 L225 140 C265 140 270 190 260 190 Z" fill="#fff8ee" stroke="#12233f" stroke-width="7" stroke-linejoin="round"/>
+            <path d="M165 140 C160 140 165 100 200 100 C235 100 240 140 235 140 Z" fill="#ff86b0" stroke="#12233f" stroke-width="7" stroke-linejoin="round"/>
+            <g class="tuft"><path class="swirl-line" d="M200 102 C185 70 205 48 225 52 C245 56 238 82 220 78 C208 75 212 62 222 64" fill="none" stroke="#12233f" stroke-width="8" stroke-linecap="round"/></g>
+            <path class="swirl-line" d="M150 215 C190 230 230 200 255 218 M160 165 C190 178 220 155 240 166" fill="none" stroke="#fff8ee" stroke-width="5" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="track">
+      <span>Ice cream</span><span>Drive-In</span><span>Beaver Dam</span><span>Front Street</span><span>Wisconsin</span>
+      <span>Ice cream</span><span>Drive-In</span><span>Beaver Dam</span><span>Front Street</span><span>Wisconsin</span>
+    </div>
+  </div>
+
+  <section id="offer">
+    <div class="wrap">
+      <span class="eyebrow rv">What we're about</span>
+      <h2 class="rv" style="--i:1">Cold, sweet, and local.</h2>
+      <div class="offer-grid">
+        <article class="tile rv" style="--i:1"><div class="ico">🍦</div><h3>Ice cream</h3><p>The reason to pull in. Come for a scoop, stay for the curl on top.</p></article>
+        <article class="tile rv" style="--i:2"><div class="ico">🚗</div><h3>A real drive-in</h3><p>Park it, order, and settle in. That's what the name promises.</p></article>
+        <article class="tile rv" style="--i:3"><div class="ico">📍</div><h3>Front Street</h3><p>Right in Beaver Dam at 301 Front Street, easy to find and hard to drive past.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu">
+    <div class="wrap">
+      <span class="eyebrow rv">Menu</span>
+      <h2 class="rv" style="--i:1">Menu <span class="tag">Example</span></h2>
+      <p class="note rv" style="--i:2">This is an example menu that shows how your menu would look. Your real dishes and prices go here.</p>
+      <div class="menu-grid">
+        <div class="mcard rv" style="--i:1">
+          <h3>Coffee &amp; tea <span class="tag">Example</span></h3>
+          <ul>
+            <li><span><b>Drip coffee</b><em>Fresh brewed</em></span><span class="price">$2.75</span></li>
+            <li><span><b>Latte</b><em>Espresso with steamed milk</em></span><span class="price">$4.50</span></li>
+            <li><span><b>Cappuccino</b></span><span class="price">$4.25</span></li>
+            <li><span><b>Iced coffee</b></span><span class="price">$3.75</span></li>
+            <li><span><b>Hot tea</b></span><span class="price">$2.75</span></li>
+          </ul>
+        </div>
+        <div class="mcard rv" style="--i:2">
+          <h3>Pastries <span class="tag">Example</span></h3>
+          <ul>
+            <li><span><b>Blueberry muffin</b></span><span class="price">$3.50</span></li>
+            <li><span><b>Butter croissant</b></span><span class="price">$3.75</span></li>
+            <li><span><b>Cinnamon roll</b><em>Warm, with icing</em></span><span class="price">$4.25</span></li>
+            <li><span><b>Chocolate chip cookie</b></span><span class="price">$2.25</span></li>
+          </ul>
+        </div>
+        <div class="mcard rv" style="--i:3">
+          <h3>Breakfast &amp; lunch <span class="tag">Example</span></h3>
+          <ul>
+            <li><span><b>Breakfast burrito</b><em>Eggs, cheese, potatoes</em></span><span class="price">$8.50</span></li>
+            <li><span><b>Turkey &amp; Swiss</b><em>Toasted sourdough</em></span><span class="price">$9.50</span></li>
+            <li><span><b>Soup of the day</b></span><span class="price">$6.00</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="visit">
+    <div class="wrap">
+      <span class="eyebrow rv">Visit</span>
+      <h2 class="rv" style="--i:1">Hours &amp; location</h2>
+      <div class="hl-grid">
+        <div class="rv" style="--i:1">
+          <div class="hours">
+            <h3>Hours <span class="tag">Example hours</span></h3>
+            <table>
+              <tbody id="hoursBody">
+                <tr data-d="1"><td>Mon</td><td>7 AM – 3 PM</td></tr>
+                <tr data-d="2"><td>Tue</td><td>7 AM – 3 PM</td></tr>
+                <tr data-d="3"><td>Wed</td><td>7 AM – 3 PM</td></tr>
+                <tr data-d="4"><td>Thu</td><td>7 AM – 3 PM</td></tr>
+                <tr data-d="5"><td>Fri</td><td>7 AM – 8 PM</td></tr>
+                <tr data-d="6"><td>Sat</td><td>8 AM – 8 PM</td></tr>
+                <tr data-d="0"><td>Sun</td><td>Closed</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <address class="addr">301 Front Street<br>Beaver Dam, WI 53916</address>
+          <button class="btn alt copy" id="copyAddr" type="button" data-addr="301 Front Street, Beaver Dam, WI 53916">Copy address</button>
+          <small id="copyMsg" role="status" aria-live="polite"></small>
+        </div>
+        <div class="rv" style="--i:2">
+          <iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-88.84773,43.45008,-88.83573,43.46208&amp;layer=mapnik&amp;marker=43.45608,-88.84173"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=43.45608&amp;mlon=-88.84173#map=17/43.45608/-88.84173" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=43.45608,-88.84173" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about-in">
+      <div class="stamp rv" aria-hidden="true"><span>Ice<br>cream<br>✦</span></div>
+      <div class="rv" style="--i:1">
+        <h2>Why “Cowlicks”?</h2>
+        <p>Look at the top of a good swirl. That little curl that won't lie flat? That's the idea. Find it at Cowlicks Drive-In in Beaver Dam.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="box rv">
+        <div>
+          <h2 style="margin-bottom:.2em">Say hello.</h2>
+          <p>Questions for Cowlicks Drive-In? Send a note.</p>
+        </div>
+        <div class="btns"><a class="btn" href="mailto:cowlickscones@gmail.com">cowlickscones@gmail.com</a> </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rv"><section class="np-cta" id="offer"><h2>Want this for Cowlicks Drive-In?</h2><p>This is a free preview made for Cowlicks Drive-In. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20Cowlicks%20Drive-In&amp;body=Yes%2C%20please%20make%20this%20site%20for%20Cowlicks%20Drive-In.">Make it mine</a></p></section></div>
+</main>
+
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · Cowlicks Drive-In</div>
+
+<script>
+(function(){
+  'use strict';
+  var root = document.documentElement;
+  root.classList.add('js');
+  var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var headEl = document.getElementById('siteHead');
+  var progEl = document.getElementById('prog');
+  var coneEl = document.getElementById('coneWrap');
+  var ticking = false;
+
+  function onScrollFrame(){
+    var sy = window.pageYOffset || root.scrollTop || 0;
+    var maxScroll = Math.max(1, root.scrollHeight - window.innerHeight);
+    if(progEl){ progEl.style.transform = 'scaleX(' + Math.min(1, sy / maxScroll) + ')'; }
+    if(headEl){ headEl.classList.toggle('scrolled', sy > 40); }
+    if(coneEl && !calm && sy < 900){ coneEl.style.transform = 'translateY(' + (sy * 0.18).toFixed(1) + 'px) rotate(' + (sy * 0.012).toFixed(2) + 'deg)'; }
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ ticking = true; window.requestAnimationFrame(onScrollFrame); }
+  }, {passive:true});
+  onScrollFrame();
+
+  /* reveals */
+  var revealEls = document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window && !calm){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('show'); io.unobserve(en.target); }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('show'); });
+  }
+
+  /* mobile menu */
+  var burgerBtn = document.getElementById('burger');
+  var navEl = document.getElementById('mainnav');
+  function setMenu(isOpen){
+    navEl.classList.toggle('open', isOpen);
+    burgerBtn.setAttribute('aria-expanded', String(isOpen));
+  }
+  burgerBtn.addEventListener('click', function(){
+    setMenu(burgerBtn.getAttribute('aria-expanded') !== 'true');
+  });
+  navEl.addEventListener('click', function(ev){
+    if(ev.target.tagName === 'A'){ setMenu(false); }
+  });
+  document.addEventListener('keydown', function(ev){
+    if(ev.key === 'Escape'){ setMenu(false); }
+  });
+
+  /* copy address */
+  var copyBtn = document.getElementById('copyAddr');
+  var copyNote = document.getElementById('copyMsg');
+  function showCopied(ok){
+    copyNote.textContent = ok ? 'Address copied.' : 'Press Ctrl+C to copy: ' + copyBtn.getAttribute('data-addr');
+    window.setTimeout(function(){ copyNote.textContent = ''; }, 3000);
+  }
+  copyBtn.addEventListener('click', function(){
+    var addrText = copyBtn.getAttribute('data-addr');
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(addrText).then(function(){ showCopied(true); }, function(){ showCopied(false); });
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = addrText; document.body.appendChild(ta); ta.select();
+      var done = false;
+      try{ done = document.execCommand('copy'); }catch(err){ done = false; }
+      document.body.removeChild(ta);
+      showCopied(done);
+    }
+  });
+
+  /* highlight today's row in the example hours */
+  var todayIdx = String(new Date().getDay());
+  var rows = document.querySelectorAll('#hoursBody tr');
+  rows.forEach(function(row){
+    if(row.getAttribute('data-d') === todayIdx){ row.classList.add('today'); }
+  });
+
+  /* magnetic buttons */
+  if(!calm && window.matchMedia('(hover: hover)').matches){
+    document.querySelectorAll('.btn').forEach(function(btnEl){
+      btnEl.addEventListener('pointermove', function(ev){
+        var box = btnEl.getBoundingClientRect();
+        var dx = (ev.clientX - box.left - box.width / 2) * 0.18;
+        var dy = (ev.clientY - box.top - box.height / 2) * 0.25;
+        btnEl.style.transform = 'translate(' + dx.toFixed(1) + 'px,' + (dy - 3).toFixed(1) + 'px)';
+      });
+      btnEl.addEventListener('pointerleave', function(){ btnEl.style.transform = ''; });
+    });
+  }
+})();
+</script>
+</body>
+</html>

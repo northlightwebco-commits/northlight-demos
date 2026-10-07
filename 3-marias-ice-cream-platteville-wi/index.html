@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>3 Marias Ice Cream · Platteville, WI</title>
+<meta name="description" content="3 Marias Ice Cream at 125 East Main Street in Platteville, Wisconsin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#2b1520;
+  --cream:#fff5e6;
+  --pink:#ff9db9;
+  --berry:#c22a5c;
+  --mint:#b9e8d0;
+  --butter:#ffd978;
+  --cocoa:#5a3322;
+  --r:28px;
+  --display:'Bagel Fat One','Arial Rounded MT Bold',system-ui,sans-serif;
+  --body:'Outfit',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:var(--body);color:var(--ink);background:var(--cream);line-height:1.55;font-size:1.0625rem;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1;text-wrap:balance;overflow-wrap:break-word}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+:focus-visible{outline:3px solid var(--berry);outline-offset:3px;border-radius:6px}
+
+/* progress */
+.progress{position:fixed;left:0;top:0;height:5px;width:100%;background:var(--berry);transform-origin:0 50%;transform:scaleX(0);z-index:100}
+
+/* slot: banner */
+.np-banner{background:var(--ink);color:var(--cream);text-align:center;font-size:.85rem;padding:8px 16px;letter-spacing:.02em}
+.np-banner a{color:var(--butter)}
+
+/* header */
+header.top{position:sticky;top:0;z-index:50;transition:background .3s,box-shadow .3s}
+header.top .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0;transition:padding .3s}
+header.top.scrolled{background:rgba(255,245,230,.94);backdrop-filter:blur(10px);box-shadow:0 2px 0 var(--ink)}
+header.top.scrolled .bar{padding:10px 0}
+.logo{font-family:var(--display);font-size:1.45rem;text-decoration:none;display:flex;align-items:center;gap:10px;white-space:nowrap}
+.logo i{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--berry);color:var(--cream);font-style:normal;font-size:1.25rem;transition:transform .4s}
+.logo:hover i{transform:rotate(-14deg) scale(1.1)}
+nav ul{display:flex;gap:6px;list-style:none;align-items:center}
+nav a.l{display:inline-block;padding:9px 16px;border-radius:99px;text-decoration:none;font-weight:600;transition:background .25s,transform .25s}
+nav a.l:hover{background:var(--butter);transform:translateY(-2px)}
+.burger{display:none;width:46px;height:46px;border-radius:50%;border:2px solid var(--ink);background:var(--cream);cursor:pointer;position:relative}
+.burger span{position:absolute;left:11px;right:11px;height:2.5px;background:var(--ink);border-radius:2px;transition:transform .3s,opacity .3s}
+.burger span:nth-child(1){top:15px}.burger span:nth-child(2){top:21px}.burger span:nth-child(3){top:27px}
+.burger[aria-expanded=true] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded=true] span:nth-child(2){opacity:0}
+.burger[aria-expanded=true] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 26px;border-radius:99px;background:var(--ink);color:var(--cream);font:600 1rem var(--body);text-decoration:none;border:2px solid var(--ink);cursor:pointer;transition:transform .25s,box-shadow .25s,background .25s;box-shadow:0 5px 0 var(--berry)}
+.btn:hover{transform:translateY(-3px);box-shadow:0 8px 0 var(--berry)}
+.btn:active{transform:translateY(2px);box-shadow:0 2px 0 var(--berry)}
+.btn.alt{background:transparent;color:inherit;border-color:currentColor;box-shadow:none}
+.btn.alt:hover{background:var(--butter);color:var(--ink);border-color:var(--ink);box-shadow:none}
+.btn.small,.small{font-size:.9rem}
+.btn.small{padding:10px 18px}
+.mag{will-change:transform}
+
+/* hero */
+.hero{position:relative;background:var(--pink);margin-top:-80px;padding:150px 0 0;overflow:hidden;isolation:isolate}
+.hero .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:center;min-height:min(780px,90vh)}
+.eyebrow{display:inline-block;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem;background:var(--cream);padding:7px 14px;border-radius:99px;border:2px solid var(--ink)}
+.hero h1{font-size:clamp(3.4rem,13vw,9.2rem);margin:22px 0 0;letter-spacing:-.01em}
+.hero h1 .l2{display:block;font-size:.5em;color:var(--cream);-webkit-text-stroke:2px var(--ink);paint-order:stroke fill;text-shadow:5px 5px 0 var(--ink);margin-top:.12em}
+.hero h1 .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em}
+.hero h1 .w b{display:inline-block;font-weight:400}
+.hero p.lead{font-size:clamp(1.15rem,2.4vw,1.5rem);max-width:30ch;margin:26px 0 30px;font-weight:500}
+.hero .cta{display:flex;flex-wrap:wrap;gap:14px}
+.art{position:relative;align-self:end;display:flex;justify-content:center}
+.art svg{width:min(460px,86%);height:auto;overflow:visible}
+.scoop{transform-box:fill-box;transform-origin:50% 100%}
+.float{position:absolute;pointer-events:none;z-index:-1}
+.float svg{width:100%}
+.sprk{position:absolute;width:14px;height:34px;border-radius:9px;z-index:-1}
+
+/* marquee */
+.marquee{background:var(--ink);color:var(--cream);overflow:hidden;border-block:3px solid var(--ink);transform:rotate(-1.2deg);margin:-14px -10px 0;position:relative;z-index:3}
+.track{display:flex;width:max-content;animation:slide 32s linear infinite}
+.marquee:hover .track{animation-play-state:paused}
+.track span{font-family:var(--display);font-size:clamp(1.3rem,3vw,2rem);padding:16px 26px;display:flex;align-items:center;gap:52px;white-space:nowrap}
+.track span::after{content:"";width:22px;height:22px;border-radius:50%;background:var(--pink);box-shadow:14px 0 0 -2px var(--mint),28px 0 0 -4px var(--butter);margin-right:28px}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* sections */
+section{padding:clamp(70px,10vw,130px) 0;position:relative}
+.kicker{font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem;color:var(--berry);display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.kicker::before{content:"";width:34px;height:3px;background:currentColor;border-radius:2px}
+h2{font-size:clamp(2.3rem,6.5vw,4.6rem);margin-bottom:22px}
+
+/* offer */
+.offer{padding-top:clamp(90px,12vw,150px)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+.card{border:3px solid var(--ink);border-radius:var(--r);padding:30px 26px 34px;background:var(--mint);box-shadow:7px 7px 0 var(--ink);transition:transform .35s cubic-bezier(.2,.9,.3,1.3),box-shadow .35s;position:relative}
+.card:nth-child(2){background:var(--butter)}
+.card:nth-child(3){background:var(--pink)}
+.card:hover{transform:translate(-4px,-8px) rotate(-1deg);box-shadow:12px 15px 0 var(--ink)}
+.card .n{font-family:var(--display);font-size:4.2rem;line-height:.9;color:var(--cream);-webkit-text-stroke:2px var(--ink);paint-order:stroke fill}
+.card h3{font-size:1.9rem;margin:12px 0 10px}
+.card p{font-weight:500}
+
+/* menu */
+.menu{background:var(--ink);color:var(--cream);border-radius:60px 60px 0 0}
+.menu .kicker{color:var(--butter)}
+.tag{display:inline-block;background:var(--butter);color:var(--ink);font-weight:700;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:99px;vertical-align:middle}
+.menu h2{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px}
+.mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:34px}
+.msec{border:2px dashed rgba(255,245,230,.45);border-radius:var(--r);padding:28px 24px;transition:border-color .3s,transform .3s}
+.msec:hover{border-color:var(--pink);transform:translateY(-5px)}
+.msec h3{font-size:1.7rem;color:var(--pink);margin-bottom:16px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.msec h3 .tag{font-family:var(--body);font-size:.65rem}
+.msec ul{list-style:none}
+.msec li{display:grid;grid-template-columns:auto 1fr auto;column-gap:10px;align-items:baseline;padding:11px 0;transition:transform .25s,color .25s}
+.msec li:hover{transform:translateX(7px);color:var(--butter)}
+.msec li b{font-weight:600}
+.msec li::after{content:"";grid-column:2;grid-row:1;border-bottom:2px dotted rgba(255,245,230,.35);align-self:end;margin-bottom:6px}
+.msec li .pr{grid-column:3;grid-row:1;font-weight:700}
+.msec li small{grid-column:1/-1;opacity:.8;font-size:.9rem}
+.note{margin-top:34px;padding:18px 22px;border-radius:18px;background:rgba(255,245,230,.1);font-weight:500;max-width:62ch}
+
+/* hours */
+.hours{background:var(--mint)}
+.hgrid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(30px,5vw,70px);align-items:start}
+.hours h2 .tag{font-size:.75rem;font-family:var(--body)}
+.htable{list-style:none;border:3px solid var(--ink);border-radius:var(--r);background:var(--cream);overflow:hidden;box-shadow:7px 7px 0 var(--ink);margin-top:10px}
+.htable li{display:flex;justify-content:space-between;gap:12px;padding:13px 22px;font-weight:600;border-bottom:2px solid rgba(43,21,32,.12);transition:background .25s,padding .25s}
+.htable li:last-child{border:0}
+.htable li:hover{background:var(--butter);padding-left:30px}
+.hlabel{margin-top:16px}
+.addr{font-style:normal;margin:20px 0 6px;font-size:1.2rem;font-weight:600}
+.copy{margin-top:10px}
+.map{border:3px solid var(--ink);border-radius:var(--r);overflow:hidden;background:var(--cream);box-shadow:7px 7px 0 var(--ink)}
+.map iframe{display:block;width:100%;min-height:340px;border:0}
+.maplinks{display:flex;flex-wrap:wrap;gap:10px;padding:14px}
+.maplinks a{font-weight:600;padding:9px 16px;border-radius:99px;border:2px solid var(--ink);text-decoration:none;background:var(--butter);transition:transform .25s}
+.maplinks a:hover{transform:translateY(-3px)}
+.mapcredit{font-size:.78rem;padding:0 14px 12px;opacity:.8}
+
+/* contact */
+.contact{text-align:center;background:var(--butter);overflow:hidden}
+.contact h2{font-size:clamp(2.4rem,8vw,6rem)}
+.contact p{max-width:34ch;margin:0 auto 28px;font-size:1.2rem;font-weight:500}
+.contact .row{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.drip{position:absolute;left:0;right:0;top:0;height:60px;width:100%}
+.drip path{stroke-dasharray:1;stroke-dashoffset:1}
+.drip.in path{animation:draw 2.2s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+/* cta */
+.np-cta{width:min(900px,100% - 40px);margin:clamp(60px,9vw,110px) auto;padding:clamp(30px,5vw,56px);border-radius:44px;background:var(--berry);color:#fff;text-align:center;border:3px solid var(--ink);box-shadow:10px 10px 0 var(--ink);position:relative}
+.np-cta h2,.np-cta h3{color:#fff;font-size:clamp(1.9rem,5vw,3.2rem)}
+.np-cta p{margin:12px auto 22px;max-width:46ch}
+.np-cta .btn{background:var(--cream);color:var(--ink);border-color:var(--ink);box-shadow:0 5px 0 var(--ink);margin:6px}
+.np-cta .btn.alt{background:transparent;color:#fff;border-color:#fff;box-shadow:none}
+.np-cta .btn.alt:hover{background:var(--butter);color:var(--ink)}
+footer.f{text-align:center;padding:0 20px 30px;font-size:.9rem}
+
+/* reveal (JS only) */
+.js .rv{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+.js .hero h1 .w b{transform:translateY(110%);animation:rise .9s cubic-bezier(.2,.9,.2,1) forwards;animation-delay:var(--d,0s)}
+@keyframes rise{to{transform:none}}
+.js .hero .pop{opacity:0;animation:fadeup .8s ease forwards;animation-delay:var(--d,0s)}
+@keyframes fadeup{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.js .scoop{animation:drop .9s cubic-bezier(.3,1.5,.5,1) backwards;animation-delay:var(--d,0s)}
+@keyframes drop{from{transform:translateY(-300px) scaleY(1.2);opacity:0}}
+.bob{animation:bob 5s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-12px) rotate(1.5deg)}}
+.spin{animation:spin 24s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+@media(max-width:900px){
+  .burger{display:block}
+  nav{position:absolute;left:0;right:0;top:100%;background:var(--cream);border-bottom:3px solid var(--ink);display:none}
+  nav.open{display:block}
+  nav ul{flex-direction:column;align-items:stretch;padding:14px 20px 22px}
+  nav a.l{display:block;font-size:1.2rem}
+  .hero .grid{grid-template-columns:1fr;min-height:0}
+  .art{margin-top:10px}
+  .cards,.mgrid,.hgrid{grid-template-columns:1fr}
+  .menu{border-radius:36px 36px 0 0}
+}
+@media(max-width:420px){
+  .logo{font-size:1.15rem}
+  .hero{padding-top:130px}
+  .htable li{padding:12px 16px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv,.js .hero .pop,.js .hero h1 .w b,.js .scoop{opacity:1!important;transform:none!important}
+  .drip path{stroke-dashoffset:0}
+  .track{transform:none}
+  .marquee{overflow-x:auto}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="top" id="top">
+  <div class="wrap bar">
+    <a href="#home" class="logo"><i>3</i>Marias</a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+    <nav id="nav" aria-label="Main">
+      <ul>
+        <li><a class="l" href="#offer">Scoops</a></li>
+        <li><a class="l" href="#menu">Menu</a></li>
+        <li><a class="l" href="#visit">Visit</a></li>
+        <li><a class="l" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="home">
+<div class="hero">
+  <span class="float spin" style="width:120px;left:4%;top:24%" data-p=".25"><svg viewBox="0 0 100 100" aria-hidden="true"><path fill="var(--cream)" stroke="var(--ink)" stroke-width="3" d="M50 3l12 24 27-6-12 24 20 18-27 4-4 27-16-21-16 21-4-27-27-4 20-18L11 21l27 6z"/></svg></span>
+  <span class="float" style="width:90px;right:6%;top:18%" data-p=".4"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="42" fill="var(--butter)" stroke="var(--ink)" stroke-width="3"/><circle cx="50" cy="50" r="20" fill="var(--mint)" stroke="var(--ink)" stroke-width="3"/></svg></span>
+  <span class="sprk" style="background:var(--berry);left:46%;top:20%;transform:rotate(30deg)"></span>
+  <span class="sprk" style="background:var(--mint);left:8%;bottom:30%;transform:rotate(-50deg)"></span>
+  <span class="sprk" style="background:var(--butter);right:10%;bottom:36%;transform:rotate(70deg)"></span>
+  <div class="wrap grid">
+    <div>
+      <span class="eyebrow pop" style="--d:.1s">Platteville, Wisconsin</span>
+      <h1 aria-label="3 Marias Ice Cream">
+        <span class="w" style="--d:.2s"><b>3</b></span> <span class="w" style="--d:.3s"><b>Marias</b></span>
+        <span class="l2"><span class="w" style="--d:.45s"><b>Ice</b></span> <span class="w" style="--d:.55s"><b>Cream</b></span></span>
+      </h1>
+      <p class="lead pop" style="--d:.8s">Ice cream. On East Main Street.</p>
+      <div class="cta pop" style="--d:.95s">
+        <a class="btn mag" href="#visit">Find the shop</a>
+        <a class="btn alt mag" href="#menu">See the example menu</a>
+      </div>
+    </div>
+    <div class="art" data-p="-.08">
+      <svg viewBox="0 0 400 560" role="img" aria-label="A cone stacked with three scoops of ice cream">
+        <ellipse cx="200" cy="545" rx="110" ry="10" fill="var(--ink)" opacity=".18"/>
+        <g class="bob">
+          <path d="M120 330 L200 540 L280 330 Z" fill="#e8a65a" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M140 380 L260 380 M160 430 L240 430 M120 330 L240 470 M160 330 L260 440 M240 330 L150 450 M280 330 L180 470" stroke="var(--ink)" stroke-width="3" opacity=".45" fill="none" stroke-linecap="round"/>
+          <g class="scoop" style="--d:.5s">
+            <circle cx="200" cy="300" r="88" fill="var(--butter)" stroke="var(--ink)" stroke-width="5"/>
+            <path d="M120 320q10 40 24 8q12 38 28 0" fill="var(--butter)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round"/>
+          </g>
+          <g class="scoop" style="--d:.8s">
+            <circle cx="200" cy="215" r="82" fill="var(--mint)" stroke="var(--ink)" stroke-width="5"/>
+            <path d="M126 235q8 30 22 6q10 28 24 0" fill="var(--mint)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round"/>
+          </g>
+          <g class="scoop" style="--d:1.1s">
+            <circle cx="200" cy="135" r="74" fill="#ff7aa3" stroke="var(--ink)" stroke-width="5"/>
+            <path d="M150 90q20-30 60-22" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" opacity=".6"/>
+            <circle cx="200" cy="58" r="17" fill="var(--berry)" stroke="var(--ink)" stroke-width="5"/>
+            <path d="M200 42q4-24 24-28" fill="none" stroke="var(--ink)" stroke-width="5" stroke-linecap="round"/>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>3 Marias Ice Cream</span><span>Ice cream</span><span>Platteville, WI</span><span>125 East Main Street</span><span>Wisconsin</span>
+    <span>3 Marias Ice Cream</span><span>Ice cream</span><span>Platteville, WI</span><span>125 East Main Street</span><span>Wisconsin</span>
+  </div>
+</div>
+
+<section class="offer" id="offer">
+  <div class="wrap">
+    <div class="kicker rv">The short version</div>
+    <h2 class="rv" style="--d:.1s">Three scoops of what matters.</h2>
+    <div class="cards">
+      <article class="card rv" style="--d:.05s"><div class="n">1</div><h3>Ice cream</h3><p>That's the headline, and it's right there in the name.</p></article>
+      <article class="card rv" style="--d:.18s"><div class="n">2</div><h3>Main Street</h3><p>Find us at 125 East Main Street in Platteville.</p></article>
+      <article class="card rv" style="--d:.31s"><div class="n">3</div><h3>Your menu, here</h3><p>Coffee, pastries, lunch: the example menu below shows how your real list would sit on the page.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="kicker rv">Menu</div>
+    <h2 class="rv" style="--d:.1s">Menu <span class="tag">Example</span></h2>
+    <div class="mgrid">
+      <div class="msec rv" style="--d:.05s">
+        <h3>Coffee &amp; tea <span class="tag">Example</span></h3>
+        <ul>
+          <li><b>Drip coffee</b><span class="pr">$2.75</span><small>Fresh brewed</small></li>
+          <li><b>Latte</b><span class="pr">$4.50</span><small>Espresso with steamed milk</small></li>
+          <li><b>Cappuccino</b><span class="pr">$4.25</span></li>
+          <li><b>Iced coffee</b><span class="pr">$3.75</span></li>
+          <li><b>Hot tea</b><span class="pr">$2.75</span></li>
+        </ul>
+      </div>
+      <div class="msec rv" style="--d:.18s">
+        <h3>Pastries <span class="tag">Example</span></h3>
+        <ul>
+          <li><b>Blueberry muffin</b><span class="pr">$3.50</span></li>
+          <li><b>Butter croissant</b><span class="pr">$3.75</span></li>
+          <li><b>Cinnamon roll</b><span class="pr">$4.25</span><small>Warm, with icing</small></li>
+          <li><b>Chocolate chip cookie</b><span class="pr">$2.25</span></li>
+        </ul>
+      </div>
+      <div class="msec rv" style="--d:.31s">
+        <h3>Breakfast &amp; lunch <span class="tag">Example</span></h3>
+        <ul>
+          <li><b>Breakfast burrito</b><span class="pr">$8.50</span><small>Eggs, cheese, potatoes</small></li>
+          <li><b>Turkey &amp; Swiss</b><span class="pr">$9.50</span><small>Toasted sourdough</small></li>
+          <li><b>Soup of the day</b><span class="pr">$6.00</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="note rv">This is an example menu that shows how your menu would look. Your real dishes and prices go here.</p>
+  </div>
+</section>
+
+<section class="hours" id="visit">
+  <div class="wrap hgrid">
+    <div>
+      <div class="kicker rv">Visit</div>
+      <h2 class="rv" style="--d:.1s">Hours &amp; location</h2>
+      <p class="rv"><span class="tag" style="background:var(--ink);color:var(--cream)">Example hours</span></p>
+      <ul class="htable rv" style="--d:.15s">
+        <li><span>Mon</span><span>7 AM – 3 PM</span></li>
+        <li><span>Tue</span><span>7 AM – 3 PM</span></li>
+        <li><span>Wed</span><span>7 AM – 3 PM</span></li>
+        <li><span>Thu</span><span>7 AM – 3 PM</span></li>
+        <li><span>Fri</span><span>7 AM – 8 PM</span></li>
+        <li><span>Sat</span><span>8 AM – 8 PM</span></li>
+        <li><span>Sun</span><span>Closed</span></li>
+      </ul>
+      <address class="addr rv" id="addr">125 East Main Street<br>Platteville, WI 53818</address>
+      <button class="btn small copy mag rv" id="copy" type="button" data-addr="125 East Main Street, Platteville, WI 53818">Copy address</button>
+      <span class="small" id="copied" role="status" aria-live="polite" style="margin-left:10px;font-weight:600"></span>
+    </div>
+    <div class="rv" style="--d:.2s"><iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-90.48290,42.72769,-90.47090,42.73969&amp;layer=mapnik&amp;marker=42.73369,-90.47690"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=42.73369&amp;mlon=-90.47690#map=17/42.73369/-90.47690" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=42.73369,-90.47690" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p></div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <svg class="drip" id="drip" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M0 4H1200" stroke="var(--mint)" stroke-width="0"/><path pathLength="1" d="M0 6 Q60 6 80 30 T160 8 T260 40 T360 8 T470 34 T580 8 T700 44 T800 8 T920 36 T1030 8 T1120 32 T1200 8" fill="none" stroke="var(--ink)" stroke-width="4" stroke-linecap="round"/></svg>
+  <div class="wrap">
+    <div class="kicker rv" style="justify-content:center">Say hello</div>
+    <h2 class="rv" style="--d:.1s">Drop us a line.</h2>
+    <p class="rv" style="--d:.2s">Questions about 3 Marias Ice Cream? Send an e-mail.</p>
+    <div class="row rv" style="--d:.3s"><a class="btn" href="mailto:tresmarias.icecream@hotmail.com">tresmarias.icecream@hotmail.com</a> </div>
+  </div>
+</section>
+
+<section class="np-cta" id="offer"><h2>Want this for 3 Marias Ice Cream?</h2><p>This is a free preview made for 3 Marias Ice Cream. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%203%20Marias%20Ice%20Cream&amp;body=Yes%2C%20please%20make%20this%20site%20for%203%20Marias%20Ice%20Cream.">Make it mine</a></p></section>
+</main>
+
+<footer class="f">3 Marias Ice Cream · 125 East Main Street, Platteville, WI 53818</footer>
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · 3 Marias Ice Cream</div>
+
+<script>
+(function(){
+  var d=document,root=d.documentElement;
+  root.classList.add('js');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var prog=d.getElementById('progress'),top=d.getElementById('top');
+  var par=[].slice.call(d.querySelectorAll('[data-p]'));
+  var ticking=false;
+  function frame(){
+    var y=window.scrollY||0,h=root.scrollHeight-window.innerHeight;
+    prog.style.transform='scaleX('+(h>0?Math.min(1,y/h):0)+')';
+    top.classList.toggle('scrolled',y>30);
+    if(!reduce&&y<1400){par.forEach(function(el){el.style.transform='translate3d(0,'+(y*parseFloat(el.dataset.p))+'px,0)'})}
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(frame)}},{passive:true});
+  frame();
+
+  var burger=d.getElementById('burger'),nav=d.getElementById('nav');
+  function closeNav(){nav.classList.remove('open');burger.setAttribute('aria-expanded','false')}
+  burger.addEventListener('click',function(){var o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A')closeNav()});
+  d.addEventListener('keydown',function(e){if(e.key==='Escape')closeNav()});
+
+  var items=d.querySelectorAll('.rv,.drip');
+  if('IntersectionObserver' in window&&!reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15,rootMargin:'0px 0px -6% 0px'});
+    items.forEach(function(el){io.observe(el)});
+  }else{items.forEach(function(el){el.classList.add('in')})}
+
+  var btn=d.getElementById('copy'),msg=d.getElementById('copied');
+  btn.addEventListener('click',function(){
+    var t=btn.dataset.addr;
+    function ok(){msg.textContent='Copied!';setTimeout(function(){msg.textContent=''},2200)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,fallback)}else fallback();
+    function fallback(){var a=d.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';d.body.appendChild(a);a.select();try{d.execCommand('copy');ok()}catch(e){msg.textContent='Press Ctrl+C to copy'}d.body.removeChild(a)}
+  });
+
+  if(!reduce&&window.matchMedia('(hover:hover)').matches){
+    d.querySelectorAll('.mag,.np-cta .btn,.btn').forEach(function(el){
+      el.addEventListener('mousemove',function(e){
+        var r=el.getBoundingClientRect(),x=(e.clientX-r.left-r.width/2)*.22,y=(e.clientY-r.top-r.height/2)*.3;
+        el.style.transform='translate('+x+'px,'+y+'px)';
+      });
+      el.addEventListener('mouseleave',function(){el.style.transform=''});
+    });
+  }
+})();
+</script>
+</body>
+</html>

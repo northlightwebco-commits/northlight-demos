@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mamma Lilla's Pizza · Clinton, WI</title>
+<meta name="description" content="Mamma Lilla's Pizza, 604 Milwaukee Street, Clinton, Wisconsin.">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#141a14;--bg2:#1b231b;--ink:#f6efe0;--mute:#b9c0b0;
+  --tom:#ff5a3c;--tomd:#a8260f;--cheese:#ffd66b;--basil:#6fbf73;--dark:#1a1410;
+  --serif:"Fraunces",Georgia,serif;--sans:"DM Sans",system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:1.0625rem;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:900;line-height:.98;text-wrap:balance;overflow-wrap:break-word}
+.wrap{width:min(1180px,100% - 2.5rem);margin-inline:auto}
+section{position:relative;padding:clamp(4rem,10vw,8rem) 0}
+.eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--cheese);display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem}
+.eyebrow::before{content:"";width:2.4rem;height:2px;background:currentColor}
+h2{font-size:clamp(2.3rem,7vw,5rem);letter-spacing:-.02em}
+h2 em{font-style:italic;color:var(--tom)}
+.tag{display:inline-block;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:.25rem .65rem;border:1.5px dashed currentColor;border-radius:99px}
+
+/* progress + header */
+.progress{position:fixed;top:0;left:0;height:4px;width:100%;background:linear-gradient(90deg,var(--tom),var(--cheese));transform-origin:0 50%;transform:scaleX(0);z-index:100}
+header.nav{position:sticky;top:0;z-index:50;transition:background .4s,box-shadow .4s}
+header.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;transition:height .4s var(--ease)}
+header.nav.stuck{background:rgba(20,26,20,.92);box-shadow:0 1px 0 rgba(255,214,107,.3)}
+header.nav.stuck .wrap{height:58px}
+.logo{font-family:var(--serif);font-weight:900;font-size:1.25rem;text-decoration:none;white-space:nowrap}
+.logo span{color:var(--tom);font-style:italic}
+nav ul{display:flex;gap:2rem;list-style:none;align-items:center}
+nav a{text-decoration:none;font-weight:500;font-size:.95rem;position:relative;padding:.3rem 0}
+nav ul a:not(.btn)::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--tom);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+nav ul a:not(.btn):hover::after{transform:scaleX(1)}
+.burger{display:none;background:none;border:1.5px solid var(--ink);color:var(--ink);width:44px;height:44px;border-radius:50%;cursor:pointer;font:inherit}
+.burger span{display:block;width:18px;height:2px;background:currentColor;margin:4px auto;transition:transform .3s}
+.burger[aria-expanded=true] span:first-child{transform:translateY(3px) rotate(45deg)}
+.burger[aria-expanded=true] span:last-child{transform:translateY(-3px) rotate(-45deg)}
+
+/* buttons + slots */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;background:var(--tom);color:#1a0a06;font:700 1rem var(--sans);padding:.9rem 1.6rem;border-radius:99px;border:2px solid var(--tom);text-decoration:none;cursor:pointer;transition:transform .3s var(--ease),box-shadow .3s,background .3s;will-change:transform}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 0 -2px rgba(255,90,60,.35)}
+.btn.alt{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.alt:hover{background:var(--ink);color:var(--dark)}
+small,.small{font-size:.85rem;color:var(--mute)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--cheese);outline-offset:3px}
+
+.np-banner{background:var(--cheese);color:var(--dark);font-size:.82rem;font-weight:500;text-align:center;padding:.45rem 1rem;line-height:1.4}
+.np-banner a{font-weight:700}
+
+/* hero */
+.hero{padding:clamp(2rem,6vw,4rem) 0 clamp(4rem,8vw,6rem);overflow:hidden;min-height:calc(100svh - 76px);display:flex;align-items:center}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:2rem;align-items:center}
+.hero h1{font-size:clamp(3.4rem,13.5vw,9.5rem);letter-spacing:-.03em}
+.hero h1 .w{display:block;white-space:nowrap}
+.hero h1 .w:nth-child(2){color:var(--tom);font-style:italic;padding-left:.35em}
+.hero h1 .w:nth-child(3){font-size:.42em;letter-spacing:.14em;text-transform:uppercase;font-family:var(--sans);font-weight:700;color:var(--cheese);margin-top:.5em;padding-left:.2em}
+.hero p.lead{font-size:1.2rem;max-width:30ch;margin:1.6rem 0 2rem;color:var(--mute)}
+.hero .acts{display:flex;gap:.9rem;flex-wrap:wrap}
+.pizza-wrap{position:relative;aspect-ratio:1;width:min(100%,560px);margin-inline:auto;will-change:transform}
+.pizza-wrap svg{width:100%;height:100%;overflow:visible}
+.spin{transform-origin:200px 200px;animation:spin 90s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.draw{stroke-dasharray:1200;stroke-dashoffset:1200;animation:draw 2.2s var(--ease) .3s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.pop{opacity:0;transform-box:fill-box;transform-origin:center;animation:pop .7s var(--ease) forwards;animation-delay:calc(1s + var(--i)*.09s)}
+@keyframes pop{from{opacity:0;transform:scale(.2) rotate(-40deg)}to{opacity:1;transform:none}}
+.base{opacity:0;animation:fade 1s ease .1s forwards}
+@keyframes fade{to{opacity:1}}
+.steam path{stroke-dasharray:60;stroke-dashoffset:60;animation:steam 3.4s ease-in-out infinite}
+.steam path:nth-child(2){animation-delay:.8s}.steam path:nth-child(3){animation-delay:1.6s}
+@keyframes steam{0%{stroke-dashoffset:60;opacity:0}30%{opacity:.8}100%{stroke-dashoffset:-60;opacity:0}}
+.rise{opacity:0;transform:translateY(28px);animation:rise .9s var(--ease) forwards;animation-delay:calc(.15s + var(--d,0)*.12s)}
+@keyframes rise{to{opacity:1;transform:none}}
+
+/* marquee */
+.marq{background:var(--tom);color:#1a0a06;overflow:hidden;white-space:nowrap;padding:1rem 0;transform:rotate(-1.2deg);margin:0 -2vw;position:relative;z-index:2}
+.marq div{display:inline-flex;animation:marq 32s linear infinite}
+.marq span{font-family:var(--serif);font-weight:900;font-size:clamp(1.3rem,3vw,2rem);padding-right:2rem;display:inline-flex;align-items:center;gap:2rem}
+.marq span::after{content:"✦";font-size:.8em}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* offer */
+.offer .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:end}
+.big{font-family:var(--serif);font-weight:900;font-size:clamp(5rem,22vw,15rem);line-height:.8;color:var(--cheese);letter-spacing:-.04em}
+.offer p{max-width:42ch;color:var(--mute);font-size:1.15rem}
+.offer p strong{color:var(--ink)}
+.cats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:3rem}
+.cat{border:1px solid rgba(246,239,224,.2);border-radius:1.2rem;padding:1.5rem;background:var(--bg2);transition:transform .4s var(--ease),border-color .3s,background .3s}
+.cat:hover{transform:translateY(-8px) rotate(-1deg);border-color:var(--tom);background:#222c22}
+.cat b{font-family:var(--serif);font-size:1.8rem;display:block}
+.cat small{display:block;margin-top:.3rem}
+
+/* menu */
+.menu{background:var(--cheese);color:var(--dark)}
+.menu .eyebrow{color:var(--tomd)}
+.menu h2 em{color:var(--tomd)}
+.menu .note{margin:1.4rem 0 3rem;padding:1rem 1.2rem;border-left:5px solid var(--tomd);background:rgba(26,20,16,.08);max-width:62ch;font-weight:500}
+.mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.mcard{background:var(--dark);color:var(--ink);border-radius:1.4rem;padding:1.8rem;transition:transform .4s var(--ease),box-shadow .4s}
+.mcard:hover{transform:translateY(-8px);box-shadow:0 18px 0 -6px rgba(168,38,15,.45)}
+.mcard header{display:flex;justify-content:space-between;align-items:center;gap:.5rem;flex-wrap:wrap;margin-bottom:1.2rem}
+.mcard h3{font-size:2rem;color:var(--cheese)}
+.mcard .tag{color:var(--mute);font-size:.62rem}
+.item{display:grid;grid-template-columns:auto 1fr auto;gap:.5rem;align-items:baseline;padding:.7rem 0;transition:transform .3s var(--ease),color .3s}
+.item:hover{transform:translateX(6px);color:var(--tom)}
+.item .n{font-weight:700}
+.item .dots{border-bottom:2px dotted rgba(246,239,224,.3);transform:translateY(-4px)}
+.item .p{font-family:var(--serif);font-weight:600;color:var(--cheese)}
+.item .d{grid-column:1/-1;font-size:.9rem;color:var(--mute);margin-top:-.4rem}
+
+/* hours */
+.hl .grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,5vw,4rem)}
+.hours{list-style:none;margin:1.5rem 0}
+.hours li{display:flex;justify-content:space-between;padding:.8rem .2rem;border-bottom:1px solid rgba(246,239,224,.18);transition:padding .3s var(--ease),background .3s}
+.hours li:hover{padding-left:.8rem}
+.hours li.today{color:var(--cheese);font-weight:700}
+.addr{display:flex;flex-direction:column;gap:.5rem;align-items:flex-start;margin-top:1.5rem}
+.copy{background:none;border:1.5px dashed var(--cheese);color:var(--ink);font:500 1rem var(--sans);padding:.8rem 1.1rem;border-radius:1rem;cursor:pointer;text-align:left;transition:background .3s,transform .3s var(--ease)}
+.copy:hover{background:rgba(255,214,107,.12);transform:translateY(-2px)}
+.copy b{display:block;color:var(--cheese);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
+.map{border-radius:1.4rem;overflow:hidden;border:1px solid rgba(246,239,224,.2)}
+.map iframe{display:block;width:100%;min-height:320px;border:0}
+.maplinks{display:flex;gap:.8rem;flex-wrap:wrap;padding:.9rem 0}
+.maplinks a{color:var(--cheese);font-weight:700}
+.mapcredit{font-size:.78rem;color:var(--mute)}
+
+/* contact */
+.contact{text-align:center;background:var(--bg2);overflow:hidden}
+.contact h2{margin-bottom:1.5rem}
+.contact .acts{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem}
+.contact .ghost{position:absolute;inset:auto 0 -2rem;font-family:var(--serif);font-weight:900;font-size:clamp(5rem,26vw,20rem);color:rgba(246,239,224,.04);line-height:1;white-space:nowrap;text-align:center;pointer-events:none}
+.contact .wrap{position:relative}
+
+.np-cta{margin:0 auto;width:min(900px,100% - 2.5rem);padding:clamp(2rem,5vw,3.5rem);border-radius:2rem;background:linear-gradient(135deg,var(--tom),#ff8a3c);color:#1a0a06;text-align:center;position:relative;box-shadow:0 0 0 6px var(--bg),0 0 0 8px var(--cheese)}
+.np-cta .btn{background:#1a0a06;color:var(--cheese);border-color:#1a0a06}
+.np-cta .btn.alt{background:transparent;color:#1a0a06}
+.np-cta small{color:#3a1409}
+.ctasec{padding:clamp(3rem,7vw,5rem) 0}
+footer{padding:2rem 0 3rem;text-align:center;color:var(--mute);font-size:.9rem}
+
+/* reveals (JS only) */
+.js .rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--s,0)*.1s)}
+.js .rv.in{opacity:1;transform:none}
+
+@media(max-width:860px){
+  .hero .wrap,.offer .grid,.hl .grid{grid-template-columns:1fr}
+  .hero{min-height:0}
+  .pizza-wrap{width:min(100%,420px);order:-1}
+  .mgrid,.cats{grid-template-columns:1fr}
+  .burger{display:block}
+  nav ul{position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--bg);padding:1.5rem;gap:1.2rem;border-bottom:2px solid var(--tom);display:none}
+  nav ul.open{display:flex}
+  .marq{transform:none;margin:0}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .draw{stroke-dashoffset:0}.pop,.base,.rise{opacity:1;transform:none}
+  .js .rv{opacity:1;transform:none}
+  .marq div{flex-wrap:wrap;white-space:normal}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div class="progress" id="bar"></div>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top">Mamma <span>Lilla's</span></a>
+    <nav aria-label="Main">
+      <button class="burger" id="burger" aria-expanded="false" aria-controls="menu-list" aria-label="Menu"><span></span><span></span></button>
+      <ul id="menu-list">
+        <li><a href="#pizza">Pizza</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#visit">Hours &amp; location</a></li>
+        <li><a href="#contact" class="btn" data-mag>Get in touch</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow rise" style="--d:0">Clinton, Wisconsin</p>
+      <h1>
+        <span class="w rise" style="--d:1">Mamma</span>
+        <span class="w rise" style="--d:2">Lilla's</span>
+        <span class="w rise" style="--d:3">Pizza</span>
+      </h1>
+      <p class="lead rise" style="--d:4">Pizza. On Milwaukee Street.</p>
+      <div class="acts rise" style="--d:5">
+        <a class="btn" href="#menu" data-mag>See the menu</a>
+        <a class="btn alt" href="#visit" data-mag>Find us</a>
+      </div>
+    </div>
+    <div class="pizza-wrap" id="pz" role="img" aria-label="Illustration of a pizza cut into eight slices">
+      <svg viewBox="0 0 400 400">
+        <g class="steam" fill="none" stroke="#f6efe0" stroke-width="3" stroke-linecap="round" opacity=".6">
+          <path d="M170 30c-14 14 14 24 0 40"/><path d="M200 18c-14 14 14 24 0 40"/><path d="M230 30c-14 14 14 24 0 40"/>
+        </g>
+        <g class="spin">
+          <circle class="base" cx="200" cy="200" r="168" fill="#e0953a"/>
+          <circle class="base" cx="200" cy="200" r="150" fill="#c92f17"/>
+          <circle class="base" cx="200" cy="200" r="140" fill="#ffd66b" opacity=".9"/>
+          <g fill="#b22610" stroke="#7d1807" stroke-width="2">
+            <circle class="pop" style="--i:0" cx="200" cy="120" r="20"/>
+            <circle class="pop" style="--i:1" cx="270" cy="160" r="20"/>
+            <circle class="pop" style="--i:2" cx="280" cy="235" r="20"/>
+            <circle class="pop" style="--i:3" cx="225" cy="285" r="20"/>
+            <circle class="pop" style="--i:4" cx="150" cy="275" r="20"/>
+            <circle class="pop" style="--i:5" cx="115" cy="205" r="20"/>
+            <circle class="pop" style="--i:6" cx="135" cy="140" r="20"/>
+            <circle class="pop" style="--i:7" cx="200" cy="205" r="22"/>
+          </g>
+          <g fill="#3f9a4a" stroke="#256b2e" stroke-width="1.5">
+            <path class="pop" style="--i:8" d="M240 110c14-6 24 4 20 18-14 6-24-4-20-18z"/>
+            <path class="pop" style="--i:9" d="M160 205c-6-14 4-24 18-20 6 14-4 24-18 20z" transform="translate(50 40)"/>
+            <path class="pop" style="--i:10" d="M100 255c14-6 24 4 20 18-14 6-24-4-20-18z" transform="translate(30 -6)"/>
+            <path class="pop" style="--i:11" d="M290 190c14-6 24 4 20 18-14 6-24-4-20-18z" transform="translate(-40 60)"/>
+          </g>
+          <g fill="none" stroke="#141a14" stroke-width="3" stroke-linecap="round">
+            <path class="draw" d="M200 200L200 32"/><path class="draw" d="M200 200L319 81"/>
+            <path class="draw" d="M200 200L368 200"/><path class="draw" d="M200 200L319 319"/>
+            <path class="draw" d="M200 200L200 368"/><path class="draw" d="M200 200L81 319"/>
+            <path class="draw" d="M200 200L32 200"/><path class="draw" d="M200 200L81 81"/>
+          </g>
+          <circle class="draw" cx="200" cy="200" r="168" fill="none" stroke="#ffd66b" stroke-width="2"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="marq" aria-hidden="true">
+  <div>
+    <span>Mamma Lilla's Pizza</span><span>Pizza</span><span>Clinton, Wisconsin</span><span>604 Milwaukee Street</span>
+    <span>Mamma Lilla's Pizza</span><span>Pizza</span><span>Clinton, Wisconsin</span><span>604 Milwaukee Street</span>
+    <span>Mamma Lilla's Pizza</span><span>Pizza</span><span>Clinton, Wisconsin</span><span>604 Milwaukee Street</span>
+    <span>Mamma Lilla's Pizza</span><span>Pizza</span><span>Clinton, Wisconsin</span><span>604 Milwaukee Street</span>
+  </div>
+</div>
+
+<section class="offer" id="pizza">
+  <div class="wrap">
+    <div class="grid">
+      <div class="big rv">Pizza.</div>
+      <div class="rv" style="--s:2">
+        <p class="eyebrow">What's here</p>
+        <p><strong>Mamma Lilla's Pizza</strong> is a restaurant at 604 Milwaukee Street in Clinton, Wisconsin. One name on the door, one word on the sign, and it says it all.</p>
+      </div>
+    </div>
+    <div class="cats">
+      <div class="cat rv"><b>Pizza</b><small>Example menu category</small></div>
+      <div class="cat rv" style="--s:1"><b>Pasta</b><small>Example menu category</small></div>
+      <div class="cat rv" style="--s:2"><b>Starters</b><small>Example menu category</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <p class="eyebrow rv">Menu <span class="tag" style="margin-left:.4rem">Example</span></p>
+    <h2 class="rv">Pick a <em>slice</em> of the page</h2>
+    <p class="note rv">This is an example menu that shows how your menu would look. Your real dishes and prices go here.</p>
+    <div class="mgrid">
+      <article class="mcard rv">
+        <header><h3>Pizza</h3><span class="tag">Example</span></header>
+        <div class="item"><span class="n">Margherita</span><span class="dots"></span><span class="p">$12.00</span><span class="d">Tomato, mozzarella, basil</span></div>
+        <div class="item"><span class="n">Pepperoni</span><span class="dots"></span><span class="p">$13.50</span></div>
+        <div class="item"><span class="n">Supreme</span><span class="dots"></span><span class="p">$16.00</span></div>
+      </article>
+      <article class="mcard rv" style="--s:1">
+        <header><h3>Pasta</h3><span class="tag">Example</span></header>
+        <div class="item"><span class="n">Spaghetti &amp; meatballs</span><span class="dots"></span><span class="p">$13.50</span></div>
+        <div class="item"><span class="n">Fettuccine Alfredo</span><span class="dots"></span><span class="p">$13.00</span></div>
+        <div class="item"><span class="n">Baked lasagna</span><span class="dots"></span><span class="p">$14.50</span></div>
+      </article>
+      <article class="mcard rv" style="--s:2">
+        <header><h3>Starters</h3><span class="tag">Example</span></header>
+        <div class="item"><span class="n">Garlic bread</span><span class="dots"></span><span class="p">$5.00</span></div>
+        <div class="item"><span class="n">House salad</span><span class="dots"></span><span class="p">$6.50</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="hl" id="visit">
+  <div class="wrap">
+    <p class="eyebrow rv">Hours &amp; location</p>
+    <h2 class="rv">Find us on <em>Milwaukee Street</em></h2>
+    <div class="grid" style="margin-top:2.5rem">
+      <div class="rv">
+        <span class="tag" style="color:var(--cheese)">Example hours</span>
+        <ul class="hours" id="hours">
+          <li data-d="1"><span>Mon</span><span>7 AM – 3 PM</span></li>
+          <li data-d="2"><span>Tue</span><span>7 AM – 3 PM</span></li>
+          <li data-d="3"><span>Wed</span><span>7 AM – 3 PM</span></li>
+          <li data-d="4"><span>Thu</span><span>7 AM – 3 PM</span></li>
+          <li data-d="5"><span>Fri</span><span>7 AM – 8 PM</span></li>
+          <li data-d="6"><span>Sat</span><span>8 AM – 8 PM</span></li>
+          <li data-d="0"><span>Sun</span><span>Closed</span></li>
+        </ul>
+        <div class="addr">
+          <button class="copy" id="copy" type="button" aria-live="polite"><b>Tap to copy address</b><span id="addr">604 Milwaukee Street, Clinton, WI 53525</span></button>
+        </div>
+      </div>
+      <div class="rv" style="--s:2"><iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-88.87168,42.55191,-88.85968,42.56391&amp;layer=mapnik&amp;marker=42.55791,-88.86568"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=42.55791&amp;mlon=-88.86568#map=17/42.55791/-88.86568" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=42.55791,-88.86568" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="ghost" aria-hidden="true">Pizza</div>
+  <div class="wrap">
+    <p class="eyebrow" style="justify-content:center">Contact</p>
+    <h2 class="rv">Say <em>hello</em></h2>
+    <p class="rv" style="color:var(--mute);max-width:36ch;margin-inline:auto">Questions for Mamma Lilla's? Send a note by e-mail.</p>
+    <div class="acts rv" style="--s:2"><a class="btn" href="mailto:mammalillas@yahoo.com">mammalillas@yahoo.com</a> </div>
+  </div>
+</section>
+
+<div class="ctasec rv"><section class="np-cta" id="offer"><h2>Want this for Mamma Lilla&#x27;s Pizza?</h2><p>This is a free preview made for Mamma Lilla&#x27;s Pizza. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20Mamma%20Lilla%27s%20Pizza&amp;body=Yes%2C%20please%20make%20this%20site%20for%20Mamma%20Lilla%27s%20Pizza.">Make it mine</a></p></section></div>
+</main>
+
+<footer>
+  <div class="wrap">Mamma Lilla's Pizza · 604 Milwaukee Street, Clinton, WI 53525</div>
+</footer>
+
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · Mamma Lilla&#x27;s Pizza</div>
+<script>
+(function(){
+  var d=document,root=d.documentElement;
+  root.classList.add('js');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var bar=d.getElementById('bar'),nav=d.getElementById('nav'),pz=d.getElementById('pz');
+  var tick=false;
+  function onScroll(){
+    if(tick)return;tick=true;
+    requestAnimationFrame(function(){
+      var y=window.scrollY,h=root.scrollHeight-window.innerHeight;
+      bar.style.transform='scaleX('+(h>0?Math.min(y/h,1):0)+')';
+      nav.classList.toggle('stuck',y>30);
+      if(pz&&!reduce&&y<1400){pz.style.transform='translateY('+(y*.18)+'px) rotate('+(y*.04)+'deg)'}
+      tick=false;
+    });
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  var rv=d.querySelectorAll('.rv');
+  if('IntersectionObserver' in window&&!reduce){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+    },{threshold:.15,rootMargin:'0px 0px -6% 0px'});
+    rv.forEach(function(el){io.observe(el)});
+  }else{rv.forEach(function(el){el.classList.add('in')})}
+
+  var burger=d.getElementById('burger'),list=d.getElementById('menu-list');
+  burger.addEventListener('click',function(){
+    var o=list.classList.toggle('open');burger.setAttribute('aria-expanded',o);
+  });
+  list.addEventListener('click',function(e){
+    if(e.target.closest('a')){list.classList.remove('open');burger.setAttribute('aria-expanded','false')}
+  });
+
+  var cp=d.getElementById('copy'),txt=d.getElementById('addr');
+  cp.addEventListener('click',function(){
+    var t=txt.textContent,lab=cp.querySelector('b');
+    function done(){lab.textContent='Copied ✓';setTimeout(function(){lab.textContent='Tap to copy address'},2000)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,fb)}else fb();
+    function fb(){
+      var ta=d.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';
+      d.body.appendChild(ta);ta.select();try{d.execCommand('copy');done()}catch(e){}d.body.removeChild(ta);
+    }
+  });
+
+  var today=new Date().getDay();
+  var li=d.querySelector('#hours li[data-d="'+today+'"]');
+  if(li)li.classList.add('today');
+
+  if(!reduce&&window.matchMedia('(hover:hover)').matches){
+    d.querySelectorAll('[data-mag],.np-cta .btn,.contact .btn').forEach(function(b){
+      b.addEventListener('mousemove',function(e){
+        var r=b.getBoundingClientRect(),x=e.clientX-r.left-r.width/2,y=e.clientY-r.top-r.height/2;
+        b.style.transform='translate('+x*.2+'px,'+(y*.3-3)+'px)';
+      });
+      b.addEventListener('mouseleave',function(){b.style.transform=''});
+    });
+  }
+})();
+</script>
+</body>
+</html>

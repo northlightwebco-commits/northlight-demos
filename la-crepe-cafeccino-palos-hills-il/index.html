@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La Crepe Cafeccino · Café in Palos Hills, IL</title>
+<meta name="description" content="La Crepe Cafeccino, a café at 10406 Harlem Avenue in Palos Hills, IL. Coffee. Dine in, take it to go.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,900;1,9..144,600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#24120b; --ink2:#35190f; --ink3:#46241a;
+  --butter:#f6c453; --cream:#fff3dc; --berry:#ff6a58; --berry-d:#8f1d15;
+  --serif:'Fraunces',Georgia,'Times New Roman',serif;
+  --sans:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
+body{background:var(--ink);color:var(--cream);font-family:var(--sans);font-size:1.0625rem;line-height:1.6;overflow-x:hidden}
+img,svg,iframe{max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:900;line-height:1;text-wrap:balance;overflow-wrap:break-word}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+:focus-visible{outline:3px solid var(--butter);outline-offset:3px}
+
+/* progress */
+.progress{position:fixed;left:0;top:0;height:4px;width:100%;background:var(--berry);transform:scaleX(0);transform-origin:0 50%;z-index:100;will-change:transform}
+
+/* slots */
+.np-banner{background:var(--butter);color:var(--ink);font-size:.82rem;font-weight:500;text-align:center;padding:8px 16px;line-height:1.4}
+.np-banner a{font-weight:700}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;background:var(--butter);color:var(--ink);border:2px solid var(--butter);border-radius:999px;padding:.85em 1.6em;font:700 1rem/1.1 var(--sans);text-decoration:none;cursor:pointer;transition:transform .35s var(--ease),background-color .25s,color .25s;will-change:transform}
+.btn:hover{transform:translateY(-3px)}
+.btn.alt{background:transparent;color:var(--cream);border-color:var(--cream)}
+.btn.alt:hover{background:var(--cream);color:var(--ink)}
+small{font-size:.85em;opacity:.9}
+.map{border-radius:22px;overflow:hidden;border:2px solid var(--butter);background:var(--ink2)}
+.map iframe{display:block;width:100%;height:340px;border:0}
+.maplinks{display:flex;flex-wrap:wrap;gap:10px;padding:14px}
+.mapcredit{font-size:.78rem;padding:0 14px 12px;opacity:.85}
+.np-cta{position:relative;background:var(--butter);color:var(--ink);border-radius:32px;padding:clamp(28px,6vw,72px);text-align:center;overflow:hidden}
+.np-cta h2,.np-cta h3{font-size:clamp(1.8rem,5vw,3.4rem);margin-bottom:.5em}
+.np-cta p{max-width:46ch;margin:0 auto 1.2em}
+.np-cta .btn{background:var(--ink);color:var(--butter);border-color:var(--ink);margin:4px}
+.np-cta .btn.alt{background:transparent;color:var(--ink)}
+.np-cta .btn.alt:hover{background:var(--ink);color:var(--butter)}
+
+/* header */
+header.site{position:sticky;top:0;z-index:50;transition:background-color .3s,box-shadow .3s}
+header.site .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0;transition:padding .3s var(--ease)}
+header.site.stuck{background:rgba(36,18,11,.94);box-shadow:0 1px 0 rgba(246,196,83,.35);backdrop-filter:blur(8px)}
+header.site.stuck .bar{padding:10px 0}
+.logo{font-family:var(--serif);font-weight:900;font-size:1.25rem;text-decoration:none;display:flex;align-items:center;gap:10px;line-height:1}
+.logo i{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--butter);color:var(--ink);font-style:normal;font-size:1rem}
+nav ul{display:flex;gap:28px;list-style:none;align-items:center}
+nav a{text-decoration:none;font-weight:500;position:relative;padding:4px 0}
+nav a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--butter);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+nav a:not(.btn):hover::after{transform:scaleX(1)}
+.burger{display:none;background:none;border:2px solid var(--cream);color:var(--cream);border-radius:999px;padding:.5em 1em;font:700 .9rem var(--sans);cursor:pointer}
+
+/* hero */
+.hero{position:relative;padding:clamp(20px,5vw,60px) 0 clamp(60px,9vw,120px);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center}
+.eyebrow{display:inline-block;font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:.8rem;color:var(--butter);margin-bottom:18px}
+h1{font-size:clamp(2.6rem,12.5vw,8.6rem);letter-spacing:-.02em}
+h1 .line{display:block;overflow:hidden;padding-bottom:.08em}
+h1 .line>span{display:block}
+h1 .small{font-size:.42em;font-style:italic;font-weight:600;color:var(--butter);letter-spacing:0}
+h1 .big{color:var(--cream)}
+.lead{font-family:var(--serif);font-style:italic;font-weight:600;font-size:clamp(1.3rem,3vw,2rem);margin:24px 0 30px;color:var(--butter)}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.visual{position:relative;will-change:transform}
+.visual svg{display:block;width:100%;height:auto;overflow:visible}
+.ring{transform-origin:200px 200px;animation:spin 60s linear infinite}
+.leaf{fill:none;stroke:var(--cream);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.2s var(--ease) forwards;animation-delay:calc(.9s + var(--k)*.28s)}
+.steam path{fill:none;stroke:var(--butter);stroke-width:5;stroke-linecap:round;opacity:.0;animation:steam 4s ease-in-out infinite;animation-delay:calc(var(--k)*.9s + 2s)}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes steam{0%{opacity:0;transform:translateY(14px)}40%{opacity:.9}100%{opacity:0;transform:translateY(-22px)}}
+@keyframes rise{from{transform:translateY(105%)}to{transform:none}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes pop{from{opacity:0;transform:scale(.85) rotate(-6deg)}to{opacity:1;transform:none}}
+h1 .line>span{animation:rise 1s var(--ease) both;animation-delay:calc(.15s + var(--i)*.14s)}
+.fu{animation:fadeUp .9s var(--ease) both;animation-delay:var(--d,.6s)}
+.visual .pop{animation:pop 1.2s var(--ease) both;animation-delay:.3s}
+.sticker{position:absolute;right:-4px;bottom:6%;width:118px;height:118px;border-radius:50%;background:var(--berry);color:var(--ink);display:grid;place-items:center;text-align:center;font:900 .95rem/1.1 var(--serif);transform:rotate(12deg);animation:fadeUp 1s var(--ease) 1.6s both}
+
+/* marquee */
+.marquee{background:var(--butter);color:var(--ink);overflow:hidden;border-block:3px solid var(--ink)}
+.track{display:flex;width:max-content;animation:slide 32s linear infinite}
+.track span{font:900 clamp(1.3rem,3vw,2.2rem)/1 var(--serif);padding:16px 26px;white-space:nowrap;display:flex;align-items:center;gap:52px}
+.track span::after{content:"✺";font-size:.8em}
+.marquee:hover .track{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+section{padding:clamp(64px,10vw,130px) 0}
+.kicker{color:var(--berry);font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:.8rem;margin-bottom:14px;display:block}
+h2{font-size:clamp(2.1rem,6.5vw,4.6rem);margin-bottom:.4em}
+
+/* offers */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.card{position:relative;background:var(--ink2);border:2px solid var(--ink3);border-radius:28px;padding:32px 28px 36px;transition:transform .45s var(--ease),border-color .3s,background-color .3s;overflow:hidden}
+.card:hover{transform:translateY(-8px) rotate(-.6deg);border-color:var(--butter);background:var(--ink3)}
+.card .n{font:900 4.2rem/1 var(--serif);color:var(--butter);display:block;margin-bottom:18px;transition:transform .5s var(--ease)}
+.card:hover .n{transform:scale(1.12) translateX(6px)}
+.card h3{font-size:clamp(1.6rem,3vw,2.1rem);margin-bottom:10px}
+.card p{opacity:.92}
+
+/* menu */
+#menu{background:var(--butter);color:var(--ink)}
+#menu .kicker{color:var(--berry-d)}
+.tagrow{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-bottom:12px}
+.tag{display:inline-block;border:2px solid currentColor;border-radius:999px;padding:.2em .9em;font-weight:700;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase}
+.note{max-width:60ch;font-weight:500;margin-bottom:40px}
+.mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,56px)}
+.msec h3{font-size:clamp(1.6rem,3vw,2.2rem);padding-bottom:12px;border-bottom:4px solid var(--ink);margin-bottom:8px}
+.msec ul{list-style:none}
+.msec li{display:grid;grid-template-columns:1fr auto;column-gap:12px;padding:14px 0 12px;border-bottom:1.5px dotted rgba(36,18,11,.55);transition:transform .35s var(--ease),padding .35s var(--ease)}
+.msec li:hover{transform:translateX(8px)}
+.msec b{font:700 1.1rem var(--serif)}
+.msec .p{font-weight:700;color:var(--berry-d)}
+.msec em{grid-column:1/-1;font-style:normal;font-size:.95rem;opacity:.85}
+
+/* visit */
+.visit{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,70px);align-items:start}
+.hours{list-style:none;margin:20px 0 28px;border-top:2px solid var(--butter)}
+.hours li{display:flex;justify-content:space-between;gap:12px;padding:12px 4px;border-bottom:1px solid var(--ink3);transition:background-color .3s,padding .3s var(--ease)}
+.hours li:hover{background:var(--ink2);padding-inline:14px}
+.hours span:first-child{font-weight:700}
+address{font-style:normal;font-size:1.2rem;margin-bottom:14px}
+.copy{background:none;border:2px solid var(--butter);color:var(--butter);border-radius:999px;padding:.55em 1.2em;font:700 .95rem var(--sans);cursor:pointer;transition:background-color .25s,color .25s,transform .35s var(--ease)}
+.copy:hover{background:var(--butter);color:var(--ink);transform:translateY(-2px)}
+.status{display:inline-block;margin-left:10px;font-size:.9rem;color:var(--butter)}
+
+/* contact */
+#contact{text-align:center;position:relative;overflow:hidden}
+#contact p{max-width:44ch;margin:0 auto 26px;font-size:1.15rem}
+.cbtns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+#contact .bg{position:absolute;left:50%;top:50%;width:min(900px,160vw);transform:translate(-50%,-50%);opacity:.12;pointer-events:none;z-index:0}
+#contact .wrap{position:relative;z-index:1}
+.ctaw{padding-top:0}
+
+footer{border-top:1px solid var(--ink3);padding:36px 0 44px;font-size:.95rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+
+/* reveal (only when JS is on) */
+.js .rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--i,0)*110ms)}
+.js .rv.in{opacity:1;transform:none}
+
+@media (max-width:860px){
+  .hero .wrap,.visit{grid-template-columns:1fr}
+  .visual{max-width:420px;margin:10px auto 0;width:100%}
+  .cards,.mgrid{grid-template-columns:1fr}
+  .burger{display:inline-block}
+  nav{position:absolute;left:0;right:0;top:100%;background:var(--ink);border-bottom:2px solid var(--butter);display:none;padding:10px 20px 22px}
+  nav.open{display:block}
+  nav ul{flex-direction:column;align-items:stretch;gap:4px}
+  nav a{display:block;padding:12px 0;font-size:1.15rem}
+  nav a:not(.btn)::after{display:none}
+}
+@media (max-width:420px){
+  .sticker{width:92px;height:92px;font-size:.78rem}
+  .map iframe{height:280px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .leaf{stroke-dashoffset:0}
+  .js .rv{opacity:1;transform:none}
+  .track{width:auto;flex-wrap:wrap}
+  .progress{display:none}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="site" id="top">
+  <div class="wrap bar">
+    <a class="logo" href="#top" aria-label="La Crepe Cafeccino, back to top"><i>C</i><span>La Crepe Cafeccino</span></a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav id="nav" aria-label="Main">
+      <ul>
+        <li><a href="#offer">What we do</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#visit">Visit</a></li>
+        <li><a href="#contact" class="btn">Say hello</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow fu" style="--d:.1s">Café · Palos Hills, IL</span>
+      <h1 aria-label="La Crepe Cafeccino">
+        <span class="line"><span class="small" style="--i:0">La Crepe</span></span>
+        <span class="line"><span class="big" style="--i:1">Cafeccino</span></span>
+      </h1>
+      <p class="lead fu" style="--d:.7s">Coffee. Dine in, take it to go.</p>
+      <div class="actions fu" style="--d:.9s">
+        <a class="btn" href="#menu" data-magnet>See the menu</a>
+        <a class="btn alt" href="#visit" data-magnet>Find us</a>
+      </div>
+    </div>
+    <div class="visual" id="visual">
+      <div class="pop">
+      <svg viewBox="0 0 400 400" role="img" aria-label="A cup of coffee seen from above, with a leaf pattern drawn in the foam">
+        <circle cx="200" cy="200" r="190" fill="var(--ink2)"/>
+        <g class="ring"><circle cx="200" cy="200" r="184" fill="none" stroke="var(--butter)" stroke-width="3" stroke-dasharray="3 14" stroke-linecap="round"/></g>
+        <circle cx="200" cy="200" r="150" fill="var(--cream)"/>
+        <circle cx="200" cy="200" r="132" fill="#c9966a"/>
+        <circle cx="200" cy="200" r="118" fill="#6b3a22"/>
+        <path d="M338 160c42 4 44 70 4 76" fill="none" stroke="var(--cream)" stroke-width="16" stroke-linecap="round"/>
+        <g>
+          <path class="leaf" style="--k:0" pathLength="1" d="M200 96C262 138 262 220 200 306C138 220 138 138 200 96Z"/>
+          <path class="leaf" style="--k:1" pathLength="1" d="M200 124C246 156 246 218 200 280C154 218 154 156 200 124Z"/>
+          <path class="leaf" style="--k:2" pathLength="1" d="M200 152C232 172 232 214 200 254C168 214 168 172 200 152Z"/>
+          <path class="leaf" style="--k:3" pathLength="1" d="M200 90V318"/>
+        </g>
+        <g class="steam">
+          <path style="--k:0" d="M170 70c-14-14 14-24 0-40"/>
+          <path style="--k:1" d="M200 62c-14-14 14-24 0-40"/>
+          <path style="--k:2" d="M230 70c-14-14 14-24 0-40"/>
+        </g>
+      </svg>
+      </div>
+      <div class="sticker" aria-hidden="true">Dine in<br>or<br>to go</div>
+    </div>
+  </div>
+</div>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Coffee</span><span>Dine in</span><span>Take it to go</span><span>Harlem Avenue</span><span>Palos Hills</span><span>La Crepe Cafeccino</span>
+    <span>Coffee</span><span>Dine in</span><span>Take it to go</span><span>Harlem Avenue</span><span>Palos Hills</span><span>La Crepe Cafeccino</span>
+  </div>
+</div>
+
+<section id="offer">
+  <div class="wrap">
+    <span class="kicker rv">What we do</span>
+    <h2 class="rv" style="--i:1">Coffee, your way to enjoy it.</h2>
+    <div class="cards">
+      <article class="card rv" style="--i:0"><span class="n">01</span><h3>Coffee</h3><p>The heart of La Crepe Cafeccino, made for the start of your day or the middle of it.</p></article>
+      <article class="card rv" style="--i:1"><span class="n">02</span><h3>Dine in</h3><p>Grab a seat on Harlem Avenue and take your time.</p></article>
+      <article class="card rv" style="--i:2"><span class="n">03</span><h3>Take it to go</h3><p>Running late? Your order travels as well as you do.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="wrap">
+    <span class="kicker rv">The menu</span>
+    <div class="tagrow rv" style="--i:1"><h2 style="margin:0">Menu</h2><span class="tag">Example</span></div>
+    <p class="note rv" style="--i:2">This is an example menu that shows how your menu would look. Your real dishes and prices go here.</p>
+    <div class="mgrid">
+      <div class="msec rv" style="--i:0">
+        <h3>Coffee &amp; tea</h3>
+        <ul>
+          <li><b>Drip coffee</b><span class="p">$2.75</span><em>Fresh brewed</em></li>
+          <li><b>Latte</b><span class="p">$4.50</span><em>Espresso with steamed milk</em></li>
+          <li><b>Cappuccino</b><span class="p">$4.25</span></li>
+          <li><b>Iced coffee</b><span class="p">$3.75</span></li>
+          <li><b>Hot tea</b><span class="p">$2.75</span></li>
+        </ul>
+      </div>
+      <div class="msec rv" style="--i:1">
+        <h3>Pastries</h3>
+        <ul>
+          <li><b>Blueberry muffin</b><span class="p">$3.50</span></li>
+          <li><b>Butter croissant</b><span class="p">$3.75</span></li>
+          <li><b>Cinnamon roll</b><span class="p">$4.25</span><em>Warm, with icing</em></li>
+          <li><b>Chocolate chip cookie</b><span class="p">$2.25</span></li>
+        </ul>
+      </div>
+      <div class="msec rv" style="--i:2">
+        <h3>Breakfast &amp; lunch</h3>
+        <ul>
+          <li><b>Breakfast burrito</b><span class="p">$8.50</span><em>Eggs, cheese, potatoes</em></li>
+          <li><b>Turkey &amp; Swiss</b><span class="p">$9.50</span><em>Toasted sourdough</em></li>
+          <li><b>Soup of the day</b><span class="p">$6.00</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap">
+    <span class="kicker rv">Hours &amp; location</span>
+    <h2 class="rv" style="--i:1">Find us on Harlem Avenue.</h2>
+    <div class="visit">
+      <div class="rv">
+        <div class="tagrow"><span class="tag" style="color:var(--butter)">Example hours</span></div>
+        <ul class="hours">
+          <li><span>Mon</span><span>7 AM – 3 PM</span></li>
+          <li><span>Tue</span><span>7 AM – 3 PM</span></li>
+          <li><span>Wed</span><span>7 AM – 3 PM</span></li>
+          <li><span>Thu</span><span>7 AM – 3 PM</span></li>
+          <li><span>Fri</span><span>7 AM – 8 PM</span></li>
+          <li><span>Sat</span><span>8 AM – 8 PM</span></li>
+          <li><span>Sun</span><span>Closed</span></li>
+        </ul>
+        <address id="addr">10406 Harlem Avenue, Palos Hills, IL 60465</address>
+        <button class="copy" id="copy" type="button">Copy address</button><span class="status" id="status" role="status" aria-live="polite"></span>
+      </div>
+      <div class="rv" style="--i:2">
+        <iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-87.80444,41.69587,-87.79244,41.70787&amp;layer=mapnik&amp;marker=41.70187,-87.79844"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=41.70187&amp;mlon=-87.79844#map=17/41.70187/-87.79844" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=41.70187,-87.79844" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <svg class="bg" viewBox="0 0 400 400" aria-hidden="true"><g fill="none" stroke="var(--butter)" stroke-width="3"><circle cx="200" cy="200" r="190"/><circle cx="200" cy="200" r="150"/><circle cx="200" cy="200" r="110"/><circle cx="200" cy="200" r="70"/></g></svg>
+  <div class="wrap">
+    <span class="kicker rv">Contact</span>
+    <h2 class="rv" style="--i:1">Drop us a line.</h2>
+    <p class="rv" style="--i:2">Questions about La Crepe Cafeccino? Send a note and we'll get back to you.</p>
+    <div class="cbtns rv" style="--i:3">
+      <a class="btn" href="mailto:lacrepecafeccino@gmail.com">lacrepecafeccino@gmail.com</a> 
+    </div>
+  </div>
+</section>
+
+<section class="ctaw">
+  <div class="wrap rv">
+    <section class="np-cta" id="offer"><h2>Want this for La Crepe Cafeccino?</h2><p>This is a free preview made for La Crepe Cafeccino. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20La%20Crepe%20Cafeccino&amp;body=Yes%2C%20please%20make%20this%20site%20for%20La%20Crepe%20Cafeccino.">Make it mine</a></p></section>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><b style="font-family:var(--serif)">La Crepe Cafeccino</b> · 10406 Harlem Avenue, Palos Hills, IL 60465</span>
+    <span>Coffee. Dine in, take it to go.</span>
+  </div>
+</footer>
+
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · La Crepe Cafeccino</div>
+<script>
+(function(){
+  var d=document,root=d.documentElement;
+  root.classList.add('js');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var prog=d.getElementById('progress'),head=d.querySelector('header.site'),vis=d.getElementById('visual');
+  var ticking=false;
+  function onScroll(){
+    var y=window.pageYOffset||root.scrollTop,h=root.scrollHeight-window.innerHeight;
+    prog.style.transform='scaleX('+(h>0?Math.min(1,y/h):0)+')';
+    head.classList.toggle('stuck',y>40);
+    if(!reduce&&vis&&y<900&&window.innerWidth>860){vis.style.transform='translate3d(0,'+(y*.12)+'px,0)'}
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(onScroll)}},{passive:true});
+  onScroll();
+
+  var items=d.querySelectorAll('.rv');
+  if('IntersectionObserver' in window&&!reduce){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+    },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    items.forEach(function(el){io.observe(el)});
+  }else{items.forEach(function(el){el.classList.add('in')})}
+
+  var burger=d.getElementById('burger'),nav=d.getElementById('nav');
+  burger.addEventListener('click',function(){
+    var o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o);
+  });
+  nav.addEventListener('click',function(e){if(e.target.closest('a')){nav.classList.remove('open');burger.setAttribute('aria-expanded','false')}});
+
+  var copy=d.getElementById('copy'),st=d.getElementById('status');
+  copy.addEventListener('click',function(){
+    var t=d.getElementById('addr').textContent.trim();
+    function ok(){st.textContent='Copied!';setTimeout(function(){st.textContent=''},2200)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,fallback)}else fallback();
+    function fallback(){
+      var ta=d.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';d.body.appendChild(ta);ta.select();
+      try{d.execCommand('copy');ok()}catch(e){st.textContent='Press Ctrl+C to copy'}
+      d.body.removeChild(ta);
+    }
+  });
+
+  if(!reduce&&window.matchMedia('(hover:hover)').matches){
+    d.querySelectorAll('.btn,[data-magnet]').forEach(function(b){
+      b.addEventListener('mousemove',function(e){
+        var r=b.getBoundingClientRect(),x=(e.clientX-r.left-r.width/2)*.2,y=(e.clientY-r.top-r.height/2)*.3;
+        b.style.transform='translate('+x+'px,'+(y-3)+'px)';
+      });
+      b.addEventListener('mouseleave',function(){b.style.transform=''});
+    });
+  }
+})();
+</script>
+</body>
+</html>

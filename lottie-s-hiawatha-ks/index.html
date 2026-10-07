@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lottie's | American restaurant in Hiawatha, KS</title>
+<meta name="description" content="Lottie's is an American restaurant at 606 Oregon Street in Hiawatha, Kansas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{
+  --navy:#10213a;--navy2:#1a3254;--cherry:#c8283a;--cherry-d:#a81d2e;--butter:#f6c945;
+  --mint:#e8f3ee;--paper:#fffdf6;--ink:#14243a;--muted:#4a5a70;
+  --display:'Shrikhand',Georgia,serif;--body:'DM Sans',system-ui,sans-serif;--mono:'Space Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:var(--body);background:var(--mint);color:var(--ink);line-height:1.6;overflow-x:hidden;font-size:1.0625rem}
+img,svg{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--butter);outline-offset:3px}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+
+/* slots */
+.np-banner{background:var(--butter);color:var(--navy);text-align:center;font:700 .8rem/1.4 var(--mono);padding:.55rem 1rem;letter-spacing:.02em}
+.np-banner a{color:var(--navy)}
+.btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--cherry);color:#fff;text-decoration:none;font:700 1rem var(--body);padding:.85rem 1.5rem;border-radius:999px;border:2px solid var(--cherry);cursor:pointer;transition:transform .25s,box-shadow .25s,background .25s;will-change:transform}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 0 -2px rgba(16,33,58,.25);background:var(--cherry-d)}
+.btn.alt{background:transparent;color:inherit;border-color:currentColor}
+.btn.alt:hover{background:rgba(255,255,255,.12)}
+small{font-size:.82rem}
+.map{border-radius:18px;overflow:hidden;border:3px solid var(--navy);background:var(--paper);box-shadow:8px 8px 0 var(--navy)}
+.map iframe{display:block;width:100%;height:340px;border:0}
+.maplinks{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.4rem;padding:.2rem}
+.maplinks a{font:700 .9rem var(--body);text-decoration:none;border:2px solid var(--navy);border-radius:999px;padding:.5rem 1rem;background:var(--paper);transition:transform .2s,background .2s}
+.maplinks a:hover{transform:translateY(-3px);background:var(--butter)}
+.mapcredit{font-size:.75rem;color:var(--muted);margin-top:.6rem}
+.mapcredit a{color:inherit}
+.np-cta{position:relative;background:var(--navy);color:#fff;border-radius:28px;padding:clamp(2rem,6vw,4rem);text-align:center;overflow:hidden;border:4px solid var(--butter);box-shadow:10px 10px 0 var(--cherry)}
+.np-cta h2,.np-cta h3{font-family:var(--display);font-weight:400;color:var(--butter);font-size:clamp(1.8rem,5vw,3rem);line-height:1.15;text-wrap:balance;margin-bottom:.8rem}
+.np-cta p{max-width:52ch;margin:0 auto 1.2rem;color:#dfe8f4}
+.np-cta .btn{margin:.3rem}
+.np-cta .btn.alt{color:#fff}
+
+/* header */
+header.site{position:sticky;top:0;z-index:50;background:var(--navy);color:#fff;transition:padding .3s,box-shadow .3s,background .3s}
+header.site .bar{display:flex;align-items:center;justify-content:space-between;padding:1rem 0;transition:padding .3s}
+header.site.scrolled{box-shadow:0 6px 24px rgba(16,33,58,.35);background:rgba(16,33,58,.95);backdrop-filter:blur(8px)}
+header.site.scrolled .bar{padding:.55rem 0}
+.brand{font-family:var(--display);font-size:1.6rem;text-decoration:none;color:var(--butter);line-height:1}
+nav.main{display:flex;gap:1.8rem;align-items:center}
+nav.main a{text-decoration:none;font:700 .85rem var(--mono);letter-spacing:.06em;text-transform:uppercase;position:relative;padding:.3rem 0}
+nav.main a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--butter);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+nav.main a:hover::after{transform:scaleX(1)}
+.burger{display:none;background:none;border:2px solid var(--butter);color:var(--butter);border-radius:10px;width:46px;height:42px;cursor:pointer;font-size:1.2rem}
+.progress{position:absolute;left:0;bottom:0;height:4px;width:100%;background:var(--butter);transform:scaleX(0);transform-origin:left}
+
+/* hero */
+.hero{background:var(--navy);color:#fff;position:relative;overflow:hidden;padding:clamp(3rem,8vw,6rem) 0 clamp(4rem,9vw,7rem)}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 78% 40%,rgba(200,40,58,.35),transparent 55%),radial-gradient(circle at 10% 90%,rgba(246,201,69,.12),transparent 40%)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:2rem;align-items:center}
+.kicker{font:700 .85rem var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--butter);margin-bottom:1rem}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(3.4rem,17vw,11rem);line-height:1;color:#fff;white-space:nowrap;text-shadow:0 0 18px rgba(246,201,69,.55),4px 4px 0 var(--cherry)}
+.squig{display:block;width:min(420px,80%);height:30px;margin:.4rem 0 1.2rem}
+.squig path{stroke:var(--butter);stroke-width:5;fill:none;stroke-linecap:round;stroke-dasharray:600;stroke-dashoffset:600;animation:draw 1.6s .9s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.lede{font-size:clamp(1.1rem,2.4vw,1.4rem);max-width:30ch;color:#e6eef9;margin-bottom:1.8rem;text-wrap:balance}
+.hero .cta-row{display:flex;flex-wrap:wrap;gap:.8rem}
+.hero .btn.alt{color:#fff}
+.plate{position:relative;width:min(100%,420px);aspect-ratio:1;justify-self:center;will-change:transform}
+.plate svg{width:100%;height:100%;overflow:visible}
+.spin{transform-origin:200px 200px;animation:spin 40s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.steam path{stroke:#fff;stroke-width:5;fill:none;stroke-linecap:round;opacity:0;animation:steam 3s ease-in-out infinite}
+.steam path:nth-child(2){animation-delay:.8s}.steam path:nth-child(3){animation-delay:1.6s}
+@keyframes steam{0%{opacity:0;transform:translateY(14px)}40%{opacity:.8}100%{opacity:0;transform:translateY(-18px)}}
+.enter{opacity:0;transform:translateY(26px);animation:enter .9s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--i,0)*.12s + .15s)}
+@keyframes enter{to{opacity:1;transform:none}}
+
+/* checker + marquee */
+.checker{height:40px;overflow:hidden;background:var(--navy)}
+.checker i{display:block;height:40px;width:calc(100% + 80px);background:repeating-conic-gradient(var(--cherry) 0 25%,var(--paper) 0 50%) 0 0/40px 40px;animation:slide 3s linear infinite}
+@keyframes slide{to{transform:translateX(-40px)}}
+.marquee{background:var(--butter);color:var(--navy);overflow:hidden;border-block:3px solid var(--navy);padding:.7rem 0;white-space:nowrap}
+.marquee .track{display:inline-flex;animation:mq 30s linear infinite}
+.marquee span{font-family:var(--display);font-size:1.4rem;padding-right:1.6rem}
+.marquee span::after{content:"★";margin-left:1.6rem;color:var(--cherry);font-family:var(--body)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+section{padding:clamp(3.5rem,8vw,6.5rem) 0}
+.eyebrow{font:700 .8rem var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--cherry-d);margin-bottom:.6rem}
+h2.t{font-family:var(--display);font-weight:400;font-size:clamp(2.1rem,6vw,4rem);line-height:1.1;text-wrap:balance;margin-bottom:1.6rem;color:var(--navy)}
+
+/* offers */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.card{background:var(--paper);border:3px solid var(--navy);border-radius:20px;padding:1.8rem;box-shadow:6px 6px 0 var(--navy);transition:transform .3s,box-shadow .3s}
+.card:hover{transform:translate(-4px,-6px) rotate(-.6deg);box-shadow:12px 12px 0 var(--cherry)}
+.card .n{font-family:var(--display);font-size:3rem;color:var(--cherry-d);line-height:1}
+.card h3{font-family:var(--display);font-weight:400;font-size:1.6rem;margin:.6rem 0 .4rem;color:var(--navy)}
+.card p{color:var(--muted)}
+
+/* menu */
+#menu{background:var(--navy);color:#fff}
+#menu h2.t{color:var(--butter)}#menu .eyebrow{color:var(--butter)}
+.note{display:flex;gap:.8rem;align-items:flex-start;background:rgba(246,201,69,.14);border:2px dashed var(--butter);border-radius:14px;padding:1rem 1.2rem;margin-bottom:2.2rem;max-width:70ch}
+.tag{display:inline-block;font:700 .72rem var(--mono);letter-spacing:.1em;text-transform:uppercase;background:var(--cherry);color:#fff;border-radius:6px;padding:.2rem .5rem;white-space:nowrap}
+.checks{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem}
+.check{background:var(--paper);color:var(--ink);padding:1.8rem 1.6rem 2.2rem;position:relative;font-family:var(--mono);transition:transform .35s;
+  -webkit-mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) bottom/18px 100% repeat-x;mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) bottom/18px 100% repeat-x;padding-bottom:2.6rem}
+.check:hover{transform:translateY(-8px) rotate(.5deg)}
+.check:nth-child(even):hover{transform:translateY(-8px) rotate(-.5deg)}
+.check header{display:flex;justify-content:space-between;align-items:center;gap:.6rem;border-bottom:2px dashed var(--navy);padding-bottom:.8rem;margin-bottom:1rem}
+.check h3{font-family:var(--display);font-weight:400;font-size:1.8rem;color:var(--cherry-d)}
+.item{padding:.55rem 0;transition:transform .25s}
+.item:hover{transform:translateX(6px)}
+.item .row{display:flex;align-items:baseline;gap:.5rem;font-weight:700}
+.item .row .dots{flex:1;border-bottom:2px dotted #8a97aa;transform:translateY(-4px);min-width:10px}
+.item .d{font-size:.85rem;color:var(--muted);font-weight:400;font-family:var(--body)}
+
+/* hours */
+.split{display:grid;grid-template-columns:.9fr 1.1fr;gap:3rem;align-items:start}
+.hours{background:var(--paper);border:3px solid var(--navy);border-radius:20px;padding:1.6rem;box-shadow:6px 6px 0 var(--navy)}
+.hours .tag{margin-bottom:1rem}
+.hours ul{list-style:none}
+.hours li{display:flex;justify-content:space-between;gap:1rem;padding:.55rem 0;border-bottom:1px dashed #9aa7b8;font-family:var(--mono);font-size:.95rem}
+.hours li:last-child{border:0}
+.addr{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;margin:1.4rem 0}
+.addr address{font-style:normal;font-weight:700}
+.copy{background:var(--butter);color:var(--navy);border:2px solid var(--navy);border-radius:999px;padding:.45rem 1rem;font:700 .85rem var(--body);cursor:pointer;transition:transform .2s}
+.copy:hover{transform:translateY(-3px)}
+
+/* contact */
+#contact{text-align:center}
+#contact h2.t{margin-inline:auto}
+#contact .actions{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:1rem}
+.ctasec{padding-top:0}
+footer{padding:2rem 0;text-align:center;font:.8rem var(--mono);color:var(--muted)}
+
+/* reveal */
+.js .reveal{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--d,0)*110ms)}
+.js .reveal.in{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .hero .wrap{grid-template-columns:1fr}
+  .plate{width:min(70%,320px);order:-1;margin-bottom:.5rem}
+  .cards,.checks,.split{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  .burger{display:block}
+  nav.main{position:absolute;top:100%;left:0;right:0;background:var(--navy);flex-direction:column;align-items:flex-start;padding:1rem 20px 1.4rem;gap:1rem;display:none;border-top:2px solid var(--butter)}
+  nav.main.open{display:flex}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .enter,.js .reveal{opacity:1!important;transform:none!important}
+  .squig path{stroke-dashoffset:0}
+  .steam path{opacity:.6}
+  .marquee{overflow-x:auto}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+
+<header class="site" id="top">
+  <div class="wrap bar">
+    <a href="#top" class="brand">Lottie's</a>
+    <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav">☰</button>
+    <nav class="main" id="nav" aria-label="Main">
+      <a href="#offer">The Place</a>
+      <a href="#menu">Menu</a>
+      <a href="#visit">Hours &amp; location</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+  <div class="progress" id="progress"></div>
+</header>
+
+<main>
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <p class="kicker enter" style="--i:0">American · Hiawatha, KS</p>
+      <h1 class="enter" style="--i:1">Lottie's</h1>
+      <svg class="squig enter" style="--i:2" viewBox="0 0 420 30" aria-hidden="true" preserveAspectRatio="none"><path d="M4 18 C 30 2, 50 2, 72 16 S 118 30, 142 14 S 190 2, 214 16 S 262 30, 286 14 S 334 2, 358 16 S 400 26, 416 12"/></svg>
+      <p class="lede enter" style="--i:3">American food, served at 606 Oregon Street.</p>
+      <div class="cta-row enter" style="--i:4">
+        <a class="btn" href="#menu">See the menu</a>
+        <a class="btn alt" href="#visit">Find us</a>
+      </div>
+    </div>
+    <div class="plate enter" style="--i:3" id="plate">
+      <svg viewBox="0 0 400 400" role="img" aria-label="A coffee cup on a plate, ringed by the words American, Hiawatha, Kansas">
+        <defs><path id="ring" d="M200 200 m-170 0 a170 170 0 1 1 340 0 a170 170 0 1 1 -340 0"/></defs>
+        <circle cx="200" cy="200" r="190" fill="none" stroke="#f6c945" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"/>
+        <g class="spin"><text font-family="Space Mono, monospace" font-weight="700" font-size="20" letter-spacing="5" fill="#f6c945"><textPath href="#ring">AMERICAN ★ HIAWATHA, KANSAS ★ 606 OREGON STREET ★ </textPath></text></g>
+        <circle cx="200" cy="200" r="132" fill="#fffdf6"/>
+        <circle cx="200" cy="200" r="112" fill="none" stroke="#c8283a" stroke-width="4"/>
+        <circle cx="200" cy="200" r="100" fill="#e8f3ee"/>
+        <g class="steam"><path d="M176 150 q-12 -16 0 -30 t0 -28"/><path d="M200 146 q-12 -16 0 -30 t0 -28"/><path d="M224 150 q-12 -16 0 -30 t0 -28"/></g>
+        <path d="M148 168 h104 v36 a52 52 0 0 1 -52 52 a52 52 0 0 1 -52 -52z" fill="#c8283a"/>
+        <path d="M252 180 h14 a18 18 0 0 1 0 36 h-18" fill="none" stroke="#c8283a" stroke-width="10" stroke-linecap="round"/>
+        <rect x="148" y="168" width="104" height="10" fill="#a81d2e"/>
+        <ellipse cx="200" cy="268" rx="76" ry="9" fill="#10213a" opacity=".15"/>
+      </svg>
+    </div>
+  </div>
+</div>
+<div class="checker" aria-hidden="true"><i></i></div>
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Lottie's</span><span>American</span><span>Hiawatha, Kansas</span><span>606 Oregon Street</span><span>Lottie's</span><span>American</span><span>Hiawatha, Kansas</span><span>606 Oregon Street</span>
+    <span>Lottie's</span><span>American</span><span>Hiawatha, Kansas</span><span>606 Oregon Street</span><span>Lottie's</span><span>American</span><span>Hiawatha, Kansas</span><span>606 Oregon Street</span>
+  </div>
+</div>
+
+<section id="offer">
+  <div class="wrap">
+    <p class="eyebrow reveal">The place</p>
+    <h2 class="t reveal" style="--d:1">A table on Oregon Street.</h2>
+    <div class="cards">
+      <article class="card reveal" style="--d:1"><div class="n">01</div><h3>American</h3><p>Lottie's is an American restaurant, built around the kind of food people keep coming back for.</p></article>
+      <article class="card reveal" style="--d:2"><div class="n">02</div><h3>In Hiawatha</h3><p>You'll find us at 606 Oregon Street, Hiawatha, Kansas.</p></article>
+      <article class="card reveal" style="--d:3"><div class="n">03</div><h3>Say hello</h3><p>Planning a visit or have a question? Send an email and we'll get back to you.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="wrap">
+    <p class="eyebrow reveal">Menu</p>
+    <h2 class="t reveal" style="--d:1">Pull up a stool.</h2>
+    <div class="note reveal" style="--d:2"><span class="tag">Example</span><p>This is an example menu that shows how your menu would look. Your real dishes and prices go here.</p></div>
+    <div class="checks">
+      <article class="check reveal" style="--d:1">
+        <header><h3>Breakfast</h3><span class="tag">Example</span></header>
+        <div class="item"><div class="row"><span>Two-egg breakfast</span><span class="dots"></span><span>$8.99</span></div><p class="d">Eggs your way, hash browns, toast</p></div>
+        <div class="item"><div class="row"><span>Buttermilk pancakes</span><span class="dots"></span><span>$7.99</span></div><p class="d">Short stack with syrup</p></div>
+        <div class="item"><div class="row"><span>Biscuits &amp; gravy</span><span class="dots"></span><span>$8.49</span></div></div>
+      </article>
+      <article class="check reveal" style="--d:2">
+        <header><h3>Lunch</h3><span class="tag">Example</span></header>
+        <div class="item"><div class="row"><span>Classic cheeseburger</span><span class="dots"></span><span>$10.99</span></div><p class="d">Served with fries</p></div>
+        <div class="item"><div class="row"><span>Club sandwich</span><span class="dots"></span><span>$10.49</span></div><p class="d">Turkey, bacon, lettuce, tomato</p></div>
+        <div class="item"><div class="row"><span>Grilled chicken salad</span><span class="dots"></span><span>$10.99</span></div></div>
+      </article>
+      <article class="check reveal" style="--d:1">
+        <header><h3>Dinner</h3><span class="tag">Example</span></header>
+        <div class="item"><div class="row"><span>Chicken fried steak</span><span class="dots"></span><span>$13.99</span></div><p class="d">Mashed potatoes and country gravy</p></div>
+        <div class="item"><div class="row"><span>Meatloaf</span><span class="dots"></span><span>$12.99</span></div></div>
+        <div class="item"><div class="row"><span>Fish &amp; chips</span><span class="dots"></span><span>$13.49</span></div></div>
+      </article>
+      <article class="check reveal" style="--d:2">
+        <header><h3>Dessert</h3><span class="tag">Example</span></header>
+        <div class="item"><div class="row"><span>Homemade pie</span><span class="dots"></span><span>$4.99</span></div><p class="d">Ask about today's flavors</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow reveal">Hours &amp; location</p>
+      <h2 class="t reveal" style="--d:1">Come on by.</h2>
+      <div class="hours reveal" style="--d:2">
+        <span class="tag">Example hours</span>
+        <ul>
+          <li><span>Mon</span><span>7 AM – 3 PM</span></li>
+          <li><span>Tue</span><span>7 AM – 3 PM</span></li>
+          <li><span>Wed</span><span>7 AM – 3 PM</span></li>
+          <li><span>Thu</span><span>7 AM – 3 PM</span></li>
+          <li><span>Fri</span><span>7 AM – 8 PM</span></li>
+          <li><span>Sat</span><span>8 AM – 8 PM</span></li>
+          <li><span>Sun</span><span>Closed</span></li>
+        </ul>
+      </div>
+      <div class="addr reveal" style="--d:3">
+        <address id="addr">606 Oregon Street, Hiawatha, KS 66434</address>
+        <button class="copy" type="button" id="copy">Copy address</button>
+      </div>
+    </div>
+    <div class="reveal" style="--d:2"><iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-95.54201,39.84745,-95.53001,39.85945&amp;layer=mapnik&amp;marker=39.85345,-95.53601"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=39.85345&amp;mlon=-95.53601#map=17/39.85345/-95.53601" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=39.85345,-95.53601" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <p class="eyebrow reveal">Contact</p>
+    <h2 class="t reveal" style="--d:1">Drop us a line.</h2>
+    <div class="actions reveal" style="--d:2"><a class="btn" href="mailto:lottiesdiner@gmail.com">lottiesdiner@gmail.com</a> </div>
+  </div>
+</section>
+
+<section class="ctasec">
+  <div class="wrap reveal"><section class="np-cta" id="offer"><h2>Want this for Lottie&#x27;s?</h2><p>This is a free preview made for Lottie&#x27;s. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20Lottie%27s&amp;body=Yes%2C%20please%20make%20this%20site%20for%20Lottie%27s.">Make it mine</a></p></section></div>
+</section>
+</main>
+
+<footer><div class="wrap">Lottie's · 606 Oregon Street · Hiawatha, KS 66434</div></footer>
+
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · Lottie&#x27;s</div>
+
+<script>
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hdr=document.querySelector('header.site'),prog=document.getElementById('progress'),plate=document.getElementById('plate');
+  function onScroll(){
+    var y=window.scrollY||0,h=document.documentElement.scrollHeight-window.innerHeight;
+    hdr.classList.toggle('scrolled',y>40);
+    prog.style.transform='scaleX('+(h>0?Math.min(y/h,1):0)+')';
+    if(!reduce&&plate&&y<900){plate.style.transform='translateY('+(y*.15)+'px) rotate('+(y*.02)+'deg)'}
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  var burger=document.querySelector('.burger'),nav=document.getElementById('nav');
+  burger.addEventListener('click',function(){var o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o);burger.textContent=o?'✕':'☰'});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A'){nav.classList.remove('open');burger.setAttribute('aria-expanded','false');burger.textContent='☰'}});
+
+  var els=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window&&!reduce){
+    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -5% 0px'});
+    els.forEach(function(el){io.observe(el)});
+  }else{els.forEach(function(el){el.classList.add('in')})}
+
+  var cp=document.getElementById('copy');
+  cp.addEventListener('click',function(){
+    var t=document.getElementById('addr').textContent.trim();
+    function done(){cp.textContent='Copied!';setTimeout(function(){cp.textContent='Copy address'},1800)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,function(){})}
+    else{var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');done()}catch(e){}a.remove()}
+  });
+
+  if(!reduce&&window.matchMedia('(hover:hover)').matches){
+    document.querySelectorAll('.btn').forEach(function(b){
+      b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.18)+'px,'+((e.clientY-r.top-r.height/2)*.25-3)+'px)'});
+      b.addEventListener('mouseleave',function(){b.style.transform=''});
+    });
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Golden Steer Steakhouse | Forest Park, IL</title>
+<meta name="description" content="Golden Steer Steakhouse on Roosevelt Road in Forest Park, Illinois. Steak.">
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#121010;--bone:#f5ecd6;--gold:#f2b01e;--ember:#b8230f;--paper:#fff8e6;
+  --bw:4px;--sh:8px 8px 0 var(--ink);
+  --head:'Bowlby One','Arial Black',Impact,sans-serif;
+  --body:'Space Grotesk',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);background:var(--bone);color:var(--ink);line-height:1.55;font-size:17px;overflow-x:hidden}
+a{color:inherit}
+img,svg{max-width:100%}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+section[id]{scroll-margin-top:84px}
+h1,h2,h3{font-family:var(--head);font-weight:400;line-height:1;text-wrap:balance;overflow-wrap:break-word}
+h2{font-size:clamp(2rem,6.4vw,4.6rem);letter-spacing:-.01em}
+.eyebrow{display:inline-block;font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:.8rem;border:3px solid var(--ink);padding:.3em .8em;background:var(--paper);box-shadow:4px 4px 0 var(--ink)}
+.tag{display:inline-block;font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;background:var(--ember);color:#fff;padding:.25em .7em;border:3px solid var(--ink);transform:rotate(-2deg)}
+
+/* progress */
+.progress{position:fixed;left:0;top:0;height:6px;width:100%;background:var(--ember);transform:scaleX(0);transform-origin:0 50%;z-index:100;pointer-events:none}
+
+/* slots */
+.np-banner{background:var(--ink);color:var(--bone);font-size:.85rem;text-align:center;padding:.55em 1em;border-bottom:3px solid var(--gold)}
+.np-banner a{color:var(--gold)}
+
+/* header */
+header.top{position:sticky;top:0;z-index:50;background:var(--bone);border-bottom:var(--bw) solid var(--ink);transition:transform .35s,box-shadow .35s,background .35s}
+header.top .in{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;transition:padding .3s}
+header.top.scrolled{background:var(--gold);box-shadow:0 6px 0 var(--ink)}
+header.top.scrolled .in{padding:8px 0}
+.logo{font-family:var(--head);text-decoration:none;font-size:1.05rem;display:flex;align-items:center;gap:10px;line-height:1}
+.logo i{width:30px;height:30px;border:3px solid var(--ink);border-radius:50%;background:var(--gold);display:inline-grid;place-items:center;font-style:normal;font-size:.8rem;transition:transform .5s}
+header.top.scrolled .logo i{background:var(--bone)}
+.logo:hover i{transform:rotate(180deg)}
+nav ul{list-style:none;display:flex;gap:8px;align-items:center}
+nav a{display:inline-block;text-decoration:none;font-weight:700;padding:.45em .9em;border:3px solid transparent;transition:transform .2s,background .2s,border-color .2s}
+nav a:hover{border-color:var(--ink);background:var(--paper);transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--ink)}
+.burger{display:none;background:var(--paper);border:3px solid var(--ink);box-shadow:3px 3px 0 var(--ink);width:46px;height:42px;cursor:pointer;padding:0;align-items:center;justify-content:center;flex-direction:column;gap:5px}
+.burger span{display:block;width:22px;height:3px;background:var(--ink);transition:transform .3s,opacity .3s}
+.burger[aria-expanded=true] span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.burger[aria-expanded=true] span:nth-child(2){opacity:0}
+.burger[aria-expanded=true] span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+@media(max-width:760px){
+  .js .burger{display:flex}
+  .js nav{position:absolute;left:0;right:0;top:100%;background:var(--bone);border-bottom:var(--bw) solid var(--ink);display:none}
+  .js nav.open{display:block}
+  .js nav ul{flex-direction:column;align-items:stretch;padding:12px 20px 20px}
+  .js nav a{display:block;font-size:1.2rem;border-color:var(--ink);background:var(--paper)}
+  nav ul{flex-wrap:wrap;gap:4px}
+  nav a{padding:.3em .6em}
+  header.top .in{flex-wrap:wrap}
+}
+
+/* buttons */
+.btn,.btnx{display:inline-block;font-family:var(--body);font-weight:700;font-size:1rem;text-decoration:none;cursor:pointer;background:var(--ember);color:#fff;border:var(--bw) solid var(--ink);padding:.85em 1.4em;box-shadow:6px 6px 0 var(--ink);transition:transform .18s,box-shadow .18s,background .2s;will-change:transform}
+.btn:hover,.btnx:hover{box-shadow:10px 10px 0 var(--ink);transform:translate(-3px,-3px)}
+.btn:active,.btnx:active{box-shadow:2px 2px 0 var(--ink);transform:translate(3px,3px)}
+.btn.alt{background:var(--paper);color:var(--ink)}
+.btnx.gold{background:var(--gold);color:var(--ink)}
+.btn:focus-visible,.btnx:focus-visible,a:focus-visible,button:focus-visible{outline:4px solid var(--ember);outline-offset:3px}
+.small{font-size:.85rem}
+
+/* hero */
+.hero{position:relative;background:var(--gold);border-bottom:var(--bw) solid var(--ink);overflow:hidden;padding:clamp(36px,6vw,80px) 0 clamp(40px,6vw,80px)}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 1px 1px,rgba(18,16,16,.18) 1.5px,transparent 2px) 0 0/22px 22px;pointer-events:none}
+.hero .wrap{position:relative;display:flex;flex-direction:column;gap:20px}
+.name-line{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;font-family:var(--body);font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:clamp(.78rem,2.6vw,1.1rem)}
+.name-line b{background:var(--ink);color:var(--gold);padding:.3em .7em;font-weight:700}
+.big{font-size:clamp(3.6rem,16vw,15rem);line-height:.9;white-space:nowrap;letter-spacing:-.02em;color:var(--ink);text-shadow:clamp(4px,.8vw,10px) clamp(4px,.8vw,10px) 0 var(--paper)}
+.big span{display:inline-block}
+.hero-sub{max-width:30ch;font-size:clamp(1.1rem,2.4vw,1.5rem);font-weight:500}
+.hero-cta{display:flex;flex-wrap:wrap;gap:16px;margin-top:6px}
+.steer-wrap{position:relative;width:min(60vw,260px);align-self:center;order:-1}
+.steer-par{will-change:transform}
+.burst{position:absolute;inset:-18%;z-index:0;animation:spin 40s linear infinite}
+.burst svg{width:100%;height:100%}
+.steer{position:relative;z-index:1;width:100%;height:auto;overflow:visible;animation:bob 5s ease-in-out infinite}
+.steer .ln{fill:none;stroke:var(--ink);stroke-width:9;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.6s cubic-bezier(.6,.1,.2,1) forwards}
+.steer .fillhead{fill:var(--paper);opacity:0;animation:fadein .6s 1.3s forwards}
+.steer .horn{stroke:var(--ember)}
+.steer .dot{fill:var(--ink);opacity:0;animation:fadein .4s 1.7s forwards}
+.steer .ring{stroke:var(--ember);animation-delay:1s}
+@media(min-width:900px){
+  .steer-wrap{position:absolute;right:20px;top:-6px;width:clamp(260px,32vw,420px);order:0}
+  .hero .wrap{min-height:520px;justify-content:flex-end}
+  .name-line{position:relative;z-index:2}
+  .big{margin-top:clamp(20px,8vw,120px)}
+}
+.hero-in>*{animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+.hero-in>*:nth-child(1){animation-delay:.1s}
+.hero-in>*:nth-child(2){animation-delay:.25s}
+.hero-in>*:nth-child(3){animation-delay:.55s}
+.hero-in>*:nth-child(4){animation-delay:.7s}
+.big span{animation:letter .8s cubic-bezier(.2,.9,.3,1.3) both}
+.big span:nth-child(1){animation-delay:.25s}.big span:nth-child(2){animation-delay:.33s}.big span:nth-child(3){animation-delay:.41s}.big span:nth-child(4){animation-delay:.49s}.big span:nth-child(5){animation-delay:.57s}.big span:nth-child(6){animation-delay:.65s}
+@keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@keyframes letter{from{opacity:0;transform:translateY(60%) rotate(-6deg)}to{opacity:1;transform:none}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fadein{to{opacity:1}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-10px) rotate(1.5deg)}}
+
+/* marquee */
+.marquee{background:var(--ink);color:var(--gold);border-bottom:var(--bw) solid var(--ink);overflow:hidden;white-space:nowrap;padding:14px 0}
+.track{display:inline-flex;animation:scroll 32s linear infinite}
+.marquee:hover .track{animation-play-state:paused}
+.track span{font-family:var(--head);font-size:clamp(1.1rem,3vw,1.7rem);padding:0 .9em;display:inline-flex;align-items:center;gap:1.8em}
+.track span::after{content:"\2605";color:var(--ember);font-size:.8em}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* offer */
+.offer{padding:clamp(56px,9vw,110px) 0;background:var(--bone)}
+.offer-grid{display:grid;gap:32px;grid-template-columns:1fr}
+.offer h2 em{font-style:normal;background:var(--gold);padding:0 .12em;box-shadow:inset 0 -.18em 0 var(--ember)}
+.offer p.lead{font-size:1.2rem;max-width:36ch;margin-top:18px}
+.chips{display:grid;gap:18px}
+.chip{display:flex;align-items:center;justify-content:space-between;gap:12px;text-decoration:none;background:var(--paper);border:var(--bw) solid var(--ink);box-shadow:var(--sh);padding:18px 22px;font-family:var(--head);font-size:clamp(1.3rem,3.5vw,2rem);transition:transform .25s,box-shadow .25s,background .25s}
+.chip small{font-family:var(--body);font-weight:700;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase}
+.chip:hover{transform:translate(-4px,-4px) rotate(-.6deg);box-shadow:12px 12px 0 var(--ink);background:var(--gold)}
+.chip:nth-child(2){margin-left:clamp(0px,4vw,40px)}
+.chip:nth-child(3){margin-left:clamp(0px,8vw,80px)}
+@media(min-width:900px){.offer-grid{grid-template-columns:1fr 1fr;align-items:center;gap:60px}}
+
+/* menu */
+.menu{background:var(--ember);color:#fff;border-block:var(--bw) solid var(--ink);padding:clamp(56px,9vw,110px) 0;position:relative;overflow:hidden}
+.menu h2{color:#fff;text-shadow:5px 5px 0 var(--ink)}
+.menu-head{display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px;margin-bottom:12px}
+.menu .note{background:var(--ink);color:var(--bone);border:3px dashed var(--gold);padding:14px 18px;max-width:62ch;margin:18px 0 40px}
+.menu-grid{display:grid;gap:30px;grid-template-columns:1fr}
+.mcard{background:var(--paper);color:var(--ink);border:var(--bw) solid var(--ink);box-shadow:var(--sh);padding:24px 22px 18px;transition:transform .3s,box-shadow .3s;position:relative}
+.mcard:hover{transform:translate(-4px,-4px);box-shadow:12px 12px 0 var(--ink)}
+.mcard h3{font-size:clamp(1.5rem,3.5vw,2rem);margin-bottom:10px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap}
+.mcard .tag{font-size:.65rem}
+.mcard ul{list-style:none}
+.mcard li{padding:12px 0;border-top:3px solid var(--ink);transition:padding .25s,background .25s}
+.mcard li:hover{padding-left:10px;background:var(--gold)}
+.row{display:flex;align-items:baseline;gap:10px}
+.row b{font-size:1.1rem}
+.row i{flex:1;border-bottom:3px dotted var(--ink);transform:translateY(-4px);min-width:16px}
+.row span{font-family:var(--head);font-size:1.1rem}
+.mcard p{font-size:.92rem;opacity:.85}
+@media(min-width:800px){.menu-grid{grid-template-columns:repeat(3,1fr);align-items:start}.mcard:nth-child(2){margin-top:34px}}
+
+/* hours */
+.visit{padding:clamp(56px,9vw,110px) 0;background:var(--bone)}
+.visit-grid{display:grid;gap:36px;grid-template-columns:1fr;margin-top:36px}
+.hours{background:var(--paper);border:var(--bw) solid var(--ink);box-shadow:var(--sh);padding:24px}
+.hours-top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.hours h3{font-size:1.5rem}
+.hours dl{display:grid;grid-template-columns:auto 1fr}
+.hours dt,.hours dd{padding:10px 0;border-top:3px solid var(--ink)}
+.hours dt{font-weight:700;padding-right:20px}
+.hours dd{text-align:right}
+.addr{margin-top:22px;background:var(--gold);border:var(--bw) solid var(--ink);box-shadow:var(--sh);padding:22px}
+.addr address{font-style:normal;font-size:1.25rem;font-weight:700;margin-bottom:14px}
+.copied{display:inline-block;margin-left:12px;font-weight:700;opacity:0;transition:opacity .25s}
+.copied.show{opacity:1}
+.map{border:var(--bw) solid var(--ink);box-shadow:var(--sh);background:var(--paper);overflow:hidden}
+.map iframe{display:block;width:100%;min-height:320px;border:0}
+.maplinks{display:flex;flex-wrap:wrap;gap:10px;padding:14px}
+.maplinks a{font-weight:700;border:3px solid var(--ink);padding:.4em .9em;text-decoration:none;background:var(--gold);transition:transform .2s,box-shadow .2s}
+.maplinks a:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
+.mapcredit{font-size:.75rem;padding:0 14px 12px}
+@media(min-width:900px){.visit-grid{grid-template-columns:1fr 1.1fr;align-items:start}}
+
+/* contact */
+.contact{background:var(--ink);color:var(--bone);padding:clamp(56px,9vw,100px) 0;border-top:var(--bw) solid var(--ink);text-align:center}
+.contact h2{color:var(--gold)}
+.contact p{margin:16px auto 28px;max-width:40ch;font-size:1.15rem}
+.contact .acts{display:flex;flex-wrap:wrap;gap:18px;justify-content:center}
+.contact .btn{box-shadow:6px 6px 0 var(--gold);border-color:var(--gold)}
+.contact .btn:hover{box-shadow:10px 10px 0 var(--gold)}
+
+/* cta */
+.ctasec{background:var(--gold);padding:clamp(56px,9vw,100px) 0;border-top:var(--bw) solid var(--ink)}
+.np-cta{background:var(--paper);border:var(--bw) solid var(--ink);box-shadow:12px 12px 0 var(--ink);padding:clamp(24px,5vw,48px);position:relative;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.np-cta::before{content:"\2605";position:absolute;top:-26px;right:18px;font-size:3rem;color:var(--ember);-webkit-text-stroke:3px var(--ink);animation:spin 12s linear infinite}
+.np-cta h2,.np-cta h3{font-size:clamp(1.6rem,4.5vw,3rem)}
+.np-cta .btn{margin:4px 10px 4px 0}
+
+footer.f{background:var(--ink);color:var(--bone);font-size:.9rem;padding:22px 0;text-align:center;border-top:3px solid var(--gold)}
+
+/* reveals */
+.js .rv{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i,0)*110ms)}
+.js .rv.in{opacity:1;transform:none}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv{opacity:1;transform:none}
+  .steer .ln{stroke-dashoffset:0}
+  .steer .fillhead,.steer .dot{opacity:1}
+  .track{flex-wrap:wrap;transform:none}
+  .marquee{white-space:normal}
+  .track [aria-hidden]{display:none}
+  .progress{display:none}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div class="progress" id="progress"></div>
+
+<header class="top" id="top">
+  <div class="wrap in">
+    <a class="logo" href="#hero" aria-label="Golden Steer Steakhouse, top of page"><i aria-hidden="true">&#9733;</i>Golden Steer</a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+    <nav id="nav" aria-label="Main">
+      <ul>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#visit">Hours &amp; location</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="hero">
+  <div class="wrap">
+    <div class="steer-wrap" aria-hidden="true">
+      <div class="steer-par" data-par="0.12">
+        <div class="burst">
+          <svg viewBox="0 0 200 200"><polygon fill="#fff8e6" stroke="#121010" stroke-width="2.5" stroke-linejoin="round" points="100,0 112,34 140,10 140,46 176,34 160,66 200,76 166,98 196,128 158,132 172,170 138,160 132,198 108,170 88,200 78,166 48,190 50,152 12,152 38,124 4,100 38,84 14,52 54,56 52,20 84,38"/></svg>
+        </div>
+        <svg class="steer" viewBox="0 0 400 400">
+          <path class="ln horn" pathLength="1" d="M112 150C40 152 18 96 30 38"/>
+          <path class="ln horn" pathLength="1" d="M288 150C360 152 382 96 370 38"/>
+          <path class="ln" pathLength="1" d="M114 168C84 150 56 166 66 196C86 204 104 196 120 186"/>
+          <path class="ln" pathLength="1" d="M286 168C316 150 344 166 334 196C314 204 296 196 280 186"/>
+          <path class="fillhead" d="M112 132C140 108 260 108 288 132L276 250C270 302 244 342 200 348C156 342 130 302 124 250Z"/>
+          <path class="ln" pathLength="1" d="M112 132C140 108 260 108 288 132L276 250C270 302 244 342 200 348C156 342 130 302 124 250Z"/>
+          <circle class="ln ring" pathLength="1" cx="200" cy="318" r="16"/>
+          <circle class="dot" cx="158" cy="200" r="9"/>
+          <circle class="dot" cx="242" cy="200" r="9"/>
+          <path class="ln" pathLength="1" d="M168 276C184 286 216 286 232 276"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="hero-in" style="display:contents">
+      <div class="name-line"><b>Golden Steer Steakhouse</b><span>Forest Park, IL</span></div>
+      <h1 class="big" aria-label="Steak."><span aria-hidden="true">S</span><span aria-hidden="true">T</span><span aria-hidden="true">E</span><span aria-hidden="true">A</span><span aria-hidden="true">K</span><span aria-hidden="true">.</span></h1>
+      <p class="hero-sub">7635 Roosevelt Road. Come hungry.</p>
+      <div class="hero-cta">
+        <a class="btnx mag" href="#menu">See the menu</a>
+        <a class="btnx gold mag" href="#visit" style="background:var(--paper)">Find us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Steak.</span><span>Golden Steer Steakhouse</span><span>Roosevelt Road</span><span>Forest Park, IL</span><span>Starters</span><span>Mains</span><span>On tap</span>
+    <span aria-hidden="true">Steak.</span><span aria-hidden="true">Golden Steer Steakhouse</span><span aria-hidden="true">Roosevelt Road</span><span aria-hidden="true">Forest Park, IL</span><span aria-hidden="true">Starters</span><span aria-hidden="true">Mains</span><span aria-hidden="true">On tap</span>
+  </div>
+</div>
+
+<section class="offer" id="offer">
+  <div class="wrap offer-grid">
+    <div class="rv">
+      <span class="eyebrow">The restaurant</span>
+      <h2 style="margin-top:20px">One word. <em>Steak.</em></h2>
+      <p class="lead">A steakhouse on Roosevelt Road in Forest Park. Starters to open, mains to follow, something cold on tap.</p>
+    </div>
+    <div class="chips">
+      <a class="chip rv" style="--i:1" href="#menu"><span>Starters</span><small>Example</small></a>
+      <a class="chip rv" style="--i:2" href="#menu"><span>Mains</span><small>Example</small></a>
+      <a class="chip rv" style="--i:3" href="#menu"><span>On tap</span><small>Example</small></a>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="menu-head rv">
+      <h2>Menu</h2>
+      <span class="tag">Example</span>
+    </div>
+    <p class="note rv">This is an example menu that shows how your menu would look. Your real dishes and prices go here.</p>
+    <div class="menu-grid">
+      <article class="mcard rv" style="--i:0">
+        <h3>Starters <span class="tag">Example</span></h3>
+        <ul>
+          <li><div class="row"><b>Loaded nachos</b><i></i><span>$10.00</span></div></li>
+          <li><div class="row"><b>Wings</b><i></i><span>$11.00</span></div><p>Your choice of sauce</p></li>
+          <li><div class="row"><b>Onion rings</b><i></i><span>$7.00</span></div></li>
+        </ul>
+      </article>
+      <article class="mcard rv" style="--i:1">
+        <h3>Mains <span class="tag">Example</span></h3>
+        <ul>
+          <li><div class="row"><b>Bacon cheeseburger</b><i></i><span>$12.50</span></div></li>
+          <li><div class="row"><b>Fish sandwich</b><i></i><span>$11.50</span></div></li>
+          <li><div class="row"><b>Chicken tenders</b><i></i><span>$10.50</span></div></li>
+        </ul>
+      </article>
+      <article class="mcard rv" style="--i:2">
+        <h3>On tap <span class="tag">Example</span></h3>
+        <ul>
+          <li><div class="row"><b>Local lager</b><i></i><span>$5.00</span></div></li>
+          <li><div class="row"><b>Pale ale</b><i></i><span>$5.50</span></div></li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="rv"><span class="eyebrow">Roosevelt Road</span>
+    <h2 style="margin-top:20px">Hours &amp; location</h2></div>
+    <div class="visit-grid">
+      <div>
+        <div class="hours rv">
+          <div class="hours-top"><h3>Week at a glance</h3><span class="tag">Example hours</span></div>
+          <dl>
+            <dt>Mon</dt><dd>7 AM – 3 PM</dd>
+            <dt>Tue</dt><dd>7 AM – 3 PM</dd>
+            <dt>Wed</dt><dd>7 AM – 3 PM</dd>
+            <dt>Thu</dt><dd>7 AM – 3 PM</dd>
+            <dt>Fri</dt><dd>7 AM – 8 PM</dd>
+            <dt>Sat</dt><dd>8 AM – 8 PM</dd>
+            <dt>Sun</dt><dd>Closed</dd>
+          </dl>
+        </div>
+        <div class="addr rv" style="--i:1">
+          <address id="addr">7635 Roosevelt Road, Forest Park, IL 60130</address>
+          <button class="btnx mag" id="copy" type="button" style="background:var(--ink);color:var(--gold)">Copy address</button>
+          <span class="copied" id="copied" role="status" aria-live="polite"></span>
+        </div>
+      </div>
+      <div class="rv" style="--i:2"><iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-87.82171,41.85896,-87.80971,41.87096&amp;layer=mapnik&amp;marker=41.86496,-87.81571"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=41.86496&amp;mlon=-87.81571#map=17/41.86496/-87.81571" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=41.86496,-87.81571" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2 class="rv">Say hello.</h2>
+    <p class="rv" style="--i:1">Questions about Golden Steer? Send a note.</p>
+    <div class="acts rv" style="--i:2"><a class="btn" href="mailto:goldensteerforestpark@gmail.com">goldensteerforestpark@gmail.com</a> </div>
+  </div>
+</section>
+
+<section class="ctasec">
+  <div class="wrap rv"><section class="np-cta" id="offer"><h2>Want this for Golden Steer Steakhouse?</h2><p>This is a free preview made for Golden Steer Steakhouse. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20Golden%20Steer%20Steakhouse&amp;body=Yes%2C%20please%20make%20this%20site%20for%20Golden%20Steer%20Steakhouse.">Make it mine</a></p></section></div>
+</section>
+</main>
+
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · Golden Steer Steakhouse</div>
+<script>
+(function(){
+  var d=document,root=d.documentElement;root.classList.add('js');
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var header=d.getElementById('top'),bar=d.getElementById('progress');
+  var burger=d.getElementById('burger'),nav=d.getElementById('nav');
+  var pars=[].slice.call(d.querySelectorAll('[data-par]'));
+  var ticking=false;
+  function frame(){
+    var y=window.scrollY||0,h=root.scrollHeight-window.innerHeight;
+    bar.style.transform='scaleX('+(h>0?Math.min(1,y/h):0)+')';
+    header.classList.toggle('scrolled',y>40);
+    if(!rm)pars.forEach(function(p){p.style.transform='translate3d(0,'+(y*parseFloat(p.dataset.par))+'px,0)'});
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(frame)}},{passive:true});
+  frame();
+
+  burger.addEventListener('click',function(){
+    var o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o);
+  });
+  [].forEach.call(nav.querySelectorAll('a'),function(a){a.addEventListener('click',function(){nav.classList.remove('open');burger.setAttribute('aria-expanded','false')})});
+  d.addEventListener('keydown',function(e){if(e.key==='Escape'){nav.classList.remove('open');burger.setAttribute('aria-expanded','false')}});
+
+  var rv=[].slice.call(d.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window&&!rm){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+    rv.forEach(function(n){io.observe(n)});
+  }else rv.forEach(function(n){n.classList.add('in')});
+
+  if(!rm&&window.matchMedia('(hover:hover)').matches){
+    [].forEach.call(d.querySelectorAll('.mag,.np-cta .btn,.contact .btn'),function(b){
+      b.addEventListener('mousemove',function(e){
+        var r=b.getBoundingClientRect(),x=(e.clientX-r.left-r.width/2)*.18,y=(e.clientY-r.top-r.height/2)*.25;
+        b.style.transform='translate('+x+'px,'+y+'px)';
+      });
+      b.addEventListener('mouseleave',function(){b.style.transform=''});
+    });
+  }
+
+  var copy=d.getElementById('copy'),msg=d.getElementById('copied');
+  copy.addEventListener('click',function(){
+    var t=d.getElementById('addr').textContent.trim();
+    function done(ok){msg.textContent=ok?'Copied!':'Press Ctrl+C to copy';msg.classList.add('show');setTimeout(function(){msg.classList.remove('show')},2200)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){done(true)},function(){fallback()})}else fallback();
+    function fallback(){
+      try{var r=d.createRange();r.selectNodeContents(d.getElementById('addr'));var s=getSelection();s.removeAllRanges();s.addRange(r);done(d.execCommand('copy'))}catch(e){done(false)}
+    }
+  });
+})();
+</script>
+</body>
+</html>

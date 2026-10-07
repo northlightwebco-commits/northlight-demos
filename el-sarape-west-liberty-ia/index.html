@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>El Sarape | Mexican Restaurant in West Liberty, IA</title>
+<meta name="description" content="El Sarape, a Mexican restaurant at 1100 North Columbus Street in West Liberty, Iowa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#150f0c;--bg2:#1f1511;--card:#261a14;
+  --cream:#f6ecd9;--mute:#d0c2aa;
+  --red:#d9372b;--gold:#f2a900;--teal:#12a3a0;--pink:#d6246e;--green:#3f9142;
+  --line:rgba(246,236,217,.16);
+  --head:"Rozha One",Georgia,serif;--body:"Figtree",system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--cream);font-family:var(--body);font-size:1.05rem;line-height:1.6;overflow-x:hidden}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--head);font-weight:400;line-height:1.02;text-wrap:balance;overflow-wrap:break-word}
+h2{font-size:clamp(2.1rem,6.5vw,4rem)}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+section{padding:clamp(64px,10vw,120px) 0;position:relative}
+.eyebrow{font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:.78rem;color:var(--gold);display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.eyebrow::before{content:"";width:34px;height:4px;background:linear-gradient(90deg,var(--red) 0 33%,var(--gold) 33% 66%,var(--teal) 66%)}
+.lead{color:var(--mute);max-width:56ch;margin-top:18px}
+
+/* banner slot */
+.np-banner{background:var(--gold);color:#1a110c;font-size:.85rem;font-weight:600;text-align:center;padding:8px 16px;line-height:1.35}
+.np-banner a{color:inherit}
+
+/* progress */
+.progress{position:fixed;top:0;left:0;right:0;height:4px;z-index:100;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,var(--red),var(--gold),var(--teal),var(--pink));pointer-events:none}
+
+/* header */
+header.top{position:sticky;top:0;z-index:50;transition:background .3s,box-shadow .3s;padding:18px 0}
+header.top.scrolled{background:rgba(21,15,12,.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line);padding:10px 0}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--head);font-size:1.5rem;text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo i{display:block;width:26px;height:26px;background:conic-gradient(var(--red) 0 25%,var(--gold) 0 50%,var(--teal) 0 75%,var(--pink) 0);transform:rotate(45deg) scale(.8);transition:transform .6s var(--ease)}
+.logo:hover i{transform:rotate(225deg) scale(.9)}
+nav ul{display:flex;gap:26px;list-style:none;align-items:center}
+nav a{text-decoration:none;font-weight:600;font-size:.95rem;position:relative;padding:4px 0}
+nav a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+nav a:hover::after{transform:scaleX(1)}
+.burger{display:none;background:none;border:2px solid var(--line);color:var(--cream);width:46px;height:46px;border-radius:50%;cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px}
+.burger span{display:block;width:20px;height:2px;background:var(--cream);transition:transform .3s,opacity .3s}
+.burger[aria-expanded=true] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded=true] span:nth-child(2){opacity:0}
+.burger[aria-expanded=true] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:820px){
+  .burger{display:flex}
+  .js nav{position:absolute;left:0;right:0;top:100%;background:rgba(21,15,12,.98);border-bottom:1px solid var(--line);display:none;padding:12px 20px 24px}
+  .js nav.open{display:block}
+  nav ul{flex-direction:column;align-items:flex-start;gap:6px}
+  nav a{display:block;padding:12px 0;font-size:1.2rem}
+  html:not(.js) nav ul{flex-wrap:wrap;gap:6px 16px}
+  html:not(.js) .bar{flex-wrap:wrap}
+}
+
+/* hero */
+.hero{padding:clamp(28px,5vw,60px) 0 clamp(60px,9vw,110px);overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 80% 30%,rgba(217,55,43,.22),transparent 70%),radial-gradient(40% 40% at 10% 90%,rgba(18,163,160,.16),transparent 70%);pointer-events:none}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,70px);align-items:center;position:relative}
+.hero h1{font-size:clamp(3.4rem,12.5vw,9rem);letter-spacing:-.01em}
+.hero h1 span{display:block}
+.hero h1 .el{font-size:.4em;color:var(--gold);margin-bottom:.1em;letter-spacing:.04em}
+.hero p.sub{font-size:clamp(1.1rem,2.4vw,1.4rem);color:var(--cream);max-width:30ch;margin-top:24px}
+.hero .meta{color:var(--mute);font-size:.95rem;margin-top:10px}
+.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px;align-items:center}
+
+/* sarape visual */
+.serape-wrap{position:relative;will-change:transform}
+.serape{position:relative;aspect-ratio:4/5;max-height:640px;margin-inline:auto;width:100%;display:flex;flex-direction:column;box-shadow:0 30px 60px rgba(0,0,0,.5);transform:rotate(3deg)}
+.serape .fr{height:7%;background:repeating-linear-gradient(90deg,var(--cream) 0 3px,transparent 3px 8px);opacity:.9}
+.serape .fr.b{transform:scaleY(-1)}
+.serape .body{flex:1;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.serape .s{transform-origin:left;transform:scaleX(1)}
+.serape .s:nth-child(1){flex:3;background:var(--red)}
+.serape .s:nth-child(2){flex:.6;background:var(--cream)}
+.serape .s:nth-child(3){flex:2;background:var(--teal)}
+.serape .s:nth-child(4){flex:.5;background:var(--gold)}
+.serape .s:nth-child(5){flex:4;background:var(--pink)}
+.serape .s:nth-child(6){flex:.5;background:var(--gold)}
+.serape .s:nth-child(7){flex:2;background:var(--teal)}
+.serape .s:nth-child(8){flex:.6;background:var(--cream)}
+.serape .s:nth-child(9){flex:3;background:var(--red)}
+.serape .body::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.09) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(0,0,0,.07) 0 1px,transparent 1px 3px);pointer-events:none}
+.serape svg.dia{position:absolute;inset:0;width:100%;height:100%}
+.dia path{fill:none;stroke:var(--bg);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.dia .fillshape{fill:var(--bg);stroke:none;opacity:.88}
+.dia .gold{stroke:var(--gold)}
+.dia text{font-family:var(--head);fill:var(--cream);font-size:15px;text-anchor:middle}
+
+/* motion: only when JS present */
+.js .s{animation:weave 1s var(--ease) both}
+.js .s:nth-child(1){animation-delay:.2s}.js .s:nth-child(2){animation-delay:.3s}.js .s:nth-child(3){animation-delay:.4s}
+.js .s:nth-child(4){animation-delay:.5s}.js .s:nth-child(5){animation-delay:.6s}.js .s:nth-child(6){animation-delay:.7s}
+.js .s:nth-child(7){animation-delay:.8s}.js .s:nth-child(8){animation-delay:.9s}.js .s:nth-child(9){animation-delay:1s}
+@keyframes weave{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.js .dia path{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2s .9s var(--ease) forwards}
+.js .dia .fillshape{opacity:0;animation:fadein .8s 1.6s forwards}
+.js .dia text{opacity:0;animation:fadein .8s 2s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fadein{to{opacity:.88}}
+.js .dia text{animation-name:fadeFull}
+@keyframes fadeFull{to{opacity:1}}
+.js .hero h1 span,.js .hero .rise{opacity:0;transform:translateY(40px);animation:rise 1s var(--ease) forwards}
+.js .hero h1 .el{animation-delay:.1s}.js .hero h1 .sar{animation-delay:.25s}
+.js .hero .rise.a{animation-delay:.5s}.js .hero .rise.b{animation-delay:.65s}.js .hero .rise.c{animation-delay:.8s}
+@keyframes rise{to{opacity:1;transform:none}}
+.js .reveal{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--i,0)*110ms)}
+.js .reveal.in{opacity:1;transform:none}
+
+@media(max-width:820px){
+  .hero .wrap{grid-template-columns:1fr}
+  .serape{max-width:420px;aspect-ratio:5/4;transform:rotate(2deg)}
+}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--gold);color:#1a110c;font-weight:700;font-family:var(--body);font-size:1rem;text-decoration:none;padding:14px 26px;border-radius:999px;border:2px solid var(--gold);cursor:pointer;transition:transform .25s var(--ease),box-shadow .25s,background .25s,color .25s;will-change:transform}
+.btn:hover{box-shadow:0 10px 24px rgba(242,169,0,.35);transform:translateY(-3px)}
+.btn.alt{background:transparent;color:var(--cream);border-color:var(--cream)}
+.btn.alt:hover{background:var(--cream);color:#1a110c}
+.btn.small,small.btn{padding:9px 18px;font-size:.9rem}
+.btn:focus-visible,a:focus-visible,button:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+
+/* marquee */
+.marquee{background:var(--red);color:var(--cream);overflow:hidden;padding:16px 0;border-block:4px solid var(--gold);transform:rotate(-1deg);margin:10px -10px}
+.mq{display:flex;width:max-content;animation:mq 34s linear infinite}
+.mq ul{display:flex;list-style:none;flex-shrink:0}
+.mq li{font-family:var(--head);font-size:clamp(1.3rem,3.4vw,2rem);padding:0 22px;display:flex;align-items:center;gap:44px;white-space:nowrap}
+.mq li::after{content:"";width:14px;height:14px;background:var(--gold);transform:rotate(45deg);flex-shrink:0}
+@keyframes mq{to{transform:translateX(-50%)}}
+.marquee:hover .mq{animation-play-state:paused}
+
+/* offer */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
+.card{background:var(--card);border:1px solid var(--line);padding:30px 26px 28px;position:relative;overflow:hidden;transition:transform .4s var(--ease),border-color .4s}
+.card::before{content:"";position:absolute;left:0;top:0;right:0;height:6px;background:var(--c,var(--red));transition:height .4s var(--ease)}
+.card:hover{transform:translateY(-8px) rotate(-.4deg);border-color:var(--c)}
+.card:hover::before{height:14px}
+.card h3{font-size:1.7rem;margin:12px 0 10px}
+.card p{color:var(--mute)}
+.card .num{font-family:var(--head);font-size:3rem;color:var(--c);line-height:1}
+@media(max-width:820px){.cards{grid-template-columns:1fr}}
+
+/* menu */
+.menu{background:var(--bg2)}
+.menu-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px}
+.tag{display:inline-block;background:var(--cream);color:#1a110c;font-weight:700;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:5px 12px;border-radius:999px}
+.note{border-left:4px solid var(--gold);padding:12px 18px;margin-top:26px;color:var(--cream);max-width:68ch;background:rgba(242,169,0,.08)}
+.mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,56px);margin-top:44px}
+.msec h3{font-size:2rem;padding-bottom:14px;margin-bottom:8px;position:relative;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.msec h3::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:5px;background:var(--c)}
+.msec h3 .tag{font-family:var(--body)}
+.item{padding:16px 10px;margin:0 -10px;transition:background .3s,transform .3s var(--ease)}
+.item:hover{background:rgba(246,236,217,.06);transform:translateX(6px)}
+.row{display:flex;align-items:baseline;gap:10px}
+.row b{font-weight:700;font-size:1.1rem}
+.row .dots{flex:1;border-bottom:2px dotted rgba(246,236,217,.3);transform:translateY(-4px);min-width:16px}
+.row .price{font-family:var(--head);color:var(--gold);font-size:1.2rem}
+.item p{color:var(--mute);font-size:.95rem;margin-top:2px}
+@media(max-width:900px){.mgrid{grid-template-columns:1fr}}
+
+/* hours */
+.hl{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(28px,5vw,64px);margin-top:44px;align-items:start}
+.hours{background:var(--card);border:1px solid var(--line);padding:26px}
+.hours .tag{margin-bottom:14px}
+.hours table{width:100%;border-collapse:collapse}
+.hours td{padding:11px 0;border-bottom:1px solid var(--line)}
+.hours tr:last-child td{border-bottom:0}
+.hours td:last-child{text-align:right;font-weight:600}
+.hours tr.closed td:last-child{color:var(--mute)}
+.addr{margin-top:26px}
+.addr address{font-style:normal;font-size:1.2rem;font-weight:600}
+.copy{margin-top:14px}
+.map{border:1px solid var(--line);background:var(--card);padding:10px;overflow:hidden}
+.map iframe{width:100%;border:0;display:block;min-height:320px}
+.maplinks{display:flex;flex-wrap:wrap;gap:12px;padding:12px 4px 4px}
+.maplinks a{color:var(--gold);font-weight:600}
+.mapcredit{font-size:.78rem;color:var(--mute);padding:6px 4px 2px}
+.mapcredit a{color:var(--mute)}
+@media(max-width:900px){.hl{grid-template-columns:1fr}}
+
+/* contact */
+.contact .box{text-align:center;max-width:760px;margin-inline:auto}
+.contact .box h2{margin-bottom:12px}
+.contact .actions{justify-content:center}
+
+/* cta */
+.np-cta{background:linear-gradient(135deg,var(--card),#33201a);border:2px solid var(--gold);padding:clamp(28px,5vw,56px);margin:0 auto;max-width:900px;text-align:center;position:relative;box-shadow:12px 12px 0 var(--red)}
+.np-cta h2,.np-cta h3{font-size:clamp(1.8rem,5vw,3rem);margin-bottom:12px}
+.np-cta p{color:var(--mute);margin-bottom:18px}
+.np-cta .btn{margin:6px}
+.ctasec{padding-top:20px}
+
+/* divider + footer */
+.band{height:12px;background:linear-gradient(90deg,var(--red) 0 20%,var(--gold) 20% 30%,var(--teal) 30% 55%,var(--pink) 55% 75%,var(--cream) 75% 80%,var(--green) 80%)}
+footer{padding:40px 0 30px;color:var(--mute);font-size:.92rem;text-align:center}
+footer b{font-family:var(--head);font-weight:400;color:var(--cream);font-size:1.3rem}
+
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,30px);background:var(--cream);color:#1a110c;padding:10px 20px;border-radius:999px;font-weight:700;opacity:0;transition:.4s var(--ease);z-index:200;pointer-events:none}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .reveal,.js .hero h1 span,.js .hero .rise{opacity:1!important;transform:none!important}
+  .js .dia path{stroke-dasharray:none;stroke-dashoffset:0}
+  .js .dia .fillshape{opacity:.88}.js .dia text{opacity:1}
+  .js .s{transform:none}
+  .mq{width:auto;flex-wrap:wrap;transform:none}
+  .mq ul:nth-child(2){display:none}
+  .marquee{transform:none;margin:10px 0}
+}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div class="progress" id="progress"></div>
+
+<header class="top" id="top">
+  <div class="wrap bar">
+    <a class="logo" href="#hero"><i aria-hidden="true"></i>El Sarape</a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+    <nav id="nav" aria-label="Main">
+      <ul>
+        <li><a href="#offer">The table</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#visit">Hours &amp; location</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow rise a">Restaurant · West Liberty, Iowa</div>
+      <h1><span class="el">El</span><span class="sar">Sarape</span></h1>
+      <p class="sub rise b">Mexican, served on North Columbus Street.</p>
+      <p class="meta rise b">1100 North Columbus Street, West Liberty, IA</p>
+      <div class="actions rise c">
+        <a class="btn" href="#menu">See the menu</a>
+        <a class="btn alt" href="#visit">Find us</a>
+        
+      </div>
+    </div>
+    <div class="serape-wrap" id="parallax">
+      <div class="serape" role="img" aria-label="Illustration of a woven striped sarape blanket with a diamond at the center">
+        <div class="fr"></div>
+        <div class="body">
+          <div class="s"></div><div class="s"></div><div class="s"></div><div class="s"></div><div class="s"></div><div class="s"></div><div class="s"></div><div class="s"></div><div class="s"></div>
+          <svg class="dia" viewBox="0 0 200 250" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <path class="fillshape" d="M100 45 L165 125 L100 205 L35 125 Z"/>
+            <path pathLength="1" class="gold" d="M100 45 L165 125 L100 205 L35 125 Z"/>
+            <path pathLength="1" class="gold" d="M100 65 L148 125 L100 185 L52 125 Z" style="stroke:var(--teal)"/>
+            <path pathLength="1" d="M100 85 L131 125 L100 165 L69 125 Z" style="stroke:var(--pink)"/>
+            <path pathLength="1" d="M20 125 H35 M165 125 H180 M100 25 V45 M100 205 V225" style="stroke:var(--cream)"/>
+            <text x="100" y="131">El Sarape</text>
+          </svg>
+        </div>
+        <div class="fr b"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="mq">
+    <ul><li>El Sarape</li><li>Mexican</li><li>West Liberty</li><li>Iowa</li><li>North Columbus Street</li><li>Restaurant</li></ul>
+    <ul><li>El Sarape</li><li>Mexican</li><li>West Liberty</li><li>Iowa</li><li>North Columbus Street</li><li>Restaurant</li></ul>
+  </div>
+</div>
+
+<section id="offer">
+  <div class="wrap">
+    <div class="eyebrow reveal">What to expect</div>
+    <h2 class="reveal" style="--i:1">A Mexican table in West Liberty.</h2>
+    <p class="lead reveal" style="--i:2">El Sarape is a restaurant with Mexican cooking at its center, set on North Columbus Street.</p>
+    <div class="cards">
+      <article class="card reveal" style="--c:var(--red);--i:1">
+        <div class="num">01</div>
+        <h3>Mexican kitchen</h3>
+        <p>Mexican food is what El Sarape is about. Come hungry.</p>
+      </article>
+      <article class="card reveal" style="--c:var(--gold);--i:2">
+        <div class="num">02</div>
+        <h3>Sit-down restaurant</h3>
+        <p>A place to pull up a chair and eat with the people you came with.</p>
+      </article>
+      <article class="card reveal" style="--c:var(--teal);--i:3">
+        <div class="num">03</div>
+        <h3>Right in town</h3>
+        <p>1100 North Columbus Street, West Liberty, Iowa.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="band" aria-hidden="true"></div>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="menu-head">
+      <div>
+        <div class="eyebrow reveal">Menu</div>
+        <h2 class="reveal" style="--i:1">What could be on your table.</h2>
+      </div>
+      <span class="tag reveal">Example</span>
+    </div>
+    <p class="note reveal">This is an example menu that shows how your menu would look. Your real dishes and prices go here.</p>
+    <div class="mgrid">
+      <div class="msec reveal" style="--c:var(--red)">
+        <h3>Tacos <span class="tag">Example</span></h3>
+        <div class="item"><div class="row"><b>Carne asada</b><span class="dots"></span><span class="price">$3.75</span></div><p>Onion, cilantro, lime</p></div>
+        <div class="item"><div class="row"><b>Al pastor</b><span class="dots"></span><span class="price">$3.50</span></div></div>
+        <div class="item"><div class="row"><b>Grilled chicken</b><span class="dots"></span><span class="price">$3.25</span></div></div>
+      </div>
+      <div class="msec reveal" style="--c:var(--gold);--i:1">
+        <h3>Plates <span class="tag">Example</span></h3>
+        <div class="item"><div class="row"><b>Burrito grande</b><span class="dots"></span><span class="price">$11.99</span></div><p>Rice, beans, your choice of meat</p></div>
+        <div class="item"><div class="row"><b>Sizzling fajitas</b><span class="dots"></span><span class="price">$14.99</span></div><p>Peppers, onions, warm tortillas</p></div>
+        <div class="item"><div class="row"><b>Enchiladas</b><span class="dots"></span><span class="price">$12.99</span></div><p>Red or green sauce</p></div>
+      </div>
+      <div class="msec reveal" style="--c:var(--teal);--i:2">
+        <h3>Sides &amp; drinks <span class="tag">Example</span></h3>
+        <div class="item"><div class="row"><b>Chips &amp; salsa</b><span class="dots"></span><span class="price">$4.00</span></div></div>
+        <div class="item"><div class="row"><b>Fresh guacamole</b><span class="dots"></span><span class="price">$5.50</span></div></div>
+        <div class="item"><div class="row"><b>Horchata</b><span class="dots"></span><span class="price">$3.25</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap">
+    <div class="eyebrow reveal">Hours &amp; location</div>
+    <h2 class="reveal" style="--i:1">Come find us.</h2>
+    <div class="hl">
+      <div>
+        <div class="hours reveal">
+          <span class="tag">Example hours</span>
+          <table>
+            <tbody>
+              <tr><td>Mon</td><td>7 AM – 3 PM</td></tr>
+              <tr><td>Tue</td><td>7 AM – 3 PM</td></tr>
+              <tr><td>Wed</td><td>7 AM – 3 PM</td></tr>
+              <tr><td>Thu</td><td>7 AM – 3 PM</td></tr>
+              <tr><td>Fri</td><td>7 AM – 8 PM</td></tr>
+              <tr><td>Sat</td><td>8 AM – 8 PM</td></tr>
+              <tr class="closed"><td>Sun</td><td>Closed</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="addr reveal">
+          <address id="addr">1100 North Columbus Street, West Liberty, IA 52776</address>
+          <button class="btn alt small copy" id="copy" type="button">Copy address</button>
+        </div>
+      </div>
+      <div class="reveal" style="--i:1"><iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-91.26636,41.57325,-91.25436,41.58525&amp;layer=mapnik&amp;marker=41.57925,-91.26036"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=41.57925&amp;mlon=-91.26036#map=17/41.57925/-91.26036" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=41.57925,-91.26036" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="box reveal">
+      <div class="eyebrow" style="justify-content:center">Contact</div>
+      <h2>Say hello to El Sarape.</h2>
+      <p class="lead" style="margin-inline:auto">Questions for the restaurant? Send a note.</p>
+      <div class="actions"><a class="btn" href="mailto:elsarapemexicanrestaurant@gmail.com">elsarapemexicanrestaurant@gmail.com</a> </div>
+    </div>
+  </div>
+</section>
+
+<section class="ctasec">
+  <div class="wrap reveal"><section class="np-cta" id="offer"><h2>Want this for El Sarape?</h2><p>This is a free preview made for El Sarape. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20El%20Sarape&amp;body=Yes%2C%20please%20make%20this%20site%20for%20El%20Sarape.">Make it mine</a></p></section></div>
+</section>
+</main>
+
+<div class="band" aria-hidden="true"></div>
+<footer>
+  <div class="wrap"><b>El Sarape</b><br>1100 North Columbus Street, West Liberty, IA 52776</div>
+</footer>
+
+<div class="toast" id="toast" role="status">Address copied</div>
+
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · El Sarape</div>
+
+<script>
+(function(){
+  var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var header = document.getElementById('top'), prog = document.getElementById('progress'), par = document.getElementById('parallax');
+  var ticking = false;
+  function onScroll(){
+    var y = window.scrollY || 0;
+    header.classList.toggle('scrolled', y > 30);
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    prog.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, y / h) : 0) + ')';
+    if(par && !rm && y < 1200){ par.style.transform = 'translate3d(0,' + (y * -0.08).toFixed(1) + 'px,0)'; }
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){ if(!ticking){ ticking = true; requestAnimationFrame(onScroll); } }, {passive:true});
+  onScroll();
+
+  // reveals
+  var els = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window && !rm){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(el){ io.observe(el); });
+  } else { els.forEach(function(el){ el.classList.add('in'); }); }
+
+  // mobile menu
+  var burger = document.getElementById('burger'), nav = document.getElementById('nav');
+  function closeNav(){ nav.classList.remove('open'); burger.setAttribute('aria-expanded','false'); }
+  burger.addEventListener('click', function(){
+    var o = nav.classList.toggle('open'); burger.setAttribute('aria-expanded', o ? 'true' : 'false');
+  });
+  nav.addEventListener('click', function(e){ if(e.target.tagName === 'A') closeNav(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeNav(); });
+
+  // copy address
+  var toast = document.getElementById('toast'), copyBtn = document.getElementById('copy');
+  function showToast(t){ toast.textContent = t; toast.classList.add('on'); setTimeout(function(){ toast.classList.remove('on'); }, 1800); }
+  copyBtn.addEventListener('click', function(){
+    var text = document.getElementById('addr').textContent.trim();
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){ showToast('Address copied'); }, fallback);
+    } else fallback();
+    function fallback(){
+      var ta = document.createElement('textarea'); ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try{ document.execCommand('copy'); showToast('Address copied'); }catch(err){ showToast('Copy failed'); }
+      document.body.removeChild(ta);
+    }
+  });
+
+  // magnetic buttons
+  if(!rm && window.matchMedia('(pointer:fine)').matches){
+    document.querySelectorAll('.btn').forEach(function(b){
+      b.addEventListener('mousemove', function(e){
+        var r = b.getBoundingClientRect();
+        var x = (e.clientX - r.left - r.width/2) * .2, y = (e.clientY - r.top - r.height/2) * .3;
+        b.style.transform = 'translate(' + x.toFixed(1) + 'px,' + (y - 3).toFixed(1) + 'px)';
+      });
+      b.addEventListener('mouseleave', function(){ b.style.transform = ''; });
+    });
+  }
+})();
+</script>
+</body>
+</html>

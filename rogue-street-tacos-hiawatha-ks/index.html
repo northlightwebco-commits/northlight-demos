@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rogue Street Tacos · Mexican in Hiawatha, KS</title>
+<meta name="description" content="Rogue Street Tacos, Mexican food in Hiawatha, Kansas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0a14;--bg2:#141226;--ink:#f6f1e7;--mute:#b9b4c9;
+  --pink:#ff3d81;--amber:#ffb020;--cyan:#33e1ff;--line:rgba(246,241,231,.16);
+  --display:'Bungee',Impact,sans-serif;--body:'DM Sans',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.05rem;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img,svg{max-width:100%;display:block}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.02;text-wrap:balance;overflow-wrap:break-word}
+.eyebrow{font-family:var(--display);font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);text-shadow:0 0 12px rgba(51,225,255,.6)}
+
+/* progress + header */
+.progress{position:fixed;top:0;left:0;height:3px;width:100%;background:linear-gradient(90deg,var(--pink),var(--amber));transform-origin:0 50%;transform:scaleX(0);z-index:100}
+header.nav{position:sticky;top:0;z-index:50;transition:background .3s,box-shadow .3s}
+header.nav.scrolled{background:rgba(11,10,20,.88);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line),0 10px 30px rgba(0,0,0,.4)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:var(--display);text-decoration:none;font-size:1.05rem;letter-spacing:.04em;display:flex;align-items:center;gap:10px}
+.logo i{width:12px;height:12px;border-radius:50%;background:var(--pink);box-shadow:0 0 14px var(--pink);animation:pulse 2.4s ease-in-out infinite}
+.links{display:flex;gap:28px;align-items:center}
+.links a{text-decoration:none;font-weight:500;font-size:.95rem;color:var(--mute);transition:color .2s}
+.links a:hover{color:var(--ink)}
+.burger{display:none;background:none;border:1.5px solid var(--line);color:var(--ink);width:46px;height:46px;border-radius:12px;cursor:pointer}
+.burger span{display:block;width:20px;height:2px;background:currentColor;margin:5px auto;transition:transform .3s,opacity .3s}
+.burger[aria-expanded=true] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded=true] span:nth-child(2){opacity:0}
+.burger[aria-expanded=true] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* buttons */
+.btn{display:inline-block;background:var(--pink);color:#0b0a14;font-family:var(--display);font-size:.9rem;letter-spacing:.04em;text-decoration:none;padding:15px 26px;border-radius:999px;border:2px solid var(--pink);box-shadow:0 0 22px rgba(255,61,129,.45);cursor:pointer;transition:transform .25s,box-shadow .25s,background .25s;will-change:transform}
+.btn:hover{transform:translateY(-3px);box-shadow:0 0 34px rgba(255,61,129,.75)}
+.btn.alt{background:transparent;color:var(--ink);border-color:var(--cyan);box-shadow:0 0 18px rgba(51,225,255,.3)}
+.btn.alt:hover{box-shadow:0 0 30px rgba(51,225,255,.6)}
+.btn:focus-visible,a:focus-visible,button:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+small{font-size:.85rem;color:var(--mute)}
+
+/* hero */
+.hero{position:relative;min-height:calc(100svh - 68px);display:flex;align-items:center;padding:40px 0 120px;overflow:hidden;isolation:isolate}
+.floor{position:absolute;left:-20%;right:-20%;bottom:0;height:46%;perspective:420px;z-index:-1;overflow:hidden;-webkit-mask-image:linear-gradient(to top,#000 20%,transparent);mask-image:linear-gradient(to top,#000 20%,transparent)}
+.floor div{position:absolute;inset:-100% 0 0 0;transform:rotateX(62deg);transform-origin:50% 100%;background:
+  repeating-linear-gradient(90deg,rgba(255,61,129,.55) 0 2px,transparent 2px 80px),
+  repeating-linear-gradient(0deg,rgba(255,61,129,.55) 0 2px,transparent 2px 80px);animation:floor 3s linear infinite}
+.glow{position:absolute;width:60vmax;height:60vmax;border-radius:50%;right:-15vmax;top:-20vmax;background:radial-gradient(closest-side,rgba(255,61,129,.28),transparent);z-index:-1}
+.hero-grid{display:grid;gap:36px;align-items:center;width:100%}
+.hero h1{font-size:clamp(2.6rem,16vw,6.5rem);letter-spacing:.01em;margin:14px 0 20px}
+.hero h1 span{display:block}
+.hero h1 .l1{color:var(--ink)}
+.hero h1 .l2{color:var(--pink);text-shadow:0 0 10px rgba(255,61,129,.8),0 0 36px rgba(255,61,129,.55)}
+.hero h1 .l3{color:var(--amber);text-shadow:0 0 10px rgba(255,176,32,.7),0 0 32px rgba(255,176,32,.45);animation:flicker 6s infinite 2.5s}
+.lead{font-size:1.2rem;max-width:30ch;color:var(--mute);margin-bottom:28px}
+.lead b{color:var(--ink);font-weight:700}
+.hero .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+.sign{justify-self:center;width:min(380px,86%);will-change:transform}
+.sign svg{width:100%;height:auto;overflow:visible}
+.neon{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.draw{stroke-dasharray:var(--len,600);stroke-dashoffset:var(--len,600);animation:draw 2.4s cubic-bezier(.6,0,.2,1) forwards}
+.sway{animation:sway 6s ease-in-out infinite;transform-origin:50% 0}
+
+/* entrance */
+.in{opacity:0;transform:translateY(26px);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--d,0)*1s)}
+
+/* marquee */
+.marquee{border-block:1px solid var(--line);background:var(--bg2);overflow:hidden;white-space:nowrap}
+.track{display:inline-flex;animation:scroll 32s linear infinite;padding:16px 0}
+.track span{font-family:var(--display);font-size:1.3rem;padding:0 22px;color:var(--ink)}
+.track span:nth-child(even){color:var(--cyan);text-shadow:0 0 12px rgba(51,225,255,.6)}
+.marquee:hover .track{animation-play-state:paused}
+
+section{padding:96px 0;position:relative}
+.sec-head{margin-bottom:44px;max-width:720px}
+.sec-head h2{font-size:clamp(2rem,8vw,3.8rem);margin-top:12px}
+
+/* offer */
+.offer{display:grid;gap:20px}
+.card{background:var(--bg2);border:1.5px solid var(--line);border-radius:22px;padding:30px;transition:transform .3s,border-color .3s,box-shadow .3s}
+.card:hover{transform:translateY(-6px);border-color:var(--pink);box-shadow:0 0 30px rgba(255,61,129,.25)}
+.card h3{font-size:1.5rem;margin-bottom:10px;color:var(--amber)}
+.card p{color:var(--mute)}
+
+/* menu */
+.menu-sec{background:linear-gradient(180deg,var(--bg),var(--bg2))}
+.note{border:1.5px dashed var(--amber);color:var(--amber);border-radius:14px;padding:14px 18px;margin-bottom:36px;max-width:720px;font-weight:500}
+.tag{display:inline-block;font-family:var(--display);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;border:1.5px solid var(--cyan);color:var(--cyan);border-radius:999px;padding:3px 10px;vertical-align:middle}
+.menu-grid{display:grid;gap:22px}
+.mcol{border:1.5px solid var(--line);border-radius:22px;padding:28px;background:rgba(11,10,20,.6)}
+.mcol h3{font-size:1.6rem;color:var(--pink);text-shadow:0 0 14px rgba(255,61,129,.5);margin-bottom:18px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.mi{padding:12px 10px;margin:0 -10px;border-radius:12px;transition:background .25s,transform .25s}
+.mi:hover{background:rgba(51,225,255,.08);transform:translateX(6px)}
+.mi-top{display:flex;align-items:baseline;gap:10px}
+.mi-name{font-weight:700}
+.mi-dots{flex:1;border-bottom:2px dotted rgba(246,241,231,.3);transform:translateY(-4px);min-width:16px}
+.mi-price{font-family:var(--display);color:var(--amber);font-size:.95rem}
+.mi p{color:var(--mute);font-size:.95rem}
+
+/* hours */
+.hl{display:grid;gap:30px;align-items:start}
+.hours{border:1.5px solid var(--line);border-radius:22px;padding:28px;background:var(--bg2)}
+.hours .tag{margin-bottom:16px}
+.hours ul{list-style:none}
+.hours li{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid var(--line)}
+.hours li:last-child{border:0}
+.hours li span:last-child{color:var(--amber);font-weight:500;text-align:right}
+.place{margin-top:20px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.place strong{font-family:var(--display);font-weight:400}
+.copy{background:transparent;border:1.5px solid var(--cyan);color:var(--cyan);font:inherit;font-size:.85rem;font-weight:700;padding:8px 16px;border-radius:999px;cursor:pointer;transition:transform .25s,background .25s}
+.copy:hover{transform:translateY(-2px);background:rgba(51,225,255,.12)}
+.map{border-radius:22px;overflow:hidden;border:1.5px solid var(--line);background:var(--bg2)}
+.map iframe{width:100%;min-height:320px;border:0;display:block}
+.maplinks{display:flex;gap:12px;flex-wrap:wrap;padding:14px}
+.maplinks a{color:var(--cyan);font-weight:700;text-underline-offset:4px}
+.mapcredit{font-size:.75rem;color:var(--mute);padding:0 14px 12px}
+.mapcredit a{color:var(--mute)}
+
+/* contact */
+.contact{text-align:center}
+.contact h2{font-size:clamp(2rem,9vw,4.4rem);margin:12px auto 18px;max-width:14ch}
+.contact p{color:var(--mute);max-width:42ch;margin:0 auto 28px}
+.contact .row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* cta slot */
+.np-cta{margin:0 auto;width:min(1000px,100% - 40px);border:2px solid var(--cyan);border-radius:28px;padding:40px 30px;background:radial-gradient(120% 140% at 0 0,rgba(51,225,255,.14),transparent 60%),var(--bg2);box-shadow:0 0 40px rgba(51,225,255,.25),inset 0 0 40px rgba(51,225,255,.06);text-align:center}
+.np-cta h2,.np-cta h3{font-family:var(--display);font-weight:400;margin-bottom:12px;color:var(--ink)}
+.np-cta p{color:var(--mute);margin-bottom:18px}
+.np-cta .btn{margin:6px}
+.np-banner{background:var(--amber);color:#0b0a14;text-align:center;font-weight:700;font-size:.9rem;padding:9px 16px;position:relative;z-index:60}
+.np-banner a{color:#0b0a14}
+footer{padding:50px 0 40px;text-align:center;color:var(--mute);font-size:.9rem}
+footer .logo{justify-content:center;margin-bottom:8px;color:var(--ink)}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0)*.1s)}
+.js .rv.on{opacity:1;transform:none}
+
+@keyframes rise{to{opacity:1;transform:none}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes scroll{to{transform:translateX(-50%)}}
+@keyframes floor{to{transform:rotateX(62deg) translateY(80px)}}
+@keyframes pulse{50%{opacity:.4}}
+@keyframes sway{50%{transform:rotate(1.6deg)}}
+@keyframes flicker{0%,18%,22%,60%,64%,100%{opacity:1}20%,62%{opacity:.45}21%{opacity:.9}}
+
+@media(min-width:760px){
+  .offer{grid-template-columns:repeat(3,1fr)}
+  .menu-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(min-width:1000px){
+  .hero-grid{grid-template-columns:1.3fr .8fr}
+  .hero h1{font-size:clamp(4rem,8.5vw,8rem)}
+  .hl{grid-template-columns:1fr 1fr}
+}
+@media(max-width:820px){
+  .burger{display:block}
+  .links{position:absolute;top:68px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:rgba(11,10,20,.97);border-bottom:1px solid var(--line);padding:8px 20px 18px;transform:translateY(-12px);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
+  .links.open{opacity:1;transform:none;pointer-events:auto}
+  .links a{padding:14px 0;font-size:1.1rem;border-bottom:1px solid var(--line)}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .in,.js .rv{opacity:1!important;transform:none!important}
+  .draw{stroke-dashoffset:0!important}
+  .track{flex-wrap:wrap;white-space:normal}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div class="progress" id="progress"></div>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="#top"><i></i>Rogue Street Tacos</a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="links"><span></span><span></span><span></span></button>
+    <nav class="links" id="links">
+      <a href="#about">Kitchen</a>
+      <a href="#menu">Menu</a>
+      <a href="#visit">Hours &amp; location</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="glow"></div>
+  <div class="floor" aria-hidden="true"><div></div></div>
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow in" style="--d:.1">Mexican · Hiawatha, KS</p>
+      <h1 aria-label="Rogue Street Tacos">
+        <span class="l1 in" style="--d:.25">Rogue</span>
+        <span class="l2 in" style="--d:.45">Street</span>
+        <span class="l3 in" style="--d:.65">Tacos</span>
+      </h1>
+      <p class="lead in" style="--d:.85"><b>Mexican</b> food, made in Hiawatha, Kansas. Come find the glow.</p>
+      <div class="cta-row in" style="--d:1">
+        <a class="btn" href="#menu" data-mag>See the menu</a>
+        <a class="btn alt" href="#visit" data-mag>Hours &amp; location</a>
+      </div>
+    </div>
+    <div class="sign in" style="--d:.5" id="sign" aria-hidden="true">
+      <div class="sway">
+      <svg viewBox="0 0 320 380" role="img" aria-label="Neon street sign with a taco">
+        <defs><filter id="g" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+        <rect class="neon draw" style="--len:1000" x="20" y="20" width="280" height="110" rx="18" stroke="#33e1ff" stroke-width="4" filter="url(#g)"/>
+        <text x="160" y="62" text-anchor="middle" font-family="Bungee,Impact,sans-serif" font-size="20" fill="#33e1ff" filter="url(#g)">ROGUE ST</text>
+        <text x="160" y="104" text-anchor="middle" font-family="Bungee,Impact,sans-serif" font-size="26" fill="#f6f1e7" filter="url(#g)">TACOS</text>
+        <path class="neon draw" style="--len:160;animation-delay:.6s" d="M160 130V190" stroke="#33e1ff" stroke-width="4"/>
+        <path class="neon draw" style="--len:520;animation-delay:.9s" d="M40 330A120 120 0 0 1 280 330Z" stroke="#ff3d81" stroke-width="5" filter="url(#g)"/>
+        <path class="neon draw" style="--len:420;animation-delay:1.4s" d="M72 330A88 88 0 0 1 248 330" stroke="#ffb020" stroke-width="4" filter="url(#g)"/>
+        <path class="neon draw" style="--len:300;animation-delay:1.9s" d="M96 300q16-22 32 0t32 0 32 0 32 0" stroke="#33e1ff" stroke-width="4" filter="url(#g)"/>
+      </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Rogue Street Tacos</span><span>Mexican</span><span>Hiawatha</span><span>Kansas</span><span>Tacos</span><span>Rogue Street Tacos</span><span>Mexican</span><span>Hiawatha</span><span>Kansas</span><span>Tacos</span>
+    <span>Rogue Street Tacos</span><span>Mexican</span><span>Hiawatha</span><span>Kansas</span><span>Tacos</span><span>Rogue Street Tacos</span><span>Mexican</span><span>Hiawatha</span><span>Kansas</span><span>Tacos</span>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head rv"><p class="eyebrow">The kitchen</p><h2>Mexican, down Rogue Street.</h2></div>
+    <div class="offer">
+      <div class="card rv" style="--i:0"><h3>Mexican</h3><p>Rogue Street Tacos is a Mexican restaurant, and tacos are right there in the name.</p></div>
+      <div class="card rv" style="--i:1"><h3>Hiawatha, KS</h3><p>Find us in Hiawatha, Kansas. Directions are in the location section below.</p></div>
+      <div class="card rv" style="--i:2"><h3>Say hello</h3><p>Questions about the kitchen? Send a quick email from the contact section.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="menu" class="menu-sec">
+  <div class="wrap">
+    <div class="sec-head rv"><p class="eyebrow">Menu</p><h2>What's on the board</h2></div>
+    <p class="note rv">This is an example menu that shows how your menu would look. Your real dishes and prices go here.</p>
+    <div class="menu-grid">
+      <div class="mcol rv" style="--i:0">
+        <h3>Tacos <span class="tag">Example</span></h3>
+        <div class="mi"><div class="mi-top"><span class="mi-name">Carne asada</span><span class="mi-dots"></span><span class="mi-price">$3.75</span></div><p>Onion, cilantro, lime</p></div>
+        <div class="mi"><div class="mi-top"><span class="mi-name">Al pastor</span><span class="mi-dots"></span><span class="mi-price">$3.50</span></div></div>
+        <div class="mi"><div class="mi-top"><span class="mi-name">Grilled chicken</span><span class="mi-dots"></span><span class="mi-price">$3.25</span></div></div>
+      </div>
+      <div class="mcol rv" style="--i:1">
+        <h3>Plates <span class="tag">Example</span></h3>
+        <div class="mi"><div class="mi-top"><span class="mi-name">Burrito grande</span><span class="mi-dots"></span><span class="mi-price">$11.99</span></div><p>Rice, beans, your choice of meat</p></div>
+        <div class="mi"><div class="mi-top"><span class="mi-name">Sizzling fajitas</span><span class="mi-dots"></span><span class="mi-price">$14.99</span></div><p>Peppers, onions, warm tortillas</p></div>
+        <div class="mi"><div class="mi-top"><span class="mi-name">Enchiladas</span><span class="mi-dots"></span><span class="mi-price">$12.99</span></div><p>Red or green sauce</p></div>
+      </div>
+      <div class="mcol rv" style="--i:2">
+        <h3>Sides &amp; drinks <span class="tag">Example</span></h3>
+        <div class="mi"><div class="mi-top"><span class="mi-name">Chips &amp; salsa</span><span class="mi-dots"></span><span class="mi-price">$4.00</span></div></div>
+        <div class="mi"><div class="mi-top"><span class="mi-name">Fresh guacamole</span><span class="mi-dots"></span><span class="mi-price">$5.50</span></div></div>
+        <div class="mi"><div class="mi-top"><span class="mi-name">Horchata</span><span class="mi-dots"></span><span class="mi-price">$3.25</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap">
+    <div class="sec-head rv"><p class="eyebrow">Find us</p><h2>Hours &amp; location</h2></div>
+    <div class="hl">
+      <div class="rv">
+        <div class="hours">
+          <span class="tag">Example hours</span>
+          <ul>
+            <li><span>Mon</span><span>7 AM – 3 PM</span></li>
+            <li><span>Tue</span><span>7 AM – 3 PM</span></li>
+            <li><span>Wed</span><span>7 AM – 3 PM</span></li>
+            <li><span>Thu</span><span>7 AM – 3 PM</span></li>
+            <li><span>Fri</span><span>7 AM – 8 PM</span></li>
+            <li><span>Sat</span><span>8 AM – 8 PM</span></li>
+            <li><span>Sun</span><span>Closed</span></li>
+          </ul>
+        </div>
+        <div class="place"><strong>Hiawatha, KS</strong><button class="copy" id="copy" type="button" data-text="Rogue Street Tacos, Hiawatha, KS">Copy location</button></div>
+      </div>
+      <div class="rv" style="--i:1"><iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-95.54422,39.84672,-95.53222,39.85872&amp;layer=mapnik&amp;marker=39.85272,-95.53822"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=39.85272&amp;mlon=-95.53822#map=17/39.85272/-95.53822" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=39.85272,-95.53822" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <p class="eyebrow rv">Contact</p>
+    <h2 class="rv">Drop us a line</h2>
+    <p class="rv">Got a question for Rogue Street Tacos? Send an email.</p>
+    <div class="row rv"><a class="btn" href="mailto:srwendtlandt@gmail.com">srwendtlandt@gmail.com</a> </div>
+  </div>
+</section>
+
+<div style="padding-bottom:70px"><section class="np-cta" id="offer"><h2>Want this for Rogue Street Tacos?</h2><p>This is a free preview made for Rogue Street Tacos. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20Rogue%20Street%20Tacos&amp;body=Yes%2C%20please%20make%20this%20site%20for%20Rogue%20Street%20Tacos.">Make it mine</a></p></section></div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="logo"><i></i>Rogue Street Tacos</div>
+    <p>Mexican · Hiawatha, KS</p>
+  </div>
+</footer>
+
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · Rogue Street Tacos</div>
+<script>
+(function(){
+  var d=document,root=d.documentElement;
+  root.classList.add('js');
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nav=d.getElementById('nav'),bar=d.getElementById('progress'),sign=d.getElementById('sign');
+  function onScroll(){
+    var y=window.scrollY,h=root.scrollHeight-window.innerHeight;
+    nav.classList.toggle('scrolled',y>30);
+    bar.style.transform='scaleX('+(h>0?Math.min(1,y/h):0)+')';
+    if(!rm&&sign&&y<900)sign.style.transform='translateY('+(y*0.12)+'px)';
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  var els=d.querySelectorAll('.rv');
+  if('IntersectionObserver' in window&&!rm){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.12});
+    els.forEach(function(e){io.observe(e)});
+  }else els.forEach(function(e){e.classList.add('on')});
+
+  var b=d.getElementById('burger'),l=d.getElementById('links');
+  b.addEventListener('click',function(){var o=l.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+  l.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){l.classList.remove('open');b.setAttribute('aria-expanded','false')})});
+
+  if(!rm){
+    d.querySelectorAll('[data-mag],.btn').forEach(function(el){
+      el.addEventListener('mousemove',function(e){var r=el.getBoundingClientRect();el.style.transform='translate('+((e.clientX-r.left-r.width/2)*.18)+'px,'+((e.clientY-r.top-r.height/2)*.25-3)+'px)'});
+      el.addEventListener('mouseleave',function(){el.style.transform=''});
+    });
+  }
+
+  var c=d.getElementById('copy');
+  if(c)c.addEventListener('click',function(){
+    var t=c.getAttribute('data-text');
+    function ok(){c.textContent='Copied';setTimeout(function(){c.textContent='Copy location'},1800)}
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(ok,function(){});
+    else{var a=d.createElement('textarea');a.value=t;d.body.appendChild(a);a.select();try{d.execCommand('copy');ok()}catch(e){}d.body.removeChild(a)}
+  });
+})();
+</script>
+</body>
+</html>

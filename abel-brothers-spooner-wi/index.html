@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Abel Brothers – Café in Spooner, WI</title>
+<meta name="description" content="Abel Brothers, a café at 110 Walnut Street in Spooner, Wisconsin.">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#121212;--sun:#FFD43B;--blue:#2B47F0;--white:#fff;--soft:#FFF3BD;
+  --bd:3px solid var(--ink);--sh:6px 6px 0 var(--ink);
+  --display:'Archivo Black','Arial Black',Impact,sans-serif;
+  --body:'Space Grotesk',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:var(--body);font-size:1.0625rem;line-height:1.55;color:var(--ink);background:var(--sun);overflow-x:hidden}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:.98;text-wrap:balance;overflow-wrap:break-word}
+h2{font-size:clamp(2rem,7.5vw,4.5rem);letter-spacing:-.01em}
+h3{font-size:clamp(1.25rem,4.5vw,1.6rem)}
+p{text-wrap:pretty}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+section{padding:clamp(56px,9vw,112px) 0;position:relative}
+.eyebrow{display:inline-block;font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;background:var(--ink);color:var(--sun);padding:6px 12px;margin-bottom:18px}
+.tag{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border:2px solid var(--ink);background:var(--white);padding:3px 9px;border-radius:99px}
+
+/* slots */
+.np-banner{background:var(--ink);color:var(--sun);font-size:.82rem;line-height:1.4;text-align:center;padding:8px 16px}
+.np-banner a{color:var(--white)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:700 1rem var(--body);text-decoration:none;color:var(--ink);background:var(--white);border:var(--bd);box-shadow:4px 4px 0 var(--ink);padding:13px 22px;border-radius:12px;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease}
+.btn:hover,.btn:focus-visible{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
+.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+.btn.alt{background:var(--blue);color:var(--white)}
+.btn.sun{background:var(--sun)}
+small{font-size:.82rem}
+.map{border:var(--bd);box-shadow:var(--sh);background:var(--white);border-radius:16px;overflow:hidden}
+.map iframe{display:block;width:100%;min-height:300px;border:0}
+.maplinks{display:flex;flex-wrap:wrap;gap:10px;padding:14px}
+.maplinks a{font-weight:700;font-size:.92rem;background:var(--sun);border:2px solid var(--ink);border-radius:10px;padding:8px 14px;text-decoration:none;transition:transform .18s}
+.maplinks a:hover{transform:translateY(-3px)}
+.mapcredit{font-size:.72rem;padding:0 14px 12px;opacity:.75}
+.np-cta{background:var(--blue);color:var(--white);border:var(--bd);box-shadow:10px 10px 0 var(--ink);border-radius:22px;padding:clamp(24px,5vw,56px);display:flex;flex-direction:column;gap:16px;align-items:flex-start;transform:rotate(-1deg);position:relative}
+.np-cta h2,.np-cta h3{color:var(--white)}
+.np-cta p{max-width:56ch}
+.np-cta .btn.alt{background:var(--sun);color:var(--ink)}
+.np-cta .btn{flex:0 0 auto}
+
+/* progress + header */
+#prog{position:fixed;left:0;top:0;height:5px;width:100%;background:var(--blue);transform:scaleX(0);transform-origin:0 50%;z-index:100}
+header.site{position:sticky;top:0;z-index:50;background:var(--sun);border-bottom:var(--bd);transition:box-shadow .25s,background .25s}
+header.site.stuck{background:var(--white);box-shadow:0 5px 0 var(--ink)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.logo{font-family:var(--display);font-size:1.25rem;text-decoration:none;display:flex;gap:6px;align-items:center;white-space:nowrap}
+.logo i{font-style:normal;background:var(--blue);color:#fff;padding:2px 8px;border-radius:6px;transform:rotate(-3deg);transition:transform .25s}
+.logo:hover i{transform:rotate(3deg) scale(1.06)}
+nav ul{display:flex;gap:6px;list-style:none}
+nav a.l{display:block;text-decoration:none;font-weight:700;padding:8px 14px;border-radius:99px;border:2px solid transparent;transition:transform .18s,border-color .18s,background .18s}
+nav a.l:hover{border-color:var(--ink);background:var(--sun);transform:translateY(-2px)}
+.burger{display:none;background:var(--white);border:var(--bd);border-radius:10px;width:46px;height:42px;cursor:pointer;position:relative}
+.burger span{position:absolute;left:11px;right:11px;height:3px;background:var(--ink);transition:transform .25s,opacity .2s}
+.burger span:nth-child(1){top:11px}.burger span:nth-child(2){top:18px}.burger span:nth-child(3){top:25px}
+.burger[aria-expanded=true] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded=true] span:nth-child(2){opacity:0}
+.burger[aria-expanded=true] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:820px){
+  .burger{display:block}
+  nav ul{position:absolute;left:0;right:0;top:100%;flex-direction:column;background:var(--white);border-bottom:var(--bd);padding:12px 20px 20px;gap:4px;display:none}
+  nav ul.open{display:flex}
+  nav a.l{font-size:1.15rem;padding:12px 14px}
+}
+
+/* hero */
+.hero{padding:clamp(40px,7vw,90px) 0 clamp(60px,9vw,110px);overflow:hidden}
+.hero-grid{display:grid;gap:36px;grid-template-columns:1.25fr .75fr;align-items:center}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
+.slabs{display:flex;flex-direction:column;align-items:flex-start;gap:14px;font-family:var(--display);font-size:clamp(2.5rem,12.2vw,8.6rem);line-height:.95;text-transform:uppercase}
+.slab{display:inline-block;padding:.06em .16em .1em;border:var(--bd);box-shadow:8px 8px 0 var(--ink);max-width:100%}
+.slab.a{background:var(--white);transform:rotate(-2deg)}
+.slab.b{background:var(--blue);color:var(--white);transform:rotate(1.5deg) translateX(4%)}
+.hero p.lead{font-size:clamp(1.1rem,2.6vw,1.4rem);max-width:34ch;margin:30px 0 26px;font-weight:500}
+.hero .row{display:flex;flex-wrap:wrap;gap:14px}
+.cups{position:relative;justify-self:center;width:min(100%,420px)}
+.cups svg{width:100%;height:auto;overflow:visible}
+.sticker{position:absolute;right:-6px;top:-10px;background:var(--white);border:var(--bd);box-shadow:4px 4px 0 var(--ink);border-radius:50%;width:112px;height:112px;display:grid;place-items:center;text-align:center;font-family:var(--display);font-size:.8rem;line-height:1.1;text-transform:uppercase;animation:spin 18s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.steam{fill:none;stroke:var(--ink);stroke-width:5;stroke-linecap:round;stroke-dasharray:140;stroke-dashoffset:0;animation:draw 3.2s ease-in-out infinite}
+.steam.s2{animation-delay:.5s}.steam.s3{animation-delay:1s}
+@keyframes draw{0%{stroke-dashoffset:140;opacity:0}30%{opacity:1}70%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:-140;opacity:0}}
+.enter{animation:rise .9s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--e,0)*120ms)}
+@keyframes rise{from{opacity:0;transform:translateY(34px) scale(.97)}to{opacity:1;transform:none}}
+.slab.enter{animation-name:slam}
+@keyframes slam{from{opacity:0;transform:translateY(-40px) rotate(8deg)}}
+
+/* marquee */
+.marq{background:var(--ink);color:var(--sun);border-block:var(--bd);overflow:hidden;padding:14px 0;transform:rotate(-1deg);margin:-10px -10px}
+.mtrack{display:flex;width:max-content;animation:mq 34s linear infinite}
+.marq:hover .mtrack{animation-play-state:paused}
+.mtrack span{font-family:var(--display);font-size:clamp(1.2rem,3.5vw,2rem);text-transform:uppercase;padding-right:28px;white-space:nowrap}
+.mtrack span::after{content:"✦";margin-left:28px;color:var(--white)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* offer */
+.offer{background:var(--white);border-block:var(--bd)}
+.cards{display:grid;gap:26px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin-top:40px}
+.card{background:var(--sun);border:var(--bd);box-shadow:var(--sh);border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:12px;transition:transform .25s cubic-bezier(.3,1.6,.5,1),box-shadow .25s}
+.card:nth-child(2){background:var(--soft)}
+.card:nth-child(3){background:#BFC8FF}
+.card:hover{transform:translate(-4px,-6px) rotate(-1.2deg);box-shadow:12px 12px 0 var(--ink)}
+.card .num{font-family:var(--display);font-size:3.2rem;line-height:1}
+.card svg{width:54px;height:54px}
+
+/* menu */
+.menu-note{background:var(--white);border:var(--bd);border-radius:14px;padding:14px 18px;margin:22px 0 40px;font-weight:500;display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap;box-shadow:4px 4px 0 var(--ink)}
+.menu-grid{display:grid;gap:30px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+.msec{background:var(--white);border:var(--bd);box-shadow:var(--sh);border-radius:18px;padding:24px 22px 16px}
+.msec h3{margin-bottom:12px;display:inline-block;background:var(--blue);color:#fff;padding:6px 12px;border-radius:8px;transform:rotate(-1.5deg)}
+.msec ul{list-style:none}
+.it{display:flex;justify-content:space-between;gap:14px;align-items:baseline;padding:13px 8px;border-bottom:2px dashed rgba(18,18,18,.35);border-radius:8px;transition:transform .2s,background .2s}
+.it:last-child{border-bottom:0}
+.it:hover{transform:translateX(8px);background:var(--soft)}
+.it b{font-weight:700;display:block}
+.it em{font-style:normal;font-size:.92rem;opacity:.8;display:block}
+.it .pr{font-family:var(--display);white-space:nowrap}
+
+/* hours */
+.hl{display:grid;gap:34px;grid-template-columns:1fr 1fr;align-items:start}
+@media(max-width:860px){.hl{grid-template-columns:1fr}}
+.hours{background:var(--white);border:var(--bd);box-shadow:var(--sh);border-radius:18px;padding:24px}
+.hours table{width:100%;border-collapse:collapse;margin-top:14px}
+.hours td{padding:11px 6px;border-bottom:2px dashed rgba(18,18,18,.3);font-weight:500}
+.hours tr:last-child td{border-bottom:0}
+.hours td:last-child{text-align:right;font-weight:700}
+.addr{margin:22px 0 14px;font-style:normal;font-size:1.15rem;font-weight:500}
+.copyrow{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:26px}
+#copied{font-weight:700;opacity:0;transform:translateY(6px);transition:opacity .25s,transform .25s}
+#copied.on{opacity:1;transform:none}
+
+/* about */
+.about{background:var(--blue);color:var(--white);border-block:var(--bd)}
+.about h2{color:var(--white)}
+.about p{font-size:clamp(1.15rem,2.6vw,1.5rem);max-width:46ch;margin-top:20px}
+.about .eyebrow{background:var(--sun);color:var(--ink)}
+.about svg.dr{position:absolute;right:4%;bottom:10%;width:min(240px,32vw);opacity:.9}
+.about path.ln{fill:none;stroke:var(--sun);stroke-width:6;stroke-linecap:round;stroke-dasharray:600;stroke-dashoffset:600;transition:stroke-dashoffset 2.2s ease}
+.about.in path.ln{stroke-dashoffset:0}
+html:not(.js) .about path.ln{stroke-dashoffset:0}
+
+/* contact */
+.contact .box{background:var(--white);border:var(--bd);box-shadow:var(--sh);border-radius:20px;padding:clamp(24px,5vw,48px);display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+.contact .acts{display:flex;gap:14px;flex-wrap:wrap}
+.cta-s{padding-top:clamp(40px,6vw,70px)}
+footer.end{padding:0 0 40px}
+
+/* reveal */
+html.js .rv{opacity:0;transform:translateY(36px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i,0)*110ms)}
+html.js .rv.in{opacity:1;transform:none}
+
+@media(max-width:480px){
+  .slab{box-shadow:5px 5px 0 var(--ink)}
+  .sticker{width:92px;height:92px;font-size:.68rem;right:0}
+  .it{flex-wrap:wrap}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html.js .rv{opacity:1;transform:none}
+  .steam{stroke-dashoffset:0;opacity:1}
+  .about path.ln{stroke-dashoffset:0}
+  .mtrack{flex-wrap:wrap;width:auto}
+  .mtrack span:nth-child(n+9){display:none}
+  #prog{display:none}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div id="prog" aria-hidden="true"></div>
+<header class="site" id="hdr">
+  <div class="wrap nav">
+    <a class="logo" href="#top-of-page" aria-label="Abel Brothers, back to top">Abel <i>Brothers</i></a>
+    <nav aria-label="Main">
+      <button class="burger" id="burger" aria-expanded="false" aria-controls="navlist" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <ul id="navlist">
+        <li><a class="l" href="#offer">Offer</a></li>
+        <li><a class="l" href="#menu">Menu</a></li>
+        <li><a class="l" href="#visit">Hours &amp; location</a></li>
+        <li><a class="l" href="#about">About</a></li>
+        <li><a class="l" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top-of-page">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow enter" style="--e:0">Café · Spooner, Wisconsin</span>
+      <h1 class="slabs" aria-label="Abel Brothers">
+        <span class="slab a enter" style="--e:1">Abel</span>
+        <span class="slab b enter" style="--e:3">Brothers</span>
+      </h1>
+      <p class="lead enter" style="--e:5">A café on Walnut Street in Spooner. Come by and see what’s on.</p>
+      <div class="row enter" style="--e:6">
+        <a class="btn alt mag" href="#menu">See the menu</a>
+        <a class="btn mag" href="#visit">Find the door</a>
+      </div>
+    </div>
+    <div class="cups enter" style="--e:4" data-par="0.12">
+      <div class="sticker" aria-hidden="true">110 Walnut<br>Street ✦</div>
+      <svg viewBox="0 0 400 380" role="img" aria-label="Two coffee cups with rising steam">
+        <path class="steam" d="M110 120c-24-26 24-42 0-72"/>
+        <path class="steam s2" d="M160 120c-24-26 24-42 0-72"/>
+        <path class="steam s3" d="M270 120c-24-26 24-42 0-72"/>
+        <g transform="rotate(-4 120 240)">
+          <path d="M70 140h170v90a70 70 0 0 1-70 70h-30a70 70 0 0 1-70-70z" fill="#fff" stroke="#121212" stroke-width="6"/>
+          <path d="M240 168h28a32 32 0 0 1 0 64h-34" fill="none" stroke="#121212" stroke-width="6"/>
+          <path d="M82 170h146" stroke="#121212" stroke-width="6" stroke-linecap="round"/>
+          <text x="155" y="236" text-anchor="middle" font-family="Archivo Black,Arial Black,sans-serif" font-size="46" fill="#121212">A</text>
+        </g>
+        <g transform="rotate(5 290 260)">
+          <path d="M215 200h150v70a60 60 0 0 1-60 60h-30a60 60 0 0 1-60-60z" fill="#2B47F0" stroke="#121212" stroke-width="6"/>
+          <path d="M365 222h18a26 26 0 0 1 0 52h-24" fill="none" stroke="#121212" stroke-width="6"/>
+          <text x="290" y="288" text-anchor="middle" font-family="Archivo Black,Arial Black,sans-serif" font-size="40" fill="#fff">B</text>
+        </g>
+        <ellipse cx="200" cy="352" rx="170" ry="12" fill="#121212"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="marq" aria-hidden="true">
+  <div class="mtrack" id="mtrack">
+    <span>Abel Brothers</span><span>Café</span><span>Spooner</span><span>Wisconsin</span><span>Walnut Street</span><span>Coffee &amp; tea</span><span>Pastries</span><span>Breakfast &amp; lunch</span>
+  </div>
+</div>
+
+<section class="offer" id="offer">
+  <div class="wrap">
+    <span class="eyebrow rv">What’s on offer</span>
+    <h2 class="rv" style="--i:1">Three corners of the counter</h2>
+    <div class="cards">
+      <article class="card rv" style="--i:1">
+        <span class="num">01</span>
+        <svg viewBox="0 0 54 54" aria-hidden="true"><path d="M8 18h30v14a12 12 0 0 1-12 12h-6A12 12 0 0 1 8 32z" fill="#fff" stroke="#121212" stroke-width="3"/><path d="M38 22h4a6 6 0 0 1 0 12h-5" fill="none" stroke="#121212" stroke-width="3"/></svg>
+        <h3>Coffee &amp; tea</h3>
+        <p>Hot, iced, and everything between. See how it’s laid out on the example menu.</p>
+        <span class="tag">Example</span>
+      </article>
+      <article class="card rv" style="--i:2">
+        <span class="num">02</span>
+        <svg viewBox="0 0 54 54" aria-hidden="true"><path d="M6 36c0-14 10-24 21-24s21 10 21 24z" fill="#fff" stroke="#121212" stroke-width="3"/><path d="M14 44h26" stroke="#121212" stroke-width="3" stroke-linecap="round"/></svg>
+        <h3>Pastries</h3>
+        <p>Muffins, rolls, cookies. A spot to show what came out of the oven today.</p>
+        <span class="tag">Example</span>
+      </article>
+      <article class="card rv" style="--i:3">
+        <span class="num">03</span>
+        <svg viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="19" fill="#fff" stroke="#121212" stroke-width="3"/><circle cx="27" cy="27" r="8" fill="none" stroke="#121212" stroke-width="3"/></svg>
+        <h3>Breakfast &amp; lunch</h3>
+        <p>Plates and sandwiches for the daytime crowd, ready to be filled in with your real menu.</p>
+        <span class="tag">Example</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="wrap">
+    <span class="eyebrow rv">Menu</span>
+    <h2 class="rv" style="--i:1">Order up</h2>
+    <p class="menu-note rv" style="--i:2"><span class="tag">Example</span><span>This is an example menu that shows how your menu would look. Your real dishes and prices go here.</span></p>
+    <div class="menu-grid">
+      <div class="msec rv" style="--i:0">
+        <h3>Coffee &amp; tea</h3>
+        <ul>
+          <li class="it"><div><b>Drip coffee</b><em>Fresh brewed</em></div><span class="pr">$2.75</span></li>
+          <li class="it"><div><b>Latte</b><em>Espresso with steamed milk</em></div><span class="pr">$4.50</span></li>
+          <li class="it"><div><b>Cappuccino</b></div><span class="pr">$4.25</span></li>
+          <li class="it"><div><b>Iced coffee</b></div><span class="pr">$3.75</span></li>
+          <li class="it"><div><b>Hot tea</b></div><span class="pr">$2.75</span></li>
+        </ul>
+      </div>
+      <div class="msec rv" style="--i:1">
+        <h3>Pastries</h3>
+        <ul>
+          <li class="it"><div><b>Blueberry muffin</b></div><span class="pr">$3.50</span></li>
+          <li class="it"><div><b>Butter croissant</b></div><span class="pr">$3.75</span></li>
+          <li class="it"><div><b>Cinnamon roll</b><em>Warm, with icing</em></div><span class="pr">$4.25</span></li>
+          <li class="it"><div><b>Chocolate chip cookie</b></div><span class="pr">$2.25</span></li>
+        </ul>
+      </div>
+      <div class="msec rv" style="--i:2">
+        <h3>Breakfast &amp; lunch</h3>
+        <ul>
+          <li class="it"><div><b>Breakfast burrito</b><em>Eggs, cheese, potatoes</em></div><span class="pr">$8.50</span></li>
+          <li class="it"><div><b>Turkey &amp; Swiss</b><em>Toasted sourdough</em></div><span class="pr">$9.50</span></li>
+          <li class="it"><div><b>Soup of the day</b></div><span class="pr">$6.00</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visit" style="background:var(--white);border-block:var(--bd)">
+  <div class="wrap">
+    <span class="eyebrow rv">Hours &amp; location</span>
+    <h2 class="rv" style="--i:1">Right on Walnut Street</h2>
+    <div class="hl" style="margin-top:38px">
+      <div class="rv">
+        <address class="addr">110 Walnut Street<br>Spooner, WI 54801-1319</address>
+        <div class="copyrow">
+          <button class="btn mag" id="copyBtn" type="button" data-addr="110 Walnut Street, Spooner, WI 54801-1319">Copy address</button>
+          <span id="copied" role="status" aria-live="polite">Copied ✓</span>
+        </div>
+        <div class="hours">
+          <span class="tag">Example hours</span>
+          <table>
+            <tbody>
+              <tr><td>Mon</td><td>7 AM – 3 PM</td></tr>
+              <tr><td>Tue</td><td>7 AM – 3 PM</td></tr>
+              <tr><td>Wed</td><td>7 AM – 3 PM</td></tr>
+              <tr><td>Thu</td><td>7 AM – 3 PM</td></tr>
+              <tr><td>Fri</td><td>7 AM – 8 PM</td></tr>
+              <tr><td>Sat</td><td>8 AM – 8 PM</td></tr>
+              <tr><td>Sun</td><td>Closed</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="rv" style="--i:2">
+        <iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-91.89315,45.82053,-91.88115,45.83253&amp;layer=mapnik&amp;marker=45.82653,-91.88715"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=45.82653&amp;mlon=-91.88715#map=17/45.82653/-91.88715" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=45.82653,-91.88715" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <span class="eyebrow rv">About</span>
+    <h2 class="rv" style="--i:1">Two names. One café.</h2>
+    <p class="rv" style="--i:2">Abel Brothers is a café at 110 Walnut Street in Spooner, Wisconsin. Good coffee, a bite to eat, and a door that’s easy to find.</p>
+  </div>
+  <svg class="dr" viewBox="0 0 240 200" aria-hidden="true"><path class="ln" d="M20 170c30-90 60-90 80-40s50 50 70-40 40-50 50-30"/><path class="ln" d="M20 190h200"/></svg>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="box rv">
+      <span class="eyebrow">Contact</span>
+      <h2>Say hello</h2>
+      <p>Questions for Abel Brothers? Send a note.</p>
+      <div class="acts">
+        <a class="btn" href="mailto:abelbrothersllc@yahoo.com">abelbrothersllc@yahoo.com</a>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-s">
+  <div class="wrap rv">
+    <section class="np-cta" id="offer"><h2>Want this for Abel Brothers?</h2><p>This is a free preview made for Abel Brothers. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20Abel%20Brothers&amp;body=Yes%2C%20please%20make%20this%20site%20for%20Abel%20Brothers.">Make it mine</a></p></section>
+  </div>
+</section>
+</main>
+
+<footer class="end">
+  <div class="wrap">
+    <p><small>Abel Brothers · 110 Walnut Street, Spooner, WI 54801-1319</small></p>
+  </div>
+</footer>
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · Abel Brothers</div>
+<script>
+(function(){
+  var root=document.documentElement;
+  root.classList.add('js');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* marquee duplicate for seamless loop */
+  var track=document.getElementById('mtrack');
+  if(track&&!reduce){track.innerHTML+=track.innerHTML;}
+
+  /* mobile menu */
+  var burger=document.getElementById('burger');
+  var navList=document.getElementById('navlist');
+  function setMenu(isOpen){
+    navList.classList.toggle('open',isOpen);
+    burger.setAttribute('aria-expanded',String(isOpen));
+    burger.setAttribute('aria-label',isOpen?'Close menu':'Open menu');
+  }
+  burger.addEventListener('click',function(){setMenu(!navList.classList.contains('open'));});
+  navList.addEventListener('click',function(ev){if(ev.target.closest('a'))setMenu(false);});
+  document.addEventListener('keydown',function(ev){if(ev.key==='Escape')setMenu(false);});
+
+  /* header, progress, parallax */
+  var hdrEl=document.getElementById('hdr');
+  var progEl=document.getElementById('prog');
+  var parEls=[].slice.call(document.querySelectorAll('[data-par]'));
+  var ticking=false;
+  function onScroll(){
+    var y=window.pageYOffset||0;
+    var max=document.documentElement.scrollHeight-window.innerHeight;
+    hdrEl.classList.toggle('stuck',y>30);
+    progEl.style.transform='scaleX('+(max>0?Math.min(1,y/max):0)+')';
+    if(!reduce){parEls.forEach(function(el){
+      var f=parseFloat(el.getAttribute('data-par'))||0.1;
+      if(y<1400)el.style.transform='translateY('+(y*f*-1)+'px)';
+    });}
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(onScroll);}},{passive:true});
+  onScroll();
+
+  /* reveals */
+  var revealEls=[].slice.call(document.querySelectorAll('.rv'));
+  var aboutEl=document.getElementById('about');
+  if('IntersectionObserver' in window&&!reduce){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
+      });
+    },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    revealEls.forEach(function(el){io.observe(el);});
+    io.observe(aboutEl);
+  }else{
+    revealEls.forEach(function(el){el.classList.add('in');});
+    aboutEl.classList.add('in');
+  }
+
+  /* magnetic buttons */
+  if(!reduce&&window.matchMedia('(hover: hover)').matches){
+    [].slice.call(document.querySelectorAll('.mag')).forEach(function(btnEl){
+      btnEl.addEventListener('mousemove',function(ev){
+        var r=btnEl.getBoundingClientRect();
+        var dx=(ev.clientX-r.left-r.width/2)*0.18;
+        var dy=(ev.clientY-r.top-r.height/2)*0.25;
+        btnEl.style.transform='translate('+(dx-2)+'px,'+(dy-2)+'px)';
+      });
+      btnEl.addEventListener('mouseleave',function(){btnEl.style.transform='';});
+    });
+  }
+
+  /* copy address */
+  var copyBtn=document.getElementById('copyBtn');
+  var copiedEl=document.getElementById('copied');
+  if(copyBtn){
+    copyBtn.addEventListener('click',function(){
+      var txt=copyBtn.getAttribute('data-addr');
+      function done(){
+        copiedEl.classList.add('on');
+        setTimeout(function(){copiedEl.classList.remove('on');},2000);
+      }
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(txt).then(done,function(){fallback(txt,done);});
+      }else{fallback(txt,done);}
+    });
+  }
+  function fallback(txt,cb){
+    var ta=document.createElement('textarea');
+    ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+    document.body.appendChild(ta);ta.select();
+    try{document.execCommand('copy');cb();}catch(e){}
+    document.body.removeChild(ta);
+  }
+})();
+</script>
+</body>
+</html>

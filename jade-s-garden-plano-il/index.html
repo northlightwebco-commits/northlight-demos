@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jade's Garden | Chinese restaurant in Plano, IL</title>
+<meta name="description" content="Jade's Garden, Chinese food at 411 East South Street in Plano, Illinois.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07130f;--bg2:#0c1f18;--jade:#5cc29a;--jade-d:#2f8a69;--gold:#cdae62;--tx:#e9f0ea;--mut:#a7bcb0;--line:rgba(205,174,98,.35);--serif:'Cormorant Garamond',Georgia,serif;--sans:'Manrope',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--bg);color:var(--tx);font-family:var(--sans);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img,svg{max-width:100%}
+.progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:100;background:linear-gradient(90deg,var(--jade),var(--gold));transform:scaleX(0);transform-origin:left}
+.np-banner{background:var(--gold);color:#1a1405;font-size:.8rem;text-align:center;padding:.45rem 1rem;font-weight:700}
+.np-banner a{color:inherit}
+header.nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:1rem 5vw;transition:background .4s,padding .4s,box-shadow .4s}
+header.nav.scrolled{background:rgba(7,19,15,.92);backdrop-filter:blur(10px);padding:.6rem 5vw;box-shadow:0 1px 0 var(--line)}
+.logo{font-family:var(--serif);font-size:1.5rem;font-weight:600;text-decoration:none;letter-spacing:.02em}
+.logo span{color:var(--gold)}
+nav ul{display:flex;gap:2rem;list-style:none}
+nav a{text-decoration:none;font-size:.9rem;color:var(--mut);position:relative;padding:.3rem 0;transition:color .3s}
+nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+nav a:hover{color:var(--tx)}nav a:hover::after{transform:scaleX(1)}
+.burger{display:none;background:none;border:1px solid var(--line);color:var(--tx);width:44px;height:44px;border-radius:50%;cursor:pointer;font-size:1.1rem}
+@media(max-width:760px){
+ .burger{display:block}
+ nav{position:fixed;inset:0 0 auto 0;top:0;background:var(--bg);padding:5.5rem 8vw 2rem;transform:translateY(-100%);transition:transform .5s cubic-bezier(.2,.8,.2,1);z-index:-1;border-bottom:1px solid var(--line)}
+ nav.open{transform:none}
+ nav ul{flex-direction:column;gap:1.2rem}
+ nav a{font-family:var(--serif);font-size:2rem;color:var(--tx)}
+ .burger{position:relative;z-index:2}
+}
+.hero{position:relative;min-height:calc(100vh - 70px);display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:2rem;padding:2rem 5vw 4rem;overflow:hidden}
+.hero::before{content:"";position:absolute;width:70vmin;height:70vmin;right:-10vmin;top:5%;background:radial-gradient(circle,rgba(92,194,154,.22),transparent 65%);filter:blur(10px);pointer-events:none}
+.eyebrow{font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:.8rem}
+.eyebrow::before{content:"";width:2.5rem;height:1px;background:var(--gold)}
+h1{font-family:var(--serif);font-weight:500;font-size:clamp(3.6rem,14vw,9.5rem);line-height:.9;letter-spacing:-.01em;margin:1.2rem 0;text-wrap:balance}
+h1 .l{display:block;overflow:hidden;padding-bottom:.06em}
+h1 .l i{display:block;font-style:normal}
+h1 .l:nth-child(2) i{font-style:italic;color:var(--jade)}
+.lead{font-size:1.15rem;color:var(--mut);max-width:30rem}
+.lead b{color:var(--tx);font-weight:500}
+.cta-row{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+.btn{display:inline-block;background:var(--gold);color:#1a1405;padding:.85rem 1.6rem;border-radius:99px;font-weight:700;text-decoration:none;border:1px solid var(--gold);font-family:var(--sans);font-size:.95rem;cursor:pointer;transition:transform .3s,box-shadow .3s,background .3s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.4)}
+.btn.alt{background:transparent;color:var(--tx);border-color:var(--line)}
+.btn.alt:hover{border-color:var(--gold)}
+small{font-size:.8rem;color:var(--mut)}
+.gate{position:relative;width:100%;max-width:520px;justify-self:center;aspect-ratio:1;will-change:transform;transform:translateY(var(--py,0px))}
+.gate svg{width:100%;height:100%;overflow:visible}
+.gate .dr{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
+.gate .ring{stroke:var(--gold);stroke-width:2.5}
+.gate .ring2{stroke:var(--line);stroke-width:1}
+.gate .stalk{stroke:var(--jade);stroke-width:5}
+.gate .leaf{stroke:var(--jade);stroke-width:2;fill:rgba(92,194,154,.15)}
+.gate .node{stroke:var(--bg);stroke-width:3}
+.sway{transform-box:fill-box;transform-origin:50% 100%}
+.moon{fill:rgba(205,174,98,.12)}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes up{from{transform:translateY(105%)}to{transform:none}}
+@keyframes fade{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes sway{0%,100%{transform:rotate(-1.2deg)}50%{transform:rotate(1.4deg)}}
+@keyframes roll{to{transform:translateX(-50%)}}
+.js h1 .l i{animation:up 1s cubic-bezier(.2,.8,.2,1) both}
+.js h1 .l:nth-child(2) i{animation-delay:.15s}
+.js .eyebrow,.js .lead,.js .cta-row{animation:fade .9s .5s both}
+.js .lead{animation-delay:.65s}.js .cta-row{animation-delay:.8s}
+.js .gate .dr{animation:draw 2.4s cubic-bezier(.5,0,.2,1) forwards}
+.js .gate .ring2{animation-delay:.3s}
+.js .gate .stalk{animation-delay:.7s}
+.js .gate .leaf{animation-delay:1.5s;animation-duration:1.6s}
+.sway{animation:sway 7s ease-in-out infinite}
+.sway.b{animation-duration:9s;animation-delay:-3s}
+@media(max-width:860px){.hero{grid-template-columns:1fr;min-height:0;padding-top:1rem}.gate{max-width:360px;order:-1}}
+.marq{border-block:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:1rem 0;background:var(--bg2)}
+.marq div{display:inline-flex;gap:2.5rem;animation:roll 38s linear infinite;font-family:var(--serif);font-size:1.7rem;font-style:italic;color:var(--gold)}
+.marq span{display:inline-flex;gap:2.5rem;align-items:center}
+.marq span::after{content:"❖";font-size:.8rem;color:var(--jade);font-style:normal}
+section{padding:6rem 5vw}
+.wrap{max-width:1100px;margin:0 auto}
+h2{font-family:var(--serif);font-weight:500;font-size:clamp(2.4rem,7vw,4.6rem);line-height:1;margin:.8rem 0 2.5rem;text-wrap:balance}
+h2 em{color:var(--jade)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem}
+.card{border:1px solid var(--line);padding:2rem 1.6rem;border-radius:6px;background:linear-gradient(160deg,var(--bg2),var(--bg));transition:transform .4s,border-color .4s}
+.card:hover{transform:translateY(-6px);border-color:var(--gold)}
+.card .n{font-family:var(--serif);font-size:3rem;color:var(--gold);line-height:1}
+.card h3{font-family:var(--serif);font-size:1.7rem;font-weight:500;margin:.6rem 0 .4rem}
+.card p{color:var(--mut)}
+.menu{background:var(--bg2)}
+.tag{display:inline-block;border:1px solid var(--gold);color:var(--gold);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;padding:.2rem .7rem;border-radius:99px;vertical-align:middle}
+.note{color:var(--mut);max-width:38rem;margin-bottom:3rem;font-style:italic}
+.msec{display:grid;grid-template-columns:1fr;gap:3rem}
+@media(min-width:900px){.msec{grid-template-columns:repeat(3,1fr);gap:2.5rem}}
+.msec h3{font-family:var(--serif);font-size:2rem;font-weight:500;color:var(--jade);border-bottom:1px solid var(--line);padding-bottom:.6rem;margin-bottom:.6rem}
+.item{display:grid;grid-template-columns:1fr auto;gap:.2rem 1rem;padding:.8rem .5rem;border-radius:4px;transition:background .3s,transform .3s}
+.item:hover{background:rgba(92,194,154,.08);transform:translateX(6px)}
+.item b{font-weight:500;font-size:1.05rem}
+.item .p{font-family:var(--serif);font-size:1.3rem;color:var(--gold)}
+.item small{grid-column:1}
+.loc{display:grid;gap:3rem;grid-template-columns:1fr}
+@media(min-width:900px){.loc{grid-template-columns:.8fr 1.2fr}}
+.hours{list-style:none;margin:1rem 0 2rem}
+.hours li{display:flex;justify-content:space-between;padding:.7rem 0;border-bottom:1px dashed var(--line)}
+.hours li span:last-child{color:var(--mut)}
+address{font-style:normal;font-family:var(--serif);font-size:1.6rem;line-height:1.25;margin:1rem 0}
+.map{border:1px solid var(--line);border-radius:6px;overflow:hidden;min-height:300px}
+.map iframe{width:100%;min-height:340px;border:0;display:block}
+.maplinks{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1rem}
+.maplinks a{color:var(--gold)}
+.mapcredit{font-size:.75rem;color:var(--mut);margin-top:.5rem}
+.contact{text-align:center;background:radial-gradient(ellipse at center,rgba(92,194,154,.12),transparent 70%)}
+.contact h2{margin-inline:auto;max-width:14ch}
+.contact .cta-row{justify-content:center}
+.np-cta{max-width:820px;margin:0 auto;border:1px solid var(--gold);border-radius:10px;padding:2.5rem 1.6rem;text-align:center;background:linear-gradient(160deg,var(--bg2),var(--bg));box-shadow:0 0 0 6px var(--bg),0 0 0 7px var(--line)}
+.np-cta .btn{margin:.3rem}
+.np-cta a:not(.btn){color:var(--gold)}
+footer{padding:2rem 5vw;text-align:center;color:var(--mut);font-size:.85rem}
+.rv{transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i,0)*110ms)}
+.js .rv:not(.in){opacity:0;transform:translateY(30px)}
+.toast{position:fixed;left:50%;bottom:1.5rem;transform:translate(-50%,40px);background:var(--gold);color:#1a1405;padding:.6rem 1.2rem;border-radius:99px;font-weight:700;opacity:0;transition:.4s;z-index:90}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ *,*::before,*::after{animation:none!important;transition:none!important}
+ .js .rv:not(.in){opacity:1;transform:none}
+ .gate .dr{stroke-dashoffset:0!important}
+ .gate{transform:none!important}
+ .marq{overflow-x:auto}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div class="progress" id="prog"></div>
+<header class="nav" id="nav">
+ <a class="logo" href="#top">Jade's <span>Garden</span></a>
+ <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">☰</button>
+ <nav id="menu">
+  <ul>
+   <li><a href="#offer">The Kitchen</a></li>
+   <li><a href="#menu-sec">Menu</a></li>
+   <li><a href="#visit">Hours &amp; location</a></li>
+   <li><a href="#contact">Contact</a></li>
+  </ul>
+ </nav>
+</header>
+
+<main id="top">
+<div class="hero">
+ <div>
+  <p class="eyebrow">Chinese · Plano, Illinois</p>
+  <h1><span class="l"><i>Jade's</i></span><span class="l"><i>Garden</i></span></h1>
+  <p class="lead"><b>Chinese food</b> at 411 East South Street. Step through the gate and sit down.</p>
+  <div class="cta-row">
+   <a class="btn" href="#menu-sec">See the menu</a>
+   <a class="btn alt" href="#visit">Find us</a>
+  </div>
+ </div>
+ <div class="gate" id="gate" aria-hidden="true">
+  <svg viewBox="0 0 400 400">
+   <circle class="moon" cx="200" cy="200" r="168"/>
+   <circle class="dr ring" pathLength="1" cx="200" cy="200" r="180"/>
+   <circle class="dr ring2" pathLength="1" cx="200" cy="200" r="192"/>
+   <g class="sway">
+    <path class="dr stalk" pathLength="1" d="M150 372 C152 300 146 240 152 110"/>
+    <path class="dr leaf" pathLength="1" d="M152 150 C185 135 205 140 225 125 C205 160 180 165 152 150Z"/>
+    <path class="dr leaf" pathLength="1" d="M150 205 C115 190 100 195 78 175 C100 215 125 220 150 205Z"/>
+    <path class="dr leaf" pathLength="1" d="M149 255 C180 245 200 250 222 232 C205 270 175 272 149 255Z"/>
+    <path class="dr node" pathLength="1" d="M144 190h14M144 245h14M146 305h14"/>
+   </g>
+   <g class="sway b">
+    <path class="dr stalk" pathLength="1" d="M240 372 C238 310 246 250 238 150"/>
+    <path class="dr leaf" pathLength="1" d="M239 185 C270 170 292 176 312 158 C294 196 266 200 239 185Z"/>
+    <path class="dr leaf" pathLength="1" d="M242 240 C212 228 196 234 178 216 C196 252 220 256 242 240Z"/>
+    <path class="dr node" pathLength="1" d="M232 215h14M233 280h14"/>
+   </g>
+  </svg>
+ </div>
+</div>
+
+<div class="marq" aria-hidden="true"><div>
+ <span>Jade's Garden</span><span>Chinese</span><span>Plano, Illinois</span><span>411 East South Street</span><span>Starters</span><span>Entrees</span><span>Sides</span>
+ <span>Jade's Garden</span><span>Chinese</span><span>Plano, Illinois</span><span>411 East South Street</span><span>Starters</span><span>Entrees</span><span>Sides</span>
+</div></div>
+
+<section id="offer"><div class="wrap">
+ <p class="eyebrow rv">The kitchen</p>
+ <h2 class="rv">A Chinese table in <em>Plano</em></h2>
+ <div class="cards">
+  <div class="card rv" style="--i:0"><div class="n">01</div><h3>Chinese cooking</h3><p>Jade's Garden is a Chinese restaurant, made for sitting down and sharing.</p></div>
+  <div class="card rv" style="--i:1"><div class="n">02</div><h3>Your own menu</h3><p>Starters, entrees and sides. Below is an example of how your menu would read.</p></div>
+  <div class="card rv" style="--i:2"><div class="n">03</div><h3>On South Street</h3><p>Find us at 411 East South Street, right in Plano.</p></div>
+ </div>
+</div></section>
+
+<section class="menu" id="menu-sec"><div class="wrap">
+ <p class="eyebrow rv">Menu</p>
+ <h2 class="rv">Starters, entrees, <em>sides</em></h2>
+ <p class="rv"><span class="tag">Example</span></p>
+ <p class="note rv" style="margin-top:1rem">This is an example menu that shows how your menu would look. Your real dishes and prices go here.</p>
+ <div class="msec">
+  <div class="rv" style="--i:0"><h3>Starters</h3>
+   <div class="item"><b>Egg rolls</b><span class="p">$4.50</span><small>Two pieces</small></div>
+   <div class="item"><b>Crab rangoon</b><span class="p">$5.50</span></div>
+   <div class="item"><b>Hot &amp; sour soup</b><span class="p">$4.00</span></div>
+  </div>
+  <div class="rv" style="--i:1"><h3>Entrees</h3>
+   <div class="item"><b>General Tso's chicken</b><span class="p">$13.50</span></div>
+   <div class="item"><b>Beef &amp; broccoli</b><span class="p">$14.00</span></div>
+   <div class="item"><b>Vegetable lo mein</b><span class="p">$11.50</span></div>
+  </div>
+  <div class="rv" style="--i:2"><h3>Sides</h3>
+   <div class="item"><b>Steamed rice</b><span class="p">$2.50</span></div>
+   <div class="item"><b>Fried rice</b><span class="p">$4.50</span></div>
+  </div>
+ </div>
+</div></section>
+
+<section id="visit"><div class="wrap">
+ <p class="eyebrow rv">Hours &amp; location</p>
+ <h2 class="rv">Come <em>find</em> the garden</h2>
+ <div class="loc">
+  <div class="rv">
+   <span class="tag">Example hours</span>
+   <ul class="hours">
+    <li><span>Mon</span><span>7 AM – 3 PM</span></li>
+    <li><span>Tue</span><span>7 AM – 3 PM</span></li>
+    <li><span>Wed</span><span>7 AM – 3 PM</span></li>
+    <li><span>Thu</span><span>7 AM – 3 PM</span></li>
+    <li><span>Fri</span><span>7 AM – 8 PM</span></li>
+    <li><span>Sat</span><span>8 AM – 8 PM</span></li>
+    <li><span>Sun</span><span>Closed</span></li>
+   </ul>
+   <address id="addr">411 East South Street<br>Plano, IL 60545</address>
+   <button class="btn alt" id="copy" type="button">Copy address</button>
+  </div>
+  <div class="rv" style="--i:2"><iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-88.53745,41.65669,-88.52545,41.66869&amp;layer=mapnik&amp;marker=41.66269,-88.53145"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=41.66269&amp;mlon=-88.53145#map=17/41.66269/-88.53145" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=41.66269,-88.53145" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p></div>
+ </div>
+</div></section>
+
+<section class="contact" id="contact"><div class="wrap">
+ <p class="eyebrow rv" style="justify-content:center">Contact</p>
+ <h2 class="rv">Say hello</h2>
+ <div class="cta-row rv"><a class="btn" href="mailto:zhuyazhen7050@qq.com">zhuyazhen7050@qq.com</a> </div>
+</div></section>
+
+<section><div class="wrap rv"><section class="np-cta" id="offer"><h2>Want this for Jade&#x27;s Garden?</h2><p>This is a free preview made for Jade&#x27;s Garden. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20Jade%27s%20Garden&amp;body=Yes%2C%20please%20make%20this%20site%20for%20Jade%27s%20Garden.">Make it mine</a></p></section></div></section>
+</main>
+
+<footer>Jade's Garden · 411 East South Street, Plano, IL 60545</footer>
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · Jade&#x27;s Garden</div>
+<div class="toast" id="toast" role="status">Address copied</div>
+<script>
+(function(){
+var d=document,de=d.documentElement;de.classList.add('js');
+var nav=d.getElementById('nav'),prog=d.getElementById('prog'),gate=d.getElementById('gate');
+var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function onS(){
+ var y=scrollY,h=de.scrollHeight-innerHeight;
+ nav.classList.toggle('scrolled',y>30);
+ prog.style.transform='scaleX('+(h>0?y/h:0)+')';
+ if(!rm&&gate&&y<1200)gate.style.setProperty('--py',(y*.12)+'px');
+}
+addEventListener('scroll',onS,{passive:true});onS();
+var b=d.getElementById('burger'),m=d.getElementById('menu');
+b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o);b.textContent=o?'✕':'☰'});
+m.addEventListener('click',function(e){if(e.target.tagName==='A'){m.classList.remove('open');b.textContent='☰';b.setAttribute('aria-expanded','false')}});
+var els=d.querySelectorAll('.rv');
+if('IntersectionObserver' in window){
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+ els.forEach(function(e){io.observe(e)});
+}else els.forEach(function(e){e.classList.add('in')});
+var t=d.getElementById('toast');
+d.getElementById('copy').addEventListener('click',function(){
+ var txt='411 East South Street, Plano, IL 60545';
+ function ok(){t.classList.add('show');setTimeout(function(){t.classList.remove('show')},1800)}
+ if(navigator.clipboard)navigator.clipboard.writeText(txt).then(ok,ok);else ok();
+});
+if(!rm)d.querySelectorAll('.btn').forEach(function(el){
+ el.addEventListener('mousemove',function(e){var r=el.getBoundingClientRect();el.style.transform='translate('+((e.clientX-r.left-r.width/2)*.15)+'px,'+((e.clientY-r.top-r.height/2)*.25-3)+'px)'});
+ el.addEventListener('mouseleave',function(){el.style.transform=''});
+});
+})();
+</script>
+</body>
+</html>

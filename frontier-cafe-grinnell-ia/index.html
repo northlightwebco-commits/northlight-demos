@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Frontier Cafe · 831 Main Street, Grinnell, Iowa</title>
+<meta name="description" content="Frontier Cafe, a restaurant at 831 Main Street in Grinnell, Iowa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#13202b;--night2:#1b2c3a;--wheat:#f1e6cc;--paper:#f6eedb;--ink:#1a232b;
+  --amber:#f2a33a;--rust:#9c3a1f;--rust2:#c4552f;--sage:#6f8a6a;
+  --serif:'Fraunces',Georgia,serif;--sans:'Work Sans',system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:var(--sans);background:var(--night);color:var(--wheat);line-height:1.6;font-size:17px;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img,svg{max-width:100%}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:var(--serif);line-height:1;text-wrap:balance;overflow-wrap:break-word}
+.eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--amber);display:flex;align-items:center;gap:.8rem}
+.eyebrow::before{content:"";width:34px;height:1px;background:currentColor}
+
+/* progress */
+.progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:100;background:transparent;pointer-events:none}
+.progress i{display:block;height:100%;background:var(--amber);transform:scaleX(0);transform-origin:0 50%}
+
+/* banner slot */
+.np-banner{background:var(--amber);color:#1a1205;font-size:.82rem;text-align:center;padding:.5rem 1rem;font-weight:500;position:relative;z-index:60}
+.np-banner a{color:inherit;font-weight:600}
+
+/* header */
+header.site{position:sticky;top:0;z-index:50;transition:background .4s,box-shadow .4s,padding .4s;padding:20px 0}
+header.site.scrolled{background:rgba(19,32,43,.94);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(241,230,204,.15);padding:10px 0}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-family:var(--serif);font-weight:900;font-size:1.3rem;text-decoration:none;display:flex;align-items:center;gap:.6rem;letter-spacing:-.01em}
+.logo svg{width:28px;height:28px;flex:none}
+.links{display:flex;gap:28px;align-items:center;list-style:none}
+.links a{text-decoration:none;font-size:.92rem;font-weight:500;position:relative;padding:4px 0}
+.links a:not(.pill)::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:var(--amber);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.links a:not(.pill):hover::after{transform:scaleX(1)}
+.pill{background:var(--amber);color:#1a1205;padding:.55rem 1.1rem!important;border-radius:99px;font-weight:600;transition:transform .3s var(--ease)}
+.pill:hover{transform:translateY(-2px)}
+.burger{display:none;background:none;border:1px solid rgba(241,230,204,.4);color:var(--wheat);width:44px;height:44px;border-radius:50%;cursor:pointer}
+.burger span{display:block;width:18px;height:2px;background:currentColor;margin:4px auto;transition:transform .3s,opacity .3s}
+.burger[aria-expanded=true] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded=true] span:nth-child(2){opacity:0}
+.burger[aria-expanded=true] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+@media(max-width:780px){
+  .burger{display:block}
+  .links{position:absolute;left:0;right:0;top:100%;background:var(--night);flex-direction:column;align-items:flex-start;gap:0;padding:8px 20px 22px;border-bottom:1px solid rgba(241,230,204,.15);display:none}
+  .links.open{display:flex}
+  .links li{width:100%}
+  .links a{display:block;padding:14px 0;font-size:1.1rem}
+  .links a.pill{display:inline-block;margin-top:8px}
+}
+
+/* hero */
+.hero{position:relative;margin-top:-76px;padding-top:150px;min-height:min(100vh,860px);overflow:hidden;background:linear-gradient(180deg,#0e1822 0%,#1b2c3a 45%,#7a4a3a 82%,#e08a3c 100%);display:flex;flex-direction:column;justify-content:flex-start}
+.hero .wrap{position:relative;z-index:5;padding-bottom:230px}
+.kicker{margin-bottom:1.4rem}
+.hero h1{font-weight:900;font-size:clamp(3.1rem,13vw,10.5rem);letter-spacing:-.035em;font-variation-settings:"opsz" 144}
+.hero h1 span{display:block}
+.hero h1 .l2{font-style:italic;font-weight:400;color:var(--amber);padding-left:.4em}
+.hero p.lead{max-width:30rem;margin-top:1.8rem;font-size:1.15rem;color:#ead9b4}
+.hero .actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:2rem}
+.scene{position:absolute;inset:0;z-index:1;pointer-events:none}
+.scene svg{position:absolute;left:0;bottom:0;width:100%;height:100%}
+.layer{will-change:transform}
+.sun{transform-origin:720px 420px;animation:rise 2.6s var(--ease) .3s both}
+@keyframes rise{from{transform:translateY(180px);opacity:0}to{transform:none;opacity:1}}
+.rays{transform-origin:720px 420px;animation:spin 90s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.star{animation:tw 3s ease-in-out infinite}
+@keyframes tw{50%{opacity:.2}}
+.trail{stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw 4s ease .8s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.in{opacity:0;transform:translateY(28px);animation:up .9s var(--ease) forwards}
+@keyframes up{to{opacity:1;transform:none}}
+.d1{animation-delay:.15s}.d2{animation-delay:.35s}.d3{animation-delay:.55s}.d4{animation-delay:.75s}.d5{animation-delay:.95s}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--amber);color:#1a1205;text-decoration:none;font-weight:600;font-size:.98rem;padding:.9rem 1.5rem;border-radius:99px;border:2px solid var(--amber);cursor:pointer;font-family:var(--sans);transition:transform .3s var(--ease),box-shadow .3s,background .3s;will-change:transform}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.3)}
+.btn.alt{background:transparent;color:inherit;border-color:currentColor}
+.btn.alt:hover{background:rgba(241,230,204,.12)}
+small{font-size:.85em}
+
+/* marquee */
+.marquee{background:var(--amber);color:#1a1205;overflow:hidden;border-block:2px solid #1a1205;position:relative;z-index:6}
+.track{display:flex;width:max-content;animation:mq 38s linear infinite}
+.track span{font-family:var(--serif);font-weight:700;font-size:1.35rem;padding:.7rem 0;white-space:nowrap}
+.track span::after{content:"✦";margin:0 1.6rem;font-size:.8em}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* menu */
+section{padding:clamp(70px,10vw,130px) 0}
+.paper{background:var(--paper);color:var(--ink);background-image:radial-gradient(rgba(26,35,43,.07) 1px,transparent 1px);background-size:5px 5px}
+.paper .eyebrow{color:var(--rust)}
+.sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:clamp(30px,5vw,60px)}
+h2{font-weight:900;font-size:clamp(2.4rem,7vw,5.2rem);letter-spacing:-.03em;margin-top:1rem}
+h2 em{font-weight:400;color:var(--rust2)}
+.tag{display:inline-block;border:1.5px solid currentColor;border-radius:4px;padding:.15rem .55rem;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;transform:rotate(-3deg)}
+.paper .tag{color:var(--rust)}
+.note{max-width:28rem;font-size:.95rem;border-left:3px solid var(--rust);padding-left:14px;color:#3a454e}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+@media(max-width:960px){.menu-grid{grid-template-columns:1fr}}
+.mcard{background:#fffaf0;border:1.5px solid var(--ink);padding:28px 26px;position:relative;box-shadow:6px 6px 0 var(--ink);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.mcard:hover{transform:translate(-3px,-3px);box-shadow:10px 10px 0 var(--rust)}
+.mcard h3{font-size:1.7rem;font-weight:700;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:1.2rem;padding-bottom:.9rem;border-bottom:1px solid var(--ink)}
+.mcard ul{list-style:none}
+.mcard li{display:grid;grid-template-columns:auto 1fr auto;gap:0 10px;align-items:baseline;padding:.6rem 0;transition:transform .3s var(--ease)}
+.mcard li:hover{transform:translateX(6px)}
+.mcard .n{font-weight:600}
+.mcard .dots{border-bottom:2px dotted rgba(26,35,43,.35);transform:translateY(-4px);min-width:12px}
+.mcard .p{font-family:var(--serif);font-weight:700;color:var(--rust)}
+.mcard .d{grid-column:1/-1;font-size:.88rem;color:#4b5760;margin-top:-.1rem}
+
+/* hours */
+.dark2{background:var(--night2);position:relative;overflow:hidden}
+.split{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(30px,6vw,80px);align-items:start}
+@media(max-width:900px){.split{grid-template-columns:1fr}}
+.hours{list-style:none;margin-top:2rem;border-top:1px solid rgba(241,230,204,.3)}
+.hours li{display:flex;justify-content:space-between;padding:.85rem 0;border-bottom:1px solid rgba(241,230,204,.18);transition:padding .3s var(--ease),color .3s}
+.hours li:hover{padding-left:12px;color:var(--amber)}
+.hours .day{font-weight:600}
+.dark2 .tag{color:var(--amber);margin-top:1.4rem}
+.addr{margin-top:2rem}
+.copy{background:none;border:1.5px dashed rgba(241,230,204,.55);color:inherit;font:inherit;text-align:left;padding:.9rem 1.1rem;border-radius:10px;cursor:pointer;display:block;width:100%;max-width:26rem;transition:border-color .3s,transform .3s var(--ease)}
+.copy:hover{border-color:var(--amber);transform:translateY(-2px)}
+.copy b{display:block;font-family:var(--serif);font-size:1.15rem}
+.copy span{font-size:.8rem;color:var(--amber)}
+.map{border:2px solid var(--wheat);border-radius:6px;overflow:hidden;background:var(--night)}
+.map iframe{display:block;width:100%;height:340px;border:0}
+.maplinks{display:flex;flex-wrap:wrap;gap:10px;padding:12px 0 0}
+.maplinks a{color:var(--amber);font-weight:600;font-size:.92rem}
+.mapcredit{font-size:.75rem;opacity:.7;margin-top:6px}
+
+/* about */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,80px);align-items:center}
+@media(max-width:860px){.about{grid-template-columns:1fr}}
+.about p{font-size:1.2rem;margin-top:1.5rem;max-width:32rem}
+.sign{aspect-ratio:1;max-width:420px;width:100%;justify-self:center}
+.sign svg{width:100%;height:100%;overflow:visible}
+.sign .spin{transform-origin:50% 50%;animation:spin 40s linear infinite}
+
+/* contact */
+.contact{text-align:center;background:var(--night)}
+.contact h2{margin-inline:auto;max-width:14ch}
+.contact p{margin:1.2rem auto 2rem;max-width:30rem;color:#ead9b4}
+.contact .row{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+
+/* cta */
+.cta-wrap{padding:0 0 clamp(70px,10vw,120px);background:var(--night)}
+.np-cta{background:var(--amber);color:#1a1205;border-radius:18px;padding:clamp(28px,5vw,56px);position:relative;overflow:hidden;box-shadow:0 0 0 6px var(--night),0 0 0 8px var(--amber)}
+.np-cta h2,.np-cta h3{color:#1a1205}
+.np-cta p{max-width:36rem;margin:.8rem 0 1.4rem}
+.np-cta .btn{background:#1a1205;color:var(--amber);border-color:#1a1205}
+.np-cta .btn.alt{background:transparent;color:#1a1205}
+.np-cta .btn.alt:hover{background:rgba(26,18,5,.1)}
+
+footer{padding:30px 0;text-align:center;font-size:.85rem;color:#b9ad92;border-top:1px solid rgba(241,230,204,.15)}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--i,0) * 110ms)}
+.js .rv.show{opacity:1;transform:none}
+
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.paper :focus-visible{outline-color:var(--rust)}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .in,.js .rv{opacity:1!important;transform:none!important}
+  .trail{stroke-dashoffset:0}
+  .track{flex-wrap:wrap;width:auto}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div class="progress" aria-hidden="true"><i id="bar"></i></div>
+
+<header class="site" id="top">
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="Frontier Cafe, back to top">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="19" r="8" fill="#f2a33a"/><path d="M0 24c6-5 10-5 16 0s10 5 16 0v8H0z" fill="#f1e6cc"/></svg>
+      Frontier Cafe
+    </a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="links" aria-label="Menu"><span></span><span></span><span></span></button>
+    <ul class="links" id="links">
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#visit">Hours &amp; location</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a class="pill" href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+<div class="hero">
+  <div class="scene" aria-hidden="true">
+    <svg viewBox="0 0 1440 800" preserveAspectRatio="xMidYMax slice">
+      <g class="layer" data-speed="0.05">
+        <circle class="star" cx="180" cy="110" r="2" fill="#f1e6cc"/>
+        <circle class="star" cx="420" cy="220" r="1.6" fill="#f1e6cc" style="animation-delay:.8s"/>
+        <circle class="star" cx="1010" cy="90" r="2" fill="#f1e6cc" style="animation-delay:1.4s"/>
+        <circle class="star" cx="1290" cy="200" r="1.6" fill="#f1e6cc" style="animation-delay:2s"/>
+        <circle class="star" cx="760" cy="60" r="1.4" fill="#f1e6cc" style="animation-delay:.4s"/>
+      </g>
+      <g class="layer" data-speed="0.12">
+        <g class="sun">
+          <g class="rays" stroke="#f2a33a" stroke-width="2" stroke-linecap="round" opacity=".55">
+            <path d="M720 190v-60M720 650v60M490 420h-60M950 420h60M557 257l-42-42M883 583l42 42M883 257l42-42M557 583l-42 42"/>
+          </g>
+          <circle cx="720" cy="420" r="150" fill="#f2a33a"/>
+          <circle cx="720" cy="420" r="150" fill="none" stroke="#f1e6cc" stroke-width="2" opacity=".5" transform="scale(1.08)" style="transform-origin:720px 420px"/>
+        </g>
+      </g>
+      <g class="layer" data-speed="0.22"><path d="M0 560c180-50 320-60 520-20s360 30 520-20 270-30 400 10v270H0z" fill="#8a4a30"/></g>
+      <g class="layer" data-speed="0.36"><path d="M0 640c220-40 380-50 600-10s420 20 580-20 190-10 260 10v180H0z" fill="#3b3a2e"/></g>
+      <g class="layer" data-speed="0.5">
+        <path d="M0 720c200-30 400-40 620-10s480 20 820-20v110H0z" fill="#13202b"/>
+        <path class="trail" d="M720 800C700 770 760 745 700 725S640 690 720 668" fill="none" stroke="#f2a33a" stroke-width="3" stroke-linecap="round" stroke-dasharray="1400"/>
+      </g>
+    </svg>
+  </div>
+  <div class="wrap">
+    <div class="eyebrow kicker in d1">Restaurant · Grinnell, Iowa</div>
+    <h1 aria-label="Frontier Cafe"><span class="in d2">Frontier</span><span class="l2 in d3">Cafe</span></h1>
+    <p class="lead in d4">Main Street, Grinnell. A table, a warm cup, and the day ahead of you.</p>
+    <div class="actions in d5">
+      <a class="btn" href="#menu">See the menu</a>
+      <a class="btn alt" href="#visit">Find us</a>
+    </div>
+  </div>
+</div>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Frontier Cafe</span><span>831 Main Street</span><span>Grinnell, Iowa</span><span>Restaurant</span><span>Main Street</span><span>Frontier Cafe</span><span>831 Main Street</span><span>Grinnell, Iowa</span><span>Restaurant</span><span>Main Street</span>
+    <span>Frontier Cafe</span><span>831 Main Street</span><span>Grinnell, Iowa</span><span>Restaurant</span><span>Main Street</span><span>Frontier Cafe</span><span>831 Main Street</span><span>Grinnell, Iowa</span><span>Restaurant</span><span>Main Street</span>
+  </div>
+</div>
+
+<section class="paper" id="menu">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="rv"><div class="eyebrow">Menu</div><h2>On the <em>counter</em></h2></div>
+      <div class="rv" style="--i:1"><span class="tag">Example</span>
+        <p class="note" style="margin-top:14px">This is an example menu that shows how your menu would look. Your real dishes and prices go here.</p></div>
+    </div>
+    <div class="menu-grid">
+      <article class="mcard rv" style="--i:0">
+        <h3>Coffee &amp; tea <span class="tag">Example</span></h3>
+        <ul>
+          <li><span class="n">Drip coffee</span><span class="dots"></span><span class="p">$2.75</span><span class="d">Fresh brewed</span></li>
+          <li><span class="n">Latte</span><span class="dots"></span><span class="p">$4.50</span><span class="d">Espresso with steamed milk</span></li>
+          <li><span class="n">Cappuccino</span><span class="dots"></span><span class="p">$4.25</span></li>
+          <li><span class="n">Iced coffee</span><span class="dots"></span><span class="p">$3.75</span></li>
+          <li><span class="n">Hot tea</span><span class="dots"></span><span class="p">$2.75</span></li>
+        </ul>
+      </article>
+      <article class="mcard rv" style="--i:1">
+        <h3>Pastries <span class="tag">Example</span></h3>
+        <ul>
+          <li><span class="n">Blueberry muffin</span><span class="dots"></span><span class="p">$3.50</span></li>
+          <li><span class="n">Butter croissant</span><span class="dots"></span><span class="p">$3.75</span></li>
+          <li><span class="n">Cinnamon roll</span><span class="dots"></span><span class="p">$4.25</span><span class="d">Warm, with icing</span></li>
+          <li><span class="n">Chocolate chip cookie</span><span class="dots"></span><span class="p">$2.25</span></li>
+        </ul>
+      </article>
+      <article class="mcard rv" style="--i:2">
+        <h3>Breakfast &amp; lunch <span class="tag">Example</span></h3>
+        <ul>
+          <li><span class="n">Breakfast burrito</span><span class="dots"></span><span class="p">$8.50</span><span class="d">Eggs, cheese, potatoes</span></li>
+          <li><span class="n">Turkey &amp; Swiss</span><span class="dots"></span><span class="p">$9.50</span><span class="d">Toasted sourdough</span></li>
+          <li><span class="n">Soup of the day</span><span class="dots"></span><span class="p">$6.00</span></li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="dark2" id="visit">
+  <div class="wrap split">
+    <div>
+      <div class="eyebrow rv">Hours &amp; location</div>
+      <h2 class="rv" style="--i:1">Find the <em style="color:var(--amber)">frontier</em></h2>
+      <ul class="hours rv" style="--i:2">
+        <li><span class="day">Mon</span><span>7 AM – 3 PM</span></li>
+        <li><span class="day">Tue</span><span>7 AM – 3 PM</span></li>
+        <li><span class="day">Wed</span><span>7 AM – 3 PM</span></li>
+        <li><span class="day">Thu</span><span>7 AM – 3 PM</span></li>
+        <li><span class="day">Fri</span><span>7 AM – 8 PM</span></li>
+        <li><span class="day">Sat</span><span>8 AM – 8 PM</span></li>
+        <li><span class="day">Sun</span><span>Closed</span></li>
+      </ul>
+      <span class="tag">Example hours</span>
+      <div class="addr rv">
+        <button class="copy" id="copy" type="button" aria-label="Copy address">
+          <b>831 Main Street, Grinnell, IA 50112</b>
+          <span id="copyMsg" aria-live="polite">Tap to copy address</span>
+        </button>
+      </div>
+    </div>
+    <div class="rv" style="--i:2">
+      <iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-92.73198,41.73698,-92.71998,41.74898&amp;layer=mapnik&amp;marker=41.74298,-92.72598"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=41.74298&amp;mlon=-92.72598#map=17/41.74298/-92.72598" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=41.74298,-92.72598" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p>
+    </div>
+  </div>
+</section>
+
+<section class="paper" id="about">
+  <div class="wrap about">
+    <div>
+      <div class="eyebrow rv">About</div>
+      <h2 class="rv" style="--i:1">Out on <em>Main Street</em></h2>
+      <p class="rv" style="--i:2">Frontier Cafe is a restaurant at 831 Main Street in Grinnell, Iowa. The name says it: a place to start from, with a good cup and a seat waiting.</p>
+    </div>
+    <div class="sign rv" style="--i:2" aria-hidden="true">
+      <svg viewBox="0 0 400 400">
+        <g class="spin"><circle cx="200" cy="200" r="188" fill="none" stroke="#1a232b" stroke-width="1.5" stroke-dasharray="3 9"/></g>
+        <circle cx="200" cy="200" r="150" fill="#1a232b"/>
+        <circle cx="200" cy="200" r="138" fill="none" stroke="#f2a33a" stroke-width="1.5"/>
+        <circle cx="200" cy="180" r="48" fill="#f2a33a"/>
+        <path d="M62 245c40-28 76-28 138 0s98 28 138 0v20c-40 28-76 28-138 0s-98-28-138 0z" fill="#f1e6cc"/>
+        <text x="200" y="320" text-anchor="middle" font-family="Fraunces,serif" font-weight="700" font-size="26" fill="#f1e6cc">GRINNELL · IOWA</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="eyebrow rv" style="justify-content:center">Contact</div>
+    <h2 class="rv" style="--i:1">Say hello</h2>
+    <p class="rv" style="--i:2">Questions about Frontier Cafe? Send a note.</p>
+    <div class="row rv" style="--i:3">
+      <a class="btn" href="mailto:frontiercafe831@gmail.com">frontiercafe831@gmail.com</a>
+      
+    </div>
+  </div>
+</section>
+
+<div class="cta-wrap">
+  <div class="wrap rv">
+    <section class="np-cta" id="offer"><h2>Want this for Frontier Cafe?</h2><p>This is a free preview made for Frontier Cafe. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20Frontier%20Cafe&amp;body=Yes%2C%20please%20make%20this%20site%20for%20Frontier%20Cafe.">Make it mine</a></p></section>
+  </div>
+</div>
+</main>
+
+<footer><div class="wrap">Frontier Cafe · 831 Main Street, Grinnell, IA 50112</div></footer>
+
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · Frontier Cafe</div>
+
+<script>
+(function(){
+  var d=document,root=d.documentElement;
+  root.classList.add('js');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* mobile menu */
+  var b=d.getElementById('burger'),l=d.getElementById('links');
+  b.addEventListener('click',function(){var o=l.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+  l.addEventListener('click',function(e){if(e.target.tagName==='A'){l.classList.remove('open');b.setAttribute('aria-expanded','false')}});
+
+  /* scroll: header, progress, parallax */
+  var hd=d.querySelector('header.site'),bar=d.getElementById('bar'),layers=[].slice.call(d.querySelectorAll('.layer')),tick=false;
+  function onScroll(){
+    var y=window.scrollY||0,h=root.scrollHeight-window.innerHeight;
+    hd.classList.toggle('scrolled',y>40);
+    bar.style.transform='scaleX('+(h>0?Math.min(y/h,1):0)+')';
+    if(!reduce&&y<1400){layers.forEach(function(el){el.style.transform='translate3d(0,'+(y*parseFloat(el.dataset.speed))+'px,0)'})}
+    tick=false;
+  }
+  window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(onScroll)}},{passive:true});
+  onScroll();
+
+  /* reveals */
+  var rv=[].slice.call(d.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window&&!reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    rv.forEach(function(el){io.observe(el)});
+  }else{rv.forEach(function(el){el.classList.add('show')})}
+
+  /* magnetic buttons */
+  if(!reduce&&window.matchMedia('(hover:hover)').matches){
+    d.querySelectorAll('.btn,.pill').forEach(function(el){
+      el.addEventListener('mousemove',function(e){var r=el.getBoundingClientRect();var x=(e.clientX-r.left-r.width/2)*.18,y=(e.clientY-r.top-r.height/2)*.28;el.style.transform='translate('+x+'px,'+(y-3)+'px)'});
+      el.addEventListener('mouseleave',function(){el.style.transform=''});
+    });
+  }
+
+  /* copy address */
+  var c=d.getElementById('copy'),m=d.getElementById('copyMsg'),addr='831 Main Street, Grinnell, IA 50112';
+  c.addEventListener('click',function(){
+    function ok(){m.textContent='Copied ✓';setTimeout(function(){m.textContent='Tap to copy address'},2200)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(addr).then(ok,fb)}else fb();
+    function fb(){var t=d.createElement('textarea');t.value=addr;t.style.position='fixed';t.style.opacity='0';d.body.appendChild(t);t.select();try{d.execCommand('copy');ok()}catch(e){m.textContent=addr}d.body.removeChild(t)}
+  });
+})();
+</script>
+</body>
+</html>

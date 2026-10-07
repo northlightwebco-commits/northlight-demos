@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chicken Connection | Restaurant in Marshall, MN</title>
+<meta name="description" content="Chicken Connection in Marshall, MN. Chicken. Dine in, swing through the drive-thru.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sun:#FFD21F;--sun2:#FFE675;--paper:#FFF8DC;--ink:#1d1a16;--red:#D92B1F;--white:#fff;
+  --r:22px;--shadow:6px 6px 0 var(--ink);
+  --pop:cubic-bezier(.34,1.56,.64,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--sun);color:var(--ink);line-height:1.55;font-size:1.05rem;overflow-x:hidden}
+img,svg{max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:'Bowlby One','Arial Black',sans-serif;font-weight:400;line-height:1.02;text-wrap:balance;overflow-wrap:break-word}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+section{padding:clamp(64px,10vw,120px) 0;position:relative}
+.eyebrow{display:inline-block;background:var(--ink);color:var(--sun);font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;padding:6px 14px;border-radius:99px;transform:rotate(-2deg);margin-bottom:18px}
+h2{font-size:clamp(2rem,6.5vw,4.2rem)}
+
+/* progress + header */
+.progress{position:fixed;left:0;top:0;height:5px;width:100%;background:var(--red);transform:scaleX(0);transform-origin:0 50%;z-index:100}
+.np-banner{background:var(--ink);color:var(--sun);font-size:.82rem;text-align:center;padding:7px 14px;line-height:1.35}
+.np-banner a{color:var(--white)}
+header.top{position:sticky;top:0;z-index:50;transition:background .3s,box-shadow .3s}
+header.top .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;height:72px;transition:height .3s}
+header.top.scrolled{background:var(--paper);box-shadow:0 4px 0 var(--ink)}
+header.top.scrolled .bar{height:58px}
+.logo{font-family:'Bowlby One',sans-serif;text-decoration:none;font-size:1.05rem;display:flex;align-items:center;gap:10px;line-height:1}
+.logo i{width:30px;height:30px;border-radius:50%;background:var(--red);border:3px solid var(--ink);display:grid;place-items:center;color:var(--white);font-style:normal;font-size:.8rem;transition:transform .5s var(--pop)}
+.logo:hover i{transform:rotate(360deg) scale(1.1)}
+nav ul{display:flex;gap:6px;list-style:none;align-items:center}
+nav a{display:block;text-decoration:none;font-weight:700;padding:8px 14px;border-radius:99px;transition:background .2s,transform .3s var(--pop)}
+nav a:hover{background:var(--ink);color:var(--sun);transform:rotate(-3deg) scale(1.06)}
+.burger{display:none;width:46px;height:46px;border:3px solid var(--ink);background:var(--white);border-radius:14px;cursor:pointer;position:relative}
+.burger span,.burger span::before,.burger span::after{position:absolute;left:10px;right:10px;height:3px;background:var(--ink);border-radius:2px;content:"";transition:transform .3s}
+.burger span{top:19px;left:10px;right:10px}
+.burger span::before{left:0;right:0;top:-7px}
+.burger span::after{left:0;right:0;top:7px}
+.burger[aria-expanded=true] span{background:transparent}
+.burger[aria-expanded=true] span::before{transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded=true] span::after{transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:760px){
+  .js .burger{display:block}
+  .js nav{position:absolute;left:0;right:0;top:100%;background:var(--paper);border-bottom:4px solid var(--ink);padding:10px 20px 20px;display:none}
+  .js nav.open{display:block}
+  .js nav ul{flex-direction:column;align-items:stretch}
+  .js nav a{font-size:1.2rem;padding:12px 14px}
+  header.top .bar{height:64px}
+  nav ul{flex-wrap:wrap;gap:0}
+  nav a{padding:6px 10px;font-size:.9rem}
+  header.top .bar{flex-wrap:wrap;height:auto;padding:8px 0}
+  .js header.top .bar{height:64px;padding:0;flex-wrap:nowrap}
+}
+
+/* buttons (also used by slots) */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:700 1rem 'DM Sans',sans-serif;text-decoration:none;background:var(--red);color:var(--white);border:3px solid var(--ink);border-radius:99px;padding:13px 26px;box-shadow:4px 4px 0 var(--ink);cursor:pointer;transition:transform .25s var(--pop),box-shadow .25s;will-change:transform}
+.btn:hover{box-shadow:7px 7px 0 var(--ink);transform:translate(-2px,-3px)}
+.btn:active{box-shadow:1px 1px 0 var(--ink);transform:translate(2px,2px)}
+.btn.alt{background:var(--white);color:var(--ink)}
+.btn.small,small.btn{padding:8px 16px;font-size:.88rem}
+.btn:focus-visible,a:focus-visible,button:focus-visible{outline:4px solid var(--ink);outline-offset:3px}
+
+/* hero */
+.hero{padding-top:clamp(28px,6vw,64px);padding-bottom:clamp(56px,8vw,100px);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
+h1{font-size:clamp(2.35rem,11vw,7rem);letter-spacing:-.01em}
+h1 .w{display:block}
+h1 .w:nth-child(2){color:var(--red);-webkit-text-stroke:0;text-shadow:4px 4px 0 var(--ink);transform:rotate(-1.5deg);transform-origin:0 50%}
+.lead{font-size:clamp(1.15rem,2.6vw,1.6rem);font-weight:700;margin:24px 0 8px;max-width:30ch}
+.sub{max-width:44ch;margin-bottom:28px}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px}
+.visual{position:relative;aspect-ratio:1;max-width:520px;width:100%;justify-self:center}
+.visual .parallax{position:absolute;inset:0;will-change:transform}
+.sun{position:absolute;inset:6% 4% 4% 6%;background:var(--sun2);border:4px solid var(--ink);border-radius:50% 46% 52% 48%;box-shadow:var(--shadow)}
+.chicken{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.chicken .fill{fill:var(--white);opacity:1}
+.chicken .line{fill:none;stroke:var(--ink);stroke-width:6;stroke-linejoin:round;stroke-linecap:round}
+.chicken .leg{fill:none;stroke:var(--ink);stroke-width:6;stroke-linecap:round}
+.chicken .comb{fill:var(--red)}
+.chicken .dot circle{fill:var(--red);stroke:var(--ink);stroke-width:3}
+.chicken .dot text{font:700 11px 'DM Sans',sans-serif;fill:#fff;text-anchor:middle}
+.stamp{position:absolute;right:-2%;bottom:2%;width:34%;aspect-ratio:1;background:var(--red);color:var(--white);border:4px solid var(--ink);border-radius:50%;display:grid;place-items:center;transform:rotate(10deg);box-shadow:4px 4px 0 var(--ink);transition:transform .5s var(--pop)}
+.stamp:hover{transform:rotate(-6deg) scale(1.1)}
+.stamp svg{position:absolute;inset:4%;width:92%;height:92%}
+.stamp text{font:700 12.5px 'DM Sans',sans-serif;letter-spacing:.17em;fill:#fff;text-transform:uppercase}
+.stamp b{font-family:'Bowlby One',sans-serif;font-weight:400;font-size:clamp(.9rem,2.4vw,1.5rem)}
+.spin{animation:spin 24s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* hero entrance (CSS only, visible without JS) */
+.in{animation:rise .9s var(--pop) both;animation-delay:calc(var(--d,0)*.12s + .1s)}
+@keyframes rise{from{opacity:0;transform:translateY(40px) rotate(2deg)}to{opacity:1;transform:none}}
+.chicken .line{stroke-dasharray:1;stroke-dashoffset:0;animation:draw 2.6s .5s ease-out both}
+.chicken .leg{stroke-dasharray:1;animation:draw 1s 2.6s ease-out both}
+@keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+.chicken .dot{animation:pop .5s var(--pop) both;animation-delay:calc(var(--n)*.12s + .3s);transform-box:fill-box;transform-origin:center}
+@keyframes pop{from{opacity:0;transform:scale(0)}to{opacity:1;transform:none}}
+.chicken .body{animation:fadein 1s 2.4s both}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+.bob{animation:bob 5s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px) rotate(1deg)}}
+
+@media(max-width:860px){
+  .hero .wrap{grid-template-columns:1fr}
+  .visual{max-width:380px}
+}
+
+/* marquee */
+.marquee{background:var(--ink);color:var(--sun);padding:16px 0;overflow:hidden;border-block:4px solid var(--ink);transform:rotate(-1deg);margin:0 -10px;position:relative;z-index:2}
+.track{display:flex;width:max-content;animation:scroll 32s linear infinite}
+.marquee:hover .track{animation-play-state:paused}
+.track span{font-family:'Bowlby One',sans-serif;font-size:clamp(1.2rem,3.5vw,2rem);white-space:nowrap;padding-right:28px;display:flex;align-items:center;gap:28px}
+.track span::after{content:"";width:14px;height:14px;border-radius:50%;background:var(--red);flex:none}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* offer */
+.offer .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:40px}
+.card{background:var(--white);border:4px solid var(--ink);border-radius:var(--r);padding:28px;box-shadow:var(--shadow);transition:transform .4s var(--pop),box-shadow .3s}
+.card:nth-child(1){transform:rotate(-2deg)}
+.card:nth-child(2){transform:rotate(1.5deg);background:var(--paper)}
+.card:nth-child(3){transform:rotate(-1deg)}
+.card:hover{transform:rotate(0) translateY(-10px) scale(1.03);box-shadow:10px 12px 0 var(--ink)}
+.card .ic{width:68px;height:68px;margin-bottom:16px;transition:transform .5s var(--pop)}
+.card:hover .ic{transform:rotate(-12deg) scale(1.15)}
+.card h3{font-size:1.7rem;margin-bottom:8px}
+@media(max-width:860px){.offer .grid{grid-template-columns:1fr}}
+
+/* menu */
+.menu{background:var(--red);color:var(--white);border-block:4px solid var(--ink)}
+.menu h2{color:var(--white);text-shadow:4px 4px 0 var(--ink)}
+.menu .eyebrow{background:var(--sun);color:var(--ink)}
+.note{background:var(--sun);color:var(--ink);border:3px dashed var(--ink);border-radius:16px;padding:14px 18px;margin:22px 0 38px;max-width:62ch;font-weight:700;transform:rotate(-.6deg)}
+.mgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+.msec{background:var(--paper);color:var(--ink);border:4px solid var(--ink);border-radius:var(--r);padding:26px;box-shadow:var(--shadow);position:relative;transition:transform .4s var(--pop)}
+.msec:hover{transform:translateY(-6px) rotate(-.8deg)}
+.msec header{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+.msec h3{font-size:1.8rem}
+.tag{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;background:var(--ink);color:var(--sun);padding:4px 10px;border-radius:99px}
+.msec ul{list-style:none}
+.msec li{padding:12px 0;border-top:2px dashed rgba(29,26,22,.35);transition:transform .25s var(--pop),background .2s;border-radius:8px}
+.msec li:hover{transform:translateX(8px);background:var(--sun2)}
+.row{display:flex;align-items:baseline;gap:10px}
+.row b{font-weight:700;font-size:1.08rem}
+.row .lead-dots{flex:1;border-bottom:3px dotted var(--ink);transform:translateY(-4px);min-width:12px}
+.row .p{font-family:'Bowlby One',sans-serif;color:var(--red)}
+.msec p.d{font-size:.95rem;opacity:.85}
+@media(max-width:860px){.mgrid{grid-template-columns:1fr}}
+
+/* hours */
+.hl{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;margin-top:36px;align-items:start}
+.hours{background:var(--white);border:4px solid var(--ink);border-radius:var(--r);padding:24px;box-shadow:var(--shadow);transform:rotate(-1deg)}
+.hours .tag{display:inline-block;margin-bottom:10px}
+.hours table{width:100%;border-collapse:collapse}
+.hours th,.hours td{text-align:left;padding:10px 0;border-top:2px dashed rgba(29,26,22,.35)}
+.hours tr:first-child th,.hours tr:first-child td{border-top:0}
+.hours td{text-align:right;font-weight:700}
+.hours tr{transition:transform .25s var(--pop)}
+.hours tr:hover{transform:translateX(6px)}
+.place{margin-top:22px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.place strong{font-family:'Bowlby One',sans-serif;font-weight:400;font-size:1.3rem}
+.map{background:var(--white);border:4px solid var(--ink);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);transform:rotate(1deg)}
+.map iframe{display:block;width:100%;height:340px;border:0}
+.maplinks{display:flex;flex-wrap:wrap;gap:10px;padding:14px}
+.maplinks a{font-weight:700;text-decoration:none;background:var(--sun);border:3px solid var(--ink);border-radius:99px;padding:7px 16px;font-size:.92rem;transition:transform .25s var(--pop),background .2s}
+.maplinks a:hover{transform:translateY(-3px) rotate(-3deg);background:var(--red);color:var(--white)}
+.mapcredit{font-size:.75rem;padding:0 14px 12px;opacity:.8}
+@media(max-width:860px){.hl{grid-template-columns:1fr}}
+
+/* contact */
+.contact{background:var(--paper);border-block:4px solid var(--ink)}
+.contact .box{display:flex;flex-wrap:wrap;gap:30px;align-items:center;justify-content:space-between}
+.contact p{max-width:40ch;font-size:1.15rem;margin-top:14px}
+.contact .acts{display:flex;flex-wrap:wrap;gap:14px}
+.road{height:24px;margin-top:0}
+.road svg{display:block;width:100%;height:24px}
+
+/* CTA */
+.np-cta{background:var(--red);color:var(--white);border:4px solid var(--ink);border-radius:30px;padding:clamp(26px,5vw,56px);box-shadow:10px 10px 0 var(--ink);position:relative;transform:rotate(-1deg);margin:0 auto;max-width:960px}
+.np-cta h2,.np-cta h3{color:var(--white);text-shadow:3px 3px 0 var(--ink);margin-bottom:12px}
+.np-cta p{margin-bottom:16px}
+.np-cta .btn{background:var(--sun);color:var(--ink)}
+.np-cta .btn.alt{background:var(--white)}
+.np-cta small{opacity:.95}
+.cta-sec{padding-top:clamp(60px,9vw,110px)}
+
+footer{padding:34px 0 40px;text-align:center;font-weight:700}
+footer span{font-family:'Bowlby One',sans-serif;font-weight:400}
+
+/* reveal */
+.js .reveal{opacity:0;transform:translateY(34px) scale(.97);transition:opacity .7s ease,transform .8s var(--pop);transition-delay:calc(var(--i,0)*.1s)}
+.js .reveal.show{opacity:1}
+.js .reveal.show:not(.card){transform:none}
+.js .card.reveal.show{transform:var(--tilt,none)}
+.js .card.reveal.show:hover{transform:rotate(0) translateY(-10px) scale(1.03)}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .reveal{opacity:1!important;transform:none!important}
+  .js .card.reveal{transform:none!important}
+  .track{width:auto;flex-wrap:wrap}
+  .progress{display:none}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="top" id="top">
+  <div class="wrap bar">
+    <a class="logo" href="#hero" aria-label="Chicken Connection, top of page"><i aria-hidden="true">CC</i>Chicken Connection</a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+    <nav id="nav" aria-label="Main">
+      <ul>
+        <li><a href="#offer">What we do</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#hours">Hours &amp; location</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow in" style="--d:0">Marshall, MN</span>
+      <h1><span class="w in" style="--d:1">Chicken</span><span class="w in" style="--d:2">Connection</span></h1>
+      <p class="lead in" style="--d:4">Chicken. Dine in, swing through the drive-thru.</p>
+      <p class="sub in" style="--d:5">Pull up a seat or pull up to the window. Either way, you're connected.</p>
+      <div class="cta-row in" style="--d:6">
+        <a class="btn" href="#menu">See the menu</a>
+        <a class="btn alt" href="#hours">Find us</a>
+      </div>
+    </div>
+    <div class="visual in" style="--d:3" aria-hidden="true">
+      <div class="parallax" id="plx">
+        <div class="sun"></div>
+        <svg class="chicken bob" viewBox="0 0 400 400" role="img" aria-label="Connect-the-dots chicken">
+          <path class="fill body" d="M48 150 L92 132 L100 92 L125 112 L140 76 L162 108 L190 100 L205 160 L250 190 L330 170 L350 110 L372 190 L350 260 L300 320 L240 350 L180 320 L150 250 L120 190 L95 175 Z" stroke-linejoin="round"/>
+          <path class="comb body" d="M100 92 L125 112 L140 76 L162 108 L190 100 L150 125 L95 125Z"/>
+          <path class="body" d="M92 150 L66 152 L48 150 L92 132Z" fill="#FFD21F" stroke="#1d1a16" stroke-width="5" stroke-linejoin="round"/>
+          <path class="body" d="M95 175 L120 190 L112 225 L92 190Z" fill="#D92B1F" stroke="#1d1a16" stroke-width="5" stroke-linejoin="round"/>
+          <path class="body" d="M215 215 Q260 200 300 235 Q270 290 225 270 Q205 245 215 215Z" fill="#FFE675" stroke="#1d1a16" stroke-width="5" stroke-linejoin="round"/>
+          <path class="leg" pathLength="1" d="M235 349 L228 386 M228 386 L205 388 M228 386 L248 390 M275 335 L282 386 M282 386 L258 389 M282 386 L304 388"/>
+          <path class="line" pathLength="1" d="M48 150 L92 132 L100 92 L125 112 L140 76 L162 108 L190 100 L205 160 L250 190 L330 170 L350 110 L372 190 L350 260 L300 320 L240 350 L180 320 L150 250 L120 190 L95 175 Z"/>
+          <circle class="body" cx="125" cy="148" r="7" fill="#1d1a16"/>
+          <g id="dots"></g>
+        </svg>
+        <div class="stamp"><svg viewBox="0 0 100 100" class="spin"><defs><path id="circ" d="M50 50 m-38 0 a38 38 0 1 1 76 0 a38 38 0 1 1 -76 0"/></defs><text><textPath href="#circ">Dine in • Drive-thru • Marshall MN •</textPath></text></svg><b>Chicken</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track" id="track">
+    <span>Chicken</span><span>Dine in</span><span>Drive-thru</span><span>Marshall, MN</span><span>Connection</span>
+    <span>Chicken</span><span>Dine in</span><span>Drive-thru</span><span>Marshall, MN</span><span>Connection</span>
+  </div>
+</div>
+
+<section class="offer" id="offer">
+  <div class="wrap">
+    <span class="eyebrow reveal">What we do</span>
+    <h2 class="reveal" style="--i:1">Three ways to get your chicken.</h2>
+    <div class="grid">
+      <article class="card reveal" style="--i:0;--tilt:rotate(-2deg)">
+        <svg class="ic" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="29" fill="#FFD21F" stroke="#1d1a16" stroke-width="4"/><path d="M20 38 Q22 24 34 24 Q46 24 44 34 L42 46 L28 46 Z" fill="#fff" stroke="#1d1a16" stroke-width="4" stroke-linejoin="round"/><path d="M34 24 L36 16 L40 20 L43 15 L44 25" fill="#D92B1F" stroke="#1d1a16" stroke-width="3" stroke-linejoin="round"/></svg>
+        <h3>Chicken</h3>
+        <p>It's right there in the name. Chicken is what we're about.</p>
+      </article>
+      <article class="card reveal" style="--i:1;--tilt:rotate(1.5deg)">
+        <svg class="ic" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="29" fill="#D92B1F" stroke="#1d1a16" stroke-width="4"/><path d="M18 30 H46 M22 30 V46 M42 30 V46 M20 22 H44 L46 30 H18 Z" fill="#fff" stroke="#1d1a16" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></svg>
+        <h3>Dine in</h3>
+        <p>Grab a table, settle in and eat in Marshall.</p>
+      </article>
+      <article class="card reveal" style="--i:2;--tilt:rotate(-1deg)">
+        <svg class="ic" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="29" fill="#fff" stroke="#1d1a16" stroke-width="4"/><path d="M12 40 H52 L48 30 Q46 26 40 26 H26 Q20 26 18 30 Z" fill="#FFD21F" stroke="#1d1a16" stroke-width="4" stroke-linejoin="round"/><circle cx="22" cy="42" r="5" fill="#1d1a16"/><circle cx="42" cy="42" r="5" fill="#1d1a16"/></svg>
+        <h3>Drive-thru</h3>
+        <p>In a hurry? Swing through the drive-thru and go.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <span class="eyebrow reveal">Menu</span>
+    <h2 class="reveal" style="--i:1">The menu, served up.</h2>
+    <p class="note reveal" style="--i:2">This is an example menu that shows how your menu would look. Your real dishes and prices go here.</p>
+    <div class="mgrid">
+      <article class="msec reveal" style="--i:0">
+        <header><h3>Breakfast</h3><span class="tag">Example</span></header>
+        <ul>
+          <li><div class="row"><b>Two-egg breakfast</b><span class="lead-dots"></span><span class="p">$8.99</span></div><p class="d">Eggs your way, hash browns, toast</p></li>
+          <li><div class="row"><b>Buttermilk pancakes</b><span class="lead-dots"></span><span class="p">$7.99</span></div><p class="d">Short stack with syrup</p></li>
+          <li><div class="row"><b>Biscuits &amp; gravy</b><span class="lead-dots"></span><span class="p">$8.49</span></div></li>
+        </ul>
+      </article>
+      <article class="msec reveal" style="--i:1">
+        <header><h3>Lunch</h3><span class="tag">Example</span></header>
+        <ul>
+          <li><div class="row"><b>Classic cheeseburger</b><span class="lead-dots"></span><span class="p">$10.99</span></div><p class="d">Served with fries</p></li>
+          <li><div class="row"><b>Club sandwich</b><span class="lead-dots"></span><span class="p">$10.49</span></div><p class="d">Turkey, bacon, lettuce, tomato</p></li>
+          <li><div class="row"><b>Grilled chicken salad</b><span class="lead-dots"></span><span class="p">$10.99</span></div></li>
+        </ul>
+      </article>
+      <article class="msec reveal" style="--i:0">
+        <header><h3>Dinner</h3><span class="tag">Example</span></header>
+        <ul>
+          <li><div class="row"><b>Chicken fried steak</b><span class="lead-dots"></span><span class="p">$13.99</span></div><p class="d">Mashed potatoes and country gravy</p></li>
+          <li><div class="row"><b>Meatloaf</b><span class="lead-dots"></span><span class="p">$12.99</span></div></li>
+          <li><div class="row"><b>Fish &amp; chips</b><span class="lead-dots"></span><span class="p">$13.49</span></div></li>
+        </ul>
+      </article>
+      <article class="msec reveal" style="--i:1">
+        <header><h3>Dessert</h3><span class="tag">Example</span></header>
+        <ul>
+          <li><div class="row"><b>Homemade pie</b><span class="lead-dots"></span><span class="p">$4.99</span></div><p class="d">Ask about today's flavors</p></li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="hours">
+  <div class="wrap">
+    <span class="eyebrow reveal">Hours &amp; location</span>
+    <h2 class="reveal" style="--i:1">Come find us in Marshall.</h2>
+    <div class="hl">
+      <div class="reveal" style="--i:1">
+        <div class="hours">
+          <span class="tag">Example hours</span>
+          <table>
+            <tbody>
+              <tr><th scope="row">Mon</th><td>7 AM – 3 PM</td></tr>
+              <tr><th scope="row">Tue</th><td>7 AM – 3 PM</td></tr>
+              <tr><th scope="row">Wed</th><td>7 AM – 3 PM</td></tr>
+              <tr><th scope="row">Thu</th><td>7 AM – 3 PM</td></tr>
+              <tr><th scope="row">Fri</th><td>7 AM – 8 PM</td></tr>
+              <tr><th scope="row">Sat</th><td>8 AM – 8 PM</td></tr>
+              <tr><th scope="row">Sun</th><td>Closed</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="place">
+          <strong>Marshall, MN</strong>
+          <button class="btn alt small" id="copy" type="button" data-copy="Chicken Connection, Marshall, MN">Copy location</button>
+        </div>
+      </div>
+      <div class="reveal" style="--i:2">
+        <iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-95.78560,44.43425,-95.77360,44.44625&amp;layer=mapnik&amp;marker=44.44025,-95.77960"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=44.44025&amp;mlon=-95.77960#map=17/44.44025/-95.77960" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=44.44025,-95.77960" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="road" aria-hidden="true">
+  <svg viewBox="0 0 1200 24" preserveAspectRatio="none"><rect width="1200" height="24" fill="#1d1a16"/><line x1="0" y1="12" x2="1200" y2="12" stroke="#FFD21F" stroke-width="4" stroke-dasharray="30 24"/></svg>
+</div>
+
+<section class="contact" id="contact">
+  <div class="wrap box">
+    <div class="reveal">
+      <span class="eyebrow">Contact</span>
+      <h2>Let's connect.</h2>
+      <p>Got a question for Chicken Connection? Send a note.</p>
+    </div>
+    <div class="acts reveal" style="--i:1">
+      <a class="btn" href="mailto:cctrailermn@gmail.com">cctrailermn@gmail.com</a> 
+    </div>
+  </div>
+</section>
+
+<section class="cta-sec">
+  <div class="wrap reveal">
+    <section class="np-cta" id="offer"><h2>Want this for Chicken Connection?</h2><p>This is a free preview made for Chicken Connection. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20Chicken%20Connection&amp;body=Yes%2C%20please%20make%20this%20site%20for%20Chicken%20Connection.">Make it mine</a></p></section>
+  </div>
+</section>
+</main>
+
+<footer><span>Chicken Connection</span> · Marshall, MN</footer>
+
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · Chicken Connection</div>
+
+<script>
+(function(){
+  var d=document,root=d.documentElement;
+  root.classList.add('js');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* connect-the-dots numbers */
+  var pts=[[48,150],[92,132],[100,92],[125,112],[140,76],[162,108],[190,100],[205,160],[250,190],[330,170],[350,110],[372,190],[350,260],[300,320],[240,350],[180,320],[150,250],[120,190],[95,175]];
+  var g=d.getElementById('dots'),ns='http://www.w3.org/2000/svg',h='';
+  pts.forEach(function(p,i){
+    h+='<g class="dot" style="--n:'+i+'"><circle cx="'+p[0]+'" cy="'+p[1]+'" r="9"/><text x="'+p[0]+'" y="'+(p[1]+4)+'">'+(i+1)+'</text></g>';
+  });
+  if(g)g.innerHTML=h;
+
+  /* mobile menu */
+  var b=d.getElementById('burger'),n=d.getElementById('nav');
+  function close(){n.classList.remove('open');b.setAttribute('aria-expanded','false')}
+  b.addEventListener('click',function(){
+    var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');
+  });
+  n.addEventListener('click',function(e){if(e.target.tagName==='A')close()});
+  d.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+
+  /* scroll: progress, header, parallax */
+  var bar=d.getElementById('progress'),top=d.getElementById('top'),plx=d.getElementById('plx'),tick=false;
+  function onScroll(){
+    var y=window.scrollY||root.scrollTop,max=root.scrollHeight-window.innerHeight;
+    bar.style.transform='scaleX('+(max>0?y/max:0)+')';
+    top.classList.toggle('scrolled',y>20);
+    if(!reduce&&plx&&y<900)plx.style.transform='translateY('+(y*.12)+'px) rotate('+(y*.01)+'deg)';
+    tick=false;
+  }
+  window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(onScroll)}},{passive:true});
+  onScroll();
+
+  /* reveals */
+  var els=d.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window&&!reduce){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}});
+    },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    els.forEach(function(el){io.observe(el)});
+  }else{els.forEach(function(el){el.classList.add('show')})}
+
+  /* magnetic buttons */
+  if(!reduce&&window.matchMedia('(hover:hover)').matches){
+    d.querySelectorAll('.btn').forEach(function(btn){
+      btn.addEventListener('mousemove',function(e){
+        var r=btn.getBoundingClientRect(),x=(e.clientX-r.left-r.width/2)*.18,y=(e.clientY-r.top-r.height/2)*.25;
+        btn.style.transform='translate('+x+'px,'+(y-3)+'px)';
+      });
+      btn.addEventListener('mouseleave',function(){btn.style.transform=''});
+    });
+  }
+
+  /* click to copy */
+  var c=d.getElementById('copy');
+  if(c)c.addEventListener('click',function(){
+    var t=c.getAttribute('data-copy'),old=c.textContent;
+    function done(){c.textContent='Copied!';setTimeout(function(){c.textContent=old},1800)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,function(){})}
+    else{var a=d.createElement('textarea');a.value=t;d.body.appendChild(a);a.select();try{d.execCommand('copy');done()}catch(e){}d.body.removeChild(a)}
+  });
+})();
+</script>
+</body>
+</html>

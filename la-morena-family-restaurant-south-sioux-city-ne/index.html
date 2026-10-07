@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>La Morena Family Restaurant · Mexican in South Sioux City, NE</title>
+<meta name="description" content="La Morena Family Restaurant, Mexican food at 1215 Dakota Avenue, South Sioux City, NE.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=Yellowtail&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0a14;--bg2:#13111f;--ink:#f6f0e4;--mute:#b9b3c6;
+  --pink:#ff5c93;--gold:#ffbd3d;--teal:#3ff2d0;
+  --line:rgba(246,240,228,.16);
+  --disp:"Barlow Condensed",Impact,sans-serif;--body:"Barlow",system-ui,sans-serif;--script:"Yellowtail",cursive;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img,svg{max-width:100%;display:block}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+h1,h2,h3{text-wrap:balance;overflow-wrap:break-word}
+.eyebrow{font-family:var(--disp);text-transform:uppercase;letter-spacing:.22em;font-weight:600;font-size:.95rem;color:var(--teal);text-shadow:0 0 12px rgba(63,242,208,.55)}
+h2{font-family:var(--disp);text-transform:uppercase;font-weight:700;font-size:clamp(2.2rem,7vw,4.2rem);line-height:1;letter-spacing:.01em;margin:.4rem 0 1rem}
+h2 em{font-family:var(--script);font-style:normal;text-transform:none;font-weight:400;color:var(--pink);text-shadow:0 0 18px rgba(255,92,147,.7)}
+section{padding:clamp(64px,10vw,120px) 0;position:relative}
+
+/* progress + header */
+.progress{position:fixed;inset:0 0 auto 0;height:3px;z-index:60;background:linear-gradient(90deg,var(--pink),var(--gold),var(--teal));transform:scaleX(0);transform-origin:0 50%;box-shadow:0 0 12px var(--pink)}
+header.nav{position:sticky;top:0;z-index:50;transition:background .3s,box-shadow .3s}
+header.nav .in{display:flex;align-items:center;justify-content:space-between;height:68px;transition:height .3s}
+header.nav.scrolled{background:rgba(11,10,20,.88);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+header.nav.scrolled .in{height:56px}
+.logo{font-family:var(--script);font-size:1.7rem;text-decoration:none;color:var(--pink);text-shadow:0 0 14px rgba(255,92,147,.7);line-height:1}
+nav ul{display:flex;gap:28px;list-style:none;align-items:center}
+nav a{font-family:var(--disp);text-transform:uppercase;letter-spacing:.14em;font-weight:600;text-decoration:none;font-size:1rem;position:relative;padding:6px 0}
+nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--gold);box-shadow:0 0 8px var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+nav ul a:hover::after,nav ul a:focus-visible::after{transform:scaleX(1)}
+.burger{display:none;background:none;border:1.5px solid var(--line);color:var(--ink);width:44px;height:44px;border-radius:50%;cursor:pointer}
+.burger span{display:block;width:18px;height:2px;background:currentColor;margin:4px auto;transition:transform .3s,opacity .3s}
+.burger[aria-expanded=true] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded=true] span:nth-child(2){opacity:0}
+.burger[aria-expanded=true] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+@media(max-width:780px){
+  .burger{display:block}
+  nav ul{position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;background:rgba(11,10,20,.97);border-bottom:1px solid var(--line);padding:8px 20px 18px;display:none}
+  nav ul.open{display:flex}
+  nav ul li{width:100%;border-bottom:1px solid var(--line)}
+  nav ul a{display:block;padding:14px 0;font-size:1.2rem}
+}
+
+/* buttons / slots */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-family:var(--disp);text-transform:uppercase;letter-spacing:.14em;font-weight:700;font-size:1.05rem;text-decoration:none;padding:14px 26px;border-radius:999px;border:2px solid var(--pink);background:var(--pink);color:#17061a;cursor:pointer;transition:transform .25s,box-shadow .25s;box-shadow:0 0 22px rgba(255,92,147,.45)}
+.btn:hover,.btn:focus-visible{transform:translateY(-3px);box-shadow:0 0 34px rgba(255,92,147,.8)}
+.btn.alt{background:transparent;color:var(--ink);border-color:var(--teal);box-shadow:0 0 18px rgba(63,242,208,.3)}
+.btn.alt:hover{box-shadow:0 0 30px rgba(63,242,208,.7)}
+small{font-size:.85rem;color:var(--mute)}
+.np-banner{background:var(--gold);color:#1a1200;font-family:var(--disp);letter-spacing:.08em;text-transform:uppercase;font-weight:600;font-size:.88rem;text-align:center;padding:7px 14px;line-height:1.3}
+.np-banner a{color:inherit}
+
+/* hero */
+.hero{min-height:calc(100svh - 68px);display:grid;place-items:center;text-align:center;overflow:hidden;padding:60px 0 150px;margin-top:-68px;padding-top:128px}
+.sky{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 70%,rgba(255,92,147,.25),transparent 60%),radial-gradient(ellipse at 20% 10%,rgba(63,242,208,.1),transparent 50%)}
+.sun{position:absolute;left:50%;bottom:22%;width:min(70vw,560px);aspect-ratio:1;margin-left:calc(min(70vw,560px)/-2);border-radius:50%;background:linear-gradient(180deg,var(--gold),var(--pink));opacity:.9;
+  -webkit-mask:repeating-linear-gradient(180deg,#000 0 14%,transparent 14% 18%);mask:repeating-linear-gradient(180deg,#000 0 14%,transparent 14% 18%);filter:blur(.4px)}
+.sunwrap{position:absolute;inset:0;will-change:transform}
+.floor{position:absolute;left:-50%;right:-50%;bottom:0;height:34%;perspective:300px;overflow:hidden;
+  -webkit-mask:linear-gradient(0deg,#000 40%,transparent);mask:linear-gradient(0deg,#000 40%,transparent)}
+.floor i{position:absolute;left:0;right:0;top:-100%;bottom:0;transform:rotateX(62deg);transform-origin:50% 100%;
+  background:repeating-linear-gradient(90deg,var(--teal) 0 2px,transparent 2px 80px),repeating-linear-gradient(0deg,var(--teal) 0 2px,transparent 2px 80px);opacity:.5;animation:grid 3s linear infinite}
+@keyframes grid{to{transform:rotateX(62deg) translateY(80px)}}
+.hero-in{position:relative;z-index:2}
+.arch{position:absolute;left:50%;top:50%;width:min(94vw,760px);transform:translate(-50%,-52%);z-index:1;pointer-events:none;overflow:visible}
+.arch path{fill:none;stroke:var(--teal);stroke-width:3;stroke-linecap:round;filter:drop-shadow(0 0 6px var(--teal));stroke-dasharray:1;stroke-dashoffset:0}
+.hero h1{font-family:var(--script);font-weight:400;font-size:clamp(4.4rem,19vw,12rem);line-height:.95;color:#ffe7ef;text-shadow:0 0 6px #fff,0 0 20px var(--pink),0 0 48px var(--pink),0 0 90px rgba(255,92,147,.7);padding:0 .1em}
+.hero h1 span{display:inline-block;white-space:nowrap}
+.hero h1 .w2{animation:flick 7s infinite 2.5s}
+@keyframes flick{0%,18%,22%,62%,64%,100%{opacity:1}20%{opacity:.55}63%{opacity:.7}}
+.sub{font-family:var(--disp);text-transform:uppercase;letter-spacing:.38em;font-weight:600;font-size:clamp(1.05rem,3.6vw,1.8rem);color:var(--gold);text-shadow:0 0 14px rgba(255,189,61,.7);margin-top:.6rem}
+.lede{max-width:34ch;margin:1.4rem auto 2rem;font-size:1.2rem;color:var(--ink)}
+.hero .acts{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.hero .eyebrow{margin-bottom:1rem;display:block}
+
+/* entrance */
+.hero-in>*{animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+.hero-in>*:nth-child(1){animation-delay:.1s}.hero-in>*:nth-child(2){animation-delay:.3s}.hero-in>*:nth-child(3){animation-delay:.6s}.hero-in>*:nth-child(4){animation-delay:.8s}.hero-in>*:nth-child(5){animation-delay:1s}
+@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+html.js .arch path{animation:draw 2.2s .3s ease-out both}
+@keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+
+/* marquee */
+.marquee{border-block:1px solid var(--line);background:var(--bg2);overflow:hidden;padding:14px 0}
+.track{display:flex;width:max-content;animation:slide 32s linear infinite}
+.track span{font-family:var(--disp);text-transform:uppercase;font-weight:700;font-size:clamp(1.3rem,4vw,2rem);letter-spacing:.12em;padding-right:1.2rem;white-space:nowrap;color:var(--ink)}
+.track span:nth-child(even){color:var(--gold);text-shadow:0 0 12px rgba(255,189,61,.6)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* offer */
+.offer{display:grid;gap:18px;grid-template-columns:repeat(3,1fr);margin-top:2rem}
+.card{border:1.5px solid var(--line);border-radius:20px;padding:28px 24px;background:linear-gradient(160deg,var(--bg2),#0e0c19);transition:transform .35s,border-color .35s,box-shadow .35s}
+.card:hover{transform:translateY(-6px);border-color:var(--pink);box-shadow:0 0 30px rgba(255,92,147,.25)}
+.card b{font-family:var(--script);font-weight:400;font-size:2.6rem;color:var(--teal);text-shadow:0 0 14px rgba(63,242,208,.6);display:block;line-height:1.1}
+.card p{color:var(--mute);margin-top:.4rem}
+@media(max-width:820px){.offer{grid-template-columns:1fr}}
+
+/* menu */
+.menu{background:var(--bg2)}
+.tag{display:inline-block;font-family:var(--disp);text-transform:uppercase;letter-spacing:.14em;font-weight:700;font-size:.8rem;color:#1a1200;background:var(--gold);padding:3px 10px;border-radius:999px;vertical-align:middle}
+.note{border-left:3px solid var(--gold);padding:6px 0 6px 16px;color:var(--ink);max-width:60ch;margin:.6rem 0 2.4rem}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,56px)}
+.cols h3{font-family:var(--script);font-weight:400;font-size:2.4rem;color:var(--pink);text-shadow:0 0 14px rgba(255,92,147,.6);margin-bottom:.6rem;line-height:1.1}
+.item{padding:14px 10px;margin:0 -10px;border-bottom:1px dashed var(--line);display:grid;grid-template-columns:1fr auto;gap:2px 14px;border-radius:10px;transition:transform .3s,background .3s}
+.item:hover{transform:translateX(6px);background:rgba(255,255,255,.04)}
+.item strong{font-family:var(--disp);font-size:1.3rem;letter-spacing:.04em;text-transform:uppercase;font-weight:600}
+.item .p{font-family:var(--disp);font-weight:700;font-size:1.3rem;color:var(--gold)}
+.item small{grid-column:1/-1}
+@media(max-width:900px){.cols{grid-template-columns:1fr}}
+
+/* hours */
+.hl{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(28px,5vw,64px);align-items:start}
+.hours{list-style:none;margin:1rem 0 1.4rem}
+.hours li{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);font-family:var(--disp);font-size:1.3rem;letter-spacing:.06em;text-transform:uppercase}
+.hours li span:last-child{color:var(--gold)}
+address{font-style:normal;font-size:1.2rem;margin:1rem 0}
+.copy{background:none;border:1.5px dashed var(--teal);color:var(--teal);font-family:var(--disp);letter-spacing:.12em;text-transform:uppercase;font-weight:700;font-size:.95rem;padding:9px 18px;border-radius:999px;cursor:pointer;transition:transform .25s,background .25s}
+.copy:hover{transform:translateY(-2px);background:rgba(63,242,208,.1)}
+.map{border:1.5px solid var(--line);border-radius:20px;overflow:hidden;background:var(--bg2)}
+.map iframe{width:100%;min-height:320px;border:0;display:block}
+.maplinks{display:flex;gap:12px;flex-wrap:wrap;padding:14px}
+.maplinks a{color:var(--teal);font-weight:600}
+.mapcredit{padding:0 14px 12px;font-size:.8rem;color:var(--mute)}
+.mapcredit a{color:var(--mute)}
+@media(max-width:860px){.hl{grid-template-columns:1fr}}
+
+/* contact + cta */
+.contact{text-align:center}
+.contact .acts{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:1.6rem}
+.np-cta{margin-top:clamp(40px,6vw,80px);border:2px solid var(--gold);border-radius:28px;padding:clamp(28px,5vw,56px);text-align:center;background:radial-gradient(ellipse at 50% 0,rgba(255,189,61,.16),transparent 70%),var(--bg2);box-shadow:0 0 40px rgba(255,189,61,.25),inset 0 0 30px rgba(255,189,61,.08);display:flex;flex-direction:column;align-items:center;gap:14px}
+.np-cta h2,.np-cta h3{font-family:var(--script);font-weight:400;text-transform:none;color:var(--gold);text-shadow:0 0 18px rgba(255,189,61,.6)}
+.np-cta p{max-width:46ch}
+.np-cta .btn{margin:4px}
+
+footer{padding:34px 0 50px;text-align:center;color:var(--mute);font-size:.95rem;border-top:1px solid var(--line)}
+footer .logo{display:inline-block;margin-bottom:6px}
+
+/* reveals */
+html.js .reveal{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}
+html.js .reveal.in{opacity:1;transform:none}
+
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html.js .reveal{opacity:1;transform:none}
+  .progress{display:none}
+  .track{flex-wrap:wrap;width:auto;justify-content:center}
+  .track span[aria-hidden]{display:none}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="wrap in">
+    <a class="logo" href="#top">La Morena</a>
+    <nav aria-label="Main">
+      <button class="burger" id="burger" aria-expanded="false" aria-controls="menu-list" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <ul id="menu-list">
+        <li><a href="#offer">Kitchen</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#visit">Visit</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" aria-label="La Morena Family Restaurant">
+  <div class="sky"></div>
+  <div class="sunwrap" data-par="0.25"><div class="sun"></div></div>
+  <div class="floor" aria-hidden="true"><i></i></div>
+  <svg class="arch" viewBox="0 0 760 520" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+    <path pathLength="1" d="M40 500 V230 C40 110 140 20 380 20 C620 20 720 110 720 230 V500"/>
+    <path pathLength="1" d="M90 500 V240 C90 140 170 70 380 70 C590 70 670 140 670 240 V500" style="stroke:var(--pink);filter:drop-shadow(0 0 6px var(--pink));opacity:.7"/>
+  </svg>
+  <div class="wrap hero-in">
+    <span class="eyebrow">Mexican · South Sioux City, NE</span>
+    <h1><span class="w1">La</span> <span class="w2">Morena</span></h1>
+    <p class="sub">Family Restaurant</p>
+    <p class="lede">Mexican food on Dakota Avenue. Pull up a chair and stay awhile.</p>
+    <div class="acts">
+      <a class="btn" href="#menu" data-mag>See the menu</a>
+      <a class="btn alt" href="#visit" data-mag>Find us</a>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>La Morena</span><span>Family Restaurant</span><span>Mexican</span><span>South Sioux City</span><span>1215 Dakota Avenue</span>
+    <span>La Morena</span><span>Family Restaurant</span><span>Mexican</span><span>South Sioux City</span><span>1215 Dakota Avenue</span>
+    <span aria-hidden="true">La Morena</span><span aria-hidden="true">Family Restaurant</span><span aria-hidden="true">Mexican</span><span aria-hidden="true">South Sioux City</span><span aria-hidden="true">1215 Dakota Avenue</span>
+    <span aria-hidden="true">La Morena</span><span aria-hidden="true">Family Restaurant</span><span aria-hidden="true">Mexican</span><span aria-hidden="true">South Sioux City</span><span aria-hidden="true">1215 Dakota Avenue</span>
+  </div>
+</div>
+
+<section id="offer">
+  <div class="wrap">
+    <span class="eyebrow reveal">The kitchen</span>
+    <h2 class="reveal">Mexican, <em>made for sitting down</em></h2>
+    <div class="offer">
+      <div class="card reveal" style="--d:.05s"><b>Mexican</b><p>That is the heart of it. A restaurant built around Mexican cooking.</p></div>
+      <div class="card reveal" style="--d:.15s"><b>Dakota Ave</b><p>Find us at 1215 Dakota Avenue in South Sioux City, Nebraska.</p></div>
+      <div class="card reveal" style="--d:.25s"><b>Family table</b><p>It is right there in the name: a family restaurant, room for everyone.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="menu" class="menu">
+  <div class="wrap">
+    <span class="eyebrow reveal">Menu <span class="tag">Example</span></span>
+    <h2 class="reveal">Tacos, plates, <em>and the rest</em></h2>
+    <p class="note reveal">This is an example menu that shows how your menu would look. Your real dishes and prices go here.</p>
+    <div class="cols">
+      <div class="reveal" style="--d:.05s">
+        <h3>Tacos</h3>
+        <div class="item"><strong>Carne asada</strong><span class="p">$3.75</span><small>Onion, cilantro, lime</small></div>
+        <div class="item"><strong>Al pastor</strong><span class="p">$3.50</span></div>
+        <div class="item"><strong>Grilled chicken</strong><span class="p">$3.25</span></div>
+      </div>
+      <div class="reveal" style="--d:.15s">
+        <h3>Plates</h3>
+        <div class="item"><strong>Burrito grande</strong><span class="p">$11.99</span><small>Rice, beans, your choice of meat</small></div>
+        <div class="item"><strong>Sizzling fajitas</strong><span class="p">$14.99</span><small>Peppers, onions, warm tortillas</small></div>
+        <div class="item"><strong>Enchiladas</strong><span class="p">$12.99</span><small>Red or green sauce</small></div>
+      </div>
+      <div class="reveal" style="--d:.25s">
+        <h3>Sides &amp; drinks</h3>
+        <div class="item"><strong>Chips &amp; salsa</strong><span class="p">$4.00</span></div>
+        <div class="item"><strong>Fresh guacamole</strong><span class="p">$5.50</span></div>
+        <div class="item"><strong>Horchata</strong><span class="p">$3.25</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap hl">
+    <div>
+      <span class="eyebrow reveal">Hours &amp; location <span class="tag">Example hours</span></span>
+      <h2 class="reveal">Come <em>find us</em></h2>
+      <ul class="hours reveal">
+        <li><span>Mon</span><span>7 AM – 3 PM</span></li>
+        <li><span>Tue</span><span>7 AM – 3 PM</span></li>
+        <li><span>Wed</span><span>7 AM – 3 PM</span></li>
+        <li><span>Thu</span><span>7 AM – 3 PM</span></li>
+        <li><span>Fri</span><span>7 AM – 8 PM</span></li>
+        <li><span>Sat</span><span>8 AM – 8 PM</span></li>
+        <li><span>Sun</span><span>Closed</span></li>
+      </ul>
+      <address class="reveal" id="addr">1215 Dakota Avenue<br>South Sioux City, NE 68776</address>
+      <button class="copy reveal" id="copy" type="button">Copy address</button>
+      <span id="copied" class="eyebrow" role="status" aria-live="polite" style="margin-left:10px"></span>
+    </div>
+    <div class="reveal" style="--d:.15s"><iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-96.41942,42.47169,-96.40742,42.48369&amp;layer=mapnik&amp;marker=42.47769,-96.41342"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=42.47769&amp;mlon=-96.41342#map=17/42.47769/-96.41342" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=42.47769,-96.41342" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p></div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <span class="eyebrow reveal">Say hello</span>
+    <h2 class="reveal">Drop us <em>a line</em></h2>
+    <p class="reveal" style="color:var(--mute)">Questions or a note for the kitchen? Send an e-mail.</p>
+    <div class="acts reveal"><a class="btn" href="mailto:lamorenafamilyrestaurant@gmail.com">lamorenafamilyrestaurant@gmail.com</a> </div>
+    <section class="np-cta" id="offer"><h2>Want this for La Morena Family Restaurant?</h2><p>This is a free preview made for La Morena Family Restaurant. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20La%20Morena%20Family%20Restaurant&amp;body=Yes%2C%20please%20make%20this%20site%20for%20La%20Morena%20Family%20Restaurant.">Make it mine</a></p></section>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#top">La Morena</a>
+    <p>La Morena Family Restaurant · 1215 Dakota Avenue, South Sioux City, NE 68776</p>
+  </div>
+</footer>
+
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · La Morena Family Restaurant</div>
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+  var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nav=document.getElementById('nav'),bar=document.getElementById('progress');
+  var par=document.querySelectorAll('[data-par]');
+  var ticking=false;
+  function onScroll(){
+    var y=window.scrollY,h=document.documentElement.scrollHeight-innerHeight;
+    nav.classList.toggle('scrolled',y>30);
+    bar.style.transform='scaleX('+(h>0?y/h:0)+')';
+    if(!rm&&y<innerHeight*1.5){par.forEach(function(e){e.style.transform='translateY('+(y*parseFloat(e.dataset.par))+'px)'})}
+    ticking=false;
+  }
+  addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(onScroll)}},{passive:true});
+  onScroll();
+
+  var els=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window&&!rm){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    els.forEach(function(e){io.observe(e)});
+  }else{els.forEach(function(e){e.classList.add('in')})}
+
+  var b=document.getElementById('burger'),l=document.getElementById('menu-list');
+  b.addEventListener('click',function(){var o=l.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+  l.addEventListener('click',function(e){if(e.target.tagName==='A'){l.classList.remove('open');b.setAttribute('aria-expanded','false')}});
+
+  var cp=document.getElementById('copy'),msg=document.getElementById('copied');
+  cp.addEventListener('click',function(){
+    var t='1215 Dakota Avenue, South Sioux City, NE 68776';
+    function ok(){msg.textContent='Copied';setTimeout(function(){msg.textContent=''},2200)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,fb)}else fb();
+    function fb(){var a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy');ok()}catch(e){}a.remove()}
+  });
+
+  if(!rm&&matchMedia('(hover:hover)').matches){
+    document.querySelectorAll('.btn,[data-mag]').forEach(function(el){
+      el.addEventListener('mousemove',function(e){var r=el.getBoundingClientRect();el.style.transform='translate('+((e.clientX-r.left-r.width/2)*.18)+'px,'+((e.clientY-r.top-r.height/2)*.28-3)+'px)'});
+      el.addEventListener('mouseleave',function(){el.style.transform=''});
+    });
+  }
+})();
+</script>
+</body>
+</html>

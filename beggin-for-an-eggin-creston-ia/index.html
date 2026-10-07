@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Beggin' for an Eggin' — Restaurant in Creston, IA</title>
+<meta name="description" content="Beggin' for an Eggin', a restaurant at 509 West Taylor Street in Creston, Iowa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --yolk:#f7b500;
+  --yolk-d:#c98a00;
+  --shell:#fff8e7;
+  --ink:#2a1a12;
+  --ink2:#5a4636;
+  --tomato:#c63d2a;
+  --card:#fffdf5;
+  --line:rgba(42,26,18,.18);
+  --head:'Bricolage Grotesque',system-ui,sans-serif;
+  --hand:'Caveat',cursive;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;background:var(--shell);color:var(--ink);line-height:1.6;overflow-x:hidden;font-size:17px}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--head);line-height:1.02;text-wrap:balance;overflow-wrap:break-word;letter-spacing:-.02em}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+section{padding:clamp(64px,10vw,120px) 0;position:relative}
+.eyebrow{font-family:var(--hand);font-size:1.6rem;color:var(--tomato);display:block;margin-bottom:6px}
+h2{font-size:clamp(2.1rem,6vw,4rem);font-weight:800}
+
+/* slots */
+.np-banner{background:var(--ink);color:var(--shell);text-align:center;padding:9px 16px;font-size:.85rem;position:relative;z-index:60}
+.np-banner a{color:var(--yolk)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--yolk);color:var(--ink);font-weight:700;text-decoration:none;padding:14px 26px;border-radius:999px;border:2px solid var(--ink);box-shadow:4px 4px 0 var(--ink);transition:transform .25s,box-shadow .25s;cursor:pointer;font-size:1rem;font-family:inherit}
+.btn:hover{transform:translate(-2px,-3px);box-shadow:7px 8px 0 var(--ink)}
+.btn.alt{background:var(--shell)}
+small{font-size:.85rem}
+.map{border:2px solid var(--ink);border-radius:20px;overflow:hidden;background:var(--card);box-shadow:6px 6px 0 var(--ink)}
+.map iframe{width:100%;border:0;display:block;min-height:280px}
+.maplinks{display:flex;flex-wrap:wrap;gap:10px;padding:14px}
+.maplinks a{font-weight:700;font-size:.95rem;background:var(--yolk);padding:8px 16px;border-radius:999px;border:2px solid var(--ink);text-decoration:none;transition:transform .25s}
+.maplinks a:hover{transform:translateY(-2px)}
+.mapcredit{font-size:.75rem;color:var(--ink2);padding:0 14px 12px}
+.mapcredit a{color:inherit}
+.np-cta{background:var(--ink);color:var(--shell);border-radius:28px;padding:clamp(28px,6vw,64px);text-align:center;position:relative;overflow:hidden;border:3px solid var(--yolk);box-shadow:0 0 0 6px var(--ink),0 20px 50px rgba(42,26,18,.3)}
+.np-cta h2,.np-cta h3{color:var(--yolk)}
+.np-cta p{max-width:52ch;margin:12px auto 20px}
+.np-cta .btn{margin:6px}
+.np-cta .btn.alt{color:var(--ink)}
+
+/* progress + header */
+#bar{position:fixed;top:0;left:0;height:4px;width:100%;background:var(--tomato);transform:scaleX(0);transform-origin:0 50%;z-index:100}
+header{position:sticky;top:0;z-index:50;transition:background .3s,box-shadow .3s,transform .3s}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+header.scrolled{background:rgba(255,248,231,.94);backdrop-filter:blur(8px);box-shadow:0 2px 0 var(--ink)}
+.logo{font-family:var(--head);font-weight:800;text-decoration:none;font-size:1.15rem;display:flex;align-items:center;gap:8px;letter-spacing:-.02em}
+.logo svg{width:28px;height:28px;flex:none}
+nav ul{display:flex;gap:24px;list-style:none;align-items:center}
+nav a{text-decoration:none;font-weight:600;font-size:.95rem;position:relative;padding:4px 0}
+nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--tomato);transform:scaleX(0);transition:transform .3s;transform-origin:left}
+nav a:hover::after{transform:scaleX(1)}
+.burger{display:none;background:var(--yolk);border:2px solid var(--ink);border-radius:12px;width:46px;height:42px;cursor:pointer;font:inherit;font-weight:800}
+@media(max-width:820px){
+  .burger{display:block}
+  nav{position:absolute;top:68px;left:0;right:0;background:var(--shell);border-bottom:2px solid var(--ink);display:none}
+  nav.open{display:block}
+  nav ul{flex-direction:column;align-items:flex-start;padding:16px 20px 22px;gap:14px}
+  nav a{font-size:1.2rem}
+}
+
+/* hero */
+.hero{padding:clamp(40px,7vw,90px) 0 clamp(60px,9vw,110px);background:var(--shell);overflow:hidden;margin-top:-68px;padding-top:calc(68px + clamp(40px,7vw,90px))}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
+.hero h1{font-size:clamp(2.6rem,9.5vw,6.6rem);font-weight:800}
+.hero h1 .l{display:block}
+.hero h1 em{font-style:normal;color:var(--tomato)}
+.hero p.lead{font-size:1.2rem;max-width:34ch;margin:22px 0 28px;color:var(--ink2)}
+.hero .actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.badge{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.9rem;border:2px solid var(--ink);border-radius:999px;padding:6px 14px;background:var(--card);margin-bottom:18px}
+.badge i{width:10px;height:10px;border-radius:50%;background:#888;display:block}
+.badge.open i{background:#1f8a3b;animation:pulse 1.6s infinite}
+.badge.closed i{background:var(--tomato)}
+@keyframes pulse{50%{opacity:.35}}
+.egg-stage{position:relative;aspect-ratio:1;max-width:460px;width:100%;margin-inline:auto}
+.egg-stage .par{position:absolute;inset:0;will-change:transform}
+.egg-stage svg{width:100%;height:100%;overflow:visible}
+.pan{transform-origin:50% 55%}
+.yolk{transform-origin:50% 50%;animation:bob 4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px) scale(1.03)}}
+.sizzle{stroke-dasharray:60;animation:sz 2.4s linear infinite}
+@keyframes sz{to{stroke-dashoffset:-120}}
+.spark{position:absolute;font-family:var(--hand);font-size:1.7rem;color:var(--tomato);transform:rotate(-8deg)}
+.spark.a{top:2%;right:2%}
+.spark.b{bottom:4%;left:-2%;transform:rotate(6deg)}
+@media(max-width:820px){.hero .wrap{grid-template-columns:1fr}.egg-stage{max-width:320px}}
+
+/* marquee */
+.marquee{background:var(--yolk);border-block:3px solid var(--ink);overflow:hidden;padding:14px 0;white-space:nowrap}
+.marquee .track{display:inline-flex;animation:mq 28s linear infinite}
+.marquee span{font-family:var(--head);font-weight:800;font-size:clamp(1.3rem,3vw,2rem);padding:0 22px;display:inline-flex;align-items:center;gap:44px}
+.marquee span::after{content:"✺";color:var(--tomato)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* offer */
+.offer{background:var(--shell)}
+.offer .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+.tile{background:var(--card);border:2px solid var(--ink);border-radius:22px;padding:28px;box-shadow:5px 5px 0 var(--ink);transition:transform .3s,box-shadow .3s}
+.tile:hover{transform:translate(-3px,-5px) rotate(-.6deg);box-shadow:9px 11px 0 var(--ink)}
+.tile .n{font-family:var(--hand);font-size:2.2rem;color:var(--tomato);line-height:1}
+.tile h3{font-size:1.7rem;margin:6px 0 8px}
+.tile p{color:var(--ink2)}
+@media(max-width:820px){.offer .grid{grid-template-columns:1fr}}
+
+/* menu */
+.menu{background:var(--ink);color:var(--shell)}
+.menu h2{color:var(--yolk)}
+.menu .eyebrow{color:#ff8f7a}
+.tag{display:inline-block;background:var(--yolk);color:var(--ink);font-weight:800;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:999px;vertical-align:middle}
+.note{margin:16px 0 40px;max-width:60ch;border-left:4px solid var(--yolk);padding-left:16px;color:#f1e6cc}
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.msec{border:2px solid rgba(255,248,231,.35);border-radius:22px;padding:26px;transition:border-color .3s,transform .3s}
+.msec:hover{border-color:var(--yolk)}
+.msec h3{font-size:1.8rem;color:var(--yolk);margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.item{display:grid;grid-template-columns:1fr auto;gap:2px 14px;padding:12px 0;border-top:1px dashed rgba(255,248,231,.3);transition:transform .25s,padding .25s}
+.item:hover{transform:translateX(6px)}
+.item b{font-weight:700}
+.item .p{font-family:var(--head);font-weight:800;color:var(--yolk)}
+.item .d{grid-column:1/-1;color:#d9ccb0;font-size:.95rem}
+@media(max-width:820px){.mgrid{grid-template-columns:1fr}}
+
+/* hours */
+.hours .cols{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;margin-top:36px;align-items:start}
+.hcard{background:var(--card);border:2px solid var(--ink);border-radius:22px;padding:26px;box-shadow:5px 5px 0 var(--ink)}
+.hcard ul{list-style:none;margin-top:12px}
+.hcard li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line)}
+.hcard li:last-child{border:0}
+.hcard li.today{font-weight:800;color:var(--tomato)}
+.addr{margin-top:20px;font-style:normal}
+.addr button{margin-top:10px}
+.toast{font-size:.9rem;color:var(--tomato);font-weight:700;margin-left:8px}
+@media(max-width:820px){.hours .cols{grid-template-columns:1fr}}
+
+/* about */
+.about{background:var(--yolk);border-block:3px solid var(--ink)}
+.about p{font-family:var(--head);font-size:clamp(1.5rem,4vw,2.6rem);line-height:1.15;font-weight:500;max-width:24ch;letter-spacing:-.02em;text-wrap:balance}
+.about p b{font-weight:800;background:linear-gradient(transparent 62%,rgba(198,61,42,.45) 62%)}
+.about .sig{font-family:var(--hand);font-size:1.7rem;margin-top:18px;display:block}
+
+/* contact + cta */
+.contact{text-align:center}
+.contact .row{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:26px}
+.contact p{max-width:46ch;margin:14px auto 0;color:var(--ink2)}
+.ctas{padding-top:0}
+footer{padding:30px 0 40px;text-align:center;color:var(--ink2);font-size:.9rem}
+
+/* reveal: visible without JS */
+.js .rv{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0)*90ms)}
+.js .rv.in{opacity:1;transform:none}
+.hero .in-h{animation:rise .9s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--d,0)*120ms + .1s)}
+@keyframes rise{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:none}}
+.drop{animation:drop 1.1s cubic-bezier(.3,1.4,.5,1) .3s both}
+@keyframes drop{from{opacity:0;transform:translateY(-60px) scale(.9)}to{opacity:1;transform:none}}
+.draw{stroke-dasharray:420;stroke-dashoffset:420;animation:dr 2s ease forwards .6s}
+@keyframes dr{to{stroke-dashoffset:0}}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv{opacity:1;transform:none}
+  .draw{stroke-dashoffset:0}
+  .marquee .track{transform:none}
+  .marquee{overflow-x:auto}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div id="bar" aria-hidden="true"></div>
+
+<header id="top">
+  <div class="wrap">
+    <a class="logo" href="#hero" aria-label="Beggin' for an Eggin' home">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><ellipse cx="20" cy="22" rx="16" ry="14" fill="#fff" stroke="#2a1a12" stroke-width="2.5"/><circle cx="20" cy="22" r="7" fill="#f7b500" stroke="#2a1a12" stroke-width="2.5"/></svg>
+      Beggin' for an Eggin'
+    </a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav">☰</button>
+    <nav id="nav" aria-label="Main">
+      <ul>
+        <li><a href="#offer">The Place</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#hours">Hours &amp; location</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="hero">
+  <div class="wrap">
+    <div>
+      <div class="badge in-h" id="badge" hidden style="--d:0"><i></i><span></span></div>
+      <h1>
+        <span class="l in-h" style="--d:1">Beggin'</span>
+        <span class="l in-h" style="--d:2">for an <em>Eggin'</em></span>
+      </h1>
+      <p class="lead in-h" style="--d:3">A restaurant on West Taylor Street in Creston, Iowa. Pull up a chair.</p>
+      <div class="actions in-h" style="--d:4">
+        <a class="btn" href="#menu" data-mag>See the menu</a>
+        <a class="btn alt" href="#hours" data-mag>Find us</a>
+      </div>
+    </div>
+    <div class="egg-stage" aria-hidden="true">
+      <div class="par" id="par">
+        <svg viewBox="0 0 400 400">
+          <g class="pan">
+            <path class="draw" d="M70 200 C60 110 160 60 230 75 C320 90 350 150 335 230 C320 320 220 345 150 330 C80 315 75 260 70 200Z" fill="none" stroke="#2a1a12" stroke-width="5" stroke-linecap="round"/>
+            <path class="drop" d="M70 200 C60 110 160 60 230 75 C320 90 350 150 335 230 C320 320 220 345 150 330 C80 315 75 260 70 200Z" fill="#fffdf5" stroke="#2a1a12" stroke-width="5"/>
+            <g class="yolk"><circle class="drop" cx="205" cy="200" r="64" fill="#f7b500" stroke="#2a1a12" stroke-width="5"/>
+            <path d="M175 175 Q190 158 212 162" fill="none" stroke="#fff8e7" stroke-width="9" stroke-linecap="round" opacity=".8"/></g>
+          </g>
+          <path class="sizzle" d="M120 50 q10 -22 0 -40" fill="none" stroke="#c63d2a" stroke-width="5" stroke-linecap="round"/>
+          <path class="sizzle" style="animation-delay:.8s" d="M200 40 q10 -22 0 -40" fill="none" stroke="#c63d2a" stroke-width="5" stroke-linecap="round"/>
+          <path class="sizzle" style="animation-delay:1.5s" d="M280 50 q10 -22 0 -40" fill="none" stroke="#c63d2a" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+        <span class="spark a">sunny side up!</span>
+        <span class="spark b">Creston, IA</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Breakfast</span><span>Lunch</span><span>Dinner</span><span>Dessert</span><span>Creston, Iowa</span><span>West Taylor Street</span>
+    <span>Breakfast</span><span>Lunch</span><span>Dinner</span><span>Dessert</span><span>Creston, Iowa</span><span>West Taylor Street</span>
+  </div>
+</div>
+
+<section class="offer" id="offer">
+  <div class="wrap">
+    <span class="eyebrow rv">What's cooking</span>
+    <h2 class="rv" style="--i:1">A restaurant for every part of the day.</h2>
+    <div class="grid">
+      <article class="tile rv" style="--i:1"><span class="n">01</span><h3>Breakfast</h3><p>Eggs, pancakes and biscuits to start the morning right.</p></article>
+      <article class="tile rv" style="--i:2"><span class="n">02</span><h3>Lunch &amp; dinner</h3><p>Burgers, sandwiches and plates built for a real appetite.</p></article>
+      <article class="tile rv" style="--i:3"><span class="n">03</span><h3>Dessert</h3><p>Save room. Ask what pie is on today.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <span class="eyebrow rv">Menu <span class="tag">Example</span></span>
+    <h2 class="rv" style="--i:1">Come hungry.</h2>
+    <p class="note rv" style="--i:2">This is an example menu that shows how your menu would look. Your real dishes and prices go here.</p>
+    <div class="mgrid">
+      <div class="msec rv"><h3>Breakfast <span class="tag">Example</span></h3>
+        <div class="item"><b>Two-egg breakfast</b><span class="p">$8.99</span><span class="d">Eggs your way, hash browns, toast</span></div>
+        <div class="item"><b>Buttermilk pancakes</b><span class="p">$7.99</span><span class="d">Short stack with syrup</span></div>
+        <div class="item"><b>Biscuits &amp; gravy</b><span class="p">$8.49</span></div>
+      </div>
+      <div class="msec rv" style="--i:1"><h3>Lunch <span class="tag">Example</span></h3>
+        <div class="item"><b>Classic cheeseburger</b><span class="p">$10.99</span><span class="d">Served with fries</span></div>
+        <div class="item"><b>Club sandwich</b><span class="p">$10.49</span><span class="d">Turkey, bacon, lettuce, tomato</span></div>
+        <div class="item"><b>Grilled chicken salad</b><span class="p">$10.99</span></div>
+      </div>
+      <div class="msec rv"><h3>Dinner <span class="tag">Example</span></h3>
+        <div class="item"><b>Chicken fried steak</b><span class="p">$13.99</span><span class="d">Mashed potatoes and country gravy</span></div>
+        <div class="item"><b>Meatloaf</b><span class="p">$12.99</span></div>
+        <div class="item"><b>Fish &amp; chips</b><span class="p">$13.49</span></div>
+      </div>
+      <div class="msec rv" style="--i:1"><h3>Dessert <span class="tag">Example</span></h3>
+        <div class="item"><b>Homemade pie</b><span class="p">$4.99</span><span class="d">Ask about today's flavors</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hours" id="hours">
+  <div class="wrap">
+    <span class="eyebrow rv">Hours &amp; location</span>
+    <h2 class="rv" style="--i:1">Find your booth.</h2>
+    <div class="cols">
+      <div>
+        <div class="hcard rv">
+          <span class="tag">Example hours</span>
+          <ul id="hl">
+            <li data-d="1"><span>Mon</span><span>7 AM – 3 PM</span></li>
+            <li data-d="2"><span>Tue</span><span>7 AM – 3 PM</span></li>
+            <li data-d="3"><span>Wed</span><span>7 AM – 3 PM</span></li>
+            <li data-d="4"><span>Thu</span><span>7 AM – 3 PM</span></li>
+            <li data-d="5"><span>Fri</span><span>7 AM – 8 PM</span></li>
+            <li data-d="6"><span>Sat</span><span>8 AM – 8 PM</span></li>
+            <li data-d="0"><span>Sun</span><span>Closed</span></li>
+          </ul>
+          <address class="addr">509 West Taylor Street<br>Creston, IA 50801<br>
+            <button class="btn alt" id="copy" type="button">Copy address</button><span class="toast" id="toast" role="status"></span>
+          </address>
+        </div>
+      </div>
+      <div class="rv" style="--i:1"><iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-94.37372,41.04360,-94.36172,41.05560&amp;layer=mapnik&amp;marker=41.04960,-94.36772"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=41.04960&amp;mlon=-94.36772#map=17/41.04960/-94.36772" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=41.04960,-94.36772" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="wrap">
+    <p class="rv">Good food, a warm room, and <b>eggs done your way</b> in Creston.</p>
+    <span class="sig rv" style="--i:1">— see you on West Taylor</span>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <span class="eyebrow rv">Say hello</span>
+    <h2 class="rv" style="--i:1">Questions? Drop us a line.</h2>
+    <p class="rv" style="--i:2">Send a note by e-mail and we'll get back to you.</p>
+    <div class="row rv" style="--i:3"><a class="btn" href="mailto:begginforaneggin@gmail.com">begginforaneggin@gmail.com</a> </div>
+  </div>
+</section>
+
+<section class="ctas">
+  <div class="wrap rv"><section class="np-cta" id="offer"><h2>Want this for Beggin&#x27; for an Eggin&#x27;?</h2><p>This is a free preview made for Beggin&#x27; for an Eggin&#x27;. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20Beggin%27%20for%20an%20Eggin%27&amp;body=Yes%2C%20please%20make%20this%20site%20for%20Beggin%27%20for%20an%20Eggin%27.">Make it mine</a></p></section></div>
+</section>
+</main>
+
+<footer><div class="wrap">Beggin' for an Eggin' · 509 West Taylor Street, Creston, IA 50801</div></footer>
+
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · Beggin&#x27; for an Eggin&#x27;</div>
+
+<script>
+(function(){
+  var d=document,root=d.documentElement;
+  root.classList.add('js');
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var bar=d.getElementById('bar'),hd=d.getElementById('top'),par=d.getElementById('par');
+  var ticking=false;
+  function onScroll(){
+    var y=scrollY,h=root.scrollHeight-innerHeight;
+    bar.style.transform='scaleX('+(h>0?Math.min(1,y/h):0)+')';
+    hd.classList.toggle('scrolled',y>30);
+    if(!reduce&&par&&y<900)par.style.transform='translateY('+(y*.12)+'px) rotate('+(y*.015)+'deg)';
+    ticking=false;
+  }
+  addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(onScroll)}},{passive:true});
+  onScroll();
+
+  var els=d.querySelectorAll('.rv');
+  if('IntersectionObserver' in window&&!reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+    els.forEach(function(el){io.observe(el)});
+  }else els.forEach(function(el){el.classList.add('in')});
+
+  var nav=d.getElementById('nav'),bg=d.getElementById('burger');
+  bg.addEventListener('click',function(){var o=nav.classList.toggle('open');bg.setAttribute('aria-expanded',o);bg.textContent=o?'✕':'☰'});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A'){nav.classList.remove('open');bg.setAttribute('aria-expanded','false');bg.textContent='☰'}});
+
+  if(!reduce){
+    d.querySelectorAll('[data-mag]').forEach(function(b){
+      b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.15)+'px,'+((e.clientY-r.top-r.height/2)*.2-2)+'px)'});
+      b.addEventListener('mouseleave',function(){b.style.transform=''});
+    });
+  }
+
+  // highlight today in example hours (no open/closed badge: hours are examples only)
+  var today=new Date().getDay();
+  var li=d.querySelector('#hl li[data-d="'+today+'"]');
+  if(li)li.classList.add('today');
+
+  var cp=d.getElementById('copy'),ts=d.getElementById('toast');
+  cp.addEventListener('click',function(){
+    var t='509 West Taylor Street, Creston, IA 50801';
+    function ok(){ts.textContent='Copied!';setTimeout(function(){ts.textContent=''},2000)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,function(){ts.textContent='Copy failed'})}
+    else{var a=d.createElement('textarea');a.value=t;d.body.appendChild(a);a.select();try{d.execCommand('copy');ok()}catch(e){ts.textContent='Copy failed'}a.remove()}
+  });
+})();
+</script>
+</body>
+</html>

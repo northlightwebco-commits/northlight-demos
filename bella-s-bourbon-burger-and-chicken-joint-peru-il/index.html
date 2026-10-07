@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bella's Bourbon Burger &amp; Chicken Joint · Peru, IL</title>
+<meta name="description" content="Bella's Bourbon Burger & Chicken Joint, American food at 2380 Water Street in Peru, Illinois.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --wood:#1a100a;--plank:#2a1a10;--plank2:#34200f;--cream:#f5e7cf;--muted:#d2bd9d;
+  --orange:#e0651f;--amber:#f2a93b;--line:rgba(245,231,207,.18);
+  --slab:'Alfa Slab One',Georgia,serif;--cond:'Barlow Condensed',Impact,sans-serif;--body:'Barlow',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--wood);color:var(--cream);font-family:var(--body);font-size:1.0625rem;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img,svg{max-width:100%;display:block}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+.wood{background:
+  repeating-linear-gradient(90deg,transparent 0 158px,rgba(0,0,0,.45) 158px 160px),
+  repeating-linear-gradient(0deg,rgba(255,255,255,.018) 0 1px,transparent 1px 5px),
+  repeating-linear-gradient(2deg,rgba(0,0,0,.12) 0 3px,transparent 3px 11px),
+  linear-gradient(180deg,var(--plank),var(--wood))}
+.eyebrow{font-family:var(--cond);text-transform:uppercase;letter-spacing:.22em;font-weight:600;color:var(--amber);font-size:.95rem}
+h2{font-family:var(--slab);font-weight:400;font-size:clamp(2rem,6vw,4rem);line-height:1.05;text-wrap:balance;margin:.4rem 0 1rem}
+p{text-wrap:pretty}
+
+/* banner slot */
+.np-banner{background:var(--amber);color:#1a100a;text-align:center;font-family:var(--cond);font-weight:600;letter-spacing:.06em;font-size:.95rem;padding:.45rem 1rem;line-height:1.3}
+.np-banner a{font-weight:700}
+
+/* progress */
+.progress{position:fixed;left:0;top:0;height:4px;width:100%;background:var(--orange);transform:scaleX(0);transform-origin:left;z-index:100}
+
+/* header */
+header.site{position:sticky;top:0;z-index:50;transition:background .3s,box-shadow .3s}
+header.site .bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.1rem 0;transition:padding .3s}
+header.site.scrolled{background:rgba(26,16,10,.94);box-shadow:0 6px 24px rgba(0,0,0,.45);backdrop-filter:blur(8px)}
+header.site.scrolled .bar{padding:.6rem 0}
+.logo{font-family:var(--slab);text-decoration:none;font-size:1.25rem;line-height:1;display:flex;align-items:center;gap:.6rem}
+.logo i{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--orange);color:#1a100a;font-style:normal;font-size:1.1rem}
+nav ul{display:flex;gap:1.8rem;list-style:none;align-items:center}
+nav a{font-family:var(--cond);text-transform:uppercase;letter-spacing:.14em;font-weight:600;text-decoration:none;font-size:1rem;position:relative;padding:.3rem 0}
+nav a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+nav a:not(.btn):hover::after{transform:scaleX(1)}
+.menu-btn{display:none;background:none;border:2px solid var(--cream);color:var(--cream);width:44px;height:44px;border-radius:8px;cursor:pointer;position:relative}
+.menu-btn span,.menu-btn span::before,.menu-btn span::after{position:absolute;left:10px;right:10px;height:2px;background:currentColor;content:"";transition:transform .3s,opacity .3s}
+.menu-btn span{top:20px}.menu-btn span::before{left:0;right:0;top:-7px}.menu-btn span::after{left:0;right:0;top:7px}
+.menu-btn[aria-expanded=true] span{background:transparent}
+.menu-btn[aria-expanded=true] span::before{transform:translateY(7px) rotate(45deg)}
+.menu-btn[aria-expanded=true] span::after{transform:translateY(-7px) rotate(-45deg)}
+
+/* buttons */
+.btn{display:inline-block;background:var(--orange);color:#1a100a;font-family:var(--cond);font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:1.05rem;padding:.8rem 1.5rem;border-radius:6px;border:2px solid var(--orange);text-decoration:none;cursor:pointer;transition:transform .25s,box-shadow .25s,background .25s,color .25s;will-change:transform}
+.btn:hover,.btn:focus-visible{transform:translateY(-3px);box-shadow:0 10px 0 -2px rgba(0,0,0,.4),0 14px 24px rgba(224,101,31,.3)}
+.btn.alt{background:transparent;color:var(--cream);border-color:var(--cream)}
+.btn.alt:hover{background:var(--cream);color:#1a100a}
+small{font-size:.85rem;color:var(--muted)}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:clamp(2.5rem,7vw,5rem) 0 clamp(4rem,9vw,7rem)}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:2rem;align-items:center}
+.hero h1{font-family:var(--slab);font-weight:400;font-size:clamp(2rem,7.4vw,6.2rem);line-height:1;letter-spacing:-.005em}
+.hero h1 .l{display:block;overflow:hidden;padding-bottom:.08em}
+.hero h1 .l>span{display:block}
+.hero h1 .o{color:var(--orange)}
+.hero h1 .s{font-size:.5em;color:var(--amber);font-family:var(--cond);font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.hero .lede{font-size:clamp(1.1rem,2.4vw,1.35rem);max-width:30rem;margin:1.4rem 0 1.8rem;color:var(--muted)}
+.hero .acts{display:flex;flex-wrap:wrap;gap:.9rem}
+.art{position:relative;aspect-ratio:1;width:min(100%,480px);margin-inline:auto}
+.art .glow{position:absolute;inset:8%;border-radius:50%;background:radial-gradient(circle,rgba(242,169,59,.35),transparent 68%)}
+.burger{position:absolute;inset:14% 6% 10%;will-change:transform}
+.burger path,.burger rect,.burger ellipse{fill:transparent;stroke:var(--cream);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.8s .5s cubic-bezier(.6,0,.2,1) forwards,fillin .9s 2.1s forwards}
+.burger .b{--f:#d98a2b}.burger .p{--f:#5a2e18}.burger .c{--f:var(--amber)}.burger .g{--f:#5e8a3a}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fillin{to{fill:var(--f)}}
+.stamp{position:absolute;right:-2%;top:-2%;width:34%;aspect-ratio:1;animation:spin 28s linear infinite}
+.stamp text{font-family:var(--cond);font-weight:700;font-size:12.5px;letter-spacing:.22em;fill:var(--amber);text-transform:uppercase}
+@keyframes spin{to{transform:rotate(360deg)}}
+.steam{position:absolute;left:30%;top:2%;width:40%;height:22%;pointer-events:none}
+.steam path{fill:none;stroke:rgba(245,231,207,.35);stroke-width:3;stroke-linecap:round;animation:rise 4s ease-in-out infinite}
+.steam path:nth-child(2){animation-delay:1.3s}.steam path:nth-child(3){animation-delay:2.4s}
+@keyframes rise{0%{transform:translateY(14px);opacity:0}40%{opacity:1}100%{transform:translateY(-14px);opacity:0}}
+
+/* hero entrance */
+.js .hero h1 .l>span{transform:translateY(105%);animation:up .9s cubic-bezier(.2,.8,.2,1) forwards}
+.js .hero h1 .l:nth-child(1)>span{animation-delay:.15s}
+.js .hero h1 .l:nth-child(2)>span{animation-delay:.3s}
+.js .hero h1 .l:nth-child(3)>span{animation-delay:.45s}
+.js .hero .fade{opacity:0;transform:translateY(18px);animation:fade .9s forwards}
+.js .hero .eyebrow.fade{animation-delay:.05s}
+.js .hero .lede.fade{animation-delay:.75s}
+.js .hero .acts.fade{animation-delay:.9s}
+.js .art{opacity:0;animation:fade 1.2s .3s forwards}
+@keyframes up{to{transform:none}}
+@keyframes fade{to{opacity:1;transform:none}}
+
+/* marquee */
+.marquee{background:var(--orange);color:#1a100a;overflow:hidden;border-block:3px solid #1a100a;transform:rotate(-1deg);margin:-1.2rem -2% 0;position:relative;z-index:2}
+.marquee .track{display:flex;width:max-content;animation:scroll 32s linear infinite}
+.marquee span{font-family:var(--slab);font-size:clamp(1.2rem,3vw,1.9rem);padding:.7rem 1.4rem;white-space:nowrap}
+.marquee span:nth-child(even){font-family:var(--cond);color:#1a100a;opacity:.8}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+section{padding:clamp(4rem,9vw,7rem) 0}
+.intro{max-width:36rem;color:var(--muted)}
+
+/* offer */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.4rem}
+.card{background:linear-gradient(160deg,var(--plank2),var(--plank));border:1px solid var(--line);border-radius:12px;padding:2rem 1.6rem;transition:transform .35s,border-color .35s,box-shadow .35s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-8px) rotate(-.6deg);border-color:var(--orange);box-shadow:0 20px 36px rgba(0,0,0,.45)}
+.card .n{font-family:var(--slab);font-size:3.4rem;color:var(--orange);line-height:1}
+.card h3{font-family:var(--slab);font-weight:400;font-size:1.7rem;margin:.6rem 0 .4rem}
+.card p{color:var(--muted)}
+
+/* menu */
+#menu{background:#120a06;border-block:1px solid var(--line)}
+.note{display:flex;gap:.8rem;align-items:flex-start;border:2px dashed var(--amber);color:var(--cream);border-radius:10px;padding:1rem 1.2rem;margin:1.4rem 0 2.6rem;max-width:44rem}
+.tag{display:inline-block;background:var(--amber);color:#1a100a;font-family:var(--cond);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem;padding:.15rem .6rem;border-radius:4px;white-space:nowrap}
+.tickets{display:grid;grid-template-columns:repeat(2,1fr);gap:1.8rem}
+.ticket{position:relative;background:var(--cream);color:#2a1a10;padding:1.8rem 1.6rem 1.6rem 2.2rem;border-radius:6px;transition:transform .35s,box-shadow .35s;
+  -webkit-mask:radial-gradient(circle 11px at 0 50%,transparent 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 11px at 100% 50%,transparent 98%,#000) right/51% 100% no-repeat;
+  mask:radial-gradient(circle 11px at 0 50%,transparent 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 11px at 100% 50%,transparent 98%,#000) right/51% 100% no-repeat}
+.ticketwrap{filter:drop-shadow(0 10px 0 rgba(0,0,0,.35));transition:transform .35s}
+.ticketwrap:hover{transform:translateY(-6px) rotate(.5deg)}
+.ticket::before{content:"";position:absolute;left:1rem;top:1rem;bottom:1rem;border-left:2px dashed rgba(42,26,16,.35)}
+.ticket header{display:flex;justify-content:space-between;align-items:center;gap:.8rem;border-bottom:3px double #2a1a10;padding-bottom:.7rem;margin-bottom:.4rem}
+.ticket h3{font-family:var(--slab);font-weight:400;font-size:1.8rem;color:#b0460f}
+.ticket .tag{background:#2a1a10;color:var(--cream)}
+.item{display:flex;justify-content:space-between;gap:1rem;padding:.8rem 0;border-bottom:1px dotted rgba(42,26,16,.4);transition:padding .25s}
+.item:last-child{border:0}
+.item:hover{padding-left:.5rem}
+.item b{font-family:var(--cond);font-size:1.3rem;text-transform:uppercase;letter-spacing:.04em;display:block;line-height:1.2}
+.item span{font-size:.98rem;color:#4a3524}
+.item em{font-style:normal;font-family:var(--slab);color:#b0460f;white-space:nowrap}
+
+/* visit */
+.visit{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(1.5rem,5vw,4rem);align-items:start}
+.hours{list-style:none;margin:1.2rem 0;border-top:1px solid var(--line)}
+.hours li{display:flex;justify-content:space-between;padding:.7rem .2rem;border-bottom:1px solid var(--line);font-family:var(--cond);font-size:1.3rem;letter-spacing:.06em;text-transform:uppercase;transition:background .25s,padding .25s}
+.hours li:hover{background:rgba(224,101,31,.12);padding-inline:.8rem}
+.hours li.today{color:var(--amber)}
+.hours li.today b::after{content:" · today";font-size:.85rem;opacity:.85}
+.addr{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;margin-top:1rem}
+.addr address{font-style:normal;font-size:1.15rem}
+.copy{background:none;color:var(--cream);border:2px solid var(--line);border-radius:6px;padding:.45rem .9rem;font:600 .95rem var(--cond);letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:border-color .25s,transform .25s}
+.copy:hover{border-color:var(--orange);transform:translateY(-2px)}
+.map{border-radius:12px;overflow:hidden;border:2px solid var(--line);background:var(--plank)}
+.map iframe{width:100%;min-height:340px;border:0;display:block}
+.maplinks{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:.9rem}
+.maplinks a{font-family:var(--cond);text-transform:uppercase;letter-spacing:.1em;font-weight:600;color:var(--amber)}
+.mapcredit{font-size:.8rem;color:var(--muted);margin-top:.5rem}
+.mapcredit a{color:var(--muted)}
+
+/* contact */
+.contact{text-align:center;background:linear-gradient(180deg,transparent,rgba(224,101,31,.12))}
+.contact .acts{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:1.6rem}
+.contact p{max-width:30rem;margin-inline:auto;color:var(--muted)}
+
+/* cta slot */
+.np-cta{width:min(980px,100% - 40px);margin:0 auto clamp(3rem,7vw,5rem);padding:clamp(1.8rem,5vw,3.4rem);background:var(--cream);color:#2a1a10;border-radius:14px;text-align:center;position:relative;box-shadow:0 0 0 6px var(--wood),0 0 0 9px var(--orange),0 24px 50px rgba(0,0,0,.5)}
+.np-cta h2,.np-cta h3{font-family:var(--slab);font-weight:400;color:#b0460f;text-wrap:balance}
+.np-cta p{margin:.6rem auto 1.2rem;max-width:34rem}
+.np-cta .btn{margin:.3rem}
+.np-cta .btn.alt{color:#2a1a10;border-color:#2a1a10}
+.np-cta .btn.alt:hover{background:#2a1a10;color:var(--cream)}
+.np-cta small{color:#5b4330;display:block;margin-top:.6rem}
+
+footer{padding:2rem 0 2.4rem;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-family:var(--cond);letter-spacing:.14em;text-transform:uppercase;font-size:.95rem}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i,0)*110ms)}
+.js .rv.in{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .hero .wrap,.visit{grid-template-columns:1fr}
+  .art{width:min(78%,380px)}
+  .cards{grid-template-columns:1fr}
+  .tickets{grid-template-columns:1fr}
+  .menu-btn{display:block}
+  nav ul{position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;background:rgba(26,16,10,.98);border-bottom:2px solid var(--orange);padding:.5rem 20px 1.2rem;max-height:0;overflow:hidden;visibility:hidden;opacity:0;transition:opacity .3s}
+  nav ul.open{max-height:80vh;visibility:visible;opacity:1}
+  nav li{width:100%;border-bottom:1px solid var(--line)}
+  nav a{display:block;padding:.9rem 0;font-size:1.2rem}
+  nav a:not(.btn)::after{display:none}
+}
+@media(max-width:420px){.ticket{padding-left:1.9rem}.item b{font-size:1.15rem}.logo{font-size:1.05rem}}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .js .rv,.js .hero .fade,.js .art,.js .hero h1 .l>span{opacity:1!important;transform:none!important}
+  .burger path,.burger rect,.burger ellipse{stroke-dashoffset:0;fill:var(--f)}
+  .steam{display:none}
+  .marquee .track{flex-wrap:wrap;width:auto}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="site" id="top">
+  <div class="wrap bar">
+    <a href="#top" class="logo" aria-label="Bella's Bourbon Burger and Chicken Joint, home"><i>B</i><span>Bella's</span></a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navList" aria-label="Menu"><span></span></button>
+    <nav aria-label="Main">
+      <ul id="navList">
+        <li><a href="#offer">The Joint</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#visit">Hours &amp; Location</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="hero wood">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow fade">American · Peru, Illinois</p>
+      <h1 aria-label="Bella's Bourbon Burger and Chicken Joint">
+        <span class="l"><span>Bella's</span></span>
+        <span class="l"><span class="o">Bourbon Burger</span></span>
+        <span class="l"><span><span class="s">&amp;</span> Chicken Joint</span></span>
+      </h1>
+      <p class="lede fade">Burgers, chicken and American plates on Water Street in Peru.</p>
+      <div class="acts fade">
+        <a class="btn" href="#menu">See the menu</a>
+        <a class="btn alt" href="#visit">Find us</a>
+      </div>
+    </div>
+    <div class="art" id="art" aria-hidden="true">
+      <div class="glow"></div>
+      <svg class="stamp" viewBox="0 0 120 120"><defs><path id="circ" d="M60 60 m-46 0 a46 46 0 1 1 92 0 a46 46 0 1 1 -92 0"/></defs><circle cx="60" cy="60" r="56" fill="none" stroke="#f2a93b" stroke-width="1.5" stroke-dasharray="3 5"/><text><textPath href="#circ">Burgers · Chicken · American · Peru IL ·</textPath></text></svg>
+      <svg class="steam" viewBox="0 0 100 50"><path d="M25 45c-8-10 8-14 0-25"/><path d="M50 45c-8-10 8-14 0-25"/><path d="M75 45c-8-10 8-14 0-25"/></svg>
+      <svg class="burger" id="burger" viewBox="0 0 300 260">
+        <path class="b" pathLength="1" d="M30 100C30 40 80 18 150 18s120 22 120 82z"/>
+        <path class="g" pathLength="1" d="M24 112c14 14 28-8 42 0s28 14 42 0 28 14 42 0 28 14 42 0 28 14 42 0 28 4 42-6v14H24z"/>
+        <path class="c" pathLength="1" d="M34 126h232l-30 34-30-34-30 34-30-34-30 34-30-34-30 34z"/>
+        <rect class="p" pathLength="1" x="26" y="148" width="248" height="38" rx="19"/>
+        <path class="b" pathLength="1" d="M34 198h232c0 30-14 44-44 44H78c-30 0-44-14-44-44z"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<div class="marquee" aria-hidden="true"><div class="track" id="track">
+  <span>Burgers</span><span>·</span><span>Chicken</span><span>·</span><span>Bourbon</span><span>·</span><span>American</span><span>·</span><span>Water Street</span><span>·</span><span>Peru, IL</span><span>·</span>
+</div></div>
+
+<section id="offer">
+  <div class="wrap">
+    <p class="eyebrow rv">The Joint</p>
+    <h2 class="rv" style="--i:1">Two things in the name. Both done right.</h2>
+    <p class="intro rv" style="--i:2">Burgers and chicken, American through and through, at 2380 Water Street.</p>
+    <div class="cards">
+      <article class="card rv" style="--i:1"><div class="n">01</div><h3>Burgers</h3><p>The first word on the sign after Bourbon. Stacked, hot and American.</p></article>
+      <article class="card rv" style="--i:2"><div class="n">02</div><h3>Chicken</h3><p>The other half of the name, and the other half of the reason to stop in.</p></article>
+      <article class="card rv" style="--i:3"><div class="n">03</div><h3>American</h3><p>Straightforward American food in Peru, Illinois.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="wrap">
+    <p class="eyebrow rv">Menu</p>
+    <h2 class="rv" style="--i:1">Order up</h2>
+    <p class="note rv" style="--i:2"><span class="tag">Example</span><span>This is an example menu that shows how your menu would look. Your real dishes and prices go here.</span></p>
+    <div class="tickets">
+      <div class="ticketwrap rv" style="--i:0"><div class="ticket"><header><h3>Breakfast</h3><span class="tag">Example</span></header>
+        <div class="item"><div><b>Two-egg breakfast</b><span>Eggs your way, hash browns, toast</span></div><em>$8.99</em></div>
+        <div class="item"><div><b>Buttermilk pancakes</b><span>Short stack with syrup</span></div><em>$7.99</em></div>
+        <div class="item"><div><b>Biscuits &amp; gravy</b></div><em>$8.49</em></div></div></div>
+      <div class="ticketwrap rv" style="--i:1"><div class="ticket"><header><h3>Lunch</h3><span class="tag">Example</span></header>
+        <div class="item"><div><b>Classic cheeseburger</b><span>Served with fries</span></div><em>$10.99</em></div>
+        <div class="item"><div><b>Club sandwich</b><span>Turkey, bacon, lettuce, tomato</span></div><em>$10.49</em></div>
+        <div class="item"><div><b>Grilled chicken salad</b></div><em>$10.99</em></div></div></div>
+      <div class="ticketwrap rv" style="--i:2"><div class="ticket"><header><h3>Dinner</h3><span class="tag">Example</span></header>
+        <div class="item"><div><b>Chicken fried steak</b><span>Mashed potatoes and country gravy</span></div><em>$13.99</em></div>
+        <div class="item"><div><b>Meatloaf</b></div><em>$12.99</em></div>
+        <div class="item"><div><b>Fish &amp; chips</b></div><em>$13.49</em></div></div></div>
+      <div class="ticketwrap rv" style="--i:3"><div class="ticket"><header><h3>Dessert</h3><span class="tag">Example</span></header>
+        <div class="item"><div><b>Homemade pie</b><span>Ask about today's flavors</span></div><em>$4.99</em></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="visit" class="wood">
+  <div class="wrap visit">
+    <div>
+      <p class="eyebrow rv">Hours &amp; location</p>
+      <h2 class="rv" style="--i:1">Find the joint</h2>
+      <p class="rv" style="--i:2"><span class="tag">Example hours</span></p>
+      <ul class="hours rv" id="hours" style="--i:3">
+        <li data-d="1"><b>Mon</b><span>7 AM – 3 PM</span></li>
+        <li data-d="2"><b>Tue</b><span>7 AM – 3 PM</span></li>
+        <li data-d="3"><b>Wed</b><span>7 AM – 3 PM</span></li>
+        <li data-d="4"><b>Thu</b><span>7 AM – 3 PM</span></li>
+        <li data-d="5"><b>Fri</b><span>7 AM – 8 PM</span></li>
+        <li data-d="6"><b>Sat</b><span>8 AM – 8 PM</span></li>
+        <li data-d="0"><b>Sun</b><span>Closed</span></li>
+      </ul>
+      <div class="addr rv" style="--i:4">
+        <address id="addr">2380 Water Street, Peru, IL</address>
+        <button class="copy" id="copyBtn" type="button" hidden>Copy address</button>
+      </div>
+    </div>
+    <div class="rv" style="--i:2"><iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-89.14008,41.31445,-89.12808,41.32645&amp;layer=mapnik&amp;marker=41.32045,-89.13408"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=41.32045&amp;mlon=-89.13408#map=17/41.32045/-89.13408" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=41.32045,-89.13408" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p></div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <p class="eyebrow rv">Contact</p>
+    <h2 class="rv" style="--i:1">Say hello</h2>
+    <p class="rv" style="--i:2">Questions for Bella's? Send a note.</p>
+    <div class="acts rv" style="--i:3"><a class="btn" href="mailto:morenosonmain@gmail.com">morenosonmain@gmail.com</a> </div>
+  </div>
+</section>
+
+<section class="np-cta" id="offer"><h2>Want this for Bella&#x27;s Bourbon Burger &amp; Chicken Joint?</h2><p>This is a free preview made for Bella&#x27;s Bourbon Burger &amp; Chicken Joint. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20Bella%27s%20Bourbon%20Burger%20%26%20Chicken%20Joint&amp;body=Yes%2C%20please%20make%20this%20site%20for%20Bella%27s%20Bourbon%20Burger%20%26%20Chicken%20Joint.">Make it mine</a></p></section>
+</main>
+
+<footer><div class="wrap">Bella's Bourbon Burger &amp; Chicken Joint · 2380 Water Street · Peru, IL</div></footer>
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · Bella&#x27;s Bourbon Burger &amp; Chicken Joint</div>
+<script>
+(function(){
+  var d=document,root=d.documentElement,rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  root.classList.add('js');
+  var hdr=d.querySelector('header.site'),prog=d.getElementById('progress'),burger=d.getElementById('burger'),art=d.getElementById('art');
+  var tk=d.getElementById('track');
+  if(tk&&!rm){tk.innerHTML+=tk.innerHTML}
+  var tick=false;
+  function onScroll(){
+    var y=window.scrollY,h=d.documentElement.scrollHeight-innerHeight;
+    hdr.classList.toggle('scrolled',y>30);
+    prog.style.transform='scaleX('+(h>0?Math.min(y/h,1):0)+')';
+    if(!rm&&art&&y<innerHeight*1.2){burger.style.transform='translateY('+(y*.12)+'px) rotate('+(y*.015)+'deg)'}
+    tick=false;
+  }
+  addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(onScroll)}},{passive:true});
+  onScroll();
+
+  var mb=d.getElementById('menuBtn'),nl=d.getElementById('navList');
+  mb.addEventListener('click',function(){var o=nl.classList.toggle('open');mb.setAttribute('aria-expanded',o)});
+  nl.addEventListener('click',function(e){if(e.target.closest('a')){nl.classList.remove('open');mb.setAttribute('aria-expanded','false')}});
+
+  var els=d.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    els.forEach(function(el){io.observe(el)});
+  }else{els.forEach(function(el){el.classList.add('in')})}
+
+  var t=new Date().getDay(),row=d.querySelector('#hours li[data-d="'+t+'"]');
+  if(row)row.classList.add('today');
+
+  var cb=d.getElementById('copyBtn'),ad=d.getElementById('addr');
+  if(cb&&navigator.clipboard){
+    cb.hidden=false;
+    cb.addEventListener('click',function(){
+      navigator.clipboard.writeText(ad.textContent.trim()).then(function(){
+        cb.textContent='Copied!';setTimeout(function(){cb.textContent='Copy address'},1800);
+      }).catch(function(){});
+    });
+  }
+
+  if(!rm&&matchMedia('(hover:hover)').matches){
+    d.querySelectorAll('.btn').forEach(function(b){
+      b.addEventListener('mousemove',function(e){
+        var r=b.getBoundingClientRect(),x=(e.clientX-r.left-r.width/2)*.18,y=(e.clientY-r.top-r.height/2)*.28;
+        b.style.transform='translate('+x+'px,'+(y-3)+'px)';
+      });
+      b.addEventListener('mouseleave',function(){b.style.transform=''});
+    });
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Taste of Thai · Rantoul, IL</title>
+<meta name="description" content="Taste of Thai in Rantoul, IL. Thai. Dine in, get it delivered, take it to go.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400;1,9..144,600&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{
+  --ink:#0c1511;--ink2:#121f19;--ink3:#192a22;
+  --cream:#f4ecdc;--mute:#b9c2b6;
+  --chili:#ff5a36;--gold:#d9a441;
+  --line:rgba(217,164,65,.35);
+  --serif:'Fraunces',Georgia,serif;--sans:'Instrument Sans',system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--ink);color:var(--cream);font-family:var(--sans);font-size:1.05rem;line-height:1.6;overflow-x:hidden}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+section,header,footer{scroll-margin-top:72px}
+.wrap{width:min(1180px,100% - 2.5rem);margin-inline:auto}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.02;text-wrap:balance;overflow-wrap:break-word}
+h2{font-size:clamp(2.1rem,6.5vw,4.4rem);letter-spacing:-.02em}
+h2 em,h1 em{font-style:italic;color:var(--chili);font-weight:400}
+.eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:.8rem;margin-bottom:1.1rem}
+.eyebrow::before{content:"";width:2.4rem;height:1px;background:var(--gold)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* slots */
+.np-banner{background:var(--gold);color:#1a1405;text-align:center;font-size:.85rem;padding:.5rem 1rem;font-weight:500}
+.np-banner a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;background:var(--chili);color:#0c1511;font:600 1rem var(--sans);padding:.85rem 1.5rem;border-radius:999px;text-decoration:none;border:1.5px solid var(--chili);cursor:pointer;transition:transform .35s var(--ease),background .3s,color .3s,box-shadow .3s;will-change:transform}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px -10px rgba(255,90,54,.7)}
+.btn.alt{background:transparent;color:var(--cream);border-color:var(--line)}
+.btn.alt:hover{border-color:var(--gold);color:var(--gold);box-shadow:none}
+.small{font-size:.85rem;color:var(--mute)}
+.map{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--ink2);margin-top:1rem}
+.map iframe{width:100%;min-height:300px;border:0;display:block;filter:saturate(.7) contrast(1.05)}
+.maplinks{display:flex;flex-wrap:wrap;gap:.6rem;padding:.9rem}
+.maplinks a{color:var(--cream);font-size:.92rem;border:1px solid var(--line);padding:.45rem .9rem;border-radius:999px;text-decoration:none;transition:.3s}
+.maplinks a:hover{border-color:var(--gold);color:var(--gold)}
+.mapcredit{font-size:.72rem;color:var(--mute);padding:0 .9rem .8rem}
+.mapcredit a{color:var(--mute)}
+.np-cta{position:relative;margin:0 auto;width:min(1000px,100% - 2.5rem);padding:clamp(2rem,5vw,4rem);border:1px solid var(--gold);border-radius:28px;background:radial-gradient(120% 140% at 100% 0,rgba(255,90,54,.22),transparent 55%),var(--ink2);text-align:center;overflow:hidden}
+.np-cta::before{content:"";position:absolute;inset:8px;border:1px solid var(--line);border-radius:21px;pointer-events:none}
+.np-cta h2,.np-cta h3{font-size:clamp(1.8rem,5vw,3rem);margin-bottom:.8rem}
+.np-cta p{color:var(--mute);margin-bottom:1.2rem}
+.np-cta .btn{margin:.3rem}
+
+/* progress + header */
+.progress{position:fixed;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--chili),var(--gold));transform-origin:0 50%;transform:scaleX(0);z-index:100}
+header.nav{position:sticky;top:0;z-index:90;transition:background .4s,box-shadow .4s,backdrop-filter .4s}
+header.nav .in{display:flex;align-items:center;justify-content:space-between;height:76px;transition:height .4s var(--ease)}
+header.nav.scrolled{background:rgba(12,21,17,.88);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+header.nav.scrolled .in{height:60px}
+.logo{font-family:var(--serif);font-weight:800;font-size:1.3rem;text-decoration:none;letter-spacing:-.01em}
+.logo span{color:var(--chili);font-style:italic;font-weight:400}
+nav ul{display:flex;gap:2rem;list-style:none;align-items:center}
+nav a{text-decoration:none;font-size:.95rem;position:relative;padding:.3rem 0}
+nav ul a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+nav ul a:not(.btn):hover::after{transform:scaleX(1)}
+nav .btn{padding:.55rem 1.1rem;font-size:.9rem}
+.burger{display:none;background:none;border:1px solid var(--line);color:var(--cream);width:44px;height:44px;border-radius:50%;cursor:pointer;position:relative}
+.burger i{position:absolute;left:12px;right:12px;height:1.5px;background:currentColor;transition:transform .35s var(--ease),opacity .2s}
+.burger i:nth-child(1){top:16px}.burger i:nth-child(2){top:21px}.burger i:nth-child(3){top:26px}
+.burger[aria-expanded=true] i:nth-child(1){transform:translateY(5px) rotate(45deg)}
+.burger[aria-expanded=true] i:nth-child(2){opacity:0}
+.burger[aria-expanded=true] i:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
+@media(max-width:820px){
+  .burger{display:block}
+  nav ul{position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:var(--ink);padding:.5rem 1.25rem 1.5rem;border-bottom:1px solid var(--line);display:none}
+  nav ul.open{display:flex}
+  nav ul li{width:100%;border-bottom:1px solid rgba(217,164,65,.15)}
+  nav ul a{display:block;padding:1rem 0;font-size:1.2rem}
+  nav ul li:last-child{border:0;padding-top:1rem}
+}
+
+/* hero */
+.hero{position:relative;min-height:calc(100vh - 76px);display:grid;align-items:center;padding:3rem 0 5rem;overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(70% 60% at 75% 40%,#1b3a2b 0,transparent 70%)}
+.hero .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:2rem;align-items:center}
+.hero h1{font-size:clamp(3rem,12.5vw,9rem);letter-spacing:-.035em;font-weight:800}
+.hero h1 span{display:block}
+.hero h1 .l2{padding-left:clamp(0rem,4vw,3rem)}
+.lead{font-size:clamp(1.1rem,2.4vw,1.5rem);max-width:30ch;margin:1.6rem 0 2rem;color:var(--cream)}
+.hero .cta{display:flex;flex-wrap:wrap;gap:.8rem}
+.visual{position:relative;aspect-ratio:1;width:min(100%,520px);margin-inline:auto}
+.visual .sun{position:absolute;inset:6%;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff7a4d,var(--chili) 55%,#c7321a);box-shadow:0 0 120px rgba(255,90,54,.35);will-change:transform}
+.visual .ring{position:absolute;inset:-4%;animation:spin 40s linear infinite}
+.visual .ring text{font:600 11.5px var(--sans);letter-spacing:.28em;fill:var(--gold);text-transform:uppercase}
+.visual .bowl{position:absolute;inset:0;will-change:transform}
+.steam path{stroke-dasharray:140;stroke-dashoffset:140;animation:draw 3.6s ease-in-out infinite}
+.steam path:nth-child(2){animation-delay:.6s}.steam path:nth-child(3){animation-delay:1.2s}
+@keyframes draw{0%{stroke-dashoffset:140;opacity:0}20%{opacity:1}60%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:-140;opacity:0}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.scrollcue{position:absolute;bottom:1.4rem;left:50%;width:1px;height:46px;background:var(--line);overflow:hidden}
+.scrollcue::after{content:"";position:absolute;inset:0;background:var(--gold);animation:cue 2s var(--ease) infinite}
+@keyframes cue{0%{transform:translateY(-100%)}100%{transform:translateY(100%)}}
+@keyframes rise{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+@keyframes pop{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:none}}
+.hero h1 .l1{animation:rise 1s var(--ease) .1s both}
+.hero h1 .l2{animation:rise 1s var(--ease) .25s both}
+.hero h1 .l3{animation:rise 1s var(--ease) .4s both}
+.hero .lead{animation:rise 1s var(--ease) .6s both}
+.hero .cta{animation:rise 1s var(--ease) .8s both}
+.hero .eyebrow{animation:rise 1s var(--ease) 0s both}
+.visual{animation:pop 1.4s var(--ease) .3s both}
+@media(max-width:820px){.hero .grid{grid-template-columns:1fr}.visual{width:min(78%,380px);order:-1}.hero{padding-top:1.5rem}.scrollcue{display:none}}
+
+/* marquee */
+.marquee{border-block:1px solid var(--line);overflow:hidden;background:var(--ink2);padding:1.1rem 0}
+.track{display:flex;width:max-content;animation:slide 38s linear infinite}
+.marquee:hover .track{animation-play-state:paused}
+.track span{font-family:var(--serif);font-style:italic;font-size:clamp(1.3rem,3vw,2rem);padding-right:2rem;white-space:nowrap;display:flex;align-items:center;gap:2rem}
+.track span::after{content:"✦";color:var(--chili);font-style:normal;font-size:.8em}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+section.s{padding:clamp(4rem,10vw,8rem) 0}
+
+/* offer */
+.offer-head{display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:1.5rem;margin-bottom:3rem}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.card{position:relative;border:1px solid var(--line);border-radius:22px;padding:2rem 1.7rem 2.2rem;background:linear-gradient(160deg,var(--ink3),var(--ink2));overflow:hidden;transition:transform .5s var(--ease),border-color .4s}
+.card:hover{transform:translateY(-8px);border-color:var(--gold)}
+.card .n{font-family:var(--serif);font-size:4.5rem;font-weight:800;line-height:1;color:transparent;-webkit-text-stroke:1px var(--gold);transition:color .4s,transform .5s var(--ease);display:inline-block}
+.card:hover .n{color:var(--chili);-webkit-text-stroke-color:var(--chili);transform:scale(1.06) rotate(-3deg)}
+.card h3{font-size:1.8rem;margin:1rem 0 .5rem}
+.card p{color:var(--mute)}
+@media(max-width:820px){.cards{grid-template-columns:1fr}}
+
+/* menu */
+#menu{background:var(--ink2);border-block:1px solid var(--line);position:relative}
+.tag{display:inline-block;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;border:1px solid var(--chili);color:var(--chili);border-radius:999px;padding:.2rem .7rem;font-weight:600;vertical-align:middle}
+.note{max-width:56ch;color:var(--mute);margin:1.2rem 0 3rem;padding-left:1rem;border-left:2px solid var(--gold)}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.5rem,4vw,3.5rem)}
+.msec h3{font-size:2rem;margin-bottom:1.2rem;padding-bottom:.8rem;border-bottom:1px solid var(--gold);display:flex;justify-content:space-between;align-items:center;gap:.6rem}
+.mi{display:flex;align-items:baseline;gap:.6rem;padding:.8rem .5rem;margin-inline:-.5rem;border-radius:10px;transition:background .3s,transform .4s var(--ease)}
+.mi:hover{background:rgba(255,255,255,.04);transform:translateX(6px)}
+.mi .nm{font-weight:600}
+.mi .ds{display:block;color:var(--mute);font-size:.9rem;font-weight:400}
+.mi .dots{flex:1;border-bottom:1px dotted rgba(217,164,65,.5);transform:translateY(-4px);min-width:1rem}
+.mi .pr{font-family:var(--serif);color:var(--gold);font-weight:600;white-space:nowrap}
+@media(max-width:900px){.menu-grid{grid-template-columns:1fr}}
+
+/* visit */
+.visit{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(2rem,5vw,4rem);align-items:start}
+.hours{list-style:none;margin:1.6rem 0}
+.hours li{display:flex;justify-content:space-between;gap:1rem;padding:.7rem 0;border-bottom:1px solid rgba(217,164,65,.2)}
+.hours li span:first-child{color:var(--mute)}
+.hours li.closed span:last-child{color:var(--chili)}
+address{font-style:normal;font-family:var(--serif);font-size:1.4rem;margin:.5rem 0 1rem}
+.copy{background:none;border:1px solid var(--line);color:var(--cream);font:500 .9rem var(--sans);padding:.5rem 1rem;border-radius:999px;cursor:pointer;transition:.3s}
+.copy:hover{border-color:var(--gold);color:var(--gold)}
+@media(max-width:820px){.visit{grid-template-columns:1fr}}
+
+/* contact */
+#contact{text-align:center;position:relative;overflow:hidden}
+#contact h2{max-width:14ch;margin:0 auto 1.2rem}
+#contact p{color:var(--mute);max-width:40ch;margin:0 auto 2rem}
+.cbtns{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+.bigword{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font:800 clamp(8rem,34vw,26rem)/1 var(--serif);color:transparent;-webkit-text-stroke:1px rgba(217,164,65,.12);z-index:-1;white-space:nowrap;pointer-events:none}
+#contact .wrap{position:relative}
+#cta{padding-bottom:5rem}
+footer{text-align:center;padding:2rem 1rem 3rem;color:var(--mute);font-size:.9rem}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(36px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--i,0)*110ms)}
+.js .rv.in{opacity:1;transform:none}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv{opacity:1;transform:none}
+  .steam path{stroke-dashoffset:0;opacity:1}
+  .track{flex-wrap:wrap;width:auto}
+  .track span[aria-hidden]{display:none}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div class="progress" id="bar" aria-hidden="true"></div>
+
+<header class="nav" id="top">
+  <div class="wrap in">
+    <a class="logo" href="#top">Taste of <span>Thai</span></a>
+    <nav aria-label="Main">
+      <button class="burger" id="burger" aria-expanded="false" aria-controls="menu-list" aria-label="Open menu"><i></i><i></i><i></i></button>
+      <ul id="menu-list">
+        <li><a href="#offer">Ways to enjoy</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#visit">Hours &amp; location</a></li>
+        <li><a href="#contact" class="btn mag">Say hello</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap grid">
+    <div>
+      <div class="eyebrow">Rantoul, Illinois</div>
+      <h1><span class="l1">Taste</span><span class="l2">of <em>Thai</em></span></h1>
+      <p class="lead">Thai. Dine in, get it delivered, take it to go.</p>
+      <div class="cta">
+        <a class="btn mag" href="#menu">See the menu</a>
+        <a class="btn alt mag" href="#visit">Find us</a>
+      </div>
+    </div>
+    <div class="visual" aria-hidden="true">
+      <div class="sun" data-par="0.04"></div>
+      <svg class="ring" viewBox="0 0 200 200"><defs><path id="circ" d="M100,100 m-88,0 a88,88 0 1,1 176,0 a88,88 0 1,1 -176,0"/></defs><text><textPath href="#circ">Dine in ✦ Delivered ✦ To go ✦ Dine in ✦ Delivered ✦ To go ✦</textPath></text></svg>
+      <svg class="bowl" viewBox="0 0 400 400" data-par="-0.06" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <g class="steam" stroke="#f4ecdc" stroke-width="3">
+          <path d="M160 190 C140 160 180 140 160 105 C150 85 165 72 168 60"/>
+          <path d="M200 195 C180 165 220 140 200 100 C190 78 205 62 208 48"/>
+          <path d="M240 190 C220 160 260 140 240 108 C232 90 245 76 248 66"/>
+        </g>
+        <path d="M90 225 H310 C310 290 270 330 200 330 C130 330 90 290 90 225 Z" fill="#0c1511" stroke="#d9a441" stroke-width="3"/>
+        <path d="M105 245 H295" stroke="#d9a441" stroke-width="1.5" opacity=".7"/>
+        <path d="M165 345 H235" stroke="#d9a441" stroke-width="3"/>
+        <path d="M280 150 L345 95 M300 165 L360 118" stroke="#f4ecdc" stroke-width="5"/>
+      </svg>
+    </div>
+  </div>
+  <div class="scrollcue" aria-hidden="true"></div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Taste of Thai</span><span>Dine in</span><span>Delivered</span><span>To go</span><span>Rantoul, IL</span><span>112 East Congress Avenue</span>
+    <span>Taste of Thai</span><span>Dine in</span><span>Delivered</span><span>To go</span><span>Rantoul, IL</span><span>112 East Congress Avenue</span>
+  </div>
+</div>
+
+<section class="s" id="offer">
+  <div class="wrap">
+    <div class="offer-head">
+      <div class="rv"><div class="eyebrow">Three ways in</div><h2>Your table, <em>your door,</em> your hands.</h2></div>
+    </div>
+    <div class="cards">
+      <article class="card rv" style="--i:0"><span class="n">01</span><h3>Dine in</h3><p>Pull up a chair in Rantoul and settle in.</p></article>
+      <article class="card rv" style="--i:1"><span class="n">02</span><h3>Delivered</h3><p>Thai, brought to wherever you are tonight.</p></article>
+      <article class="card rv" style="--i:2"><span class="n">03</span><h3>To go</h3><p>Grab a bag on your way and carry on.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="menu">
+  <div class="wrap">
+    <div class="rv"><div class="eyebrow">Menu</div><h2>On the <em>menu</em> <span class="tag">Example</span></h2></div>
+    <p class="note rv">This is an example menu that shows how your menu would look. Your real dishes and prices go here.</p>
+    <div class="menu-grid">
+      <div class="msec rv" style="--i:0">
+        <h3>Starters <span class="tag">Example</span></h3>
+        <div class="mi"><span class="nm">Egg rolls<span class="ds">Two pieces</span></span><span class="dots"></span><span class="pr">$4.50</span></div>
+        <div class="mi"><span class="nm">Crab rangoon</span><span class="dots"></span><span class="pr">$5.50</span></div>
+        <div class="mi"><span class="nm">Hot &amp; sour soup</span><span class="dots"></span><span class="pr">$4.00</span></div>
+      </div>
+      <div class="msec rv" style="--i:1">
+        <h3>Entrees <span class="tag">Example</span></h3>
+        <div class="mi"><span class="nm">General Tso's chicken</span><span class="dots"></span><span class="pr">$13.50</span></div>
+        <div class="mi"><span class="nm">Beef &amp; broccoli</span><span class="dots"></span><span class="pr">$14.00</span></div>
+        <div class="mi"><span class="nm">Vegetable lo mein</span><span class="dots"></span><span class="pr">$11.50</span></div>
+      </div>
+      <div class="msec rv" style="--i:2">
+        <h3>Sides <span class="tag">Example</span></h3>
+        <div class="mi"><span class="nm">Steamed rice</span><span class="dots"></span><span class="pr">$2.50</span></div>
+        <div class="mi"><span class="nm">Fried rice</span><span class="dots"></span><span class="pr">$4.50</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="visit">
+  <div class="wrap visit">
+    <div class="rv">
+      <div class="eyebrow">Hours &amp; location</div>
+      <h2>Come <em>find</em> us.</h2>
+      <address>112 East Congress Avenue<br>Rantoul, IL 61866</address>
+      <button class="copy" id="copy" type="button">Copy address</button>
+      <p style="margin-top:2rem"><span class="tag">Example hours</span></p>
+      <ul class="hours">
+        <li><span>Mon</span><span>7 AM – 3 PM</span></li>
+        <li><span>Tue</span><span>7 AM – 3 PM</span></li>
+        <li><span>Wed</span><span>7 AM – 3 PM</span></li>
+        <li><span>Thu</span><span>7 AM – 3 PM</span></li>
+        <li><span>Fri</span><span>7 AM – 8 PM</span></li>
+        <li><span>Sat</span><span>8 AM – 8 PM</span></li>
+        <li class="closed"><span>Sun</span><span>Closed</span></li>
+      </ul>
+    </div>
+    <div class="rv" style="--i:2"><iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-88.16438,40.30324,-88.15238,40.31524&amp;layer=mapnik&amp;marker=40.30924,-88.15838"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=40.30924&amp;mlon=-88.15838#map=17/40.30924/-88.15838" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=40.30924,-88.15838" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p></div>
+  </div>
+</section>
+
+<section class="s" id="contact">
+  <div class="bigword" aria-hidden="true">Thai</div>
+  <div class="wrap">
+    <div class="eyebrow" style="justify-content:center">Contact</div>
+    <h2 class="rv">Hungry? <em>Say hello.</em></h2>
+    <p class="rv">Questions about dining in, delivery or takeout? Send a note.</p>
+    <div class="cbtns rv"><a class="btn" href="mailto:taste_thai@icloud.com">taste_thai@icloud.com</a> </div>
+  </div>
+</section>
+
+<section id="cta">
+<section class="np-cta" id="offer"><h2>Want this for Taste of Thai?</h2><p>This is a free preview made for Taste of Thai. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20Taste%20of%20Thai&amp;body=Yes%2C%20please%20make%20this%20site%20for%20Taste%20of%20Thai.">Make it mine</a></p></section>
+</section>
+</main>
+
+<footer>Taste of Thai · 112 East Congress Avenue, Rantoul, IL 61866</footer>
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · Taste of Thai</div>
+<script>
+(function(){
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nav=document.querySelector('header.nav'),bar=document.getElementById('bar');
+  var par=[].slice.call(document.querySelectorAll('[data-par]'));
+  var ticking=false;
+  function onScroll(){
+    if(ticking)return;ticking=true;
+    requestAnimationFrame(function(){
+      var y=window.scrollY||0,h=document.documentElement.scrollHeight-window.innerHeight;
+      bar.style.transform='scaleX('+(h>0?Math.min(1,y/h):0)+')';
+      nav.classList.toggle('scrolled',y>20);
+      if(!rm&&y<1400)par.forEach(function(el){el.style.transform='translate3d(0,'+(y*parseFloat(el.dataset.par)*-4)+'px,0)'});
+      ticking=false;
+    });
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  var items=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window&&!rm){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15,rootMargin:'0px 0px -40px 0px'});
+    items.forEach(function(el){io.observe(el)});
+  }else{items.forEach(function(el){el.classList.add('in')})}
+
+  var b=document.getElementById('burger'),l=document.getElementById('menu-list');
+  b.addEventListener('click',function(){var o=l.classList.toggle('open');b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Close menu':'Open menu')});
+  l.addEventListener('click',function(e){if(e.target.closest('a')){l.classList.remove('open');b.setAttribute('aria-expanded','false')}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){l.classList.remove('open');b.setAttribute('aria-expanded','false')}});
+
+  var cp=document.getElementById('copy'),addr='112 East Congress Avenue, Rantoul, IL 61866';
+  cp.addEventListener('click',function(){
+    function done(){cp.textContent='Copied ✓';setTimeout(function(){cp.textContent='Copy address'},2000)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(addr).then(done,fallback)}else fallback();
+    function fallback(){var t=document.createElement('textarea');t.value=addr;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();try{document.execCommand('copy');done()}catch(e){}document.body.removeChild(t)}
+  });
+
+  if(!rm&&window.matchMedia('(hover:hover)').matches){
+    document.querySelectorAll('.btn').forEach(function(el){
+      el.addEventListener('mousemove',function(e){var r=el.getBoundingClientRect();el.style.transform='translate('+((e.clientX-r.left-r.width/2)*.2)+'px,'+((e.clientY-r.top-r.height/2)*.3-3)+'px)'});
+      el.addEventListener('mouseleave',function(){el.style.transform=''});
+    });
+  }
+})();
+</script>
+</body>
+</html>

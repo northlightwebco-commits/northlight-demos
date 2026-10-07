@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agave Mexican Restaurant · Rantoul, IL</title>
+<meta name="description" content="Agave Mexican Restaurant at 1668 East Grove Avenue, Rantoul, IL.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Fraunces:ital,opsz,wght@1,9..144,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0b2221;--ink2:#123130;--ink3:#194140;
+  --paper:#f3efe2;--mute:#b9c8bd;
+  --sun:#f5b73c;--chili:#ff6a45;--sage:#8fc09f;
+  --r:18px;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--ink);color:var(--paper);font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:1.05rem;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{text-wrap:balance;overflow-wrap:break-word;line-height:1}
+.wrap{width:min(1180px,100% - 2.5rem);margin-inline:auto}
+.serif{font-family:'Fraunces',serif;font-style:italic;font-weight:600}
+.progress{position:fixed;inset:0 0 auto 0;height:4px;z-index:100;background:linear-gradient(90deg,var(--sun),var(--chili));transform:scaleX(0);transform-origin:left}
+
+/* slots */
+.np-banner{background:var(--sun);color:#1a1405;font-size:.82rem;text-align:center;padding:.45rem 1rem;font-weight:600}
+.np-banner a{color:inherit}
+
+/* header */
+header.nav{position:sticky;top:0;z-index:50;transition:background .4s,box-shadow .4s,transform .4s var(--ease)}
+header.nav .in{display:flex;align-items:center;justify-content:space-between;height:76px;transition:height .4s var(--ease)}
+header.nav.scrolled{background:rgba(11,34,33,.92);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(255,255,255,.1)}
+header.nav.scrolled .in{height:62px}
+.logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;font-weight:800;letter-spacing:.01em}
+.logo svg{width:30px;height:30px}
+.logo span{font-size:1rem}
+nav ul{display:flex;gap:1.8rem;list-style:none;align-items:center}
+nav a{text-decoration:none;font-weight:600;font-size:.95rem;position:relative;padding:.3rem 0}
+nav a:not(.pill)::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--sun);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+nav a:not(.pill):hover::after{transform:scaleX(1)}
+.pill{background:var(--sun);color:#1a1405;padding:.55rem 1.1rem;border-radius:99px;transition:transform .3s var(--ease)}
+.pill:hover{transform:translateY(-2px) rotate(-2deg)}
+.burger{display:none;background:none;border:0;color:inherit;width:44px;height:44px;cursor:pointer}
+.burger i{display:block;width:24px;height:2px;background:var(--paper);margin:6px auto;transition:transform .3s var(--ease),opacity .3s}
+.burger[aria-expanded=true] i:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.burger[aria-expanded=true] i:nth-child(2){opacity:0}
+.burger[aria-expanded=true] i:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+@media(max-width:800px){
+  .burger{display:block}
+  nav ul{position:fixed;inset:0;background:var(--ink);flex-direction:column;justify-content:center;gap:1.6rem;font-size:1.6rem;opacity:0;visibility:hidden;transform:translateY(-20px);transition:.4s var(--ease);z-index:-1}
+  nav ul a{font-size:1.8rem}
+  nav.open ul{opacity:1;visibility:visible;transform:none}
+  .burger{position:relative;z-index:2}
+}
+
+/* hero */
+.hero{position:relative;min-height:calc(100svh - 76px);display:grid;align-items:center;padding:3rem 0 5rem;overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 60% at 75% 55%,rgba(143,192,159,.28),transparent 70%),radial-gradient(40% 40% at 10% 90%,rgba(255,106,69,.18),transparent 70%);z-index:-2}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center}
+.eyebrow{display:inline-flex;gap:.6rem;align-items:center;font-weight:600;letter-spacing:.18em;text-transform:uppercase;font-size:.78rem;color:var(--sun)}
+.eyebrow::before{content:"";width:34px;height:2px;background:currentColor}
+h1{font-size:clamp(4.2rem,17vw,12.5rem);font-weight:800;letter-spacing:-.04em;margin:1rem 0 .4rem;line-height:.85}
+h1 .l{display:inline-block}
+h1 .l:nth-child(odd){color:var(--sun)}
+.sub{font-family:'Fraunces',serif;font-style:italic;font-weight:600;font-size:clamp(1.6rem,4.5vw,2.8rem);color:var(--sage)}
+.lede{max-width:34ch;margin-top:1.4rem;color:var(--mute);font-size:1.15rem}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;background:var(--sun);color:#1a1405;font:inherit;font-weight:700;text-decoration:none;padding:.85rem 1.5rem;border-radius:99px;border:2px solid var(--sun);cursor:pointer;transition:transform .3s var(--ease),box-shadow .3s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 24px -8px rgba(245,183,60,.6)}
+.btn.alt{background:transparent;color:var(--paper);border-color:rgba(243,239,226,.5)}
+.btn.alt:hover{border-color:var(--paper);box-shadow:none}
+.plant{position:relative;aspect-ratio:1;width:min(100%,520px);justify-self:center;will-change:transform}
+.plant svg{width:100%;height:100%;overflow:visible}
+.leaf{fill:rgba(143,192,159,.14);stroke:var(--sage);stroke-width:2.5;stroke-linejoin:round}
+.leaf.f{fill:rgba(143,192,159,.28)}
+.vein{stroke:var(--sage);stroke-width:1.5;fill:none;opacity:.7}
+.spike{fill:var(--chili)}
+.sun{fill:var(--sun)}
+.scroll-cue{position:absolute;left:50%;bottom:1.2rem;font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;color:var(--mute);transform:translateX(-50%)}
+.scroll-cue::after{content:"";display:block;width:1px;height:28px;background:var(--sun);margin:.5rem auto 0;animation:cue 2s infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr}.plant{width:min(80%,380px);order:-1}.hero{padding-top:1rem}}
+
+/* marquee */
+.marquee{background:var(--sun);color:#1a1405;overflow:hidden;transform:rotate(-1.2deg);margin:-1.5rem -2% 0;position:relative;z-index:2;border-block:3px solid var(--ink)}
+.track{display:flex;width:max-content;animation:mq 30s linear infinite}
+.track span{font-weight:800;font-size:clamp(1.2rem,3vw,1.9rem);padding:.7rem 1.4rem;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}
+.track span:nth-child(even){font-family:'Fraunces',serif;font-style:italic;text-transform:none;color:#7a1f0a}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+section{padding:clamp(4.5rem,10vw,8rem) 0}
+h2{font-size:clamp(2.4rem,7vw,5rem);font-weight:800;letter-spacing:-.03em}
+h2 em{font-family:'Fraunces',serif;font-weight:600;color:var(--sun);letter-spacing:-.01em}
+.kicker{color:var(--sage);font-weight:600;letter-spacing:.18em;text-transform:uppercase;font-size:.78rem;margin-bottom:1rem}
+
+/* offer */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem;margin-top:3rem}
+.card{background:var(--ink2);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:2rem 1.6rem;transition:transform .45s var(--ease),border-color .3s,background .3s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-8px) rotate(-.6deg);border-color:var(--sun);background:var(--ink3)}
+.card .n{font-family:'Fraunces',serif;font-style:italic;font-size:3.4rem;color:var(--chili);line-height:1}
+.card h3{font-size:1.5rem;margin:.8rem 0 .5rem}
+.card p{color:var(--mute)}
+
+/* menu */
+#menu{background:var(--paper);color:#12201f}
+#menu .kicker{color:#2f6a4a}
+#menu h2 em{color:#d2431f}
+.tag{display:inline-block;background:#12201f;color:var(--sun);font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;padding:.3rem .7rem;border-radius:99px;vertical-align:middle}
+.note{margin-top:1rem;max-width:56ch;font-weight:600;border-left:4px solid #d2431f;padding-left:1rem}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:3rem 3.5rem;margin-top:3.5rem}
+.msec h3{font-family:'Fraunces',serif;font-style:italic;font-size:2.2rem;color:#d2431f;margin-bottom:.6rem;display:flex;align-items:center;gap:.8rem}
+.msec h3::after{content:"";flex:1;height:2px;background:#12201f;opacity:.2}
+.item{display:grid;grid-template-columns:1fr auto;gap:.2rem 1rem;padding:1rem .6rem;border-bottom:1.5px dashed rgba(18,32,31,.25);transition:transform .35s var(--ease),background .3s;border-radius:8px}
+.item:hover{transform:translateX(8px);background:rgba(245,183,60,.25)}
+.item b{font-size:1.15rem}
+.item .p{font-weight:800;font-size:1.1rem}
+.item small{grid-column:1/-1;font-size:.95rem;color:#3d5250}
+
+/* hours */
+.hl{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3rem;align-items:start}
+@media(max-width:860px){.hl{grid-template-columns:1fr}}
+.hours{list-style:none;margin-top:1.4rem}
+.hours li{display:flex;justify-content:space-between;padding:.85rem 0;border-bottom:1px solid rgba(255,255,255,.12);transition:padding .3s var(--ease),color .3s}
+.hours li:hover{padding-left:.7rem;color:var(--sun)}
+.hours .closed{color:var(--chili)}
+.addr{font:inherit;font-weight:700;font-size:1.25rem;color:var(--paper);background:var(--ink2);border:1.5px dashed var(--sage);border-radius:var(--r);padding:1.1rem 1.3rem;cursor:pointer;text-align:left;width:100%;transition:transform .3s var(--ease),border-color .3s;display:block}
+.addr:hover{transform:translateY(-3px);border-color:var(--sun)}
+.addr small{display:block;color:var(--sun);font-weight:600;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;margin-top:.4rem}
+.map{margin-top:1.4rem;border-radius:var(--r);overflow:hidden;background:var(--ink2)}
+.map iframe{width:100%;min-height:300px;border:0;display:block}
+.maplinks{display:flex;flex-wrap:wrap;gap:.6rem;padding:.8rem 0}
+.maplinks a{color:var(--sun);font-weight:600}
+.mapcredit{font-size:.75rem;color:var(--mute);padding:.2rem 0}
+
+/* contact */
+#contact{text-align:center;background:var(--ink2);position:relative;overflow:hidden}
+#contact h2{max-width:14ch;margin:0 auto 1.2rem}
+#contact p{color:var(--mute);max-width:40ch;margin:0 auto 2rem}
+.cbtns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+/* cta */
+.np-cta{margin:0 auto;padding:clamp(2rem,5vw,3.5rem);border-radius:28px;background:linear-gradient(135deg,var(--sun),var(--chili));color:#1a1405;text-align:center;box-shadow:0 30px 60px -30px rgba(255,106,69,.6)}
+.np-cta .btn{background:#1a1405;color:var(--paper);border-color:#1a1405}
+.np-cta .btn.alt{background:transparent;color:#1a1405;border-color:#1a1405}
+.np-cta small{display:block;margin-top:1rem;opacity:.85}
+#cta-wrap{padding:clamp(3rem,8vw,6rem) 0}
+footer{padding:2rem 0 3rem;text-align:center;color:var(--mute);font-size:.9rem}
+
+/* motion: only hidden when JS is on */
+.js .rv{opacity:0;transform:translateY(36px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--i,0)*90ms)}
+.js .rv.in{opacity:1;transform:none}
+.js h1 .l{opacity:0;transform:translateY(80%) rotate(8deg);animation:up 1s var(--ease) forwards;animation-delay:calc(var(--i)*90ms + 200ms)}
+@keyframes up{to{opacity:1;transform:none}}
+.js .hero .fade{opacity:0;transform:translateY(20px);animation:up .9s var(--ease) forwards;animation-delay:calc(var(--d,0)*1ms + 600ms)}
+.dr{stroke-dasharray:1;stroke-dashoffset:0}
+.js .dr{stroke-dashoffset:1;animation:draw 2.2s var(--ease) forwards;animation-delay:calc(var(--i)*120ms + 300ms)}
+@keyframes draw{to{stroke-dashoffset:0}}
+.js .leafg{opacity:0;animation:fadeIn 1.2s ease forwards;animation-delay:calc(var(--i)*120ms + 900ms)}
+@keyframes fadeIn{to{opacity:1}}
+.sway{transform-origin:250px 400px;animation:sway 7s ease-in-out infinite alternate}
+@keyframes sway{from{transform:rotate(-1.5deg)}to{transform:rotate(1.5deg)}}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv,.js h1 .l,.js .hero .fade,.js .leafg{opacity:1!important;transform:none!important}
+  .js .dr{stroke-dashoffset:0!important}
+  .progress{display:none}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div class="progress" id="bar"></div>
+
+<header class="nav" id="nav">
+  <div class="wrap in">
+    <a class="logo" href="#top" aria-label="Agave Mexican Restaurant, top">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><g fill="none" stroke="#8fc09f" stroke-width="2.4" stroke-linejoin="round"><path d="M20 36C14 26 14 14 20 3c6 11 6 23 0 33z"/><path d="M20 36C10 30 5 20 6 10c8 5 13 14 14 26z"/><path d="M20 36c10-6 15-16 14-26-8 5-13 14-14 26z"/></g></svg>
+      <span>Agave</span>
+    </a>
+    <nav id="mnav">
+      <ul>
+        <li><a href="#offer">Kitchen</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#visit">Hours &amp; location</a></li>
+        <li><a href="#contact" class="pill">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="burger" id="burger" aria-expanded="false" aria-label="Menu"><i></i><i></i><i></i></button>
+  </div>
+</header>
+
+<main id="top">
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow fade" style="--d:0">Rantoul, Illinois</span>
+      <h1 aria-label="Agave"><span class="l" style="--i:0" aria-hidden="true">A</span><span class="l" style="--i:1" aria-hidden="true">g</span><span class="l" style="--i:2" aria-hidden="true">a</span><span class="l" style="--i:3" aria-hidden="true">v</span><span class="l" style="--i:4" aria-hidden="true">e</span></h1>
+      <p class="sub fade" style="--d:300">Mexican Restaurant</p>
+      <p class="lede fade" style="--d:450">Mexican, served on East Grove Avenue.</p>
+      <div class="hero-actions fade" style="--d:600">
+        <a class="btn" href="#menu">See the menu</a>
+        <a class="btn alt" href="#visit">Find us</a>
+      </div>
+    </div>
+    <div class="plant" id="plant" aria-hidden="true">
+      <svg viewBox="0 0 500 500">
+        <circle class="sun" cx="250" cy="250" r="150" opacity=".09"/>
+        <g class="sway">
+          <g id="leaves"></g>
+        </g>
+        <path d="M120 420h260" stroke="#f5b73c" stroke-width="3" stroke-linecap="round" class="dr" pathLength="1" style="--i:9"/>
+      </svg>
+    </div>
+  </div>
+  <div class="scroll-cue">Scroll</div>
+</div>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track" id="track">
+    <span>Agave</span><span>Mexican</span><span>Rantoul, IL</span><span>East Grove Avenue</span><span>Agave</span><span>Mexican</span><span>Rantoul, IL</span><span>East Grove Avenue</span>
+  </div>
+</div>
+
+<section id="offer">
+  <div class="wrap">
+    <p class="kicker rv">The kitchen</p>
+    <h2 class="rv" style="--i:1">Mexican, <em>made for Rantoul.</em></h2>
+    <div class="cards">
+      <article class="card rv" style="--i:1"><div class="n">01</div><h3>Mexican cooking</h3><p>Agave is a Mexican restaurant, and everything here starts from that.</p></article>
+      <article class="card rv" style="--i:2"><div class="n">02</div><h3>On Grove Avenue</h3><p>Find us at 1668 East Grove Avenue in Rantoul.</p></article>
+      <article class="card rv" style="--i:3"><div class="n">03</div><h3>Your menu, here</h3><p>Dishes and prices below show how your real menu will look.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="wrap">
+    <p class="kicker rv">Menu &nbsp;<span class="tag">Example</span></p>
+    <h2 class="rv" style="--i:1">Something <em>good</em> on every plate.</h2>
+    <p class="note rv" style="--i:2">This is an example menu that shows how your menu would look. Your real dishes and prices go here.</p>
+    <div class="menu-grid">
+      <div class="msec rv">
+        <h3>Tacos</h3>
+        <div class="item"><b>Carne asada</b><span class="p">$3.75</span><small>Onion, cilantro, lime</small></div>
+        <div class="item"><b>Al pastor</b><span class="p">$3.50</span></div>
+        <div class="item"><b>Grilled chicken</b><span class="p">$3.25</span></div>
+      </div>
+      <div class="msec rv" style="--i:1">
+        <h3>Plates</h3>
+        <div class="item"><b>Burrito grande</b><span class="p">$11.99</span><small>Rice, beans, your choice of meat</small></div>
+        <div class="item"><b>Sizzling fajitas</b><span class="p">$14.99</span><small>Peppers, onions, warm tortillas</small></div>
+        <div class="item"><b>Enchiladas</b><span class="p">$12.99</span><small>Red or green sauce</small></div>
+      </div>
+      <div class="msec rv" style="--i:2">
+        <h3>Sides &amp; drinks</h3>
+        <div class="item"><b>Chips &amp; salsa</b><span class="p">$4.00</span></div>
+        <div class="item"><b>Fresh guacamole</b><span class="p">$5.50</span></div>
+        <div class="item"><b>Horchata</b><span class="p">$3.25</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap">
+    <p class="kicker rv">Hours &amp; location</p>
+    <h2 class="rv" style="--i:1">Come <em>hungry.</em></h2>
+    <div class="hl">
+      <div class="rv">
+        <span class="tag" style="background:var(--sun);color:#1a1405">Example hours</span>
+        <ul class="hours">
+          <li><span>Mon</span><span>7 AM – 3 PM</span></li>
+          <li><span>Tue</span><span>7 AM – 3 PM</span></li>
+          <li><span>Wed</span><span>7 AM – 3 PM</span></li>
+          <li><span>Thu</span><span>7 AM – 3 PM</span></li>
+          <li><span>Fri</span><span>7 AM – 8 PM</span></li>
+          <li><span>Sat</span><span>8 AM – 8 PM</span></li>
+          <li><span class="closed">Sun</span><span class="closed">Closed</span></li>
+        </ul>
+      </div>
+      <div class="rv" style="--i:2">
+        <button class="addr" id="addr" type="button" data-addr="1668 East Grove Avenue, Rantoul, IL 61866">1668 East Grove Avenue<br>Rantoul, IL 61866<small id="addrhint">Tap to copy address</small></button>
+        <iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-88.13164,40.30585,-88.11964,40.31785&amp;layer=mapnik&amp;marker=40.31185,-88.12564"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=40.31185&amp;mlon=-88.12564#map=17/40.31185/-88.12564" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=40.31185,-88.12564" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <p class="kicker rv">Contact</p>
+    <h2 class="rv" style="--i:1">Say <em>hola.</em></h2>
+    <p class="rv" style="--i:2">Questions for the Agave team? Send an e-mail.</p>
+    <div class="cbtns rv" style="--i:3"><a class="btn" href="mailto:agaverantoul@gmail.com">agaverantoul@gmail.com</a> </div>
+  </div>
+</section>
+
+<div id="cta-wrap"><div class="wrap rv"><section class="np-cta" id="offer"><h2>Want this for Agave Mexican Restaurant?</h2><p>This is a free preview made for Agave Mexican Restaurant. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20Agave%20Mexican%20Restaurant&amp;body=Yes%2C%20please%20make%20this%20site%20for%20Agave%20Mexican%20Restaurant.">Make it mine</a></p></section></div></div>
+</main>
+
+<footer><div class="wrap">Agave Mexican Restaurant · 1668 East Grove Avenue, Rantoul, IL 61866</div></footer>
+
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · Agave Mexican Restaurant</div>
+<script>
+document.documentElement.classList.add('js');
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  // build agave leaves
+  var g=document.getElementById('leaves'),ns='http://www.w3.org/2000/svg',h='';
+  var angles=[-78,-58,-38,-18,0,18,38,58,78],lens=[.62,.78,.92,1,1.1,1,.92,.78,.62];
+  angles.forEach(function(a,i){
+    var s=lens[i];
+    var d='M0 0C-'+(22*s)+' -'+(60*s)+' -'+(20*s)+' -'+(190*s)+' 0 -'+(270*s)+'C'+(20*s)+' -'+(190*s)+' '+(22*s)+' -'+(60*s)+' 0 0Z';
+    var order=Math.abs(i-4);
+    h+='<g transform="translate(250 400) rotate('+a+')"><g class="leafg" style="--i:'+order+'"><path class="leaf'+(order%2?'':' f')+'" d="'+d+'"/>'+
+    '<path class="vein dr" pathLength="1" style="--i:'+order+'" d="M0 -10L0 -'+(240*s)+'"/>'+
+    '<path class="spike" d="M-5 -'+(262*s)+'L0 -'+(285*s)+'L5 -'+(262*s)+'Z"/></g></g>';
+  });
+  g.innerHTML=h;
+  // outline draw on leaves too
+  g.querySelectorAll('.leaf').forEach(function(p){p.setAttribute('pathLength','1');p.classList.add('dr');p.style.setProperty('--i',Math.round(Math.random()*4))});
+
+  // marquee duplicate for seamless loop
+  var t=document.getElementById('track');t.innerHTML+=t.innerHTML;
+
+  // header, progress, parallax
+  var nav=document.getElementById('nav'),bar=document.getElementById('bar'),plant=document.getElementById('plant'),tick=false;
+  function onScroll(){
+    var y=scrollY,m=document.documentElement.scrollHeight-innerHeight;
+    nav.classList.toggle('scrolled',y>30);
+    bar.style.transform='scaleX('+(m>0?y/m:0)+')';
+    if(!reduce&&y<innerHeight*1.2)plant.style.transform='translateY('+(y*.18)+'px) rotate('+(y*.015)+'deg)';
+    tick=false;
+  }
+  addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(onScroll)}},{passive:true});
+  onScroll();
+
+  // reveals
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+    els.forEach(function(el){io.observe(el)});
+  }else els.forEach(function(el){el.classList.add('in')});
+
+  // mobile menu
+  var b=document.getElementById('burger'),n=document.getElementById('mnav');
+  function close(){n.classList.remove('open');b.setAttribute('aria-expanded','false')}
+  b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+  n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close)});
+  addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+
+  // copy address
+  var ad=document.getElementById('addr'),hint=document.getElementById('addrhint');
+  ad.addEventListener('click',function(){
+    var txt=ad.getAttribute('data-addr');
+    function ok(){hint.textContent='Copied!';setTimeout(function(){hint.textContent='Tap to copy address'},2000)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(ok,function(){})}
+    else{var ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');ok()}catch(e){}ta.remove()}
+  });
+
+  // magnetic buttons
+  if(!reduce&&matchMedia('(hover:hover)').matches){
+    document.querySelectorAll('.btn,.pill').forEach(function(el){
+      el.addEventListener('mousemove',function(e){var r=el.getBoundingClientRect();el.style.transform='translate('+((e.clientX-r.left-r.width/2)*.18)+'px,'+((e.clientY-r.top-r.height/2)*.25-2)+'px)'});
+      el.addEventListener('mouseleave',function(){el.style.transform=''});
+    });
+  }
+})();
+</script>
+</body>
+</html>

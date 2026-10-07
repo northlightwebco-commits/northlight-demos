@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Amanda's Bakery &amp; Bistro · Abilene, KS</title>
+<meta name="description" content="Amanda's Bakery &amp; Bistro in Abilene, KS. Coffee, pastries, breakfast and lunch.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..900,0..100;1,9..144,400..900,0..100&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#17213f;--ink2:#2b3760;--paper:#f7f3ea;--paper2:#efe8d8;--butter:#f6cf57;--jam:#b8283a;--blue:#3c4f9a;
+  --serif:'Fraunces',Georgia,'Times New Roman',serif;--sans:'Figtree',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px;-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;overflow-x:hidden;min-height:100vh}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opacity:.35;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .45  0 0 0 0 .38  0 0 0 0 .25  0 0 0 .22 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+img,svg{max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:800;line-height:1;letter-spacing:-.02em;text-wrap:balance;font-variation-settings:"SOFT" 100}
+p{text-wrap:pretty}
+.wrap{width:min(1160px,100% - 40px);margin-inline:auto}
+:focus-visible{outline:3px solid var(--jam);outline-offset:3px;border-radius:4px}
+
+/* slots */
+.np-banner{background:var(--ink);color:var(--paper);font-size:13px;line-height:1.4;padding:8px 16px;text-align:center}
+.np-banner a{color:var(--butter)}
+.btn{display:inline-flex;align-items:center;gap:.5em;font:700 15px/1 var(--sans);text-decoration:none;background:var(--ink);color:var(--paper);padding:15px 24px;border-radius:999px;border:2px solid var(--ink);cursor:pointer;transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .25s;will-change:transform}
+.btn:hover{box-shadow:0 8px 0 -2px var(--jam);transform:translateY(-3px)}
+.btn.alt{background:transparent;color:var(--ink)}
+.btn.alt:hover{background:var(--butter)}
+small,.small{font-size:13px}
+.map{border:2px solid var(--ink);border-radius:18px;overflow:hidden;background:var(--paper2);box-shadow:8px 8px 0 var(--ink)}
+.map iframe{display:block;width:100%;border:0;min-height:300px}
+.maplinks{display:flex;flex-wrap:wrap;gap:10px;padding:14px}
+.maplinks a{font-weight:700;font-size:14px;color:var(--ink);text-decoration:none;border:2px solid var(--ink);border-radius:999px;padding:9px 16px;transition:background .25s,transform .3s var(--ease)}
+.maplinks a:hover{background:var(--butter);transform:translateY(-2px)}
+.mapcredit{font-size:12px;padding:0 14px 12px;opacity:.8}
+.mapcredit a{color:inherit}
+.np-cta{position:relative;margin:0 auto;max-width:860px;background:var(--butter);color:var(--ink);border:2.5px solid var(--ink);border-radius:26px;padding:clamp(28px,5vw,56px);text-align:center;box-shadow:10px 10px 0 var(--ink);transform:rotate(-1deg)}
+.np-cta h2,.np-cta h3{font-size:clamp(1.8rem,5vw,3rem);margin-bottom:12px}
+.np-cta p{margin:0 auto 18px;max-width:52ch}
+.np-cta .btn{margin:6px}
+.np-cta .btn.alt{border-color:var(--ink)}
+.np-cta small{display:block;margin-top:10px}
+
+/* progress + header */
+.progress{position:fixed;top:0;left:0;right:0;height:5px;background:var(--jam);transform:scaleX(0);transform-origin:left;z-index:120}
+header.top{position:sticky;top:0;z-index:100;transition:background .3s,box-shadow .3s}
+header.top .bar{display:flex;align-items:center;justify-content:space-between;height:72px;transition:height .3s var(--ease)}
+header.top.stuck{background:rgba(247,243,234,.94);box-shadow:0 2px 0 var(--ink)}
+header.top.stuck .bar{height:58px}
+.logo{font-family:var(--serif);font-weight:800;font-size:1.25rem;text-decoration:none;display:flex;align-items:center;gap:10px;letter-spacing:-.01em}
+.logo i{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--butter);border:2px solid var(--ink);font-style:italic;font-size:1.05rem;transition:transform .5s var(--ease)}
+.logo:hover i{transform:rotate(-20deg) scale(1.1)}
+nav ul{display:flex;gap:6px;list-style:none;align-items:center}
+nav a.l{font-weight:500;text-decoration:none;padding:8px 14px;border-radius:999px;position:relative;transition:background .25s}
+nav a.l:hover{background:var(--butter)}
+.burger{display:none;background:var(--ink);color:var(--paper);border:0;border-radius:999px;padding:11px 18px;font:700 14px var(--sans);cursor:pointer}
+
+/* hero */
+.hero{position:relative;padding:clamp(28px,6vw,70px) 0 clamp(60px,9vw,110px);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:22px}
+.kicker::before{content:"";width:34px;height:2px;background:var(--jam)}
+.hero h1{font-size:clamp(2.7rem,9.4vw,7.6rem);font-weight:900;line-height:.9;letter-spacing:-.035em}
+.hero h1 span{display:block}
+.hero h1 .amp{font-style:italic;font-weight:500;color:var(--jam)}
+.hero h1 .sq{position:relative;display:inline-block}
+.hero h1 .sq svg{position:absolute;left:0;bottom:-.14em;width:100%;height:.22em;overflow:visible}
+.hero h1 .sq path{stroke:var(--butter);stroke-width:9;fill:none;stroke-linecap:round;stroke-dasharray:420;stroke-dashoffset:420;animation:draw 1.3s .9s var(--ease) forwards}
+.lead{font-family:var(--serif);font-size:clamp(1.15rem,2.4vw,1.5rem);max-width:30ch;margin:26px 0 30px;line-height:1.35}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.a1,.a2,.a3,.a4{animation:rise .9s var(--ease) both}
+.a1{animation-delay:.05s}.a2{animation-delay:.2s}.a3{animation-delay:.4s}.a4{animation-delay:.55s}
+@keyframes rise{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:none}}
+@keyframes draw{to{stroke-dashoffset:0}}
+.art{position:relative;aspect-ratio:400/430;width:100%;max-width:520px;margin-inline:auto}
+.art-in{position:absolute;inset:0;will-change:transform}
+.art svg{width:100%;height:100%;overflow:visible}
+.art .ln{fill:none;stroke:var(--ink);stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+.art .draw{stroke-dasharray:900;stroke-dashoffset:900;animation:draw 2.2s .5s var(--ease) forwards}
+.art .draw.d2{animation-delay:1s}.art .draw.d3{animation-delay:1.4s}
+.steam{stroke-dasharray:90;stroke-dashoffset:90;animation:steam 3.6s 1.6s ease-in-out infinite}
+.steam.s2{animation-delay:2.2s}.steam.s3{animation-delay:2.8s}
+@keyframes steam{0%{stroke-dashoffset:90;opacity:0;transform:translateY(8px)}30%{opacity:1}70%{stroke-dashoffset:0;opacity:.9}100%{stroke-dashoffset:-90;opacity:0;transform:translateY(-12px)}}
+.blob{animation:blob 1.2s .1s var(--ease) both;transform-origin:50% 50%;transform-box:fill-box}
+@keyframes blob{from{transform:scale(.5);opacity:0}to{transform:none;opacity:1}}
+.stamp{position:absolute;right:-2%;top:2%;width:34%;max-width:150px;animation:rise 1s .9s var(--ease) both}
+.stamp svg{animation:spin 24s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.stamp text{font:700 11.5px var(--sans);letter-spacing:.12em;fill:var(--jam)}
+.stamp .core{font:italic 800 22px var(--serif);fill:var(--jam);letter-spacing:0}
+.crumbs span{position:absolute;width:10px;height:10px;border-radius:50%;background:var(--ink);opacity:.8;animation:float 6s ease-in-out infinite}
+.crumbs span:nth-child(1){left:6%;top:30%}
+.crumbs span:nth-child(2){left:90%;top:56%;background:var(--jam);animation-delay:1s;width:14px;height:14px}
+.crumbs span:nth-child(3){left:16%;top:84%;background:var(--butter);border:2px solid var(--ink);animation-delay:2s}
+@keyframes float{50%{transform:translateY(-14px) rotate(20deg)}}
+
+/* marquee */
+.marq{background:var(--ink);color:var(--paper);border-block:3px solid var(--ink);overflow:hidden;transform:rotate(-1.2deg);margin:-14px -10px 0;position:relative;z-index:2}
+.track{display:flex;width:max-content;animation:marq 38s linear infinite}
+.marq:hover .track{animation-play-state:paused}
+.track ul{display:flex;list-style:none;gap:0}
+.track li{font-family:var(--serif);font-style:italic;font-weight:600;font-size:clamp(1.3rem,3.5vw,2.1rem);padding:16px 0;white-space:nowrap}
+.track li::after{content:"✦";color:var(--butter);margin:0 clamp(18px,3vw,36px);font-style:normal;font-size:.7em}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* sections */
+section{padding:clamp(70px,10vw,130px) 0;position:relative}
+.eyebrow{font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--jam);margin-bottom:14px;display:block}
+h2.big{font-size:clamp(2.1rem,6vw,4.4rem);max-width:16ch}
+.tag{display:inline-block;font:700 11px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;border:2px solid var(--jam);color:var(--jam);border-radius:6px;padding:5px 8px;transform:rotate(-3deg);background:var(--paper)}
+.head{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:flex-end;justify-content:space-between;margin-bottom:46px}
+
+.offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{position:relative;background:#fffdf7;border:2px solid var(--ink);border-radius:20px;padding:30px 26px 28px;box-shadow:6px 6px 0 var(--ink);transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+.card:nth-child(1){transform:rotate(-1deg)}.card:nth-child(2){transform:rotate(.8deg)}.card:nth-child(3){transform:rotate(-.6deg)}
+.card:hover{transform:translateY(-8px) rotate(0);box-shadow:6px 14px 0 var(--ink)}
+.card .num{font-family:var(--serif);font-weight:900;font-size:4.2rem;line-height:.8;color:var(--butter);-webkit-text-stroke:2px var(--ink);display:block;margin-bottom:16px;transition:transform .5s var(--ease)}
+.card:hover .num{transform:rotate(-8deg) scale(1.08)}
+.card h3{font-size:1.7rem;margin-bottom:10px}
+.card .tag{position:absolute;right:16px;top:-12px}
+
+#menu{background:var(--ink);color:var(--paper)}
+#menu .eyebrow{color:var(--butter)}
+#menu .tag{background:var(--ink);color:var(--butter);border-color:var(--butter)}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;align-items:start}
+.sheet{background:var(--paper);color:var(--ink);border-radius:6px 6px 18px 18px;padding:30px 24px 24px;position:relative;transition:transform .45s var(--ease)}
+.sheet::before{content:"";position:absolute;left:0;right:0;top:-10px;height:12px;background:radial-gradient(circle at 8px 12px,transparent 7px,var(--paper) 7.5px) 0 0/16px 12px repeat-x}
+.sheet:hover{transform:translateY(-6px) rotate(-.6deg)}
+.sheet h3{font-size:1.65rem;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.sheet ul{list-style:none;margin-top:14px}
+.sheet li{padding:12px 8px;margin:0 -8px;border-radius:10px;transition:background .25s,transform .35s var(--ease)}
+.sheet li:hover{background:var(--butter);transform:translateX(6px)}
+.row{display:flex;align-items:baseline;gap:8px;font-family:var(--serif);font-weight:700;font-size:1.1rem}
+.row b{font-weight:700}
+.row i{flex:1;border-bottom:2px dotted var(--ink);opacity:.45;transform:translateY(-4px);min-width:14px}
+.row em{font-style:normal;font-weight:800}
+.desc{font-size:14.5px;opacity:.85;margin-top:2px;font-family:var(--sans)}
+.note{margin-top:46px;display:flex;gap:16px;align-items:center;border:2px dashed var(--butter);border-radius:16px;padding:18px 22px;max-width:760px;font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--paper)}
+.note::before{content:"✎";font-size:1.8rem;color:var(--butter);font-style:normal}
+
+.hours-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,70px);align-items:start}
+.hours{list-style:none;margin-top:26px;border-top:2px solid var(--ink)}
+.hours li{display:flex;justify-content:space-between;gap:12px;padding:14px 6px;border-bottom:2px solid var(--ink);font-family:var(--serif);font-size:1.25rem;font-weight:600;transition:background .25s,padding .35s var(--ease)}
+.hours li:hover{background:var(--butter);padding-inline:16px}
+.hours li span:last-child{font-weight:800}
+.hours li.closed span:last-child{color:var(--jam)}
+.place{margin-top:26px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.copy{font:700 15px var(--sans);background:transparent;border:2px solid var(--ink);color:var(--ink);padding:13px 20px;border-radius:999px;cursor:pointer;display:inline-flex;gap:10px;align-items:center;transition:background .25s,transform .3s var(--ease)}
+.copy:hover{background:var(--butter);transform:translateY(-3px)}
+
+#about{background:var(--butter);border-block:3px solid var(--ink);overflow:hidden}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,70px);align-items:center}
+.about p{font-family:var(--serif);font-size:clamp(1.25rem,2.6vw,1.8rem);line-height:1.35;font-weight:500}
+.about p em{color:var(--jam);font-weight:700}
+.big-k{font-family:var(--serif);font-weight:900;font-size:clamp(5rem,22vw,15rem);line-height:.8;letter-spacing:-.05em;-webkit-text-stroke:3px var(--ink);color:transparent;transition:transform .8s var(--ease)}
+.big-k:hover{transform:rotate(-3deg) scale(1.03)}
+
+#contact{text-align:center}
+#contact h2{margin-inline:auto}
+#contact p{max-width:44ch;margin:18px auto 28px;font-family:var(--serif);font-size:1.3rem}
+.contact-row{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+#cta{padding-top:20px}
+
+footer{background:var(--ink);color:var(--paper);padding:34px 0;font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px 30px;justify-content:space-between}
+footer b{font-family:var(--serif);font-size:1.1rem}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+.js .card.rv.in:nth-child(1){transform:rotate(-1deg)}
+.js .card.rv.in:nth-child(2){transform:rotate(.8deg)}
+.js .card.rv.in:nth-child(3){transform:rotate(-.6deg)}
+.js .card.rv.in:hover{transform:translateY(-8px) rotate(0);transition-delay:0s;transition-duration:.45s}
+
+@media (max-width:900px){
+  .hero .wrap,.hours-grid,.about{grid-template-columns:1fr}
+  .offer-grid,.menu-grid{grid-template-columns:1fr}
+  .art{max-width:380px}
+  .hours-grid .map-col{order:2}
+}
+@media (max-width:760px){
+  .burger{display:block}
+  nav ul{position:absolute;left:20px;right:20px;top:68px;flex-direction:column;align-items:stretch;background:var(--paper);border:2px solid var(--ink);border-radius:18px;padding:10px;box-shadow:6px 6px 0 var(--ink);opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity .3s,transform .3s var(--ease),visibility .3s}
+  nav.open ul{opacity:1;visibility:visible;transform:none}
+  nav a.l{display:block;padding:14px;font-size:1.1rem}
+  header.top .bar{position:relative}
+  .np-cta{transform:none}
+}
+@media (max-width:420px){
+  body{font-size:16px}
+  .hero h1{font-size:clamp(2.3rem,12.2vw,3rem)}
+  .btn{padding:14px 20px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv{opacity:1;transform:none}
+  .art .draw,.hero h1 .sq path{stroke-dashoffset:0}
+  .steam{stroke-dashoffset:0;opacity:.8}
+  .track{width:auto;flex-wrap:wrap}
+  .track ul[aria-hidden]{display:none}
+  .marq{transform:none;margin:0}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="top" id="top">
+  <div class="wrap bar">
+    <a class="logo" href="#home" aria-label="Amanda's Bakery &amp; Bistro, home"><i>A</i><span>Amanda's</span></a>
+    <nav id="nav" aria-label="Main">
+      <button class="burger" id="burger" aria-expanded="false" aria-controls="menu-list">Menu ☰</button>
+      <ul id="menu-list">
+        <li><a class="l" href="#offer">Bakery &amp; Bistro</a></li>
+        <li><a class="l" href="#menu">Menu</a></li>
+        <li><a class="l" href="#hours">Hours</a></li>
+        <li><a class="l" href="#about">About</a></li>
+        <li><a class="l" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="home">
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <p class="kicker a1">Abilene, Kansas</p>
+      <h1>
+        <span class="a2">Amanda's</span>
+        <span class="a3">Bakery</span>
+        <span class="a4"><span class="amp">&amp;</span> <span class="sq">Bistro<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 12 C 25 2, 40 20, 62 10 S 100 2, 122 11 S 165 19, 197 6"/></svg></span></span>
+      </h1>
+      <p class="lead a4">Coffee, pastries, breakfast and lunch, all in one Abilene spot.</p>
+      <div class="cta-row a4">
+        <a class="btn" href="#menu" data-mag>See the menu →</a>
+        <a class="btn alt" href="#hours" data-mag>Hours &amp; location</a>
+      </div>
+    </div>
+    <div class="art" aria-hidden="true">
+      <div class="art-in" id="art">
+        <svg viewBox="0 0 400 430" role="img" aria-label="">
+          <circle class="blob" cx="205" cy="225" r="175" fill="#f6cf57"/>
+          <circle class="blob" cx="205" cy="225" r="175" fill="none" stroke="#17213f" stroke-width="4" stroke-dasharray="2 14" stroke-linecap="round"/>
+          <g data-speed="14">
+            <ellipse class="ln draw" cx="150" cy="292" rx="102" ry="15"/>
+            <path class="ln draw d2" d="M80 180 h140 v40 a70 62 0 0 1 -140 0 z" fill="#f7f3ea"/>
+            <ellipse class="ln draw d2" cx="150" cy="180" rx="70" ry="10" fill="#b8283a" fill-opacity=".85"/>
+            <path class="ln draw d3" d="M220 196 h18 a27 27 0 0 1 0 54 h-14"/>
+            <path class="ln steam" d="M118 150 c-16 -18 16 -34 0 -56"/>
+            <path class="ln steam s2" d="M150 146 c-16 -18 16 -34 0 -56"/>
+            <path class="ln steam s3" d="M182 150 c-16 -18 16 -34 0 -56"/>
+          </g>
+          <g data-speed="-10">
+            <circle class="ln draw d2" cx="275" cy="352" r="72" fill="#f7f3ea"/>
+            <path class="ln draw d3" d="M265 352 a10 10 0 0 1 20 0 a20 20 0 0 1 -40 0 a30 30 0 0 1 60 0 a40 40 0 0 1 -80 0 a50 50 0 0 1 100 0" transform="translate(0 0)"/>
+          </g>
+        </svg>
+        <div class="crumbs"><span></span><span></span><span></span></div>
+        <div class="stamp">
+          <svg viewBox="0 0 150 150">
+            <circle cx="75" cy="75" r="72" fill="#f7f3ea" stroke="#b8283a" stroke-width="3"/>
+            <circle cx="75" cy="75" r="40" fill="none" stroke="#b8283a" stroke-width="2" stroke-dasharray="3 5"/>
+            <defs><path id="ring" d="M75 75 m-56 0 a56 56 0 1 1 112 0 a56 56 0 1 1 -112 0"/></defs>
+            <text><textPath href="#ring" textLength="345" lengthAdjust="spacing">ABILENE, KS · BAKERY &amp; BISTRO · FRESH ·</textPath></text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="marq" aria-label="Coffee, tea, pastries, breakfast, lunch, soup of the day, Abilene, Kansas">
+  <div class="track">
+    <ul>
+      <li>Coffee</li><li>Tea</li><li>Pastries</li><li>Breakfast</li><li>Lunch</li><li>Soup of the day</li><li>Bakery</li><li>Bistro</li><li>Abilene, KS</li>
+    </ul>
+    <ul aria-hidden="true">
+      <li>Coffee</li><li>Tea</li><li>Pastries</li><li>Breakfast</li><li>Lunch</li><li>Soup of the day</li><li>Bakery</li><li>Bistro</li><li>Abilene, KS</li>
+    </ul>
+  </div>
+</div>
+
+<section id="offer">
+  <div class="wrap">
+    <div class="head rv">
+      <div>
+        <span class="eyebrow">Two kinds of good, one name</span>
+        <h2 class="big">From the oven to the table.</h2>
+      </div>
+    </div>
+    <div class="offer-grid">
+      <article class="card rv" style="--d:.05s"><span class="tag">Example</span><span class="num">01</span><h3>Coffee &amp; tea</h3><p>Something hot or iced to start the day, or to stretch the afternoon.</p></article>
+      <article class="card rv" style="--d:.18s"><span class="tag">Example</span><span class="num">02</span><h3>Pastries</h3><p>Muffins, croissants, cinnamon rolls and cookies, the bakery side of the name.</p></article>
+      <article class="card rv" style="--d:.31s"><span class="tag">Example</span><span class="num">03</span><h3>Breakfast &amp; lunch</h3><p>The bistro side: a plate, a sandwich, a bowl of soup.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="wrap">
+    <div class="head rv">
+      <div>
+        <span class="eyebrow">Menu</span>
+        <h2 class="big">What's on the counter.</h2>
+      </div>
+      <span class="tag">Example</span>
+    </div>
+    <div class="menu-grid">
+      <article class="sheet rv" style="--d:.05s">
+        <h3>Coffee &amp; tea <span class="tag">Example</span></h3>
+        <ul>
+          <li><div class="row"><b>Drip coffee</b><i></i><em>$2.75</em></div><p class="desc">Fresh brewed</p></li>
+          <li><div class="row"><b>Latte</b><i></i><em>$4.50</em></div><p class="desc">Espresso with steamed milk</p></li>
+          <li><div class="row"><b>Cappuccino</b><i></i><em>$4.25</em></div></li>
+          <li><div class="row"><b>Iced coffee</b><i></i><em>$3.75</em></div></li>
+          <li><div class="row"><b>Hot tea</b><i></i><em>$2.75</em></div></li>
+        </ul>
+      </article>
+      <article class="sheet rv" style="--d:.18s">
+        <h3>Pastries <span class="tag">Example</span></h3>
+        <ul>
+          <li><div class="row"><b>Blueberry muffin</b><i></i><em>$3.50</em></div></li>
+          <li><div class="row"><b>Butter croissant</b><i></i><em>$3.75</em></div></li>
+          <li><div class="row"><b>Cinnamon roll</b><i></i><em>$4.25</em></div><p class="desc">Warm, with icing</p></li>
+          <li><div class="row"><b>Chocolate chip cookie</b><i></i><em>$2.25</em></div></li>
+        </ul>
+      </article>
+      <article class="sheet rv" style="--d:.31s">
+        <h3>Breakfast &amp; lunch <span class="tag">Example</span></h3>
+        <ul>
+          <li><div class="row"><b>Breakfast burrito</b><i></i><em>$8.50</em></div><p class="desc">Eggs, cheese, potatoes</p></li>
+          <li><div class="row"><b>Turkey &amp; Swiss</b><i></i><em>$9.50</em></div><p class="desc">Toasted sourdough</p></li>
+          <li><div class="row"><b>Soup of the day</b><i></i><em>$6.00</em></div></li>
+        </ul>
+      </article>
+    </div>
+    <p class="note rv">This is an example menu that shows how your menu would look. Your real dishes and prices go here.</p>
+  </div>
+</section>
+
+<section id="hours">
+  <div class="wrap hours-grid">
+    <div class="rv">
+      <span class="eyebrow">Hours &amp; location</span>
+      <h2 class="big">Find us in Abilene.</h2>
+      <p style="margin-top:18px;max-width:40ch"><span class="tag">Example hours</span></p>
+      <ul class="hours">
+        <li><span>Mon</span><span>7 AM – 3 PM</span></li>
+        <li><span>Tue</span><span>7 AM – 3 PM</span></li>
+        <li><span>Wed</span><span>7 AM – 3 PM</span></li>
+        <li><span>Thu</span><span>7 AM – 3 PM</span></li>
+        <li><span>Fri</span><span>7 AM – 8 PM</span></li>
+        <li><span>Sat</span><span>8 AM – 8 PM</span></li>
+        <li class="closed"><span>Sun</span><span>Closed</span></li>
+      </ul>
+      <div class="place">
+        <button class="copy" id="copy" type="button" data-text="Amanda's Bakery &amp; Bistro, Abilene, KS">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg>
+          <span id="copyl">Abilene, KS · tap to copy</span>
+        </button>
+      </div>
+    </div>
+    <div class="map-col rv" style="--d:.15s">
+      <iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-97.22189,38.91152,-97.20989,38.92352&amp;layer=mapnik&amp;marker=38.91752,-97.21589"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=38.91752&amp;mlon=-97.21589#map=17/38.91752/-97.21589" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=38.91752,-97.21589" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about">
+    <div class="big-k rv" aria-hidden="true">KS</div>
+    <div class="rv" style="--d:.15s">
+      <span class="eyebrow" style="color:var(--ink)">About</span>
+      <p>A bakery and a bistro under one roof, <em>in Abilene, Kansas.</em> Pastries from the oven, coffee in the cup, and a table for breakfast or lunch.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">Contact</span>
+      <h2 class="big">Say hello.</h2>
+      <p>Questions, orders or a note for the kitchen? Send a message.</p>
+      <div class="contact-row"><a class="btn" href="mailto:akcollins04@yahoo.com">akcollins04@yahoo.com</a> </div>
+    </div>
+  </div>
+</section>
+
+<section id="cta">
+  <div class="wrap rv">
+    <section class="np-cta" id="offer"><h2>Want this for Amanda&#x27;s Bakery &amp; Bistro?</h2><p>This is a free preview made for Amanda&#x27;s Bakery &amp; Bistro. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20Amanda%27s%20Bakery%20%26%20Bistro&amp;body=Yes%2C%20please%20make%20this%20site%20for%20Amanda%27s%20Bakery%20%26%20Bistro.">Make it mine</a></p></section>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <b>Amanda's Bakery &amp; Bistro</b>
+    <span>Abilene, KS</span>
+  </div>
+</footer>
+
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · Amanda&#x27;s Bakery &amp; Bistro</div>
+<script>
+(function(){
+  var d=document,root=d.documentElement;
+  root.classList.add('js');
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // reveals
+  var rv=[].slice.call(d.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window && !rm){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+    },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    rv.forEach(function(el){io.observe(el)});
+  } else rv.forEach(function(el){el.classList.add('in')});
+
+  // scroll: progress, header, parallax
+  var bar=d.getElementById('progress'),top=d.getElementById('top'),art=d.getElementById('art'),layers=[].slice.call(d.querySelectorAll('[data-speed]'));
+  var tick=false;
+  function onScroll(){
+    var y=window.pageYOffset||root.scrollTop,h=root.scrollHeight-window.innerHeight;
+    bar.style.transform='scaleX('+(h>0?Math.min(1,y/h):0)+')';
+    top.classList.toggle('stuck',y>30);
+    if(!rm&&y<1400){
+      art.style.transform='translateY('+(y*.12).toFixed(1)+'px)';
+      layers.forEach(function(l){var s=parseFloat(l.getAttribute('data-speed'))/100;l.style.transform='translateY('+(y*s).toFixed(1)+'px)'});
+    }
+    tick=false;
+  }
+  window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(onScroll)}},{passive:true});
+  onScroll();
+
+  // mobile menu
+  var nav=d.getElementById('nav'),bg=d.getElementById('burger');
+  function setMenu(o){nav.classList.toggle('open',o);bg.setAttribute('aria-expanded',o)}
+  bg.addEventListener('click',function(){setMenu(!nav.classList.contains('open'))});
+  [].forEach.call(nav.querySelectorAll('a'),function(a){a.addEventListener('click',function(){setMenu(false)})});
+  d.addEventListener('keydown',function(e){if(e.key==='Escape')setMenu(false)});
+
+  // magnetic buttons
+  if(!rm&&window.matchMedia('(hover:hover)').matches){
+    [].forEach.call(d.querySelectorAll('.btn,.copy'),function(b){
+      b.addEventListener('mousemove',function(e){
+        var r=b.getBoundingClientRect(),x=(e.clientX-r.left-r.width/2)*.22,y=(e.clientY-r.top-r.height/2)*.35;
+        b.style.transform='translate('+x.toFixed(1)+'px,'+(y-3).toFixed(1)+'px)';
+      });
+      b.addEventListener('mouseleave',function(){b.style.transform=''});
+    });
+  }
+
+  // copy address
+  var cp=d.getElementById('copy'),cl=d.getElementById('copyl');
+  if(cp){cp.addEventListener('click',function(){
+    var t=cp.getAttribute('data-text'),old=cl.textContent;
+    function ok(){cl.textContent='Copied ✓';setTimeout(function(){cl.textContent=old},2000)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,fb)}else fb();
+    function fb(){try{var a=d.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';d.body.appendChild(a);a.select();d.execCommand('copy');d.body.removeChild(a);ok()}catch(e){}}
+  })}
+})();
+</script>
+</body>
+</html>

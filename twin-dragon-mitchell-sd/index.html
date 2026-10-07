@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Twin Dragon · Chinese Restaurant · Mitchell, SD</title>
+<meta name="description" content="Twin Dragon, a Chinese restaurant at 701 East Norway Avenue in Mitchell, SD.">
+<link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#0b0710;--night2:#140b1a;--ink:#f6ecea;--mute:#bfaeb8;
+  --red:#ff3b4e;--redglow:rgba(255,59,78,.55);--jade:#2ff0b4;--jadeglow:rgba(47,240,180,.5);--gold:#ffc866;
+  --line:rgba(246,236,234,.14);
+  --serif:"Rozha One",Georgia,serif;--sans:"DM Sans",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--night);color:var(--ink);font-family:var(--sans);font-size:1.05rem;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{max-width:100%}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.02;text-wrap:balance}
+h2{font-size:clamp(2rem,6.5vw,3.8rem)}
+.eyebrow{font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;color:var(--jade);margin-bottom:14px;display:block}
+p{max-width:60ch}
+
+/* progress */
+.progress{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--red),var(--gold),var(--jade));z-index:100;box-shadow:0 0 12px var(--redglow)}
+
+/* slot: banner */
+.np-banner{background:var(--gold);color:#1a0d10;font-size:.82rem;text-align:center;padding:8px 14px;font-weight:500;position:relative;z-index:60}
+.np-banner a{color:inherit;font-weight:700}
+
+/* header */
+header.top{position:sticky;top:0;z-index:50;transition:background .35s,box-shadow .35s,padding .35s;padding:18px 0}
+header.top.scrolled{background:rgba(11,7,16,.88);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line);padding:10px 0}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-size:1.35rem;text-decoration:none;color:var(--ink);text-shadow:0 0 14px var(--redglow)}
+.logo b{font-weight:400;color:var(--red)}
+nav ul{list-style:none;display:flex;gap:26px;align-items:center}
+nav a{text-decoration:none;font-size:.92rem;position:relative;padding:4px 0}
+nav a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--jade);box-shadow:0 0 8px var(--jadeglow);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+nav a:hover::after,nav a:focus-visible::after{transform:scaleX(1)}
+.burger{display:none;background:none;border:1px solid var(--line);color:var(--ink);width:44px;height:44px;border-radius:50%;cursor:pointer}
+.burger span{display:block;width:18px;height:2px;background:currentColor;margin:4px auto;transition:transform .3s,opacity .3s}
+.burger[aria-expanded=true] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded=true] span:nth-child(2){opacity:0}
+.burger[aria-expanded=true] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+/* buttons */
+.btn{display:inline-block;padding:13px 26px;border-radius:999px;background:var(--red);color:#fff;font-weight:700;text-decoration:none;border:2px solid var(--red);box-shadow:0 0 22px var(--redglow);transition:transform .25s,box-shadow .25s,background .25s;cursor:pointer;font-family:var(--sans);font-size:1rem}
+.btn:hover,.btn:focus-visible{transform:translateY(-3px);box-shadow:0 0 34px var(--redglow),0 10px 20px rgba(0,0,0,.4)}
+.btn.alt{background:transparent;color:var(--ink);border-color:var(--jade);box-shadow:0 0 16px var(--jadeglow)}
+small{font-size:.8rem;color:var(--mute)}
+
+/* hero */
+.hero{position:relative;min-height:calc(100svh - 40px);display:flex;align-items:center;overflow:hidden;margin-top:-70px;padding:120px 0 90px;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 70% 40%,rgba(255,59,78,.18),transparent 70%),radial-gradient(40% 40% at 20% 80%,rgba(47,240,180,.12),transparent 70%);z-index:-2}
+.floor{position:absolute;left:-50%;right:-50%;bottom:0;height:46%;z-index:-1;perspective:300px;overflow:hidden;-webkit-mask-image:linear-gradient(transparent,#000 70%);mask-image:linear-gradient(transparent,#000 70%)}
+.floor div{position:absolute;inset:-100% 0 0;transform:rotateX(62deg);transform-origin:50% 100%;background-image:linear-gradient(var(--jade) 1px,transparent 1px),linear-gradient(90deg,var(--jade) 1px,transparent 1px);background-size:60px 60px;opacity:.28;animation:grid 3s linear infinite}
+@keyframes grid{to{transform:rotateX(62deg) translateY(60px)}}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:20px;align-items:center}
+.hero h1{font-size:clamp(3.2rem,13vw,8.6rem);letter-spacing:-.01em}
+.hero h1 span{display:block}
+.hero h1 .l1{color:var(--ink);text-shadow:0 0 6px rgba(255,255,255,.4),0 0 30px var(--jadeglow)}
+.hero h1 .l2{color:var(--red);text-shadow:0 0 8px var(--redglow),0 0 40px var(--redglow);animation:flicker 7s infinite}
+@keyframes flicker{0%,18%,22%,60%,64%,100%{opacity:1}20%{opacity:.55}62%{opacity:.7}63%{opacity:.95}}
+.hero .lead{font-size:clamp(1.1rem,3.4vw,1.4rem);margin:22px 0 8px;color:var(--ink)}
+.hero .addr{color:var(--mute);margin-bottom:28px}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.dragons{width:100%;max-width:520px;justify-self:center;will-change:transform}
+.dragons svg{width:100%;height:auto;overflow:visible;display:block}
+.dr{fill:none;stroke-linecap:round;stroke-width:5;stroke-dasharray:1;stroke-dashoffset:1}
+.dr.a{stroke:var(--red);filter:drop-shadow(0 0 8px var(--red)) drop-shadow(0 0 22px var(--redglow))}
+.dr.b{stroke:var(--jade);filter:drop-shadow(0 0 8px var(--jade)) drop-shadow(0 0 22px var(--jadeglow))}
+.dr.fine{stroke-width:2;opacity:.7}
+.drawn .dr{animation:draw 3.2s cubic-bezier(.6,.1,.2,1) forwards}
+.drawn .dr.b{animation-delay:.35s}
+.drawn .dr.fine{animation-delay:1s}
+@keyframes draw{to{stroke-dashoffset:0}}
+.pearl{fill:var(--gold);filter:drop-shadow(0 0 10px var(--gold));transform-origin:260px 260px;animation:pulse 3.4s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.25)}}
+.sway{animation:sway 9s ease-in-out infinite;transform-origin:50% 50%}
+@keyframes sway{50%{transform:rotate(3deg)}}
+
+/* entrance */
+.js .in{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0) * 110ms)}
+.js .in.show{opacity:1;transform:none}
+
+/* marquee */
+.marquee{border-block:1px solid var(--line);background:var(--night2);overflow:hidden;white-space:nowrap;padding:16px 0}
+.track{display:inline-flex;gap:0;animation:run 38s linear infinite}
+.track span{font-family:var(--serif);font-size:clamp(1.3rem,4vw,2rem);padding:0 22px;color:var(--ink)}
+.track span:nth-child(even){color:var(--red);text-shadow:0 0 12px var(--redglow)}
+@keyframes run{to{transform:translateX(-50%)}}
+
+section{padding:clamp(70px,11vw,130px) 0}
+
+/* offer */
+.offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.card{border:1px solid var(--line);border-radius:20px;padding:30px 26px;background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,0));transition:transform .35s,border-color .35s,box-shadow .35s}
+.card:hover{transform:translateY(-8px);border-color:var(--jade);box-shadow:0 0 30px var(--jadeglow)}
+.card h3{font-size:1.7rem;margin-bottom:10px}
+.card .glyph{width:44px;height:44px;margin-bottom:18px;color:var(--red);filter:drop-shadow(0 0 8px var(--redglow))}
+.card:nth-child(2) .glyph{color:var(--jade);filter:drop-shadow(0 0 8px var(--jadeglow))}
+.card p{color:var(--mute)}
+
+/* menu */
+#menu{background:var(--night2);position:relative}
+.note{display:inline-block;margin:18px 0 40px;padding:12px 18px;border:1px dashed var(--gold);color:var(--gold);border-radius:12px;font-size:.95rem;max-width:62ch}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.sec{border:1px solid var(--line);border-radius:18px;padding:28px 24px;background:var(--night);position:relative}
+.sec h3{font-size:1.9rem;color:var(--red);text-shadow:0 0 14px var(--redglow);margin-bottom:12px}
+.sec ul{list-style:none}
+.sec li{display:flex;justify-content:space-between;gap:14px;padding:14px 8px;border-top:1px solid var(--line);transition:transform .25s,background .25s;border-radius:8px}
+.sec li:hover{transform:translateX(6px);background:rgba(47,240,180,.07)}
+.sec li strong{font-weight:500;display:block}
+.sec li em{font-style:normal;color:var(--mute);font-size:.9rem}
+.price{color:var(--gold);font-weight:700;white-space:nowrap}
+.tag{display:inline-block;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--jade);color:var(--jade);padding:1px 8px;border-radius:99px;margin-top:4px}
+
+/* hours */
+.loc-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;margin-top:36px;align-items:start}
+.hours{width:100%;border-collapse:collapse;margin:14px 0 24px}
+.hours td{padding:11px 4px;border-bottom:1px solid var(--line)}
+.hours td:last-child{text-align:right;color:var(--gold)}
+.addr-box{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+address{font-style:normal;font-size:1.15rem}
+.copy{background:none;border:1px solid var(--jade);color:var(--jade);padding:8px 16px;border-radius:999px;cursor:pointer;font:inherit;font-size:.9rem;transition:background .25s,transform .25s}
+.copy:hover{background:rgba(47,240,180,.12);transform:translateY(-2px)}
+.map{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--night2)}
+.map iframe{width:100%;border:0;display:block;min-height:320px}
+.maplinks{display:flex;flex-wrap:wrap;gap:12px;padding:14px}
+.maplinks a{color:var(--jade)}
+.mapcredit{font-size:.75rem;color:var(--mute);padding:0 14px 12px}
+.mapcredit a{color:var(--mute)}
+
+/* contact */
+#contact{text-align:center;position:relative;overflow:hidden}
+#contact .wrap{display:flex;flex-direction:column;align-items:center}
+#contact h2{margin-bottom:18px}
+#contact .cta-row{justify-content:center;margin-top:24px}
+
+/* cta slot */
+.np-cta{margin:0 auto;width:min(900px,100% - 40px);padding:clamp(28px,5vw,54px);border-radius:26px;border:2px solid var(--gold);background:radial-gradient(80% 120% at 50% 0,rgba(255,200,102,.14),rgba(255,59,78,.06));box-shadow:0 0 40px rgba(255,200,102,.25),inset 0 0 30px rgba(255,200,102,.06);text-align:center;display:flex;flex-direction:column;gap:14px;align-items:center}
+.np-cta .btn{margin:4px}
+.np-cta p{margin-inline:auto}
+footer{padding:40px 0 30px;text-align:center;color:var(--mute);font-size:.9rem}
+
+/* mobile */
+@media (max-width:860px){
+  .hero-grid,.loc-grid{grid-template-columns:1fr}
+  .offer-grid,.menu-grid{grid-template-columns:1fr}
+  .dragons{max-width:360px;order:-1;margin-bottom:-10px}
+  .burger{display:block}
+  nav{position:absolute;left:0;right:0;top:100%;background:rgba(11,7,16,.97);border-bottom:1px solid var(--line);max-height:0;overflow:hidden;transition:max-height .4s}
+  nav.open{max-height:360px}
+  nav ul{flex-direction:column;align-items:flex-start;padding:16px 20px 24px;gap:16px}
+  .hero{padding-top:110px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .js .in{opacity:1!important;transform:none!important}
+  .dr{stroke-dashoffset:0!important}
+  .track{flex-wrap:wrap;white-space:normal}
+  .marquee{white-space:normal}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="top" id="top">
+  <div class="wrap bar">
+    <a class="logo" href="#home">Twin <b>Dragon</b></a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+    <nav id="nav" aria-label="Main">
+      <ul>
+        <li><a href="#offer">Our kitchen</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#visit">Hours &amp; location</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="home">
+<div class="hero">
+  <div class="floor" aria-hidden="true"><div></div></div>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow in" style="--i:0">Chinese restaurant · Mitchell, SD</span>
+      <h1><span class="l1 in" style="--i:1">Twin</span><span class="l2 in" style="--i:2">Dragon</span></h1>
+      <p class="lead in" style="--i:3">Chinese food on East Norway Avenue.</p>
+      <p class="addr in" style="--i:4">701 East Norway Avenue, Mitchell, SD</p>
+      <div class="cta-row in" style="--i:5">
+        <a class="btn" href="#menu" data-magnet>See the menu</a>
+        <a class="btn alt" href="#visit" data-magnet>Find us</a>
+      </div>
+    </div>
+    <div class="dragons" id="dragons" aria-hidden="true">
+      <svg viewBox="0 0 520 520" role="img" focusable="false">
+        <g class="sway">
+          <path class="dr a" pathLength="1" d="M60 470 C 60 330, 200 360, 260 260 S 460 190, 450 60"/>
+          <path class="dr b" pathLength="1" d="M460 470 C 460 330, 320 360, 260 260 S 60 190, 70 60"/>
+          <path class="dr fine a" pathLength="1" d="M95 470 C 95 350, 220 370, 260 290 S 420 210, 415 90"/>
+          <path class="dr fine b" pathLength="1" d="M425 470 C 425 350, 300 370, 260 290 S 100 210, 105 90"/>
+          <circle class="pearl" cx="260" cy="260" r="14"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Twin Dragon</span><span>Chinese</span><span>Mitchell, SD</span><span>East Norway Avenue</span><span>Restaurant</span><span>Twin Dragon</span><span>Chinese</span><span>Mitchell, SD</span><span>East Norway Avenue</span><span>Restaurant</span>
+    <span>Twin Dragon</span><span>Chinese</span><span>Mitchell, SD</span><span>East Norway Avenue</span><span>Restaurant</span><span>Twin Dragon</span><span>Chinese</span><span>Mitchell, SD</span><span>East Norway Avenue</span><span>Restaurant</span>
+  </div>
+</div>
+
+<section id="offer">
+  <div class="wrap">
+    <span class="eyebrow in">Our kitchen</span>
+    <h2 class="in" style="--i:1">Two dragons, one table.</h2>
+    <div class="offer-grid">
+      <article class="card in" style="--i:1">
+        <svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M8 20h32c0 10-7 18-16 18S8 30 8 20z"/><path d="M18 10c-2 3 2 4 0 7M26 8c-2 3 2 4 0 9M34 10c-2 3 2 4 0 7"/></svg>
+        <h3>Chinese cooking</h3>
+        <p>Chinese is what we do. Come hungry and share the table.</p>
+      </article>
+      <article class="card in" style="--i:2">
+        <svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M24 44S10 30 10 19a14 14 0 0 1 28 0c0 11-14 25-14 25z"/><circle cx="24" cy="19" r="5"/></svg>
+        <h3>In the heart of Mitchell</h3>
+        <p>Find us at 701 East Norway Avenue, right here in Mitchell, South Dakota.</p>
+      </article>
+      <article class="card in" style="--i:3">
+        <svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><rect x="6" y="11" width="36" height="26" rx="4"/><path d="M7 14l17 13 17-13"/></svg>
+        <h3>Say hello</h3>
+        <p>Have a question? Send us an e-mail and we will get back to you.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="wrap">
+    <span class="eyebrow in">Menu</span>
+    <h2 class="in" style="--i:1">What's on the table</h2>
+    <p class="note in" style="--i:2">This is an example menu that shows how your menu would look. Your real dishes and prices go here.</p>
+    <div class="menu-grid">
+      <div class="sec in" style="--i:1">
+        <h3>Starters</h3>
+        <ul>
+          <li><div><strong>Egg rolls</strong><em>Two pieces</em><br><span class="tag">Example</span></div><span class="price">$4.50</span></li>
+          <li><div><strong>Crab rangoon</strong><br><span class="tag">Example</span></div><span class="price">$5.50</span></li>
+          <li><div><strong>Hot &amp; sour soup</strong><br><span class="tag">Example</span></div><span class="price">$4.00</span></li>
+        </ul>
+      </div>
+      <div class="sec in" style="--i:2">
+        <h3>Entrees</h3>
+        <ul>
+          <li><div><strong>General Tso's chicken</strong><br><span class="tag">Example</span></div><span class="price">$13.50</span></li>
+          <li><div><strong>Beef &amp; broccoli</strong><br><span class="tag">Example</span></div><span class="price">$14.00</span></li>
+          <li><div><strong>Vegetable lo mein</strong><br><span class="tag">Example</span></div><span class="price">$11.50</span></li>
+        </ul>
+      </div>
+      <div class="sec in" style="--i:3">
+        <h3>Sides</h3>
+        <ul>
+          <li><div><strong>Steamed rice</strong><br><span class="tag">Example</span></div><span class="price">$2.50</span></li>
+          <li><div><strong>Fried rice</strong><br><span class="tag">Example</span></div><span class="price">$4.50</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap">
+    <span class="eyebrow in">Hours &amp; location</span>
+    <h2 class="in" style="--i:1">Come find the dragons</h2>
+    <div class="loc-grid">
+      <div class="in" style="--i:2">
+        <address>701 East Norway Avenue<br>Mitchell, SD</address>
+        <div class="addr-box" style="margin-top:12px">
+          <button class="copy" id="copy" type="button" data-addr="701 East Norway Avenue, Mitchell, SD">Copy address</button>
+          <span id="copied" role="status" aria-live="polite" style="color:var(--jade);font-size:.9rem"></span>
+        </div>
+        <div style="margin-top:34px"><span class="tag">Example hours</span></div>
+        <table class="hours">
+          <tbody>
+            <tr><td>Mon</td><td>7 AM – 3 PM</td></tr>
+            <tr><td>Tue</td><td>7 AM – 3 PM</td></tr>
+            <tr><td>Wed</td><td>7 AM – 3 PM</td></tr>
+            <tr><td>Thu</td><td>7 AM – 3 PM</td></tr>
+            <tr><td>Fri</td><td>7 AM – 8 PM</td></tr>
+            <tr><td>Sat</td><td>8 AM – 8 PM</td></tr>
+            <tr><td>Sun</td><td>Closed</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="in" style="--i:3"><iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-98.02261,43.68974,-98.01061,43.70174&amp;layer=mapnik&amp;marker=43.69574,-98.01661"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=43.69574&amp;mlon=-98.01661#map=17/43.69574/-98.01661" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=43.69574,-98.01661" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <span class="eyebrow in">Contact</span>
+    <h2 class="in" style="--i:1">Questions? Write to us.</h2>
+    <p class="in" style="--i:2">Send a note to Twin Dragon and we will reply by e-mail.</p>
+    <div class="cta-row in" style="--i:3"><a class="btn" href="mailto:twindragonsd@gmail.com">twindragonsd@gmail.com</a> </div>
+  </div>
+</section>
+
+<section class="np-cta" id="offer"><h2>Want this for Twin Dragon?</h2><p>This is a free preview made for Twin Dragon. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20Twin%20Dragon&amp;body=Yes%2C%20please%20make%20this%20site%20for%20Twin%20Dragon.">Make it mine</a></p></section>
+</main>
+
+<footer>
+  <div class="wrap">Twin Dragon · 701 East Norway Avenue, Mitchell, SD</div>
+</footer>
+
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · Twin Dragon</div>
+
+<script>
+(function(){
+  var d=document,root=d.documentElement;
+  root.classList.add('js');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // hero line drawing
+  requestAnimationFrame(function(){d.getElementById('dragons').classList.add('drawn')});
+
+  // reveals
+  var els=d.querySelectorAll('.in');
+  if(reduce||!('IntersectionObserver' in window)){
+    els.forEach(function(e){e.classList.add('show')});
+  }else{
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('show');io.unobserve(x.target)}});
+    },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(e){io.observe(e)});
+  }
+
+  // scroll: header, progress, parallax
+  var header=d.getElementById('top'),bar=d.getElementById('progress'),dr=d.getElementById('dragons'),tick=false;
+  function onScroll(){
+    var y=window.scrollY,h=root.scrollHeight-window.innerHeight;
+    header.classList.toggle('scrolled',y>40);
+    bar.style.transform='scaleX('+(h>0?Math.min(y/h,1):0)+')';
+    if(!reduce&&y<window.innerHeight*1.2)dr.style.transform='translateY('+(y*.12)+'px)';
+    tick=false;
+  }
+  window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(onScroll)}},{passive:true});
+  onScroll();
+
+  // mobile menu
+  var b=d.getElementById('burger'),n=d.getElementById('nav');
+  function close(){n.classList.remove('open');b.setAttribute('aria-expanded','false')}
+  b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+  n.addEventListener('click',function(e){if(e.target.tagName==='A')close()});
+  d.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+
+  // magnetic buttons
+  if(!reduce){
+    d.querySelectorAll('.btn').forEach(function(el){
+      el.addEventListener('mousemove',function(e){
+        var r=el.getBoundingClientRect();
+        el.style.transform='translate('+((e.clientX-r.left-r.width/2)*.18)+'px,'+((e.clientY-r.top-r.height/2)*.25-2)+'px)';
+      });
+      el.addEventListener('mouseleave',function(){el.style.transform=''});
+    });
+  }
+
+  // copy address
+  var c=d.getElementById('copy'),msg=d.getElementById('copied');
+  c.addEventListener('click',function(){
+    var t=c.getAttribute('data-addr');
+    function ok(){msg.textContent='Copied!';setTimeout(function(){msg.textContent=''},2000)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,fallback)}else fallback();
+    function fallback(){
+      var a=d.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';d.body.appendChild(a);a.select();
+      try{d.execCommand('copy');ok()}catch(e){msg.textContent=t}
+      d.body.removeChild(a);
+    }
+  });
+})();
+</script>
+</body>
+</html>

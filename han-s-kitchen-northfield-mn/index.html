@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Han's Kitchen · Vietnamese in Northfield, MN</title>
+<meta name="description" content="Han's Kitchen, Vietnamese food in Northfield, MN. Dine in, get it delivered, take it to go.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0710;--bg2:#140c1c;--ink:#f6eee8;--mute:#bfb2bf;
+  --red:#ff4d5e;--amber:#ffb347;--jade:#3ee0b0;
+  --line:rgba(255,255,255,.14);
+  --disp:'Bungee','Impact',sans-serif;--body:'DM Sans',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--disp);font-weight:400;line-height:1.02;text-wrap:balance;overflow-wrap:break-word}
+p{text-wrap:pretty}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+section{position:relative;padding:clamp(64px,10vw,130px) 0}
+.eyebrow{font-family:var(--body);font-weight:700;letter-spacing:.22em;text-transform:uppercase;font-size:.78rem;color:var(--jade);display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.eyebrow::before{content:"";width:34px;height:2px;background:var(--jade);box-shadow:0 0 10px var(--jade)}
+h2{font-size:clamp(1.9rem,6.2vw,3.6rem);margin-bottom:18px}
+.glow-red{color:#ffd9dc;text-shadow:0 0 6px var(--red),0 0 22px var(--red),0 0 48px rgba(255,77,94,.7)}
+.glow-amber{color:#fff1d6;text-shadow:0 0 6px var(--amber),0 0 20px var(--amber),0 0 44px rgba(255,179,71,.6)}
+
+/* banner */
+.np-banner{background:#1d1226;color:var(--ink);font-size:.84rem;text-align:center;padding:8px 16px;border-bottom:1px solid var(--amber);line-height:1.4}
+.np-banner a{color:var(--amber)}
+
+/* progress + header */
+#bar{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--red),var(--amber),var(--jade));z-index:200;box-shadow:0 0 12px var(--red)}
+header{position:sticky;top:0;z-index:100;transition:background .3s,box-shadow .3s}
+header .in{display:flex;align-items:center;justify-content:space-between;height:78px;transition:height .3s}
+header.sc{background:rgba(11,7,16,.88);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+header.sc .in{height:62px}
+.logo{font-family:var(--disp);text-decoration:none;font-size:1.15rem;letter-spacing:.02em;color:#ffd9dc;text-shadow:0 0 10px var(--red)}
+nav ul{display:flex;gap:30px;list-style:none;align-items:center}
+nav a{text-decoration:none;font-weight:500;font-size:.95rem;position:relative;padding:6px 0}
+nav a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--amber);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+nav a:not(.btn):hover::after{transform:scaleX(1)}
+.burger{display:none;background:none;border:1px solid var(--line);color:var(--ink);width:46px;height:46px;border-radius:12px;cursor:pointer;font-size:0}
+.burger span,.burger span::before,.burger span::after{display:block;width:20px;height:2px;background:var(--ink);margin:auto;position:relative;transition:transform .3s,background .3s}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.burger[aria-expanded=true] span{background:transparent}
+.burger[aria-expanded=true] span::before{transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded=true] span::after{transform:translateY(-6px) rotate(-45deg)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--body);font-weight:700;font-size:1rem;text-decoration:none;cursor:pointer;border:2px solid var(--red);background:var(--red);color:#1a0508;padding:13px 26px;border-radius:999px;transition:transform .25s ease,box-shadow .25s ease,background .25s;box-shadow:0 0 18px rgba(255,77,94,.55);will-change:transform}
+.btn:hover{box-shadow:0 0 30px rgba(255,77,94,.9);transform:translateY(-3px)}
+.btn.alt{background:transparent;color:var(--ink);border-color:var(--jade);box-shadow:0 0 14px rgba(62,224,176,.35)}
+.btn.alt:hover{box-shadow:0 0 28px rgba(62,224,176,.8)}
+.btn:focus-visible,a:focus-visible,button:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+small{font-size:.85rem;color:var(--mute)}
+
+/* hero */
+.hero{min-height:calc(100svh - 40px);padding:40px 0 90px;display:flex;align-items:center;overflow:hidden;isolation:isolate}
+.hero .stars{position:absolute;inset:0;z-index:-3;background:radial-gradient(ellipse at 70% 30%,rgba(255,77,94,.22),transparent 55%),radial-gradient(ellipse at 15% 80%,rgba(62,224,176,.12),transparent 50%)}
+.floor{position:absolute;left:-50%;right:-50%;bottom:0;height:46%;z-index:-2;perspective:380px;overflow:hidden;mask-image:linear-gradient(transparent,#000 70%)}
+.floor i{position:absolute;left:0;right:0;top:-40px;bottom:-80px;transform-origin:50% 0;transform:rotateX(62deg);background-image:linear-gradient(rgba(62,224,176,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(62,224,176,.5) 1px,transparent 1px);background-size:60px 60px;animation:grid 3s linear infinite}
+@keyframes grid{to{transform:rotateX(62deg) translateY(60px)}}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center;width:100%}
+.hero h1{font-size:clamp(2.7rem,11.5vw,7.6rem);margin:6px 0 22px;letter-spacing:.01em}
+.hero h1 span{display:block}
+.hero h1 .l2{color:#fff1d6;text-shadow:0 0 6px var(--amber),0 0 24px var(--amber),0 0 54px rgba(255,179,71,.6)}
+.flick{animation:flick 6s infinite}
+@keyframes flick{0%,18%,22%,62%,64%,100%{opacity:1}20%{opacity:.35}21%{opacity:.9}63%{opacity:.5}}
+.lead{font-size:clamp(1.1rem,2.6vw,1.4rem);max-width:30ch;color:var(--ink);margin-bottom:30px}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.bowl-wrap{position:relative;will-change:transform}
+.bowl{width:100%;max-width:440px;margin-inline:auto;filter:drop-shadow(0 0 14px rgba(255,77,94,.7))}
+.bowl .t{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:5}
+.bowl .draw{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.2s .5s cubic-bezier(.6,0,.2,1) forwards}
+.bowl .steam{stroke:var(--jade);animation:draw 2s 1.4s ease forwards,rise 4s 3.4s ease-in-out infinite}
+.bowl .steam:nth-of-type(2){animation-delay:1.7s,3.7s}
+.bowl .steam:nth-of-type(3){animation-delay:2s,4s}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes rise{0%,100%{transform:translateY(0);opacity:1}50%{transform:translateY(-8px);opacity:.6}}
+.enter{opacity:0;transform:translateY(30px);animation:in .9s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(.15s*var(--i,0) + .1s)}
+@keyframes in{to{opacity:1;transform:none}}
+
+/* marquee */
+.marq{border-block:1px solid var(--line);background:var(--bg2);overflow:hidden;padding:16px 0}
+.marq div{display:flex;width:max-content;animation:mq 28s linear infinite}
+.marq span{font-family:var(--disp);font-size:clamp(1.1rem,3vw,1.7rem);white-space:nowrap;padding-right:34px;color:var(--ink);opacity:.9}
+.marq span:nth-child(3n+1){color:var(--amber)}.marq span:nth-child(3n+2){color:var(--jade)}.marq span:nth-child(3n){color:var(--red)}
+.marq span::after{content:"✦";margin-left:34px;color:var(--mute)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* offer */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+.card{border:1px solid var(--line);border-radius:22px;padding:32px 26px;background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.01));transition:transform .35s,border-color .35s,box-shadow .35s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-8px) rotate(-.6deg);border-color:var(--c);box-shadow:0 0 30px -4px var(--c)}
+.card:nth-child(1){--c:var(--red)}.card:nth-child(2){--c:var(--amber)}.card:nth-child(3){--c:var(--jade)}
+.card svg{width:54px;height:54px;stroke:var(--c);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;margin-bottom:18px;filter:drop-shadow(0 0 6px var(--c));transition:transform .4s}
+.card:hover svg{transform:scale(1.15) rotate(-6deg)}
+.card h3{font-size:1.5rem;margin-bottom:8px;color:var(--c)}
+.card p{color:var(--mute)}
+
+/* menu */
+#menu{background:var(--bg2)}
+.tag{display:inline-block;font-family:var(--body);font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--amber);color:var(--amber);border-radius:999px;padding:3px 12px;vertical-align:middle}
+.note{margin:6px 0 40px;padding:14px 18px;border-left:3px solid var(--amber);background:rgba(255,179,71,.07);color:var(--ink);max-width:62ch;border-radius:0 12px 12px 0}
+.mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+.msec h3{font-size:1.5rem;margin-bottom:8px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;color:var(--amber)}
+.msec ul{list-style:none}
+.msec li{display:flex;justify-content:space-between;gap:14px;padding:15px 8px;border-bottom:1px dashed var(--line);transition:transform .3s,background .3s,padding .3s;border-radius:8px}
+.msec li:hover{transform:translateX(8px);background:rgba(255,77,94,.09)}
+.msec b{font-weight:700;display:block}
+.msec em{font-style:normal;color:var(--mute);font-size:.92rem}
+.price{font-family:var(--disp);color:var(--jade);white-space:nowrap}
+
+/* visit */
+.vgrid{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:start}
+.hours{width:100%;border-collapse:collapse;margin:14px 0 22px}
+.hours td{padding:11px 0;border-bottom:1px solid var(--line)}
+.hours td:last-child{text-align:right;font-weight:500}
+.addr{font-style:normal;margin:10px 0 16px;font-size:1.15rem}
+.copy{margin-bottom:10px}
+.map{border-radius:22px;overflow:hidden;border:1px solid var(--jade);box-shadow:0 0 30px -8px var(--jade);background:var(--bg2)}
+.map iframe{width:100%;height:340px;border:0;display:block}
+.maplinks{display:flex;flex-wrap:wrap;gap:12px;padding:14px}
+.maplinks a{color:var(--jade);font-weight:700}
+.mapcredit{font-size:.75rem;color:var(--mute);padding:0 14px 12px}
+.mapcredit a{color:var(--mute)}
+
+/* contact */
+#contact{text-align:center}
+#contact h2{margin-inline:auto;max-width:14ch}
+#contact p{max-width:44ch;margin:0 auto 28px;color:var(--mute)}
+#contact .cta-row{justify-content:center}
+
+/* cta */
+.np-cta{margin:0 auto;width:min(1000px,100% - 40px);border:2px solid var(--amber);border-radius:28px;padding:clamp(28px,5vw,56px);text-align:center;background:radial-gradient(circle at 50% 0,rgba(255,179,71,.18),transparent 70%),var(--bg2);box-shadow:0 0 50px -10px var(--amber);display:flex;flex-direction:column;align-items:center;gap:14px}
+.np-cta h2,.np-cta h3{font-size:clamp(1.6rem,5vw,2.8rem);color:#fff1d6;text-shadow:0 0 18px var(--amber)}
+.np-cta p{max-width:50ch;color:var(--ink)}
+.np-cta .btn{margin:4px}
+footer{padding:30px 0 10px;text-align:center;color:var(--mute);font-size:.9rem}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--d,0)*110ms)}
+.js .rv.in{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .hero-grid,.vgrid{grid-template-columns:1fr}
+  .cards,.mgrid{grid-template-columns:1fr}
+  .bowl{max-width:300px}
+  .burger{display:block}
+  nav{position:absolute;top:100%;left:0;right:0;background:rgba(11,7,16,.97);border-bottom:1px solid var(--line);max-height:0;overflow:hidden;visibility:hidden;transition:max-height .4s,visibility .4s}
+  nav.open{max-height:420px;visibility:visible}
+  nav ul{flex-direction:column;padding:18px 20px 26px;gap:18px;align-items:flex-start}
+  nav a{font-size:1.15rem}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .enter,.js .rv{opacity:1!important;transform:none!important}
+  .bowl .draw{stroke-dashoffset:0}
+  .marq div{width:auto;flex-wrap:wrap}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div id="bar"></div>
+<header id="top">
+  <div class="wrap in">
+    <a class="logo" href="#hero">Han's Kitchen</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span>Menu</button>
+    <nav id="nav" aria-label="Main">
+      <ul>
+        <li><a href="#offer">Ways to eat</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#visit">Hours &amp; location</a></li>
+        <li><a href="#contact" class="btn">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="hero">
+  <div class="stars"></div>
+  <div class="floor" aria-hidden="true"><i></i></div>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow enter" style="--i:0">Northfield, MN</div>
+      <h1 class="enter" style="--i:1"><span class="l1 glow-red flick">Han's</span><span class="l2">Kitchen</span></h1>
+      <p class="lead enter" style="--i:3">Vietnamese. Dine in, get it delivered, take it to go.</p>
+      <div class="cta-row enter" style="--i:4">
+        <a class="btn" href="#menu">See the menu</a>
+        <a class="btn alt" href="#visit">Find us</a>
+      </div>
+    </div>
+    <div class="bowl-wrap enter" style="--i:2" id="bowlwrap" aria-hidden="true">
+      <svg class="bowl" viewBox="0 0 400 360" fill="none">
+        <path class="t steam draw" pathLength="1" d="M140 130c-18-22 18-40 0-62"/>
+        <path class="t steam draw" pathLength="1" d="M200 130c-18-26 18-48 0-78"/>
+        <path class="t steam draw" pathLength="1" d="M260 130c-18-22 18-40 0-62"/>
+        <path class="t draw" pathLength="1" stroke="#ff4d5e" d="M50 175h300c0 80-60 135-150 135S50 255 50 175z"/>
+        <path class="t draw" pathLength="1" stroke="#ff4d5e" d="M135 330h130"/>
+        <path class="t draw" pathLength="1" stroke="#ffb347" d="M250 150L360 30"/>
+        <path class="t draw" pathLength="1" stroke="#ffb347" d="M275 160L385 52"/>
+        <path class="t draw" pathLength="1" stroke="#ffb347" d="M95 215c40 22 170 22 210 0"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="marq" aria-hidden="true"><div>
+  <span>Vietnamese</span><span>Dine in</span><span>Delivered</span><span>To go</span><span>Water Street South</span><span>Northfield, MN</span>
+  <span>Vietnamese</span><span>Dine in</span><span>Delivered</span><span>To go</span><span>Water Street South</span><span>Northfield, MN</span>
+</div></div>
+
+<section id="offer">
+  <div class="wrap">
+    <div class="eyebrow rv">Three ways to eat</div>
+    <h2 class="rv" style="--d:1">Vietnamese food, your way.</h2>
+    <div class="cards">
+      <article class="card rv" style="--d:1">
+        <svg viewBox="0 0 48 48"><path d="M8 22h32c0 10-7 18-16 18S8 32 8 22z"/><path d="M16 14c-3-3 3-5 0-8M24 14c-3-3 3-5 0-8M32 14c-3-3 3-5 0-8"/></svg>
+        <h3>Dine in</h3><p>Pull up a chair on Water Street South and eat it hot.</p>
+      </article>
+      <article class="card rv" style="--d:2">
+        <svg viewBox="0 0 48 48"><circle cx="12" cy="34" r="6"/><circle cx="38" cy="34" r="6"/><path d="M12 34l8-16h10l8 16M20 18l-2-6h-6"/></svg>
+        <h3>Delivered</h3><p>Stay in. We'll get dinner to your door.</p>
+      </article>
+      <article class="card rv" style="--d:3">
+        <svg viewBox="0 0 48 48"><path d="M10 16h28l-3 26H13z"/><path d="M17 16c0-8 14-8 14 0"/></svg>
+        <h3>To go</h3><p>Grab a bag on your way and take it wherever the day goes.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="wrap">
+    <div class="eyebrow rv">The menu</div>
+    <h2 class="rv" style="--d:1">Menu <span class="tag">Example</span></h2>
+    <p class="note rv" style="--d:2">This is an example menu that shows how your menu would look. Your real dishes and prices go here.</p>
+    <div class="mgrid">
+      <div class="msec rv" style="--d:1">
+        <h3>Starters <span class="tag">Example</span></h3>
+        <ul>
+          <li><span><b>Egg rolls</b><em>Two pieces</em></span><span class="price">$4.50</span></li>
+          <li><span><b>Crab rangoon</b></span><span class="price">$5.50</span></li>
+          <li><span><b>Hot &amp; sour soup</b></span><span class="price">$4.00</span></li>
+        </ul>
+      </div>
+      <div class="msec rv" style="--d:2">
+        <h3>Entrees <span class="tag">Example</span></h3>
+        <ul>
+          <li><span><b>General Tso's chicken</b></span><span class="price">$13.50</span></li>
+          <li><span><b>Beef &amp; broccoli</b></span><span class="price">$14.00</span></li>
+          <li><span><b>Vegetable lo mein</b></span><span class="price">$11.50</span></li>
+        </ul>
+      </div>
+      <div class="msec rv" style="--d:3">
+        <h3>Sides <span class="tag">Example</span></h3>
+        <ul>
+          <li><span><b>Steamed rice</b></span><span class="price">$2.50</span></li>
+          <li><span><b>Fried rice</b></span><span class="price">$4.50</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap vgrid">
+    <div>
+      <div class="eyebrow rv">Come by</div>
+      <h2 class="rv" style="--d:1">Hours &amp; location</h2>
+      <p class="rv" style="--d:2"><span class="tag">Example hours</span></p>
+      <table class="hours rv" style="--d:2">
+        <tbody>
+          <tr><td>Mon</td><td>7 AM – 3 PM</td></tr>
+          <tr><td>Tue</td><td>7 AM – 3 PM</td></tr>
+          <tr><td>Wed</td><td>7 AM – 3 PM</td></tr>
+          <tr><td>Thu</td><td>7 AM – 3 PM</td></tr>
+          <tr><td>Fri</td><td>7 AM – 8 PM</td></tr>
+          <tr><td>Sat</td><td>8 AM – 8 PM</td></tr>
+          <tr><td>Sun</td><td>Closed</td></tr>
+        </tbody>
+      </table>
+      <address class="addr rv" style="--d:3" id="addr">304 Water Street South, Northfield, MN 55057</address>
+      <button class="btn alt copy rv" style="--d:3" id="copy" type="button">Copy address</button>
+      <div><small id="copied" role="status" aria-live="polite"></small></div>
+    </div>
+    <div class="rv" style="--d:2"><iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-93.16822,44.45091,-93.15622,44.46291&amp;layer=mapnik&amp;marker=44.45691,-93.16222"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=44.45691&amp;mlon=-93.16222#map=17/44.45691/-93.16222" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=44.45691,-93.16222" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="eyebrow rv" style="justify-content:center">Say hello</div>
+    <h2 class="rv glow-red" style="--d:1">Hungry? Get in touch.</h2>
+    <p class="rv" style="--d:2">Send a note to Han's Kitchen by e-mail.</p>
+    <div class="cta-row rv" style="--d:3"><a class="btn" href="mailto:hans.kitchen.mn@gmail.com">hans.kitchen.mn@gmail.com</a> </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <section class="np-cta" id="offer"><h2>Want this for Han&#x27;s Kitchen?</h2><p>This is a free preview made for Han&#x27;s Kitchen. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20Han%27s%20Kitchen&amp;body=Yes%2C%20please%20make%20this%20site%20for%20Han%27s%20Kitchen.">Make it mine</a></p></section>
+</section>
+</main>
+
+<footer><div class="wrap">Han's Kitchen · 304 Water Street South, Northfield, MN 55057</div></footer>
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · Han&#x27;s Kitchen</div>
+
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var bar=document.getElementById('bar'),hd=document.getElementById('top'),bw=document.getElementById('bowlwrap');
+  var tick=false;
+  function onScroll(){
+    var y=window.scrollY,h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.transform='scaleX('+(h>0?Math.min(1,y/h):0)+')';
+    hd.classList.toggle('sc',y>20);
+    if(!reduce&&bw&&y<1400){bw.style.transform='translateY('+(y*0.12)+'px)'}
+    tick=false;
+  }
+  window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(onScroll)}},{passive:true});
+  onScroll();
+
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window&&!reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+    els.forEach(function(el){io.observe(el)});
+  }else{els.forEach(function(el){el.classList.add('in')})}
+
+  var b=document.querySelector('.burger'),n=document.getElementById('nav');
+  function close(){n.classList.remove('open');b.setAttribute('aria-expanded','false')}
+  b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+  n.addEventListener('click',function(e){if(e.target.closest('a'))close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+
+  var cb=document.getElementById('copy'),msg=document.getElementById('copied');
+  cb.addEventListener('click',function(){
+    var t=document.getElementById('addr').textContent.trim();
+    function ok(){msg.textContent='Address copied'}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,function(){msg.textContent='Copy failed. Select the address above.'})}
+    else{try{var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();ok()}catch(e){msg.textContent='Copy failed. Select the address above.'}}
+  });
+
+  if(!reduce){
+    document.querySelectorAll('.btn').forEach(function(btn){
+      btn.addEventListener('mousemove',function(e){
+        var r=btn.getBoundingClientRect(),x=(e.clientX-r.left-r.width/2)*.18,y=(e.clientY-r.top-r.height/2)*.28;
+        btn.style.transform='translate('+x+'px,'+(y-3)+'px)';
+      });
+      btn.addEventListener('mouseleave',function(){btn.style.transform=''});
+    });
+  }
+})();
+</script>
+</body>
+</html>

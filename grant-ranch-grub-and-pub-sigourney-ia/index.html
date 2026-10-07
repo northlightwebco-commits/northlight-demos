@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Grant Ranch Grub &amp; Pub | Sigourney, IA</title>
+<meta name="description" content="Grant Ranch Grub &amp; Pub, a restaurant at 121 South Jefferson Street in Sigourney, Iowa.">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600;700&family=Rye&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d0a12;--bg2:#15101c;--ink:#f5ece0;--mute:#c4b8ae;
+  --amber:#ffb340;--red:#ff5a66;--teal:#46e6cf;--line:rgba(255,179,64,.28);
+  --display:"Rye",Georgia,serif;--body:"Barlow Semi Condensed",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.55;overflow-x:hidden}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+
+/* preview slots */
+.np-banner{background:var(--amber);color:#1a1006;text-align:center;font-size:14px;font-weight:600;padding:7px 14px;letter-spacing:.02em}
+.np-banner a{color:#1a1006}
+.btn{display:inline-block;font-family:var(--body);font-weight:700;font-size:17px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;color:#1a1006;background:var(--amber);border:2px solid var(--amber);padding:13px 26px;border-radius:999px;cursor:pointer;box-shadow:0 0 24px rgba(255,179,64,.35);transition:transform .25s ease,box-shadow .25s ease,background .25s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 0 36px rgba(255,179,64,.6)}
+.btn.alt{background:transparent;color:var(--ink);border-color:var(--teal);box-shadow:0 0 18px rgba(70,230,207,.25)}
+.btn.alt:hover{background:rgba(70,230,207,.12)}
+small{font-size:14px;color:var(--mute)}
+.map{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--bg2)}
+.map iframe{width:100%;min-height:300px;border:0;display:block}
+.maplinks{display:flex;flex-wrap:wrap;gap:10px 18px;padding:12px 14px}
+.maplinks a{color:var(--teal);font-weight:600}
+.mapcredit{padding:0 14px 12px;font-size:13px;color:var(--mute)}
+.mapcredit a{color:var(--mute)}
+.np-cta{position:relative;margin:0 auto;max-width:860px;text-align:center;padding:48px 26px;border-radius:22px;background:linear-gradient(160deg,#1c1426,#120c19);border:2px solid var(--amber);box-shadow:0 0 0 6px var(--bg),0 0 0 8px var(--line),0 0 60px rgba(255,179,64,.22)}
+.np-cta h2,.np-cta h3{font-family:var(--display);font-weight:400;color:var(--amber);font-size:clamp(1.7rem,5vw,2.6rem);line-height:1.15;text-shadow:0 0 18px rgba(255,179,64,.5);margin-bottom:12px}
+.np-cta p{color:var(--mute);margin:0 auto 20px;max-width:56ch}
+.np-cta .btn{margin:6px}
+
+/* progress + header */
+.progress{position:fixed;left:0;top:0;height:3px;width:100%;background:linear-gradient(90deg,var(--red),var(--amber),var(--teal));transform:scaleX(0);transform-origin:left;z-index:100}
+header.site{position:sticky;top:0;z-index:50;transition:background .3s,box-shadow .3s}
+header.site .bar{display:flex;align-items:center;justify-content:space-between;height:68px;transition:height .3s}
+header.site.scrolled{background:rgba(13,10,18,.92);box-shadow:0 1px 0 var(--line),0 10px 30px rgba(0,0,0,.4)}
+@supports(backdrop-filter:blur(4px)){header.site.scrolled{background:rgba(13,10,18,.8);backdrop-filter:blur(10px)}}
+header.site.scrolled .bar{height:56px}
+.logo{font-family:var(--display);font-size:1.15rem;text-decoration:none;color:var(--amber);text-shadow:0 0 12px rgba(255,179,64,.5);white-space:nowrap}
+nav ul{display:flex;gap:26px;list-style:none;align-items:center}
+nav a{text-decoration:none;font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:15px;position:relative;padding:6px 0}
+nav a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--teal);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+nav a:not(.btn):hover::after{transform:scaleX(1)}
+.burger{display:none;background:none;border:1px solid var(--line);color:var(--ink);width:44px;height:44px;border-radius:10px;cursor:pointer}
+.burger span{display:block;width:20px;height:2px;background:var(--amber);margin:5px auto;transition:transform .3s,opacity .3s}
+.burger[aria-expanded=true] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded=true] span:nth-child(2){opacity:0}
+.burger[aria-expanded=true] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:760px){
+  .burger{display:block}
+  nav{position:absolute;left:0;right:0;top:100%;background:rgba(13,10,18,.98);border-bottom:1px solid var(--line);display:none}
+  nav.open{display:block}
+  nav ul{flex-direction:column;gap:0;padding:10px 20px 20px;align-items:stretch}
+  nav li a{display:block;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+}
+
+/* hero */
+.hero{position:relative;min-height:calc(100svh - 68px);display:grid;place-items:center;text-align:center;overflow:hidden;padding:60px 0 110px;background:radial-gradient(ellipse at 50% 38%,#2a1530 0%,var(--bg) 62%)}
+.stars{position:absolute;inset:0;pointer-events:none}
+.stars i{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;opacity:.5;animation:tw 4s ease-in-out infinite}
+@keyframes tw{50%{opacity:.1}}
+.floor{position:absolute;left:-50%;right:-50%;bottom:0;height:42%;perspective:420px;overflow:hidden;pointer-events:none;-webkit-mask-image:linear-gradient(to top,#000 20%,transparent);mask-image:linear-gradient(to top,#000 20%,transparent)}
+.floor div{position:absolute;inset:-100% 0 0 0;transform:rotateX(62deg);transform-origin:bottom;background:
+ repeating-linear-gradient(90deg,rgba(255,90,102,.55) 0 2px,transparent 2px 80px),
+ repeating-linear-gradient(0deg,rgba(255,90,102,.55) 0 2px,transparent 2px 80px);
+ animation:roll 3s linear infinite}
+@keyframes roll{to{transform:rotateX(62deg) translateY(80px)}}
+.hero-inner{position:relative;z-index:2}
+.eyebrow{display:inline-block;color:var(--teal);letter-spacing:.3em;text-transform:uppercase;font-weight:600;font-size:14px;border:1px solid rgba(70,230,207,.4);border-radius:999px;padding:6px 16px;text-shadow:0 0 10px rgba(70,230,207,.6)}
+h1{font-family:var(--display);font-weight:400;line-height:.98;font-size:clamp(3.1rem,15vw,9.5rem);color:#fff4dc;margin:22px 0 6px;text-shadow:0 0 6px #ffd58a,0 0 22px var(--amber),0 0 60px rgba(255,140,40,.7);text-wrap:balance}
+h1 span{display:block}
+.flick{animation:flick 6s infinite}
+@keyframes flick{0%,18%,22%,62%,66%,100%{opacity:1}20%{opacity:.45}64%{opacity:.6}68%{opacity:.9}}
+.sub{font-family:var(--display);font-size:clamp(1.6rem,6vw,3rem);color:#d9fff8;text-shadow:0 0 6px var(--teal),0 0 24px var(--teal);margin-bottom:18px}
+.sub b{color:#ffd3d6;font-weight:400;text-shadow:0 0 6px var(--red),0 0 24px var(--red)}
+.where{color:var(--mute);margin-bottom:28px;font-size:19px}
+.cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.shoe{width:clamp(70px,12vw,110px);margin:0 auto 6px;overflow:visible}
+.shoe path{fill:none;stroke:var(--red);stroke-width:7;stroke-linecap:round;filter:drop-shadow(0 0 6px var(--red));stroke-dasharray:420;stroke-dashoffset:420;animation:draw 2.2s .3s ease forwards}
+.shoe circle{fill:var(--amber);opacity:0;animation:fadein .5s 2.2s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fadein{to{opacity:1}}
+.par{will-change:transform}
+.enter{opacity:0;transform:translateY(24px);animation:up .9s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:var(--d,0s)}
+@keyframes up{to{opacity:1;transform:none}}
+
+/* marquee */
+.marquee{overflow:hidden;border-block:1px solid var(--line);background:var(--bg2);padding:16px 0}
+.track{display:flex;width:max-content;animation:mq 32s linear infinite}
+.track span{font-family:var(--display);font-size:clamp(1.3rem,4vw,2rem);color:var(--amber);padding-right:34px;white-space:nowrap}
+.track span::after{content:"★";color:var(--red);margin-left:34px;font-size:.7em;vertical-align:middle}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* sections */
+section{padding:clamp(64px,10vw,120px) 0}
+.kicker{color:var(--teal);letter-spacing:.28em;text-transform:uppercase;font-weight:600;font-size:14px;margin-bottom:10px}
+h2{font-family:var(--display);font-weight:400;font-size:clamp(2rem,6vw,3.6rem);line-height:1.1;color:var(--ink);margin-bottom:18px;text-wrap:balance}
+.lead{max-width:56ch;color:var(--mute);font-size:20px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;margin-top:40px}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:30px 26px;transition:transform .35s,border-color .35s,box-shadow .35s}
+.card:hover{transform:translateY(-8px) rotate(-.6deg);border-color:var(--amber);box-shadow:0 18px 40px rgba(0,0,0,.5),0 0 30px rgba(255,179,64,.18)}
+.card .ic{width:44px;height:44px;margin-bottom:16px;stroke:var(--amber);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 5px rgba(255,179,64,.6))}
+.card h3{font-family:var(--display);font-weight:400;font-size:1.6rem;color:var(--amber);margin-bottom:8px}
+.card p{color:var(--mute)}
+
+/* menu */
+#menu{background:linear-gradient(180deg,var(--bg),var(--bg2) 50%,var(--bg))}
+.tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#1a1006;background:var(--teal);border-radius:6px;padding:3px 9px;vertical-align:middle}
+.note{margin:14px 0 40px;padding:14px 18px;border-left:3px solid var(--teal);background:rgba(70,230,207,.07);max-width:62ch;color:var(--ink)}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:26px}
+.msec{border:1px solid var(--line);border-radius:18px;padding:28px 24px;background:rgba(21,16,28,.7)}
+.msec h3{font-family:var(--display);font-weight:400;font-size:1.8rem;color:var(--red);text-shadow:0 0 14px rgba(255,90,102,.55);margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.item{display:flex;align-items:baseline;gap:10px;padding:11px 8px;border-radius:8px;transition:transform .25s,background .25s}
+.item:hover{transform:translateX(6px);background:rgba(255,179,64,.08)}
+.item .n{font-weight:600;font-size:19px}
+.item .dots{flex:1;border-bottom:2px dotted rgba(255,179,64,.35);transform:translateY(-4px);min-width:16px}
+.item .p{color:var(--amber);font-weight:700;font-size:19px}
+.item small{display:block;font-weight:400}
+
+/* hours */
+.hl{display:grid;grid-template-columns:1fr;gap:34px;align-items:start}
+@media(min-width:900px){.hl{grid-template-columns:1fr 1.1fr;gap:50px}}
+.hours{border:1px solid var(--line);border-radius:18px;padding:26px 24px;background:var(--bg2)}
+.hours h3{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;font-family:var(--display);font-weight:400;color:var(--amber);font-size:1.5rem;margin-bottom:10px}
+.hours table{width:100%;border-collapse:collapse}
+.hours td{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.hours td:last-child{text-align:right;color:var(--mute)}
+.hours tr:last-child td{border:0}
+address{font-style:normal;margin:22px 0 14px;font-size:20px}
+.copy{background:none;border:1px dashed var(--teal);color:var(--teal);font-family:var(--body);font-weight:600;font-size:16px;padding:9px 16px;border-radius:999px;cursor:pointer;transition:background .25s,transform .25s}
+.copy:hover{background:rgba(70,230,207,.12);transform:translateY(-2px)}
+
+/* contact */
+#contact{text-align:center;background:radial-gradient(ellipse at 50% 100%,#2a1530,transparent 70%)}
+#contact .lead{margin:0 auto 26px}
+.cbtns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+#visit{padding-top:0}
+footer{padding:30px 0 50px;text-align:center;color:var(--mute);font-size:15px}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .enter,.js .rv{opacity:1!important;transform:none!important}
+  .shoe path{stroke-dashoffset:0}.shoe circle{opacity:1}
+  .floor div{transform:rotateX(62deg)}
+  .track{flex-wrap:wrap;width:auto;justify-content:center}
+  .track [aria-hidden]{display:none}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div class="progress" id="progress"></div>
+<header class="site" id="top">
+  <div class="wrap bar">
+    <a class="logo" href="#top">Grant Ranch</a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+    <nav id="nav" aria-label="Main">
+      <ul>
+        <li><a href="#offer">The Spot</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#visit">Hours &amp; Location</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="hero">
+  <div class="stars" aria-hidden="true" id="stars"></div>
+  <div class="floor" aria-hidden="true"><div></div></div>
+  <div class="wrap hero-inner">
+    <div class="par" data-speed="0.12">
+      <svg class="shoe enter" viewBox="0 0 100 100" aria-hidden="true" style="--d:.1s">
+        <path d="M24 88 C6 60 10 14 50 12 C90 14 94 60 76 88 L62 88 C70 62 68 32 50 30 C32 32 30 62 38 88 Z"/>
+        <circle cx="20" cy="70" r="3"/><circle cx="19" cy="52" r="3"/><circle cx="26" cy="35" r="3"/>
+        <circle cx="80" cy="70" r="3"/><circle cx="81" cy="52" r="3"/><circle cx="74" cy="35" r="3"/>
+      </svg>
+      <span class="eyebrow enter" style="--d:.3s">Sigourney, Iowa</span>
+      <h1 class="enter" style="--d:.5s"><span class="flick">Grant</span><span>Ranch</span></h1>
+      <p class="sub enter" style="--d:.8s">Grub <b>&amp;</b> Pub</p>
+      <p class="where enter" style="--d:1s">121 South Jefferson Street</p>
+      <div class="cta-row enter" style="--d:1.2s">
+        <a class="btn" href="#menu" data-mag>See the menu</a>
+        <a class="btn alt" href="#visit" data-mag>Find us</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Grub</span><span>Pub</span><span>Starters</span><span>Mains</span><span>On tap</span><span>Jefferson Street</span><span>Sigourney, IA</span>
+    <span>Grub</span><span>Pub</span><span>Starters</span><span>Mains</span><span>On tap</span><span>Jefferson Street</span><span>Sigourney, IA</span>
+  </div>
+</div>
+
+<section id="offer">
+  <div class="wrap">
+    <p class="kicker rv">The spot</p>
+    <h2 class="rv" style="--d:.08s">Good grub. Cold pints. Main Street.</h2>
+    <p class="lead rv" style="--d:.16s">Grant Ranch Grub &amp; Pub is a restaurant on South Jefferson Street in Sigourney. Come hungry, grab a seat, stay a while.</p>
+    <div class="cards">
+      <article class="card rv" style="--d:.1s">
+        <svg class="ic" viewBox="0 0 48 48" aria-hidden="true"><path d="M14 4v14a4 4 0 0 0 4 4v22M22 4v14a4 4 0 0 1-4 4M18 4v14M34 44V4c-5 3-8 10-8 18h8"/></svg>
+        <h3>Grub</h3>
+        <p>Starters, mains and plenty to share. See the example menu below.</p>
+      </article>
+      <article class="card rv" style="--d:.2s">
+        <svg class="ic" viewBox="0 0 48 48" aria-hidden="true"><path d="M10 12h24v26a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4zM34 18h4a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4h-4M10 12c0-4 4-6 8-5 3-3 9-2 10 2 4 0 6 2 6 3"/></svg>
+        <h3>Pub</h3>
+        <p>A tap list and a room to settle into with friends and neighbors.</p>
+      </article>
+      <article class="card rv" style="--d:.3s">
+        <svg class="ic" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 44S8 30 8 19a16 16 0 0 1 32 0c0 11-16 25-16 25z"/><circle cx="24" cy="19" r="5"/></svg>
+        <h3>Downtown Sigourney</h3>
+        <p>Right at 121 South Jefferson Street, easy to find and easy to love.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="wrap">
+    <p class="kicker rv">Menu <span class="tag">Example</span></p>
+    <h2 class="rv" style="--d:.08s">What's on the board</h2>
+    <p class="note rv" style="--d:.14s">This is an example menu that shows how your menu would look. Your real dishes and prices go here.</p>
+    <div class="menu-grid">
+      <div class="msec rv" style="--d:.05s">
+        <h3>Starters <span class="tag">Example</span></h3>
+        <div class="item"><span class="n">Loaded nachos</span><span class="dots"></span><span class="p">$10.00</span></div>
+        <div class="item"><span class="n">Wings<small>Your choice of sauce</small></span><span class="dots"></span><span class="p">$11.00</span></div>
+        <div class="item"><span class="n">Onion rings</span><span class="dots"></span><span class="p">$7.00</span></div>
+      </div>
+      <div class="msec rv" style="--d:.15s">
+        <h3>Mains <span class="tag">Example</span></h3>
+        <div class="item"><span class="n">Bacon cheeseburger</span><span class="dots"></span><span class="p">$12.50</span></div>
+        <div class="item"><span class="n">Fish sandwich</span><span class="dots"></span><span class="p">$11.50</span></div>
+        <div class="item"><span class="n">Chicken tenders</span><span class="dots"></span><span class="p">$10.50</span></div>
+      </div>
+      <div class="msec rv" style="--d:.25s">
+        <h3>On tap <span class="tag">Example</span></h3>
+        <div class="item"><span class="n">Local lager</span><span class="dots"></span><span class="p">$5.00</span></div>
+        <div class="item"><span class="n">Pale ale</span><span class="dots"></span><span class="p">$5.50</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap">
+    <p class="kicker rv">Hours &amp; location</p>
+    <h2 class="rv" style="--d:.08s">Pull up a stool</h2>
+    <div class="hl">
+      <div>
+        <div class="hours rv" style="--d:.1s">
+          <h3>Hours <span class="tag">Example hours</span></h3>
+          <table>
+            <tr><td>Mon</td><td>7 AM – 3 PM</td></tr>
+            <tr><td>Tue</td><td>7 AM – 3 PM</td></tr>
+            <tr><td>Wed</td><td>7 AM – 3 PM</td></tr>
+            <tr><td>Thu</td><td>7 AM – 3 PM</td></tr>
+            <tr><td>Fri</td><td>7 AM – 8 PM</td></tr>
+            <tr><td>Sat</td><td>8 AM – 8 PM</td></tr>
+            <tr><td>Sun</td><td>Closed</td></tr>
+          </table>
+        </div>
+        <address class="rv" style="--d:.2s">121 South Jefferson Street<br>Sigourney, IA 52591</address>
+        <button class="copy rv" id="copy" style="--d:.25s" data-copy="121 South Jefferson Street, Sigourney, IA 52591">Copy address</button>
+      </div>
+      <div class="rv" style="--d:.2s"><iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-92.20971,41.32697,-92.19771,41.33897&amp;layer=mapnik&amp;marker=41.33297,-92.20371"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=41.33297&amp;mlon=-92.20371#map=17/41.33297/-92.20371" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=41.33297,-92.20371" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <p class="kicker rv">Contact</p>
+    <h2 class="rv" style="--d:.08s">Say hello</h2>
+    <p class="lead rv" style="--d:.16s">Questions for Grant Ranch Grub &amp; Pub? Send a note by e-mail.</p>
+    <div class="cbtns rv" style="--d:.24s"><a class="btn" href="mailto:grantranchllc@gmail.com">grantranchllc@gmail.com</a> </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap rv"><section class="np-cta" id="offer"><h2>Want this for Grant Ranch Grub &amp; Pub?</h2><p>This is a free preview made for Grant Ranch Grub &amp; Pub. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20Grant%20Ranch%20Grub%20%26%20Pub&amp;body=Yes%2C%20please%20make%20this%20site%20for%20Grant%20Ranch%20Grub%20%26%20Pub.">Make it mine</a></p></section></div>
+</section>
+</main>
+
+<footer><div class="wrap">Grant Ranch Grub &amp; Pub · 121 South Jefferson Street · Sigourney, IA</div></footer>
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · Grant Ranch Grub &amp; Pub</div>
+<script>
+(function(){
+  var d=document,root=d.documentElement;
+  root.classList.add('js');
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // stars
+  var st=d.getElementById('stars');
+  for(var i=0;i<38;i++){var s=d.createElement('i');s.style.left=(Math.random()*100)+'%';s.style.top=(Math.random()*60)+'%';s.style.animationDelay=(Math.random()*4)+'s';st.appendChild(s);}
+
+  // mobile menu
+  var b=d.getElementById('burger'),nav=d.getElementById('nav');
+  b.addEventListener('click',function(){var o=nav.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A'){nav.classList.remove('open');b.setAttribute('aria-expanded','false')}});
+
+  // scroll: header, progress, parallax
+  var hd=d.querySelector('header.site'),pg=d.getElementById('progress'),pars=d.querySelectorAll('.par'),tick=false;
+  function onScroll(){
+    var y=window.scrollY,h=root.scrollHeight-window.innerHeight;
+    hd.classList.toggle('scrolled',y>40);
+    pg.style.transform='scaleX('+(h>0?y/h:0)+')';
+    if(!rm&&y<window.innerHeight*1.2){pars.forEach(function(p){p.style.transform='translateY('+(y*parseFloat(p.dataset.speed))+'px)'})}
+    tick=false;
+  }
+  window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(onScroll)}},{passive:true});
+  onScroll();
+
+  // reveals
+  var rvs=d.querySelectorAll('.rv');
+  if('IntersectionObserver' in window&&!rm){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+    rvs.forEach(function(el){io.observe(el)});
+  }else{rvs.forEach(function(el){el.classList.add('in')})}
+
+  // magnetic buttons
+  if(!rm){
+    d.querySelectorAll('[data-mag],.btn').forEach(function(el){
+      el.addEventListener('mousemove',function(e){var r=el.getBoundingClientRect();el.style.transform='translate('+((e.clientX-r.left-r.width/2)*.18)+'px,'+((e.clientY-r.top-r.height/2)*.28-3)+'px)'});
+      el.addEventListener('mouseleave',function(){el.style.transform=''});
+    });
+  }
+
+  // copy address
+  var c=d.getElementById('copy');
+  c.addEventListener('click',function(){
+    var t=c.dataset.copy,done=function(){c.textContent='Copied!';setTimeout(function(){c.textContent='Copy address'},2000)};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,fb)}else fb();
+    function fb(){var a=d.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';d.body.appendChild(a);a.select();try{d.execCommand('copy');done()}catch(e){}d.body.removeChild(a)}
+  });
+})();
+</script>
+</body>
+</html>
