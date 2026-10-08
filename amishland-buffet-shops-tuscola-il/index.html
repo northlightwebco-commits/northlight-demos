@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Amishland Buffet Shops · Tuscola, IL</title>
+<meta name="description" content="Amishland Buffet Shops, a restaurant in Tuscola, IL. Breakfast, lunch, dinner and dessert.">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#15110e;--ink2:#1e1813;--ink3:#291f18;
+  --paper:#f3ead8;--mute:#cdbfa6;
+  --mustard:#e0a93b;--brick:#c4472f;--teal:#2a8791;--plum:#7b3f6e;--moss:#5f8a3c;
+  --line:rgba(243,234,216,.16);
+  --serif:'Fraunces',Georgia,serif;--sans:'Work Sans',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--ink);color:var(--paper);font:400 1.05rem/1.6 var(--sans);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{max-width:100%}
+.wrap{width:min(1160px,100% - 2.5rem);margin-inline:auto}
+:focus-visible{outline:3px solid var(--mustard);outline-offset:3px}
+
+/* slots */
+.np-banner{background:var(--mustard);color:#1b1408;font-size:.82rem;font-weight:500;text-align:center;padding:.45rem 1rem;line-height:1.4}
+.np-banner a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;background:var(--mustard);color:#1b1408;font:600 1rem var(--sans);text-decoration:none;padding:.85rem 1.5rem;border-radius:999px;border:2px solid var(--mustard);cursor:pointer;transition:transform .25s,box-shadow .25s,background .25s;will-change:transform}
+.btn:hover{box-shadow:0 10px 26px -8px rgba(224,169,59,.6);transform:translateY(-3px)}
+.btn.alt{background:transparent;color:var(--paper);border-color:var(--paper)}
+.btn.alt:hover{background:var(--paper);color:var(--ink)}
+.map{margin-top:1rem;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--ink2)}
+.map iframe{display:block;width:100%;height:320px;border:0;filter:saturate(.8) contrast(1.02)}
+.maplinks{display:flex;flex-wrap:wrap;gap:.6rem;padding:.9rem}
+.maplinks a{color:var(--mustard);font-weight:600}
+.mapcredit{font-size:.75rem;color:var(--mute);padding:0 .9rem .8rem}
+.mapcredit a{color:inherit}
+.np-cta{position:relative;margin:0 auto;max-width:900px;text-align:center;padding:clamp(2rem,6vw,4rem) clamp(1.2rem,5vw,3rem);border-radius:26px;background:var(--ink3);border:2px dashed var(--mustard);outline:1px solid var(--line);outline-offset:8px}
+.np-cta h2,.np-cta h3{font-family:var(--serif);font-size:clamp(1.7rem,5vw,2.7rem);line-height:1.1;text-wrap:balance;margin-bottom:.8rem}
+.np-cta p{color:var(--mute);margin-bottom:1.2rem;text-wrap:balance}
+.np-cta .btn{margin:.3rem}
+.np-cta small{display:block;margin-top:.8rem;color:var(--mute);font-size:.8rem}
+
+/* progress + header */
+.prog{position:fixed;inset:0 0 auto 0;height:4px;background:linear-gradient(90deg,var(--brick),var(--mustard),var(--teal));transform-origin:0 50%;transform:scaleX(0);z-index:100}
+header.top{position:sticky;top:0;z-index:50;transition:background .3s,box-shadow .3s}
+header.top .bar{display:flex;align-items:center;justify-content:space-between;height:76px;transition:height .3s}
+header.top.stuck{background:rgba(21,17,14,.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+header.top.stuck .bar{height:60px}
+.brand{font:700 1.1rem var(--serif);text-decoration:none;display:flex;align-items:center;gap:.6rem}
+.brand svg{width:26px;height:26px;transition:transform .6s}
+.brand:hover svg{transform:rotate(90deg)}
+nav ul{display:flex;gap:1.8rem;list-style:none;align-items:center}
+nav a{text-decoration:none;font-weight:500;position:relative;padding:.3rem 0}
+nav a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--mustard);transform:scaleX(0);transform-origin:0 50%;transition:transform .3s}
+nav a:not(.btn):hover::after{transform:scaleX(1)}
+.burger{display:none;background:none;border:2px solid var(--line);color:var(--paper);width:46px;height:46px;border-radius:12px;cursor:pointer}
+.burger span{display:block;width:20px;height:2px;background:currentColor;margin:5px auto;transition:transform .3s,opacity .3s}
+.burger[aria-expanded=true] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded=true] span:nth-child(2){opacity:0}
+.burger[aria-expanded=true] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:760px){
+  .burger{display:block}
+  nav{position:absolute;left:0;right:0;top:100%;background:var(--ink);border-bottom:1px solid var(--line);display:none}
+  nav.open{display:block}
+  nav ul{flex-direction:column;align-items:stretch;gap:0;padding:.5rem 1.25rem 1.2rem}
+  nav li a{display:block;padding:.9rem 0;border-bottom:1px solid var(--line)}
+}
+
+/* hero */
+.hero{position:relative;padding:clamp(2rem,6vw,4.5rem) 0 clamp(3rem,8vw,6rem);overflow:hidden}
+.hero .wrap{display:grid;gap:2.5rem;align-items:center}
+@media(min-width:900px){.hero .wrap{grid-template-columns:1.1fr .9fr}}
+.eyebrow{display:inline-flex;align-items:center;gap:.6rem;font:600 .8rem var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--mustard)}
+.eyebrow::before{content:"";width:34px;height:2px;background:currentColor}
+h1{font:900 clamp(2.6rem,9vw,5.5rem)/.98 var(--serif);letter-spacing:-.02em;margin:1rem 0 1.2rem;text-wrap:balance;overflow-wrap:break-word}
+h1 .l{display:block;overflow:hidden;padding-bottom:.08em}
+h1 .l span{display:block;animation:rise 1s cubic-bezier(.2,.8,.2,1) both}
+h1 .l:nth-child(2) span{animation-delay:.15s;font-style:italic;font-weight:500;color:var(--mustard)}
+@keyframes rise{from{transform:translateY(105%)}to{transform:none}}
+.lead{max-width:34ch;color:var(--mute);font-size:1.15rem;animation:fade .9s .5s both}
+.hero .acts{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.8rem;animation:fade .9s .7s both}
+@keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.quiltbox{width:min(100%,440px);margin-inline:auto;will-change:transform}
+.quilt{width:100%;height:auto;display:block;filter:drop-shadow(0 30px 40px rgba(0,0,0,.5))}
+.quilt .p{transform-box:fill-box;transform-origin:center;animation:pop .8s cubic-bezier(.2,.9,.3,1.2) both;animation-delay:calc(var(--i)*90ms + .2s)}
+@keyframes pop{from{opacity:0;transform:scale(.4) rotate(-12deg)}to{opacity:1;transform:none}}
+.quilt .st{fill:none;stroke:var(--paper);stroke-width:1.6;stroke-dasharray:3 4;stroke-linecap:round;opacity:.75;animation:fade2 1s 1.4s both}
+@keyframes fade2{from{opacity:0}to{opacity:.75}}
+.quilt .draw{fill:none;stroke:var(--mustard);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2s 1s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.hero .glow{position:absolute;width:60vw;height:60vw;max-width:700px;max-height:700px;right:-15%;top:-20%;background:radial-gradient(circle,rgba(42,135,145,.28),transparent 65%);pointer-events:none}
+
+/* marquee */
+.marq{border-block:1px solid var(--line);background:var(--ink2);overflow:hidden;padding:1rem 0}
+.marq .track{display:flex;width:max-content;animation:slide 32s linear infinite}
+.marq span{font:700 clamp(1.3rem,3vw,2rem) var(--serif);padding-right:1.6rem;white-space:nowrap}
+.marq span i{color:var(--mustard);font-style:normal;margin-right:1.6rem}
+.marq:hover .track{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* sections */
+section{padding:clamp(3.5rem,9vw,6.5rem) 0}
+h2{font:900 clamp(2rem,6vw,3.6rem)/1.05 var(--serif);letter-spacing:-.01em;text-wrap:balance;margin:.7rem 0 1rem}
+.sub{color:var(--mute);max-width:52ch}
+.offer{display:grid;gap:1rem;margin-top:2.2rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.tile{position:relative;background:var(--ink2);border:1px solid var(--line);border-radius:20px;padding:1.4rem;overflow:hidden;transition:transform .35s,border-color .35s}
+.tile:hover{transform:translateY(-6px) rotate(-.6deg);border-color:var(--c)}
+.tile svg{width:54px;height:54px;margin-bottom:1rem;transition:transform .6s}
+.tile:hover svg{transform:rotate(45deg) scale(1.1)}
+.tile h3{font:700 1.4rem var(--serif)}
+.tile p{color:var(--mute);font-size:.95rem}
+.tag{display:inline-block;font:600 .7rem var(--sans);letter-spacing:.12em;text-transform:uppercase;border:1.5px solid var(--mustard);color:var(--mustard);border-radius:999px;padding:.15rem .6rem}
+
+/* menu */
+#menu{background:var(--ink2);border-block:1px solid var(--line)}
+.note{margin-top:1rem;padding:.9rem 1.1rem;border-left:4px solid var(--brick);background:rgba(196,71,47,.12);border-radius:0 12px 12px 0;max-width:62ch}
+.menu{display:grid;gap:1.2rem;margin-top:2.2rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
+.sec{background:var(--ink);border:1px solid var(--line);border-radius:22px;padding:1.5rem;position:relative;transition:transform .35s,box-shadow .35s}
+.sec::before{content:"";position:absolute;left:0;top:22px;bottom:22px;width:5px;border-radius:0 5px 5px 0;background:var(--c)}
+.sec:hover{transform:translateY(-6px);box-shadow:0 22px 40px -22px var(--c)}
+.sec header{display:flex;justify-content:space-between;align-items:center;gap:.8rem;margin-bottom:.8rem}
+.sec h3{font:700 1.7rem var(--serif)}
+.item{display:grid;grid-template-columns:1fr auto;gap:.2rem 1rem;padding:.8rem 0;border-top:1px dashed var(--line);transition:transform .25s,padding .25s}
+.item:hover{transform:translateX(6px)}
+.item b{font-weight:600}
+.item .pr{font:700 1.05rem var(--serif);color:var(--mustard)}
+.item p{grid-column:1;color:var(--mute);font-size:.92rem}
+
+/* hours */
+.cols{display:grid;gap:2rem}
+@media(min-width:900px){.cols{grid-template-columns:.85fr 1.15fr}}
+.hours{margin-top:1.4rem;background:var(--ink2);border:1px solid var(--line);border-radius:22px;padding:1.2rem 1.4rem}
+.hours .hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem}
+.hours dl{display:grid}
+.hours .r{display:flex;justify-content:space-between;padding:.6rem 0;border-top:1px dashed var(--line)}
+.hours dt{font-weight:600}
+.hours dd{color:var(--mute)}
+.addr{margin-top:1.2rem;display:flex;flex-wrap:wrap;align-items:center;gap:.8rem}
+.copy{cursor:pointer}
+.copied{color:var(--mustard);font-weight:600;font-size:.9rem;min-height:1.4em;margin-top:.4rem}
+
+/* contact */
+#contact{text-align:center;position:relative}
+#contact .acts{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;margin-top:1.6rem}
+#contact .sub{margin-inline:auto}
+.stitch{display:block;width:min(420px,80%);height:16px;margin:0 auto 1.5rem}
+.stitch path{stroke:var(--mustard);stroke-width:2.5;fill:none;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.6s ease}
+.in .stitch path,.stitch.in path{stroke-dashoffset:0}
+.ctawrap{padding-bottom:clamp(3rem,8vw,5rem)}
+footer{border-top:1px solid var(--line);padding:2rem 0 2.5rem;color:var(--mute);font-size:.9rem;text-align:center}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0ms)}
+.js .rv.in{opacity:1;transform:none}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv{opacity:1;transform:none}
+  .quilt .draw,.stitch path{stroke-dashoffset:0}
+  .marq .track{width:auto;flex-wrap:wrap}
+  .prog{display:none}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div class="prog" id="prog" aria-hidden="true"></div>
+
+<header class="top" id="top">
+  <div class="wrap bar">
+    <a class="brand" href="#home" aria-label="Amishland Buffet Shops, home">
+      <svg viewBox="0 0 26 26" aria-hidden="true"><rect x="1" y="1" width="24" height="24" rx="3" fill="#c4472f"/><path d="M13 3 23 13 13 23 3 13Z" fill="#e0a93b"/><path d="M13 8 18 13 13 18 8 13Z" fill="#2a8791"/></svg>
+      Amishland
+    </a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav id="nav" aria-label="Main">
+      <ul>
+        <li><a href="#offer">The table</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#hours">Hours &amp; location</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="home">
+<div class="hero">
+  <div class="glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Restaurant · Tuscola, IL</span>
+      <h1><span class="l"><span>Amishland</span></span><span class="l"><span>Buffet Shops</span></span></h1>
+      <p class="lead">Breakfast, lunch, dinner and a slice of pie. Pull up a chair in Tuscola.</p>
+      <div class="acts">
+        <a class="btn" href="#menu">See the menu</a>
+        <a class="btn alt" href="#hours">Find us</a>
+      </div>
+    </div>
+    <div class="quiltbox" id="quilt">
+      <svg class="quilt" viewBox="0 0 306 306" role="img" aria-label="A stitched patchwork quilt of nine colorful squares">
+        <rect x="0" y="0" width="306" height="306" rx="10" fill="#0d0a08"/>
+        <g transform="translate(3 3)">
+          <g class="p" style="--i:0"><rect width="100" height="100" fill="#2a8791"/><path d="M50 8 92 50 50 92 8 50Z" fill="#e0a93b"/><path d="M50 30 70 50 50 70 30 50Z" fill="#c4472f"/></g>
+          <g class="p" style="--i:1" transform="translate(100 0)"><rect width="100" height="100" fill="#7b3f6e"/><path d="M0 0H100L50 50Z" fill="#e0a93b"/><path d="M0 100H100L50 50Z" fill="#2a8791"/></g>
+          <g class="p" style="--i:2" transform="translate(200 0)"><rect width="100" height="100" fill="#c4472f"/><rect x="18" y="18" width="64" height="64" fill="#f3ead8"/><rect x="34" y="34" width="32" height="32" fill="#7b3f6e"/></g>
+          <g class="p" style="--i:3" transform="translate(0 100)"><rect width="100" height="100" fill="#e0a93b"/><path d="M0 0 100 100H0Z" fill="#5f8a3c"/><circle cx="68" cy="32" r="14" fill="#c4472f"/></g>
+          <g class="p" style="--i:4" transform="translate(100 100)"><rect width="100" height="100" fill="#15110e"/><path d="M50 4 62 38 96 50 62 62 50 96 38 62 4 50 38 38Z" fill="#e0a93b"/><circle cx="50" cy="50" r="10" fill="#c4472f"/></g>
+          <g class="p" style="--i:5" transform="translate(200 100)"><rect width="100" height="100" fill="#5f8a3c"/><path d="M0 50 50 0 100 50 50 100Z" fill="#f3ead8"/><path d="M0 50 50 0 100 50 50 100Z" fill="none" stroke="#2a8791" stroke-width="8" transform="scale(.6) translate(33 33)"/></g>
+          <g class="p" style="--i:6" transform="translate(0 200)"><rect width="100" height="100" fill="#c4472f"/><path d="M0 100 100 0V100Z" fill="#e0a93b"/><path d="M0 0H50L0 50Z" fill="#7b3f6e"/></g>
+          <g class="p" style="--i:7" transform="translate(100 200)"><rect width="100" height="100" fill="#f3ead8"/><rect x="10" y="10" width="80" height="80" fill="#2a8791"/><path d="M10 50 50 10 90 50 50 90Z" fill="#e0a93b"/></g>
+          <g class="p" style="--i:8" transform="translate(200 200)"><rect width="100" height="100" fill="#7b3f6e"/><path d="M0 0H100V50H0Z" fill="#c4472f"/><path d="M0 50 50 100H0Z M100 50 50 100H100Z" fill="#e0a93b"/></g>
+          <path class="st" d="M100 0V300M200 0V300M0 100H300M0 200H300"/>
+          <path class="draw" pathLength="1" d="M4 4H296V296H4Z"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<div class="marq" aria-hidden="true">
+  <div class="track">
+    <span><i>✦</i>Breakfast</span><span><i>✦</i>Lunch</span><span><i>✦</i>Dinner</span><span><i>✦</i>Homemade pie</span><span><i>✦</i>Tuscola, IL</span><span><i>✦</i>Amishland Buffet Shops</span>
+    <span><i>✦</i>Breakfast</span><span><i>✦</i>Lunch</span><span><i>✦</i>Dinner</span><span><i>✦</i>Homemade pie</span><span><i>✦</i>Tuscola, IL</span><span><i>✦</i>Amishland Buffet Shops</span>
+  </div>
+</div>
+
+<section id="offer">
+  <div class="wrap">
+    <span class="eyebrow rv">What&rsquo;s on the table</span>
+    <h2 class="rv" style="--d:80ms">Four ways to sit down.</h2>
+    <p class="sub rv" style="--d:140ms">A restaurant in Tuscola, Illinois, set up around the meals of the day.</p>
+    <div class="offer">
+      <article class="tile rv" style="--c:var(--teal);--d:0ms"><svg viewBox="0 0 54 54" aria-hidden="true"><rect width="54" height="54" rx="8" fill="#2a8791"/><path d="M27 7 47 27 27 47 7 27Z" fill="#e0a93b"/></svg><h3>Breakfast</h3><p>Start the morning with eggs, pancakes or biscuits.</p></article>
+      <article class="tile rv" style="--c:var(--brick);--d:90ms"><svg viewBox="0 0 54 54" aria-hidden="true"><rect width="54" height="54" rx="8" fill="#c4472f"/><rect x="11" y="11" width="32" height="32" fill="#f3ead8"/><rect x="21" y="21" width="12" height="12" fill="#7b3f6e"/></svg><h3>Lunch</h3><p>Burgers, sandwiches and salads for the midday break.</p></article>
+      <article class="tile rv" style="--c:var(--moss);--d:180ms"><svg viewBox="0 0 54 54" aria-hidden="true"><rect width="54" height="54" rx="8" fill="#5f8a3c"/><path d="M0 54 54 0V54Z" fill="#e0a93b"/></svg><h3>Dinner</h3><p>Comfort plates to end the day on a full stomach.</p></article>
+      <article class="tile rv" style="--c:var(--plum);--d:270ms"><svg viewBox="0 0 54 54" aria-hidden="true"><rect width="54" height="54" rx="8" fill="#7b3f6e"/><path d="M27 5 33 21 49 27 33 33 27 49 21 33 5 27 21 21Z" fill="#e0a93b"/></svg><h3>Dessert</h3><p>Save room. Ask about today&rsquo;s pie.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="wrap">
+    <span class="eyebrow rv">Menu</span>
+    <h2 class="rv" style="--d:80ms">Taste the layout.</h2>
+    <p class="note rv" style="--d:140ms">This is an example menu that shows how your menu would look. Your real dishes and prices go here.</p>
+    <div class="menu">
+      <article class="sec rv" style="--c:var(--teal)">
+        <header><h3>Breakfast</h3><span class="tag">Example</span></header>
+        <div class="item"><b>Two-egg breakfast</b><span class="pr">$8.99</span><p>Eggs your way, hash browns, toast</p></div>
+        <div class="item"><b>Buttermilk pancakes</b><span class="pr">$7.99</span><p>Short stack with syrup</p></div>
+        <div class="item"><b>Biscuits &amp; gravy</b><span class="pr">$8.49</span></div>
+      </article>
+      <article class="sec rv" style="--c:var(--brick);--d:100ms">
+        <header><h3>Lunch</h3><span class="tag">Example</span></header>
+        <div class="item"><b>Classic cheeseburger</b><span class="pr">$10.99</span><p>Served with fries</p></div>
+        <div class="item"><b>Club sandwich</b><span class="pr">$10.49</span><p>Turkey, bacon, lettuce, tomato</p></div>
+        <div class="item"><b>Grilled chicken salad</b><span class="pr">$10.99</span></div>
+      </article>
+      <article class="sec rv" style="--c:var(--moss);--d:200ms">
+        <header><h3>Dinner</h3><span class="tag">Example</span></header>
+        <div class="item"><b>Chicken fried steak</b><span class="pr">$13.99</span><p>Mashed potatoes and country gravy</p></div>
+        <div class="item"><b>Meatloaf</b><span class="pr">$12.99</span></div>
+        <div class="item"><b>Fish &amp; chips</b><span class="pr">$13.49</span></div>
+      </article>
+      <article class="sec rv" style="--c:var(--plum);--d:300ms">
+        <header><h3>Dessert</h3><span class="tag">Example</span></header>
+        <div class="item"><b>Homemade pie</b><span class="pr">$4.99</span><p>Ask about today&rsquo;s flavors</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="hours">
+  <div class="wrap cols">
+    <div>
+      <span class="eyebrow rv">Hours &amp; location</span>
+      <h2 class="rv" style="--d:80ms">Find your seat in Tuscola.</h2>
+      <div class="hours rv" style="--d:140ms">
+        <div class="hd"><b>Hours</b><span class="tag">Example hours</span></div>
+        <dl>
+          <div class="r"><dt>Mon</dt><dd>7 AM – 3 PM</dd></div>
+          <div class="r"><dt>Tue</dt><dd>7 AM – 3 PM</dd></div>
+          <div class="r"><dt>Wed</dt><dd>7 AM – 3 PM</dd></div>
+          <div class="r"><dt>Thu</dt><dd>7 AM – 3 PM</dd></div>
+          <div class="r"><dt>Fri</dt><dd>7 AM – 8 PM</dd></div>
+          <div class="r"><dt>Sat</dt><dd>8 AM – 8 PM</dd></div>
+          <div class="r"><dt>Sun</dt><dd>Closed</dd></div>
+        </dl>
+      </div>
+      <div class="addr rv" style="--d:200ms">
+        <button class="btn alt copy" id="copy" type="button" data-copy="Amishland Buffet Shops, Tuscola, IL">Copy address</button>
+        <span>Tuscola, IL</span>
+      </div>
+      <p class="copied" id="copied" role="status" aria-live="polite"></p>
+    </div>
+    <div class="rv" style="--d:120ms">
+      <iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-88.27371,39.78066,-88.26171,39.79266&amp;layer=mapnik&amp;marker=39.78666,-88.26771"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=39.78666&amp;mlon=-88.26771#map=17/39.78666/-88.26771" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=39.78666,-88.26771" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <svg class="stitch rv" viewBox="0 0 420 16" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 8C40 0 70 16 105 8S170 0 210 8 280 16 315 8 380 0 418 8"/></svg>
+    <h2 class="rv" style="--d:60ms">Say hello.</h2>
+    <p class="sub rv" style="--d:120ms">Questions or a note for the kitchen? Drop a line by e-mail.</p>
+    <div class="acts rv" style="--d:180ms">
+      <a class="btn" href="mailto:zonstott@tuscolapkg.com">zonstott@tuscolapkg.com</a> 
+    </div>
+  </div>
+</section>
+
+<div class="ctawrap"><div class="wrap rv"><section class="np-cta" id="offer"><h2>Want this for Amishland Buffet Shops?</h2><p>This is a free preview made for Amishland Buffet Shops. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20Amishland%20Buffet%20Shops&amp;body=Yes%2C%20please%20make%20this%20site%20for%20Amishland%20Buffet%20Shops.">Make it mine</a></p></section></div></div>
+</main>
+
+<footer><div class="wrap">Amishland Buffet Shops · Tuscola, IL</div></footer>
+
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · Amishland Buffet Shops</div>
+<script>
+(function(){
+  var d=document,root=d.documentElement;
+  root.classList.add('js');
+  var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var prog=d.getElementById('prog'),top=d.getElementById('top'),q=d.getElementById('quilt');
+  var tick=false;
+  function onScroll(){
+    if(tick)return;tick=true;
+    requestAnimationFrame(function(){
+      var y=scrollY,h=root.scrollHeight-innerHeight;
+      prog.style.transform='scaleX('+(h>0?y/h:0)+')';
+      top.classList.toggle('stuck',y>20);
+      if(!rm&&q&&y<1400)q.style.transform='translate3d(0,'+(y*.12)+'px,0) rotate('+(y*.008)+'deg)';
+      tick=false;
+    });
+  }
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  var els=d.querySelectorAll('.rv');
+  if(rm||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});}
+  else{
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    els.forEach(function(e){io.observe(e)});
+  }
+
+  var b=d.getElementById('burger'),n=d.getElementById('nav');
+  b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+  n.addEventListener('click',function(e){if(e.target.tagName==='A'){n.classList.remove('open');b.setAttribute('aria-expanded','false')}});
+
+  var c=d.getElementById('copy'),msg=d.getElementById('copied');
+  c.addEventListener('click',function(){
+    var t=c.getAttribute('data-copy');
+    function ok(){msg.textContent='Copied: '+t;setTimeout(function(){msg.textContent=''},2600)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,fb)}else fb();
+    function fb(){var a=d.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';d.body.appendChild(a);a.select();try{d.execCommand('copy');ok()}catch(e){}d.body.removeChild(a)}
+  });
+
+  if(!rm&&matchMedia('(hover:hover)').matches){
+    d.querySelectorAll('.btn').forEach(function(el){
+      el.addEventListener('mousemove',function(e){
+        var r=el.getBoundingClientRect();
+        el.style.transform='translate('+((e.clientX-r.left-r.width/2)*.18)+'px,'+((e.clientY-r.top-r.height/2)*.28-3)+'px)';
+      });
+      el.addEventListener('mouseleave',function(){el.style.transform=''});
+    });
+  }
+})();
+</script>
+</body>
+</html>

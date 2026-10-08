@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hair I Do · Hair salon in Carrollton, MO</title>
+<meta name="description" content="Hair I Do is a hair salon in Carrollton, Missouri. Cuts, color and styling.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0f2a24;--ink2:#17382f;--gold:#d8b46e;--blush:#f5e3df;--rose:#c9736b;--paper:#fbf6f3;--text:#1b2a26;
+  --serif:'Fraunces',Georgia,serif;--sans:'Manrope',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:var(--sans);color:var(--text);background:var(--paper);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1;text-wrap:balance;overflow-wrap:break-word}
+.wrap{width:min(1200px,100% - 40px);margin-inline:auto}
+.eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--rose)}
+.dark .eyebrow{color:var(--gold)}
+
+/* banner slot */
+.np-banner{background:var(--gold);color:#1b1608;font-size:.82rem;text-align:center;padding:8px 16px;font-weight:500}
+.np-banner a{font-weight:700}
+
+/* progress + header */
+#bar{position:fixed;top:0;left:0;height:3px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:0 50%;z-index:100}
+header{position:sticky;top:0;z-index:50;background:transparent;color:#fff;transition:background .4s,box-shadow .4s}
+header .in{display:flex;align-items:center;justify-content:space-between;height:76px;transition:height .4s}
+header.solid{background:rgba(15,42,36,.94);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(216,180,110,.3)}
+header.solid .in{height:60px}
+.logo{font-family:var(--serif);font-size:1.5rem;font-style:italic;text-decoration:none;font-weight:500}
+.logo b{color:var(--gold);font-weight:600}
+nav ul{display:flex;gap:30px;list-style:none;align-items:center}
+nav a{text-decoration:none;font-size:.9rem;position:relative;padding:4px 0}
+nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--gold);transform:scaleX(0);transition:transform .35s;transform-origin:0 50%}
+nav a:hover::after{transform:scaleX(1)}
+.burger{display:none;background:none;border:0;color:#fff;width:44px;height:44px;cursor:pointer}
+.burger span{display:block;width:24px;height:2px;background:currentColor;margin:5px auto;transition:transform .3s,opacity .3s}
+.burger[aria-expanded=true] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded=true] span:nth-child(2){opacity:0}
+.burger[aria-expanded=true] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* hero */
+.hero{background:var(--ink);color:#fff;margin-top:-76px;padding:150px 0 0;position:relative;overflow:hidden;min-height:92vh;display:flex;flex-direction:column}
+.hero .wrap{position:relative;z-index:2;flex:1}
+.hero h1{font-size:clamp(4rem,19vw,15rem);font-weight:400;letter-spacing:-.03em;line-height:.86}
+.hero h1 .l{display:block;overflow:hidden;padding-bottom:.08em}
+.hero h1 .l span{display:inline-block}
+.hero h1 em{color:var(--gold);font-style:italic;font-weight:300}
+.hero p.lead{max-width:30ch;font-size:clamp(1.05rem,2.4vw,1.35rem);margin-top:28px;color:#e6efe9}
+.hero .row{display:flex;gap:16px;flex-wrap:wrap;margin-top:32px;align-items:center}
+.art{position:absolute;right:-6vw;top:90px;width:min(62vw,720px);z-index:1;opacity:.95;will-change:transform}
+.art svg{width:100%;height:auto;overflow:visible}
+.draw{fill:none;stroke:var(--gold);stroke-width:1.6;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:0}
+.draw.b{stroke:var(--blush);opacity:.6}
+.spin{transform-origin:50% 50%;animation:spin 60s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.js .draw{pathLength:1;animation:dr 2.6s .4s cubic-bezier(.6,0,.2,1) both}
+@keyframes dr{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+.js .hero .l span{transform:translateY(110%);animation:up 1.1s cubic-bezier(.2,.8,.2,1) forwards}
+.js .hero .l:nth-child(2) span{animation-delay:.15s}
+.js .hero .fade{opacity:0;transform:translateY(20px);animation:fi .9s .7s ease forwards}
+.js .hero .fade.d2{animation-delay:.9s}
+@keyframes up{to{transform:none}}
+@keyframes fi{to{opacity:1;transform:none}}
+
+/* marquee */
+.marq{background:var(--gold);color:var(--ink);overflow:hidden;white-space:nowrap;border-block:1px solid var(--ink);margin-top:60px;position:relative;z-index:2}
+.track{display:inline-flex;animation:mq 34s linear infinite;padding:14px 0}
+.track span{font-family:var(--serif);font-style:italic;font-size:1.5rem;padding:0 22px}
+.track i{font-style:normal;padding:0 4px}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* buttons */
+.btn{display:inline-block;background:var(--gold);color:#1b1608;padding:14px 26px;border-radius:999px;text-decoration:none;font-weight:700;font-size:.95rem;border:1.5px solid var(--gold);transition:transform .3s,box-shadow .3s,background .3s;cursor:pointer;font-family:var(--sans)}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.25)}
+.btn.alt{background:transparent;color:inherit;border-color:currentColor}
+.btn.alt:hover{background:rgba(255,255,255,.1)}
+.btn.line{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+small{font-size:.8rem}
+
+section{padding:clamp(70px,10vw,130px) 0}
+.dark{background:var(--ink);color:#fff}
+h2{font-size:clamp(2.3rem,6.5vw,4.8rem);letter-spacing:-.02em;margin:14px 0 0}
+h2 em{font-style:italic;font-weight:300;color:var(--rose)}
+.dark h2 em{color:var(--gold)}
+
+/* offer */
+.split{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(30px,6vw,90px);align-items:start}
+.idx{list-style:none;border-top:1px solid rgba(15,42,36,.25)}
+.idx li{display:flex;align-items:baseline;gap:20px;padding:22px 0;border-bottom:1px solid rgba(15,42,36,.25);transition:transform .4s,padding .4s}
+.idx li:hover{transform:translateX(12px)}
+.idx .n{font-size:.8rem;color:var(--rose);font-weight:700;letter-spacing:.1em}
+.idx .t{font-family:var(--serif);font-size:clamp(2rem,5vw,3.4rem);line-height:1}
+.idx .tag{margin-left:auto}
+.tag{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;border:1px solid currentColor;border-radius:999px;padding:3px 10px;font-weight:700;white-space:nowrap}
+
+/* services */
+.services{background:var(--blush)}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:50px}
+.card{background:var(--paper);border:1px solid rgba(15,42,36,.15);padding:32px 28px;border-radius:4px;transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s}
+.card:hover{transform:translateY(-8px);box-shadow:0 22px 40px -18px rgba(15,42,36,.35)}
+.card h3{font-size:2rem;font-style:italic;margin-bottom:18px;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.card h3 .tag{font-family:var(--sans);font-style:normal;color:var(--rose)}
+.it{padding:12px 0;border-top:1px solid rgba(15,42,36,.15)}
+.it .r{display:flex;align-items:baseline;gap:8px}
+.it .nm{font-weight:700}
+.it .dots{flex:1;border-bottom:1.5px dotted rgba(15,42,36,.4);transform:translateY(-4px);min-width:12px}
+.it .pr{font-family:var(--serif);font-size:1.25rem}
+.it p{font-size:.88rem;color:#44524d}
+.note{margin-top:30px;max-width:62ch;font-size:.95rem;border-left:3px solid var(--rose);padding-left:16px}
+
+/* hours */
+.hgrid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,6vw,80px);margin-top:44px}
+.hours{list-style:none}
+.hours li{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.2);transition:padding .3s,color .3s}
+.hours li:hover{padding-left:10px;color:var(--gold)}
+.hours li.today{color:var(--gold);font-weight:700}
+.hours .tag{margin-bottom:16px;display:inline-block;color:var(--gold)}
+.place{margin-top:26px}
+.place button{font:inherit;background:none;color:#fff;border:1px dashed rgba(255,255,255,.5);padding:10px 16px;border-radius:8px;cursor:pointer;transition:background .3s}
+.place button:hover{background:rgba(255,255,255,.1)}
+.map{border-radius:6px;overflow:hidden;border:1px solid rgba(216,180,110,.5)}
+.map iframe{width:100%;min-height:320px;border:0;display:block}
+.maplinks{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px}
+.maplinks a{color:var(--gold);font-weight:700}
+.mapcredit{font-size:.75rem;opacity:.7;margin-top:8px}
+
+/* about */
+.about{text-align:center}
+.about q{display:block;font-family:var(--serif);font-size:clamp(2rem,6vw,4.4rem);line-height:1.05;max-width:16ch;margin:24px auto;quotes:none;font-weight:300;text-wrap:balance}
+.about q em{color:var(--rose)}
+.about p{max-width:52ch;margin:0 auto}
+
+/* contact */
+.contact{background:var(--blush);text-align:center}
+.contact .row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+.contact .btn{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+/* cta */
+.np-cta{background:var(--ink);color:#fff;padding:clamp(34px,6vw,64px);border-radius:10px;border:1px solid var(--gold);width:min(1000px,100% - 40px);margin:0 auto;text-align:center;box-shadow:0 0 0 8px var(--paper),0 0 0 9px var(--gold)}
+.np-cta .btn{margin:6px}
+.ctawrap{padding:90px 0 110px;background:var(--paper)}
+
+footer{background:var(--ink);color:#cfdcd5;text-align:center;padding:26px 20px;font-size:.85rem}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(34px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i,0)*110ms)}
+.js .rv.in{opacity:1;transform:none}
+
+@media(max-width:860px){
+  .burger{display:block}
+  nav ul{position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--ink);padding:10px 20px 24px;gap:0;transform:translateY(-12px);opacity:0;visibility:hidden;transition:.3s}
+  nav ul.open{transform:none;opacity:1;visibility:visible}
+  nav li{width:100%;border-bottom:1px solid rgba(255,255,255,.12)}
+  nav a{display:block;padding:14px 0}
+  .split,.hgrid{grid-template-columns:1fr}
+  .cols{grid-template-columns:1fr}
+  .art{width:92vw;right:-22vw;top:110px;opacity:.5}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv,.js .hero .l span,.js .hero .fade{opacity:1!important;transform:none!important}
+  .js .draw{stroke-dashoffset:0!important}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div id="bar"></div>
+<header id="hd">
+  <div class="wrap in">
+    <a class="logo" href="#top">Hair <b>I</b> Do</a>
+    <button class="burger" id="bg" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <nav aria-label="Main">
+      <ul id="menu">
+        <li><a href="#offer">What we do</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#visit">Hours &amp; location</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<div class="hero dark">
+  <div class="art" id="art" aria-hidden="true">
+    <svg viewBox="0 0 600 600" fill="none">
+      <g class="spin"><circle class="draw b" cx="300" cy="300" r="270" stroke-dasharray="2 8"/></g>
+      <circle class="draw" cx="230" cy="300" r="140" pathLength="1"/>
+      <circle class="draw" cx="370" cy="300" r="140" pathLength="1"/>
+      <path class="draw" d="M300 160 L300 120" pathLength="1"/>
+      <path class="draw" d="M285 108 L300 80 L315 108 L300 130 Z" pathLength="1"/>
+      <path class="draw b" d="M120 520 L480 440 M120 440 L480 520" pathLength="1"/>
+      <circle class="draw b" cx="110" cy="440" r="22" pathLength="1"/>
+      <circle class="draw b" cx="110" cy="520" r="22" pathLength="1"/>
+    </svg>
+  </div>
+  <div class="wrap">
+    <p class="eyebrow fade">Hair salon · Carrollton, MO</p>
+    <h1 aria-label="Hair I do.">
+      <span class="l"><span>Hair</span></span>
+      <span class="l"><span><em>I do.</em></span></span>
+    </h1>
+    <p class="lead fade">Cuts, color and styling in Carrollton, Missouri. Say yes to the good hair day.</p>
+    <div class="row fade d2">
+      <a class="btn" href="#services">See the services</a>
+      <a class="btn line" href="#visit">Find us</a>
+    </div>
+  </div>
+  <div class="marq" aria-hidden="true"><div class="track" id="trk"></div></div>
+</div>
+
+<section id="offer">
+  <div class="wrap split">
+    <div class="rv">
+      <p class="eyebrow">What we do</p>
+      <h2>Three ways to <em>look the part.</em></h2>
+      <p style="margin-top:22px;max-width:36ch">Hair I Do is a hair salon in Carrollton, MO. Here is how a visit can be shaped.</p>
+    </div>
+    <ul class="idx">
+      <li class="rv" style="--i:1"><span class="n">01</span><span class="t">Cuts</span><span class="tag">Example</span></li>
+      <li class="rv" style="--i:2"><span class="n">02</span><span class="t">Color</span><span class="tag">Example</span></li>
+      <li class="rv" style="--i:3"><span class="n">03</span><span class="t">Styling</span><span class="tag">Example</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="services" class="services">
+  <div class="wrap">
+    <p class="eyebrow rv">Services</p>
+    <h2 class="rv">The price <em>list.</em></h2>
+    <div class="cols">
+      <article class="card rv" style="--i:0">
+        <h3>Cuts <span class="tag">Example</span></h3>
+        <div class="it"><div class="r"><span class="nm">Women's haircut</span><span class="dots"></span><span class="pr">$45</span></div><p>Shampoo, cut and style</p></div>
+        <div class="it"><div class="r"><span class="nm">Men's haircut</span><span class="dots"></span><span class="pr">$25</span></div></div>
+        <div class="it"><div class="r"><span class="nm">Kids' haircut</span><span class="dots"></span><span class="pr">$18</span></div><p>Ages 12 and under</p></div>
+      </article>
+      <article class="card rv" style="--i:1">
+        <h3>Color <span class="tag">Example</span></h3>
+        <div class="it"><div class="r"><span class="nm">Root touch-up</span><span class="dots"></span><span class="pr">$65</span></div></div>
+        <div class="it"><div class="r"><span class="nm">Full color</span><span class="dots"></span><span class="pr">$95</span></div></div>
+        <div class="it"><div class="r"><span class="nm">Highlights</span><span class="dots"></span><span class="pr">$120</span></div><p>Partial or full</p></div>
+      </article>
+      <article class="card rv" style="--i:2">
+        <h3>Styling <span class="tag">Example</span></h3>
+        <div class="it"><div class="r"><span class="nm">Blowout</span><span class="dots"></span><span class="pr">$35</span></div></div>
+        <div class="it"><div class="r"><span class="nm">Updo</span><span class="dots"></span><span class="pr">$70</span></div><p>For events</p></div>
+        <div class="it"><div class="r"><span class="nm">Deep conditioning</span><span class="dots"></span><span class="pr">$20</span></div></div>
+      </article>
+    </div>
+    <p class="note rv">These are example services and prices that show how your price list would look. Your real services and prices go here.</p>
+  </div>
+</section>
+
+<section id="visit" class="dark">
+  <div class="wrap">
+    <p class="eyebrow rv">Hours &amp; location</p>
+    <h2 class="rv">Come <em>on in.</em></h2>
+    <div class="hgrid">
+      <div class="rv">
+        <span class="tag">Example hours</span>
+        <ul class="hours" id="hrs">
+          <li data-d="1"><span>Mon</span><span>7 AM – 3 PM</span></li>
+          <li data-d="2"><span>Tue</span><span>7 AM – 3 PM</span></li>
+          <li data-d="3"><span>Wed</span><span>7 AM – 3 PM</span></li>
+          <li data-d="4"><span>Thu</span><span>7 AM – 3 PM</span></li>
+          <li data-d="5"><span>Fri</span><span>7 AM – 8 PM</span></li>
+          <li data-d="6"><span>Sat</span><span>8 AM – 8 PM</span></li>
+          <li data-d="0"><span>Sun</span><span>Closed</span></li>
+        </ul>
+        <div class="place"><button type="button" id="cp" data-copy="Hair I Do, Carrollton, MO">Carrollton, MO · <span id="cpl">Click to copy</span></button></div>
+      </div>
+      <div class="rv" style="--i:2"><iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-93.48731,39.36306,-93.47531,39.37506&amp;layer=mapnik&amp;marker=39.36906,-93.48131"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=39.36906&amp;mlon=-93.48131#map=17/39.36906/-93.48131" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=39.36906,-93.48131" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="wrap">
+    <p class="eyebrow rv">About</p>
+    <q class="rv">Some questions deserve a <em>yes.</em></q>
+    <p class="rv">Hair I Do is a hair salon in Carrollton, Missouri, with a name that says it all: you show up, we take care of the hair.</p>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <p class="eyebrow rv">Contact</p>
+    <h2 class="rv">Send us <em>a note.</em></h2>
+    <div class="row rv"><a class="btn" href="mailto:hairido@hotmail.com">hairido@hotmail.com</a> </div>
+  </div>
+</section>
+
+<div class="ctawrap rv"><section class="np-cta" id="offer"><h2>Want this for Hair I Do?</h2><p>This is a free preview made for Hair I Do. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20Hair%20I%20Do&amp;body=Yes%2C%20please%20make%20this%20site%20for%20Hair%20I%20Do.">Make it mine</a></p></section></div>
+</main>
+
+<footer>Hair I Do · Hair salon · Carrollton, MO</footer>
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · Hair I Do</div>
+<script>
+document.documentElement.classList.add('js');
+(function(){
+  var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  // marquee from real words
+  var w=['Hair I Do','Hair salon','Carrollton, MO','Cuts','Color','Styling','I do'];
+  var h='';for(var k=0;k<4;k++)w.forEach(function(x){h+='<span>'+x+'</span><i>✦</i>'});
+  document.getElementById('trk').innerHTML=h;
+  // scroll: progress, header, parallax
+  var bar=document.getElementById('bar'),hd=document.getElementById('hd'),art=document.getElementById('art'),tick=false;
+  function onS(){
+    var y=scrollY,m=document.documentElement.scrollHeight-innerHeight;
+    bar.style.transform='scaleX('+(m>0?y/m:0)+')';
+    hd.classList.toggle('solid',y>40);
+    if(!rm&&art)art.style.transform='translate3d(0,'+(y*.18)+'px,0) rotate('+(y*.015)+'deg)';
+    tick=false;
+  }
+  addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(onS)}},{passive:true});onS();
+  // reveals
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12});
+    els.forEach(function(e){io.observe(e)});
+  }else els.forEach(function(e){e.classList.add('in')});
+  // mobile menu
+  var bg=document.getElementById('bg'),mn=document.getElementById('menu');
+  bg.addEventListener('click',function(){var o=mn.classList.toggle('open');bg.setAttribute('aria-expanded',o)});
+  mn.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mn.classList.remove('open');bg.setAttribute('aria-expanded',false)})});
+  // highlight today in example hours
+  var t=new Date().getDay(),li=document.querySelector('#hrs li[data-d="'+t+'"]');if(li)li.classList.add('today');
+  // copy
+  var cp=document.getElementById('cp'),cl=document.getElementById('cpl');
+  cp.addEventListener('click',function(){
+    var v=cp.getAttribute('data-copy');
+    function ok(){cl.textContent='Copied';setTimeout(function(){cl.textContent='Click to copy'},1800)}
+    if(navigator.clipboard)navigator.clipboard.writeText(v).then(ok,ok);else ok();
+  });
+  // magnetic buttons
+  if(!rm&&matchMedia('(hover:hover)').matches){
+    document.querySelectorAll('.hero .btn').forEach(function(b){
+      b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.2)+'px,'+((e.clientY-r.top-r.height/2)*.3-3)+'px)'});
+      b.addEventListener('mouseleave',function(){b.style.transform=''});
+    });
+  }
+})();
+</script>
+</body>
+</html>

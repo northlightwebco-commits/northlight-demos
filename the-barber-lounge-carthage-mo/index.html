@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Barber Lounge | Barbershop in Carthage, MO</title>
+<meta name="description" content="The Barber Lounge, a barbershop at 431 Olive Street in Carthage, MO.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0d1b2a;
+  --paper:#f3efe6;
+  --red:#c1121f;
+  --blue:#1d4e9e;
+  --sun:#ffc933;
+  --white:#ffffff;
+  --bw:3px;
+  --shadow:6px 6px 0 var(--ink);
+  --display:'Anton','Impact',sans-serif;
+  --body:'Space Grotesk',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);line-height:1.55;font-size:1.0625rem;overflow-x:hidden}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;line-height:.95;letter-spacing:.01em;text-wrap:balance;overflow-wrap:break-word}
+p{text-wrap:pretty}
+.wrap{width:min(1180px,100% - 2.5rem);margin-inline:auto}
+section{padding:clamp(3.5rem,8vw,6.5rem) 0;position:relative}
+.eyebrow{display:inline-block;font-weight:700;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:.35rem .7rem;margin-bottom:1rem}
+h2{font-size:clamp(2.4rem,7vw,4.8rem);margin-bottom:1rem}
+.lede{max-width:46ch;font-size:1.15rem}
+
+/* progress */
+.progress{position:fixed;left:0;top:0;height:5px;width:100%;background:var(--red);transform:scaleX(0);transform-origin:left;z-index:200;pointer-events:none}
+
+/* preview banners (slots) */
+.np-banner{background:var(--ink);color:var(--paper);font-size:.8rem;text-align:center;padding:.45rem 1rem;letter-spacing:.02em}
+.np-banner a{color:var(--sun)}
+
+/* header */
+.site-header{position:sticky;top:0;z-index:100;padding:.9rem 0}
+.site-header::before{content:"";position:absolute;inset:0;background:var(--paper);border-bottom:var(--bw) solid var(--ink);opacity:0;z-index:-1}
+.site-header.stuck::before{opacity:1}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.logo{font-family:var(--display);text-transform:uppercase;text-decoration:none;font-size:1.35rem;letter-spacing:.03em;display:flex;align-items:center;gap:.55rem;line-height:1}
+.logo i{display:block;width:14px;height:30px;border:2px solid var(--ink);border-radius:7px;background:repeating-linear-gradient(135deg,var(--red) 0 5px,var(--white) 5px 10px,var(--blue) 10px 15px,var(--white) 15px 20px)}
+.nav{display:flex;align-items:center;gap:.4rem}
+.nav a{text-decoration:none;font-weight:700;font-size:.95rem;padding:.5rem .8rem;border:2px solid transparent;transition:transform .2s}
+.nav a:hover{border-color:var(--ink);background:var(--sun);transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--ink)}
+.nav a:focus-visible,.btn:focus-visible,button:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.menu-btn{display:none;font:inherit;font-weight:700;background:var(--sun);border:var(--bw) solid var(--ink);padding:.45rem .9rem;cursor:pointer;box-shadow:3px 3px 0 var(--ink)}
+
+/* buttons (also slot) */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-family:var(--body);font-weight:700;font-size:1rem;text-decoration:none;color:var(--white);background:var(--red);border:var(--bw) solid var(--ink);padding:.8rem 1.3rem;box-shadow:4px 4px 0 var(--ink);cursor:pointer;transition:transform .2s ease,box-shadow .2s ease;will-change:transform}
+.btn:hover{transform:translate(-3px,-3px);box-shadow:7px 7px 0 var(--ink)}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.btn.alt{background:var(--paper);color:var(--ink)}
+.btn.ink{background:var(--ink);color:var(--paper);box-shadow:4px 4px 0 var(--red)}
+small{font-size:.85rem}
+
+/* hero */
+.hero{padding-top:clamp(1.5rem,4vw,3rem);overflow:hidden}
+.hero-grid{display:grid;gap:2rem;align-items:center}
+.hero h1{font-size:clamp(3.6rem,15vw,10.5rem);margin:.4rem 0 1.2rem}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1 .ln span{display:block}
+.hero h1 .ln.red span{color:var(--red)}
+.hero h1 .ln.outline span{color:var(--paper);-webkit-text-stroke:3px var(--ink);text-shadow:6px 6px 0 var(--ink)}
+.hero-copy .lede{margin-bottom:1.6rem}
+.cta-row{display:flex;flex-wrap:wrap;gap:1rem}
+.sticker{display:inline-block;background:var(--sun);border:var(--bw) solid var(--ink);box-shadow:4px 4px 0 var(--ink);padding:.4rem .8rem;font-weight:700;transform:rotate(-3deg);font-size:.95rem}
+.hero-visual{position:relative;justify-self:center;width:min(100%,320px);height:420px;display:grid;place-items:center}
+.parallax{will-change:transform}
+.pole{position:relative;width:132px;height:340px;border:var(--bw) solid var(--ink);border-radius:66px;overflow:hidden;background:var(--white);box-shadow:10px 10px 0 var(--ink)}
+.pole-stripes{position:absolute;left:0;right:0;top:-113.137px;height:calc(100% + 226.274px);background:repeating-linear-gradient(135deg,var(--red) 0 20px,var(--white) 20px 40px,var(--blue) 40px 60px,var(--white) 60px 80px)}
+.pole::after{content:"";position:absolute;top:0;bottom:0;left:18%;width:14%;background:rgba(255,255,255,.55);border-radius:20px;filter:blur(2px)}
+.cap{position:absolute;left:50%;width:104px;height:30px;margin-left:-52px;background:var(--ink);border-radius:8px;z-index:2}
+.cap.t{top:calc(50% - 197px)}
+.cap.b{top:calc(50% + 167px)}
+.scissors{position:absolute;right:-6px;bottom:-4px;width:150px;transform:rotate(-14deg);z-index:3}
+.scissors path,.scissors circle,.scissors line{fill:none;stroke:var(--ink);stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+.scissors .fillc{fill:var(--sun)}
+.badge-spin{position:absolute;left:-4px;top:10px;width:110px;height:110px;z-index:3}
+.badge-spin text{font-family:var(--display);font-size:13px;letter-spacing:2.2px;fill:var(--ink);text-transform:uppercase}
+.badge-spin .disc{fill:var(--sun);stroke:var(--ink);stroke-width:3}
+.badge-spin g.rot{transform-origin:55px 55px}
+
+/* marquee */
+.marquee{background:var(--ink);color:var(--paper);border-block:var(--bw) solid var(--ink);overflow:hidden;padding:.9rem 0;transform:rotate(-1.2deg);margin:1rem -2vw}
+.marquee-track{display:flex;width:max-content}
+.marquee-set{display:flex;flex-shrink:0;align-items:center;gap:1.6rem;padding-right:1.6rem;font-family:var(--display);text-transform:uppercase;font-size:clamp(1.5rem,4vw,2.4rem);white-space:nowrap}
+.marquee-set b{color:var(--sun);font-weight:400}
+
+/* offer */
+.cards{display:grid;gap:1.5rem;margin-top:2rem}
+.card{background:var(--white);border:var(--bw) solid var(--ink);box-shadow:var(--shadow);padding:1.5rem;transition:transform .25s ease,box-shadow .25s ease}
+.card:hover{transform:translate(-4px,-4px) rotate(-.6deg);box-shadow:11px 11px 0 var(--ink)}
+.card:nth-child(2){background:var(--sun)}
+.card:nth-child(3){background:var(--blue);color:var(--white)}
+.card svg{width:64px;height:64px;margin-bottom:1rem}
+.card svg *{fill:none;stroke:currentColor;stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:2rem;margin-bottom:.5rem}
+.card .num{font-family:var(--display);font-size:1rem;opacity:.9;letter-spacing:.1em}
+
+/* services */
+.services{background:var(--red);color:var(--white);border-block:var(--bw) solid var(--ink)}
+.services h2{color:var(--white)}
+.services .eyebrow{background:var(--paper);color:var(--ink)}
+.note{background:var(--paper);color:var(--ink);border:var(--bw) solid var(--ink);box-shadow:var(--shadow);padding:1rem 1.2rem;max-width:62ch;margin:1.2rem 0 2.2rem;font-weight:500}
+.tag{display:inline-block;background:var(--sun);color:var(--ink);border:2px solid var(--ink);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.15rem .5rem;transform:rotate(-2deg)}
+.price-grid{display:grid;gap:1.6rem}
+.price-card{background:var(--paper);color:var(--ink);border:var(--bw) solid var(--ink);box-shadow:var(--shadow);padding:1.4rem 1.4rem 1rem}
+.price-card header{display:flex;justify-content:space-between;align-items:center;gap:.8rem;margin-bottom:.8rem;flex-wrap:wrap}
+.price-card h3{font-size:2rem}
+.price-card ul{list-style:none}
+.price-card li{display:flex;align-items:baseline;gap:.6rem;padding:.7rem .4rem;border-top:2px solid var(--ink);transition:transform .2s ease,background-color .2s ease}
+.price-card li:hover{transform:translateX(8px);background:var(--sun)}
+.price-card .nm{font-weight:700}
+.price-card .ds{display:block;font-size:.9rem;font-weight:400}
+.price-card .dots{flex:1;border-bottom:3px dotted var(--ink);transform:translateY(-4px);min-width:1rem}
+.price-card .pr{font-family:var(--display);font-size:1.5rem}
+
+/* visit */
+.visit-grid{display:grid;gap:2rem;margin-top:1.5rem}
+.hours{background:var(--white);border:var(--bw) solid var(--ink);box-shadow:var(--shadow);padding:1.4rem}
+.hours header{display:flex;justify-content:space-between;align-items:center;gap:.6rem;flex-wrap:wrap;margin-bottom:.6rem}
+.hours h3{font-size:1.8rem}
+.hours table{width:100%;border-collapse:collapse}
+.hours th,.hours td{text-align:left;padding:.6rem .2rem;border-top:2px solid var(--ink);font-weight:500}
+.hours td{text-align:right;font-weight:700}
+.addr{margin-top:1.4rem;background:var(--sun);border:var(--bw) solid var(--ink);box-shadow:var(--shadow);padding:1.2rem}
+.addr address{font-style:normal;font-weight:700;font-size:1.2rem;margin-bottom:.8rem}
+.copy-status{display:inline-block;margin-left:.6rem;font-weight:700;font-size:.9rem}
+.map{border:var(--bw) solid var(--ink);box-shadow:var(--shadow);background:var(--white);overflow:hidden}
+.map iframe{width:100%;min-height:320px;border:0;display:block}
+.maplinks{display:flex;flex-wrap:wrap;gap:.7rem;padding:.9rem}
+.maplinks a{font-weight:700;text-decoration:none;background:var(--paper);border:2px solid var(--ink);padding:.45rem .8rem;box-shadow:3px 3px 0 var(--ink);transition:transform .2s ease}
+.maplinks a:hover{transform:translate(-2px,-2px)}
+.mapcredit{padding:0 .9rem .8rem;font-size:.8rem}
+
+/* contact */
+.contact{text-align:left}
+.contact-box{background:var(--blue);color:var(--white);border:var(--bw) solid var(--ink);box-shadow:var(--shadow);padding:clamp(1.5rem,4vw,3rem)}
+.contact-box h2{color:var(--white)}
+.contact-actions{display:flex;flex-wrap:wrap;gap:1rem;margin-top:1.4rem}
+
+/* cta (slot) */
+.cta-sec{padding-top:0}
+.np-cta{background:var(--sun);color:var(--ink);border:var(--bw) solid var(--ink);box-shadow:10px 10px 0 var(--ink);padding:clamp(1.5rem,4vw,3rem);position:relative;transform:rotate(-.6deg)}
+.np-cta h2,.np-cta h3{font-size:clamp(2rem,6vw,3.6rem);margin-bottom:.7rem}
+.np-cta p{max-width:52ch;margin-bottom:1rem}
+.np-cta .btn{margin:.3rem .5rem .3rem 0}
+
+footer{background:var(--ink);color:var(--paper);padding:2rem 0;font-size:.95rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.8rem}
+
+/* reveal: only with JS, so no-JS stays visible */
+.js .reveal{opacity:0;transform:translateY(34px)}
+.js .reveal.in{opacity:1;transform:none;transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}
+
+@media (prefers-reduced-motion:no-preference){
+  .hero h1 .ln span{transform:translateY(110%);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
+  .hero h1 .ln:nth-child(2) span{animation-delay:.12s}
+  .hero h1 .ln:nth-child(3) span{animation-delay:.24s}
+  .hero-copy .eyebrow,.hero-copy .lede,.hero-copy .cta-row{opacity:0;animation:fade .8s ease forwards}
+  .hero-copy .eyebrow{animation-delay:.05s}
+  .hero-copy .lede{animation-delay:.55s}
+  .hero-copy .cta-row{animation-delay:.7s}
+  .pole{opacity:0;animation:pop .9s .3s cubic-bezier(.2,1.3,.4,1) forwards}
+  .pole-stripes{animation:spin 2.6s linear infinite}
+  .sticker{animation:wob 4s ease-in-out infinite}
+  .badge-spin g.rot{animation:rot 16s linear infinite}
+  .scissors .draw{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.6s .8s ease forwards}
+  .scissors{animation:snip 3.2s 2.4s ease-in-out infinite}
+  .marquee-track{animation:slide 32s linear infinite}
+  .marquee:hover .marquee-track{animation-play-state:paused}
+}
+@keyframes rise{to{transform:translateY(0)}}
+@keyframes fade{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes pop{from{opacity:0;transform:translateY(40px) scale(.9)}to{opacity:1;transform:none}}
+@keyframes spin{to{transform:translateY(113.137px)}}
+@keyframes wob{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(2deg) translateY(-3px)}}
+@keyframes rot{to{transform:rotate(360deg)}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes snip{0%,88%,100%{transform:rotate(-14deg)}94%{transform:rotate(-19deg) translateY(-3px)}}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .scissors .draw{stroke-dasharray:none}
+  .js .reveal{opacity:1;transform:none}
+  .btn,.card,.price-card li,.maplinks a,.nav a{transition:none}
+  .progress{display:none}
+}
+
+@media (min-width:760px){
+  .cards{grid-template-columns:repeat(3,1fr)}
+  .price-grid{grid-template-columns:repeat(2,1fr)}
+  .price-card.wide{grid-column:1/-1}
+}
+@media (min-width:960px){
+  .hero-grid{grid-template-columns:1.35fr .65fr}
+  .visit-grid{grid-template-columns:1fr 1.1fr}
+}
+@media (max-width:820px){
+  .menu-btn{display:inline-block}
+  .js .nav{position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;background:var(--paper);border-bottom:var(--bw) solid var(--ink);padding:.6rem 1.25rem 1rem;display:none}
+  .js .nav.open{display:flex}
+  .js .nav a{border:2px solid var(--ink);margin-top:.5rem;background:var(--white)}
+  .nav{flex-wrap:wrap}
+  .menu-btn{display:none}
+  .js .menu-btn{display:inline-block}
+}
+@media (max-width:420px){
+  .hero-visual{height:380px}
+  .pole{height:300px}
+  .cap.t{top:calc(50% - 177px)}
+  .cap.b{top:calc(50% + 147px)}
+  .badge-spin{width:88px;height:88px}
+  .scissors{width:120px}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div class="progress" id="progressBar" aria-hidden="true"></div>
+
+<header class="site-header" id="siteHeader">
+  <div class="wrap">
+    <a class="logo" href="#top-of-page" aria-label="The Barber Lounge, back to top"><i aria-hidden="true"></i>The Barber Lounge</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mainNav" type="button">Menu</button>
+    <nav class="nav" id="mainNav" aria-label="Main">
+      <a href="#offer">The shop</a>
+      <a href="#services">Services</a>
+      <a href="#visit">Hours &amp; location</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top-of-page">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Barbershop &middot; Carthage, MO</span>
+        <h1 aria-label="The Barber Lounge">
+          <span class="ln" aria-hidden="true"><span>The</span></span>
+          <span class="ln red" aria-hidden="true"><span>Barber</span></span>
+          <span class="ln outline" aria-hidden="true"><span>Lounge</span></span>
+        </h1>
+        <p class="lede">Sit down, settle in, and leave sharp. Your chair is waiting on Olive Street.</p>
+        <div class="cta-row">
+          <a class="btn" href="#services" data-magnet>See the services</a>
+          <a class="btn alt" href="#visit" data-magnet>Find the shop</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="parallax" data-speed="0.12" style="position:relative;width:100%;height:100%;display:grid;place-items:center">
+          <div class="cap t"></div>
+          <div class="pole"><div class="pole-stripes"></div></div>
+          <div class="cap b"></div>
+          <svg class="badge-spin" viewBox="0 0 110 110">
+            <circle class="disc" cx="55" cy="55" r="52"/>
+            <defs><path id="ring" d="M55,55 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs>
+            <g class="rot"><text><textPath href="#ring">Carthage &middot; Missouri &middot; Barbershop &middot;</textPath></text></g>
+          </svg>
+          <svg class="scissors" viewBox="0 0 120 120">
+            <circle class="fillc" cx="28" cy="94" r="16"/>
+            <circle class="fillc" cx="76" cy="100" r="16"/>
+            <path class="draw" pathLength="1" d="M38 80 L98 12"/>
+            <path class="draw" pathLength="1" d="M70 85 L26 12"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <div class="marquee-set"><span>Barbershop</span><b>&#10022;</b><span>Haircuts</span><b>&#10022;</b><span>Beard &amp; shave</span><b>&#10022;</b><span>Packages</span><b>&#10022;</b><span>Carthage, MO</span><b>&#10022;</b><span>Olive Street</span><b>&#10022;</b></div>
+      <div class="marquee-set"><span>Barbershop</span><b>&#10022;</b><span>Haircuts</span><b>&#10022;</b><span>Beard &amp; shave</span><b>&#10022;</b><span>Packages</span><b>&#10022;</b><span>Carthage, MO</span><b>&#10022;</b><span>Olive Street</span><b>&#10022;</b></div>
+    </div>
+  </div>
+
+  <section id="offer">
+    <div class="wrap">
+      <span class="eyebrow reveal">The shop</span>
+      <h2 class="reveal">Hair, beard, done right.</h2>
+      <p class="lede reveal">A barbershop in the heart of Carthage. Come in for a cut, a clean shave, or both in one sitting.</p>
+      <div class="cards">
+        <article class="card reveal" style="--d:0s">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="16" cy="48" r="8"/><circle cx="38" cy="52" r="8"/><path d="M20 41 L54 8"/><path d="M35 44 L14 10"/></svg>
+          <span class="num">01</span>
+          <h3>Haircuts</h3>
+          <p>Scissor or clipper, fades and the classics.</p>
+        </article>
+        <article class="card reveal" style="--d:.12s">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M10 22 H44 a6 6 0 0 1 6 6 V34 H10 Z"/><path d="M44 22 L54 10"/><path d="M14 34 V50 M26 34 V50 M38 34 V50"/></svg>
+          <span class="num">02</span>
+          <h3>Beard &amp; shave</h3>
+          <p>Trims, line-ups and the hot towel treatment.</p>
+        </article>
+        <article class="card reveal" style="--d:.24s">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="22" y="6" width="20" height="52" rx="10"/><path d="M22 20 L42 14 M22 34 L42 28 M22 48 L42 42"/></svg>
+          <span class="num">03</span>
+          <h3>Packages</h3>
+          <p>Pair a cut with a beard trim and save a trip.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="wrap">
+      <span class="eyebrow reveal">Services</span>
+      <h2 class="reveal">The price list</h2>
+      <p class="note reveal"><span class="tag">Example</span> These are example services and prices that show how your price list would look. Your real services and prices go here.</p>
+      <div class="price-grid">
+        <article class="price-card reveal">
+          <header><h3>Haircuts</h3><span class="tag">Example</span></header>
+          <ul>
+            <li><span class="nm">Classic cut<span class="ds">Scissor or clipper</span></span><span class="dots"></span><span class="pr">$28</span></li>
+            <li><span class="nm">Skin fade</span><span class="dots"></span><span class="pr">$32</span></li>
+            <li><span class="nm">Kids' cut</span><span class="dots"></span><span class="pr">$20</span></li>
+          </ul>
+        </article>
+        <article class="price-card reveal" style="--d:.12s">
+          <header><h3>Beard &amp; shave</h3><span class="tag">Example</span></header>
+          <ul>
+            <li><span class="nm">Beard trim</span><span class="dots"></span><span class="pr">$15</span></li>
+            <li><span class="nm">Hot towel shave</span><span class="dots"></span><span class="pr">$30</span></li>
+            <li><span class="nm">Line-up</span><span class="dots"></span><span class="pr">$12</span></li>
+          </ul>
+        </article>
+        <article class="price-card wide reveal" style="--d:.2s">
+          <header><h3>Packages</h3><span class="tag">Example</span></header>
+          <ul>
+            <li><span class="nm">Cut + beard</span><span class="dots"></span><span class="pr">$40</span></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="visit">
+    <div class="wrap">
+      <span class="eyebrow reveal">Hours &amp; location</span>
+      <h2 class="reveal">Come on by.</h2>
+      <div class="visit-grid">
+        <div>
+          <div class="hours reveal">
+            <header><h3>Hours</h3><span class="tag">Example hours</span></header>
+            <table>
+              <tbody>
+                <tr><th scope="row">Mon</th><td>7 AM &ndash; 3 PM</td></tr>
+                <tr><th scope="row">Tue</th><td>7 AM &ndash; 3 PM</td></tr>
+                <tr><th scope="row">Wed</th><td>7 AM &ndash; 3 PM</td></tr>
+                <tr><th scope="row">Thu</th><td>7 AM &ndash; 3 PM</td></tr>
+                <tr><th scope="row">Fri</th><td>7 AM &ndash; 8 PM</td></tr>
+                <tr><th scope="row">Sat</th><td>8 AM &ndash; 8 PM</td></tr>
+                <tr><th scope="row">Sun</th><td>Closed</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="addr reveal">
+            <address id="addrText">431 Olive Street, Carthage, MO 64836</address>
+            <button class="btn alt" type="button" id="copyAddr" data-magnet>Copy address</button>
+            <span class="copy-status" id="copyStatus" role="status" aria-live="polite"></span>
+          </div>
+        </div>
+        <div class="reveal">
+          <iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-94.32142,37.17169,-94.30942,37.18369&amp;layer=mapnik&amp;marker=37.17769,-94.31542"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=37.17769&amp;mlon=-94.31542#map=17/37.17769/-94.31542" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=37.17769,-94.31542" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="contact-box reveal">
+        <span class="eyebrow" style="background:var(--paper);color:var(--ink)">Contact</span>
+        <h2>Say hello.</h2>
+        <p class="lede">Questions about a cut or a booking? Drop a line by e-mail.</p>
+        <div class="contact-actions">
+          <a class="btn" href="mailto:thebarberlounge417@gmail.com">thebarberlounge417@gmail.com</a>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-sec">
+    <div class="wrap reveal">
+      <section class="np-cta" id="offer"><h2>Want this for The Barber Lounge?</h2><p>This is a free preview made for The Barber Lounge. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20The%20Barber%20Lounge&amp;body=Yes%2C%20please%20make%20this%20site%20for%20The%20Barber%20Lounge.">Make it mine</a></p></section>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>The Barber Lounge &middot; 431 Olive Street, Carthage, MO 64836</span>
+    <a href="#top-of-page">Back to top &uarr;</a>
+  </div>
+</footer>
+
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · The Barber Lounge</div>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  root.classList.add('js');
+  var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var hdrEl = document.getElementById('siteHeader');
+  var progEl = document.getElementById('progressBar');
+  var parallaxEls = Array.prototype.slice.call(document.querySelectorAll('.parallax'));
+  var ticking = false;
+
+  function onScrollFrame(){
+    var y = window.pageYOffset || document.documentElement.scrollTop || 0;
+    var maxY = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    if (hdrEl) { hdrEl.classList.toggle('stuck', y > 40); }
+    if (progEl) { progEl.style.transform = 'scaleX(' + Math.min(1, y / maxY).toFixed(4) + ')'; }
+    if (!calm) {
+      parallaxEls.forEach(function(el){
+        var sp = parseFloat(el.getAttribute('data-speed')) || 0.1;
+        el.style.transform = 'translate3d(0,' + (y * sp).toFixed(1) + 'px,0)';
+      });
+    }
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if (!ticking) { ticking = true; window.requestAnimationFrame(onScrollFrame); }
+  }, {passive:true});
+  window.addEventListener('resize', onScrollFrame);
+  onScrollFrame();
+
+  /* reveals */
+  var revealEls = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+  if ('IntersectionObserver' in window && !calm) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -6% 0px'});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* mobile menu */
+  var menuBtnEl = document.getElementById('menuBtn');
+  var navEl = document.getElementById('mainNav');
+  if (menuBtnEl && navEl) {
+    menuBtnEl.addEventListener('click', function(){
+      var isOpen = navEl.classList.toggle('open');
+      menuBtnEl.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      menuBtnEl.textContent = isOpen ? 'Close' : 'Menu';
+    });
+    navEl.addEventListener('click', function(ev){
+      if (ev.target.tagName === 'A') {
+        navEl.classList.remove('open');
+        menuBtnEl.setAttribute('aria-expanded', 'false');
+        menuBtnEl.textContent = 'Menu';
+      }
+    });
+  }
+
+  /* click to copy address */
+  var copyBtnEl = document.getElementById('copyAddr');
+  var copyMsgEl = document.getElementById('copyStatus');
+  var addrEl = document.getElementById('addrText');
+  function showCopied(ok){
+    if (!copyMsgEl) return;
+    copyMsgEl.textContent = ok ? 'Copied!' : 'Press Ctrl+C to copy';
+    window.setTimeout(function(){ copyMsgEl.textContent = ''; }, 2400);
+  }
+  if (copyBtnEl && addrEl) {
+    copyBtnEl.addEventListener('click', function(){
+      var txt = addrEl.textContent.trim();
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(txt).then(function(){ showCopied(true); }, function(){ showCopied(false); });
+      } else {
+        try {
+          var ta = document.createElement('textarea');
+          ta.value = txt; ta.setAttribute('readonly','');
+          ta.style.position = 'fixed'; ta.style.opacity = '0';
+          document.body.appendChild(ta); ta.select();
+          var done = document.execCommand('copy');
+          document.body.removeChild(ta);
+          showCopied(done);
+        } catch (err) { showCopied(false); }
+      }
+    });
+  }
+
+  /* magnetic buttons */
+  if (!calm && window.matchMedia('(hover: hover)').matches) {
+    Array.prototype.slice.call(document.querySelectorAll('[data-magnet], .np-cta .btn')).forEach(function(b){
+      b.addEventListener('pointermove', function(ev){
+        var r = b.getBoundingClientRect();
+        var mx = (ev.clientX - (r.left + r.width / 2)) * 0.18;
+        var my = (ev.clientY - (r.top + r.height / 2)) * 0.25;
+        b.style.transform = 'translate(' + mx.toFixed(1) + 'px,' + my.toFixed(1) + 'px)';
+      });
+      b.addEventListener('pointerleave', function(){ b.style.transform = ''; });
+    });
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Early Bird of Northville | Breakfast and diner on East Main Street</title>
+<meta name="description" content="Early Bird of Northville: breakfast and diner at 333 East Main Street, Northville, MI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#0f1a35;--night2:#18264d;--dusk:#2c3b73;
+  --yolk:#ffc83d;--coral:#ff7a59;--blush:#ffd9bf;
+  --sky:#e1ebf7;--ink:#0f1a35;--paper:#fff7e6;
+  --display:'Bricolage Grotesque',system-ui,sans-serif;
+  --serif:'Instrument Serif',Georgia,serif;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:var(--display);background:var(--night);color:var(--paper);line-height:1.55;font-size:1.05rem;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+section{scroll-margin-top:72px}
+.wrap{width:min(1180px,100% - 2.5rem);margin-inline:auto}
+h1,h2,h3{text-wrap:balance;overflow-wrap:break-word}
+.eyebrow{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--yolk);display:inline-flex;align-items:center;gap:.7rem}
+.eyebrow::before{content:"";width:2.2rem;height:2px;background:currentColor}
+h2{font-size:clamp(2rem,6.5vw,4.2rem);line-height:1;font-weight:800;letter-spacing:-.025em;margin:.8rem 0 1rem}
+h2 em{font-family:var(--serif);font-weight:400;font-style:italic;letter-spacing:0}
+
+/* progress + header */
+.progress{position:fixed;inset:0 0 auto 0;height:4px;z-index:100;background:linear-gradient(90deg,var(--yolk),var(--coral));transform:scaleX(0);transform-origin:0 50%}
+header.top{position:sticky;top:0;z-index:50;transition:background .4s,box-shadow .4s}
+header.top .bar{display:flex;align-items:center;justify-content:space-between;height:76px;transition:height .4s var(--ease)}
+header.top.scrolled{background:rgba(15,26,53,.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(255,200,61,.25)}
+header.top.scrolled .bar{height:58px}
+.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;font-weight:800;letter-spacing:-.01em}
+.brand svg{width:30px;height:30px}
+nav.main{display:flex;gap:1.8rem;align-items:center}
+nav.main a{text-decoration:none;font-weight:600;font-size:.95rem;position:relative;padding:.3rem 0}
+nav.main a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--yolk);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+nav.main a:hover::after,nav.main a:focus-visible::after{transform:scaleX(1)}
+.burger{display:none;background:none;border:2px solid var(--yolk);color:var(--yolk);width:44px;height:44px;border-radius:50%;cursor:pointer;font:inherit}
+.burger span{display:block;width:18px;height:2px;background:currentColor;margin:4px auto;transition:transform .3s var(--ease),opacity .3s}
+.burger[aria-expanded=true] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded=true] span:nth-child(2){opacity:0}
+.burger[aria-expanded=true] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+@media(max-width:760px){
+  .burger{display:block}
+  nav.main{position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:var(--night);padding:.5rem 1.25rem 1.2rem;border-bottom:2px solid var(--yolk);display:none}
+  nav.main.open{display:flex}
+  nav.main a{padding:.9rem 0;font-size:1.2rem;width:100%;border-bottom:1px solid rgba(255,247,230,.12)}
+}
+
+/* hero */
+.hero{position:relative;margin-top:-76px;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;background:linear-gradient(180deg,#0f1a35 0%,#24367a 45%,#c9577a 78%,#ff9b62 100%)}
+.hero .stars{position:absolute;inset:0;background-image:radial-gradient(1.5px 1.5px at 12% 18%,#fff8,transparent),radial-gradient(1.5px 1.5px at 78% 12%,#fff8,transparent),radial-gradient(1px 1px at 40% 28%,#fff8,transparent),radial-gradient(1.5px 1.5px at 90% 34%,#fff6,transparent),radial-gradient(1px 1px at 25% 8%,#fff8,transparent);animation:twinkle 4s ease-in-out infinite alternate}
+.sunwrap{position:absolute;left:50%;bottom:16%;width:min(78vw,640px);aspect-ratio:1;margin-left:calc(min(78vw,640px)/-2);will-change:transform}
+.sun{width:100%;height:100%;animation:rise 2.6s var(--ease) .1s both}
+.rays{transform-origin:50% 50%;animation:spin 90s linear infinite}
+.horizon{position:absolute;left:0;right:0;bottom:0;height:24%;background:var(--night);}
+.horizon svg{position:absolute;left:0;top:-39px;width:100%;height:40px}
+.bird{position:absolute;top:22%;left:-80px;width:clamp(44px,7vw,84px);animation:fly 14s linear 1.4s infinite;opacity:0}
+.bird .wing{transform-origin:50% 60%;animation:flap .7s ease-in-out infinite alternate}
+.hero-copy{position:relative;z-index:2;padding:0 0 clamp(2.5rem,8vh,5rem);width:100%}
+.hero h1{font-size:clamp(3.2rem,15vw,10.5rem);line-height:.88;font-weight:800;letter-spacing:-.045em}
+.hero h1 .w{display:inline-block;white-space:nowrap;overflow:hidden;vertical-align:bottom;padding-bottom:.08em}
+.hero h1 .w>span{display:inline-block;animation:up 1.1s var(--ease) both;animation-delay:calc(.5s + var(--i)*.14s)}
+.hero h1 .of{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--yolk);letter-spacing:0;font-size:.52em}
+.hero .lead{font-size:clamp(1.15rem,3vw,1.7rem);max-width:30ch;margin:1.4rem 0 1.8rem;animation:fade 1s ease 1.3s both;text-shadow:0 1px 12px rgba(15,26,53,.6)}
+.hero .acts{display:flex;flex-wrap:wrap;gap:.9rem;animation:fade 1s ease 1.6s both}
+.scrollcue{position:absolute;right:1.5rem;bottom:1.5rem;z-index:2;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;writing-mode:vertical-rl;color:var(--blush);display:flex;align-items:center;gap:.6rem}
+.scrollcue::after{content:"";width:2px;height:48px;background:var(--yolk);transform-origin:top;animation:cue 2s ease-in-out infinite}
+@media(max-width:600px){.scrollcue{display:none}}
+
+/* buttons */
+.btn,.pill{display:inline-flex;align-items:center;gap:.5rem;background:var(--yolk);color:var(--ink);font:inherit;font-weight:700;padding:.9rem 1.5rem;border-radius:999px;border:2px solid var(--yolk);text-decoration:none;cursor:pointer;transition:transform .3s var(--ease),box-shadow .3s,background .3s,color .3s;will-change:transform}
+.btn:hover,.pill:hover{box-shadow:0 10px 26px rgba(255,200,61,.35);transform:translateY(-3px)}
+.btn.alt,.pill.alt{background:transparent;color:var(--paper);border-color:rgba(255,247,230,.6)}
+.btn.alt:hover,.pill.alt:hover{background:var(--paper);color:var(--ink)}
+:focus-visible{outline:3px solid var(--coral);outline-offset:3px}
+
+/* marquee */
+.marquee{background:var(--yolk);color:var(--ink);overflow:hidden;padding:.9rem 0;border-block:2px solid var(--ink);transform:rotate(-1deg);margin:-1rem -2vw 0;position:relative;z-index:3}
+.marquee .track{display:flex;width:max-content;animation:scroll 32s linear infinite}
+.marquee span{font-weight:800;font-size:clamp(1.1rem,3vw,1.8rem);letter-spacing:-.01em;padding-right:1.4rem;white-space:nowrap;text-transform:uppercase}
+.marquee span i{font-style:normal;color:var(--coral);padding-left:1.4rem}
+.marquee:hover .track{animation-play-state:paused}
+
+/* offer */
+.offer{padding:clamp(4rem,10vw,8rem) 0 clamp(3rem,7vw,5rem)}
+.offer-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:center}
+.offer p.big{font-family:var(--serif);font-size:clamp(1.5rem,3.6vw,2.4rem);line-height:1.2;max-width:24ch}
+.offer p.sub{color:#d6d9e8;max-width:46ch;margin-top:1rem}
+.dawnart{width:100%;max-width:420px;justify-self:center}
+.draw path,.draw circle,.draw line{stroke-dasharray:var(--len,600);stroke-dashoffset:var(--len,600);transition:stroke-dashoffset 2.2s var(--ease)}
+.draw.in path,.draw.in circle,.draw.in line{stroke-dashoffset:0}
+@media(max-width:800px){.offer-grid{grid-template-columns:1fr}}
+
+/* menu */
+.menu{background:var(--sky);color:var(--ink);padding:clamp(4rem,9vw,7rem) 0;position:relative}
+.menu .eyebrow{color:#a63a1d}
+.menu h2 em{color:#a63a1d}
+.note{display:flex;gap:.8rem;align-items:flex-start;background:#fff;border-left:6px solid var(--coral);padding:1rem 1.2rem;border-radius:4px;max-width:62ch;margin:1.2rem 0 2.5rem;font-weight:600}
+.menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(1.2rem,3vw,2.2rem)}
+.mcard{background:#fff;border-radius:20px;padding:clamp(1.3rem,3vw,2rem);box-shadow:0 1px 0 rgba(15,26,53,.08);transition:transform .45s var(--ease),box-shadow .45s}
+.mcard:hover{transform:translateY(-6px);box-shadow:0 22px 40px -18px rgba(15,26,53,.35)}
+.mcard h3{display:flex;justify-content:space-between;align-items:center;gap:1rem;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;letter-spacing:-.02em;margin-bottom:.8rem;padding-bottom:.7rem;border-bottom:3px solid var(--yolk)}
+.tag{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;background:var(--ink);color:var(--yolk);padding:.3rem .6rem;border-radius:99px;white-space:nowrap}
+.item{padding:.7rem 0;transition:transform .3s var(--ease)}
+.item:hover{transform:translateX(8px)}
+.item .row{display:flex;align-items:baseline;gap:.6rem}
+.item .nm{font-weight:700}
+.item .dots{flex:1;border-bottom:2px dotted rgba(15,26,53,.35);transform:translateY(-4px);min-width:1rem}
+.item .pr{font-weight:800;color:#a63a1d}
+.item .ds{font-size:.92rem;color:#3a4566}
+@media(max-width:800px){.menu-grid{grid-template-columns:1fr}}
+
+/* hours */
+.visit{padding:clamp(4rem,9vw,7rem) 0;background:linear-gradient(180deg,var(--night) 0%,var(--night2) 100%)}
+.visit-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(2rem,5vw,4rem);align-items:start}
+.hours{list-style:none;margin-top:1.2rem}
+.hours li{display:flex;justify-content:space-between;gap:1rem;padding:.8rem .2rem;border-bottom:1px solid rgba(255,247,230,.18);transition:padding .3s var(--ease),background .3s}
+.hours li:hover{padding-inline:.8rem;background:rgba(255,200,61,.1)}
+.hours li b{font-weight:800}
+.hours li .cl{color:var(--blush)}
+.addr{margin:1.8rem 0 1rem;font-style:normal;font-size:1.25rem;font-weight:600}
+.copy{margin-top:.4rem}
+.copied{display:inline-block;margin-left:.8rem;color:var(--yolk);font-weight:600;opacity:0;transition:opacity .3s}
+.copied.show{opacity:1}
+.map{border-radius:20px;overflow:hidden;border:2px solid rgba(255,200,61,.5);background:var(--night2)}
+.map iframe{width:100%;min-height:340px;border:0;display:block}
+.maplinks{display:flex;flex-wrap:wrap;gap:.7rem;padding:.9rem 0}
+.maplinks a{color:var(--yolk);font-weight:700}
+.mapcredit{font-size:.78rem;color:#b9bfd6;padding:.3rem 0}
+.mapcredit a{color:inherit}
+@media(max-width:860px){.visit-grid{grid-template-columns:1fr}}
+
+/* contact */
+.contact{padding:clamp(3.5rem,8vw,6rem) 0;text-align:center;position:relative;overflow:hidden}
+.contact h2{margin-inline:auto;max-width:14ch}
+.contact p{max-width:40ch;margin:0 auto 1.6rem;color:#d6d9e8}
+.contact .acts{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center}
+
+/* CTA + banners */
+.np-cta{width:min(920px,100% - 2.5rem);margin:clamp(2rem,6vw,4rem) auto;padding:clamp(1.8rem,5vw,3.2rem);border-radius:28px;background:linear-gradient(135deg,var(--yolk),var(--coral));color:var(--ink);text-align:center;position:relative;box-shadow:0 30px 60px -25px rgba(255,122,89,.6);display:flex;flex-direction:column;align-items:center;gap:1rem}
+.np-cta h2,.np-cta h3{font-weight:800;letter-spacing:-.02em;line-height:1.05}
+.np-cta .btn{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.np-cta .btn.alt{background:transparent;color:var(--ink)}
+.np-cta .btn.alt:hover{background:var(--ink);color:var(--paper)}
+.np-cta small{font-size:.85rem;opacity:.85}
+.np-banner{background:var(--yolk);color:var(--ink);text-align:center;font-size:.85rem;font-weight:600;padding:.5rem 1rem;position:relative;z-index:60}
+.np-banner a{color:inherit}
+footer.end{padding:2rem 0 3rem;text-align:center;color:#b9bfd6;font-size:.9rem}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--i,0)*90ms)}
+.js .rv.in{opacity:1;transform:none}
+
+@keyframes up{from{transform:translateY(110%) rotate(4deg)}to{transform:none}}
+@keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes rise{from{transform:translateY(55%);opacity:.2}to{transform:none;opacity:1}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes twinkle{from{opacity:.4}to{opacity:1}}
+@keyframes fly{0%{transform:translate(0,0);opacity:0}6%{opacity:1}50%{transform:translate(55vw,-30px)}94%{opacity:1}100%{transform:translate(115vw,20px);opacity:0}}
+@keyframes flap{from{transform:scaleY(1)}to{transform:scaleY(-.45)}}
+@keyframes scroll{to{transform:translateX(-50%)}}
+@keyframes cue{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv{opacity:1;transform:none}
+  .draw path,.draw circle,.draw line{stroke-dashoffset:0}
+  .bird{display:none}
+  .progress{display:none}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="top" id="top">
+  <div class="wrap bar">
+    <a class="brand" href="#home" aria-label="Early Bird of Northville, home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="19" r="9" fill="#ffc83d"/><path d="M2 24h28" stroke="#fff7e6" stroke-width="2.5" stroke-linecap="round"/></svg>
+      <span>Early Bird</span>
+    </a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav class="main" id="nav" aria-label="Main">
+      <a href="#offer">The Diner</a>
+      <a href="#menu">Menu</a>
+      <a href="#visit">Hours &amp; location</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="stars" aria-hidden="true"></div>
+  <div class="sunwrap" id="sun" aria-hidden="true">
+    <svg class="sun" viewBox="0 0 400 400">
+      <g class="rays" stroke="#ffc83d" stroke-width="5" stroke-linecap="round" opacity=".75">
+        <line x1="200" y1="10" x2="200" y2="48"/><line x1="200" y1="352" x2="200" y2="390"/>
+        <line x1="10" y1="200" x2="48" y2="200"/><line x1="352" y1="200" x2="390" y2="200"/>
+        <line x1="66" y1="66" x2="92" y2="92"/><line x1="308" y1="308" x2="334" y2="334"/>
+        <line x1="334" y1="66" x2="308" y2="92"/><line x1="92" y1="308" x2="66" y2="334"/>
+        <line x1="105" y1="25" x2="118" y2="58"/><line x1="295" y1="342" x2="282" y2="375"/>
+        <line x1="295" y1="25" x2="282" y2="58"/><line x1="105" y1="375" x2="118" y2="342"/>
+        <line x1="25" y1="105" x2="58" y2="118"/><line x1="342" y1="295" x2="375" y2="282"/>
+        <line x1="375" y1="105" x2="342" y2="118"/><line x1="25" y1="295" x2="58" y2="282"/>
+      </g>
+      <circle cx="200" cy="200" r="120" fill="#ffc83d"/>
+      <circle cx="200" cy="200" r="120" fill="none" stroke="#fff7e6" stroke-width="3" opacity=".5"/>
+    </svg>
+  </div>
+  <svg class="bird" viewBox="0 0 80 40" aria-hidden="true"><g fill="#fff7e6"><ellipse cx="38" cy="22" rx="14" ry="7"/><circle cx="55" cy="18" r="6"/><path d="M60 17l10 3-10 3z" fill="#ffc83d"/><path d="M24 22l-14-4 6 8z"/><path class="wing" d="M32 18C34 4 44 2 50 4 44 10 42 14 40 20z"/></g><circle cx="57" cy="16.5" r="1.2" fill="#0f1a35"/></svg>
+  <div class="horizon" aria-hidden="true"><svg viewBox="0 0 1200 40" preserveAspectRatio="none"><path d="M0 40V22C150 6 300 36 450 20S750 4 900 22s200 8 300-4v22z" fill="#0f1a35"/></svg></div>
+
+  <div class="wrap hero-copy">
+    <h1 aria-label="Early Bird of Northville">
+      <span class="w"><span style="--i:0">Early</span></span>
+      <span class="w"><span style="--i:1">Bird</span></span><br>
+      <span class="w of"><span style="--i:2">of Northville</span></span>
+    </h1>
+    <p class="lead">Breakfast and diner on East Main Street.</p>
+    <div class="acts">
+      <a class="btn" href="#menu" data-magnet>See the menu</a>
+      <a class="btn alt" href="#visit" data-magnet>Find us</a>
+    </div>
+  </div>
+  <div class="scrollcue" aria-hidden="true">Scroll</div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Breakfast<i>&#9679;</i></span><span>Diner<i>&#9679;</i></span><span>Northville<i>&#9679;</i></span><span>East Main Street<i>&#9679;</i></span><span>Early Bird<i>&#9679;</i></span><span>Michigan<i>&#9679;</i></span>
+    <span>Breakfast<i>&#9679;</i></span><span>Diner<i>&#9679;</i></span><span>Northville<i>&#9679;</i></span><span>East Main Street<i>&#9679;</i></span><span>Early Bird<i>&#9679;</i></span><span>Michigan<i>&#9679;</i></span>
+  </div>
+</div>
+
+<section class="offer" id="offer">
+  <div class="wrap offer-grid">
+    <div>
+      <span class="eyebrow rv">What we do</span>
+      <h2 class="rv" style="--i:1">Breakfast <em>and</em> diner.</h2>
+      <p class="big rv" style="--i:2">A Northville spot on East Main Street, built around a good start to the day.</p>
+      <p class="sub rv" style="--i:3">Pull up a seat, order from the board, and take your time. The example menu below shows how yours would read: breakfast, lunch, dinner and something sweet.</p>
+    </div>
+    <svg class="dawnart draw rv" viewBox="0 0 300 260" fill="none" stroke="#ffc83d" stroke-width="3" stroke-linecap="round" aria-hidden="true" style="--i:2">
+      <path d="M20 200H280" style="--len:260"/>
+      <path d="M60 200a90 90 0 0 1 180 0" style="--len:290"/>
+      <path d="M100 200a50 50 0 0 1 100 0" style="--len:170"/>
+      <line x1="150" y1="20" x2="150" y2="50" style="--len:30"/>
+      <line x1="62" y1="62" x2="82" y2="82" style="--len:30"/>
+      <line x1="238" y1="62" x2="218" y2="82" style="--len:30"/>
+      <line x1="25" y1="130" x2="50" y2="136" style="--len:30"/>
+      <line x1="275" y1="130" x2="250" y2="136" style="--len:30"/>
+      <path d="M40 228H260" stroke="#ff7a59" style="--len:230"/>
+    </svg>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <span class="eyebrow rv">Menu</span>
+    <h2 class="rv" style="--i:1">Order <em>from the board.</em></h2>
+    <p class="note rv" style="--i:2"><span class="tag">Example</span><span>This is an example menu that shows how your menu would look. Your real dishes and prices go here.</span></p>
+    <div class="menu-grid">
+      <article class="mcard rv" style="--i:0">
+        <h3>Breakfast <span class="tag">Example</span></h3>
+        <div class="item"><div class="row"><span class="nm">Two-egg breakfast</span><span class="dots"></span><span class="pr">$8.99</span></div><div class="ds">Eggs your way, hash browns, toast</div></div>
+        <div class="item"><div class="row"><span class="nm">Buttermilk pancakes</span><span class="dots"></span><span class="pr">$7.99</span></div><div class="ds">Short stack with syrup</div></div>
+        <div class="item"><div class="row"><span class="nm">Biscuits &amp; gravy</span><span class="dots"></span><span class="pr">$8.49</span></div></div>
+      </article>
+      <article class="mcard rv" style="--i:1">
+        <h3>Lunch <span class="tag">Example</span></h3>
+        <div class="item"><div class="row"><span class="nm">Classic cheeseburger</span><span class="dots"></span><span class="pr">$10.99</span></div><div class="ds">Served with fries</div></div>
+        <div class="item"><div class="row"><span class="nm">Club sandwich</span><span class="dots"></span><span class="pr">$10.49</span></div><div class="ds">Turkey, bacon, lettuce, tomato</div></div>
+        <div class="item"><div class="row"><span class="nm">Grilled chicken salad</span><span class="dots"></span><span class="pr">$10.99</span></div></div>
+      </article>
+      <article class="mcard rv" style="--i:0">
+        <h3>Dinner <span class="tag">Example</span></h3>
+        <div class="item"><div class="row"><span class="nm">Chicken fried steak</span><span class="dots"></span><span class="pr">$13.99</span></div><div class="ds">Mashed potatoes and country gravy</div></div>
+        <div class="item"><div class="row"><span class="nm">Meatloaf</span><span class="dots"></span><span class="pr">$12.99</span></div></div>
+        <div class="item"><div class="row"><span class="nm">Fish &amp; chips</span><span class="dots"></span><span class="pr">$13.49</span></div></div>
+      </article>
+      <article class="mcard rv" style="--i:1">
+        <h3>Dessert <span class="tag">Example</span></h3>
+        <div class="item"><div class="row"><span class="nm">Homemade pie</span><span class="dots"></span><span class="pr">$4.99</span></div><div class="ds">Ask about today's flavors</div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="wrap visit-grid">
+    <div>
+      <span class="eyebrow rv">Hours &amp; location</span>
+      <h2 class="rv" style="--i:1">Come <em>find us.</em></h2>
+      <p class="rv" style="--i:2"><span class="tag" style="background:var(--yolk);color:var(--ink)">Example hours</span></p>
+      <ul class="hours rv" style="--i:3">
+        <li><b>Mon</b><span>7 AM – 3 PM</span></li>
+        <li><b>Tue</b><span>7 AM – 3 PM</span></li>
+        <li><b>Wed</b><span>7 AM – 3 PM</span></li>
+        <li><b>Thu</b><span>7 AM – 3 PM</span></li>
+        <li><b>Fri</b><span>7 AM – 8 PM</span></li>
+        <li><b>Sat</b><span>8 AM – 8 PM</span></li>
+        <li><b>Sun</b><span class="cl">Closed</span></li>
+      </ul>
+      <address class="addr rv" style="--i:4">333 East Main Street<br>Northville, MI 48167</address>
+      <button class="pill alt copy rv" id="copy" type="button" style="--i:5" data-magnet>Copy address</button><span class="copied" id="copied" role="status" aria-live="polite"></span>
+    </div>
+    <div class="rv" style="--i:2">
+      <iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-83.48600,42.42542,-83.47400,42.43742&amp;layer=mapnik&amp;marker=42.43142,-83.48000"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=42.43142&amp;mlon=-83.48000#map=17/42.43142/-83.48000" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=42.43142,-83.48000" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <span class="eyebrow rv">Contact</span>
+    <h2 class="rv" style="--i:1">Say <em>good morning.</em></h2>
+    <p class="rv" style="--i:2">Questions or a note for the team? Send an e-mail.</p>
+    <div class="acts rv" style="--i:3">
+      <a class="btn" href="mailto:earlybirdcafenorthville@gmail.com">earlybirdcafenorthville@gmail.com</a>
+      
+    </div>
+  </div>
+</section>
+
+<section class="np-cta" id="offer"><h2>Want this for Early Bird of Northville?</h2><p>This is a free preview made for Early Bird of Northville. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20Early%20Bird%20of%20Northville&amp;body=Yes%2C%20please%20make%20this%20site%20for%20Early%20Bird%20of%20Northville.">Make it mine</a></p></section>
+</main>
+
+<footer class="end">
+  <div class="wrap">Early Bird of Northville &middot; 333 East Main Street, Northville, MI 48167</div>
+</footer>
+
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · Early Bird of Northville</div>
+<script>
+(function(){
+  var d=document,root=d.documentElement;
+  root.classList.add('js');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var header=d.getElementById('top'),bar=d.getElementById('progress'),sun=d.getElementById('sun');
+  var ticking=false;
+  function onScroll(){
+    var y=window.scrollY||0,h=root.scrollHeight-window.innerHeight;
+    if(bar&&h>0)bar.style.transform='scaleX('+Math.min(1,y/h)+')';
+    header.classList.toggle('scrolled',y>40);
+    if(sun&&!reduce&&y<window.innerHeight*1.2)sun.style.transform='translate3d(0,'+(y*0.28)+'px,0)';
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(onScroll)}},{passive:true});
+  onScroll();
+
+  var els=d.querySelectorAll('.rv');
+  if('IntersectionObserver' in window&&!reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15,rootMargin:'0px 0px -6% 0px'});
+    els.forEach(function(el){io.observe(el)});
+  }else{els.forEach(function(el){el.classList.add('in')})}
+
+  var burger=d.getElementById('burger'),nav=d.getElementById('nav');
+  function closeNav(){nav.classList.remove('open');burger.setAttribute('aria-expanded','false')}
+  burger.addEventListener('click',function(){var o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o?'true':'false')});
+  nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeNav)});
+  d.addEventListener('keydown',function(e){if(e.key==='Escape')closeNav()});
+
+  var cb=d.getElementById('copy'),msg=d.getElementById('copied');
+  var addr='333 East Main Street, Northville, MI 48167';
+  function say(t){msg.textContent=t;msg.classList.add('show');setTimeout(function(){msg.classList.remove('show')},2200)}
+  cb.addEventListener('click',function(){
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(addr).then(function(){say('Address copied')},fallback)}else fallback();
+    function fallback(){var t=d.createElement('textarea');t.value=addr;t.style.position='fixed';t.style.opacity='0';d.body.appendChild(t);t.select();try{d.execCommand('copy');say('Address copied')}catch(e){say('Press Ctrl+C to copy')}d.body.removeChild(t)}
+  });
+
+  if(!reduce&&window.matchMedia('(pointer:fine)').matches){
+    d.querySelectorAll('[data-magnet],.btn,.np-cta .btn').forEach(function(b){
+      b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();var x=(e.clientX-r.left-r.width/2)*.2,y=(e.clientY-r.top-r.height/2)*.3;b.style.transform='translate('+x+'px,'+(y-3)+'px)'});
+      b.addEventListener('mouseleave',function(){b.style.transform=''});
+    });
+  }
+})();
+</script>
+</body>
+</html>

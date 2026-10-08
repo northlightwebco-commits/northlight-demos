@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JC's Café · Manchester, OH</title>
+<meta name="description" content="JC's, a café on US Route 52 in Manchester, Ohio. Coffee. Dine in, sit on the patio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#0e3b2c;--green2:#0a2b20;--amber:#ffc629;--paper:#eef1ec;--ink:#11201a;--mute:#4a5a52;--white:#fff;
+  --disp:'Barlow Condensed',Impact,'Arial Narrow',sans-serif;--body:'Barlow',system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.55;font-size:1.0625rem;overflow-x:hidden}
+img,svg{max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--disp);line-height:.95;text-wrap:balance;overflow-wrap:break-word;text-transform:uppercase;letter-spacing:.01em}
+.wrap{width:min(1180px,100% - 2.5rem);margin-inline:auto}
+section{position:relative}
+.eyebrow{font-family:var(--disp);font-weight:600;letter-spacing:.18em;text-transform:uppercase;font-size:.95rem;color:var(--mute)}
+.dark .eyebrow{color:var(--amber)}
+
+/* preview banner */
+.np-banner{background:var(--amber);color:#1a1400;font-size:.82rem;text-align:center;padding:.45rem 1rem;font-weight:600}
+.np-banner a{color:inherit}
+
+/* progress */
+.progress{position:fixed;left:0;top:0;height:4px;width:100%;background:var(--amber);transform:scaleX(0);transform-origin:0 50%;z-index:100;pointer-events:none}
+
+/* header */
+header.top{position:sticky;top:0;z-index:50;background:transparent;transition:background .35s,box-shadow .35s}
+header.top.scrolled{background:rgba(10,43,32,.94);backdrop-filter:blur(8px);box-shadow:0 6px 24px rgba(0,0,0,.25)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem 0;transition:transform .35s var(--ease)}
+.logo{font-family:var(--disp);font-weight:800;font-size:1.9rem;color:var(--white);text-decoration:none;letter-spacing:.02em;display:flex;align-items:center;gap:.5rem}
+.logo i{font-style:normal;background:var(--amber);color:#1a1400;font-size:.8rem;padding:.15rem .45rem;border-radius:4px;letter-spacing:.08em}
+nav ul{list-style:none;display:flex;gap:1.6rem;align-items:center}
+nav a{color:var(--white);text-decoration:none;font-family:var(--disp);font-weight:600;text-transform:uppercase;letter-spacing:.12em;font-size:1.05rem;position:relative;padding:.3rem 0}
+nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--amber);transform:scaleX(0);transform-origin:0 50%;transition:transform .3s var(--ease)}
+nav a:hover::after{transform:scaleX(1)}
+.burger{display:none;background:none;border:2px solid var(--white);color:var(--white);width:46px;height:42px;border-radius:6px;cursor:pointer}
+.burger span,.burger span::before,.burger span::after{display:block;width:20px;height:2px;background:currentColor;margin:auto;position:relative;transition:transform .3s}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+@media(max-width:760px){
+  .burger{display:block}
+  nav ul{position:absolute;left:0;right:0;top:100%;background:var(--green2);flex-direction:column;align-items:flex-start;padding:1rem 1.25rem 1.4rem;gap:.8rem}
+  .js nav ul{display:none}
+  .js nav.open ul{display:flex}
+  nav a{font-size:1.35rem}
+}
+
+/* hero */
+.hero{background:var(--green);color:var(--white);margin-top:-68px;padding:8.5rem 0 0;overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 60% at 75% 40%,rgba(255,198,41,.14),transparent 70%);z-index:-1}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:2rem;align-items:center;padding-bottom:3rem}
+.route{display:inline-flex;align-items:center;gap:.7rem;font-family:var(--disp);font-weight:600;letter-spacing:.16em;text-transform:uppercase;border:2px solid var(--white);border-radius:6px;padding:.3rem .8rem;font-size:1rem}
+.route b{background:var(--amber);color:#1a1400;padding:0 .45rem;border-radius:3px}
+.hero h1{font-size:clamp(6rem,26vw,17rem);font-weight:800;color:var(--white);margin:1rem 0 .4rem;line-height:.8;letter-spacing:0}
+.hero h1 em{font-style:normal;color:var(--amber)}
+.hero .lead{font-family:var(--disp);font-size:clamp(1.7rem,4.2vw,2.8rem);font-weight:600;text-transform:uppercase;line-height:1.05;max-width:16ch}
+.hero .addr{margin-top:1rem;color:#cfe0d6;max-width:40ch}
+.actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.8rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:1.15rem;text-decoration:none;background:var(--amber);color:#1a1400;border:2px solid var(--amber);padding:.75rem 1.5rem;border-radius:8px;cursor:pointer;transition:transform .25s var(--ease),box-shadow .25s,background .25s;will-change:transform}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 0 -2px rgba(0,0,0,.25)}
+.btn.alt{background:transparent;color:inherit;border-color:currentColor}
+.btn.alt:hover{background:rgba(255,255,255,.1)}
+small{font-size:.85rem}
+
+.cupwrap{display:grid;place-items:center;will-change:transform}
+.cup{width:min(100%,380px);height:auto;overflow:visible}
+.cup .draw{fill:none;stroke:var(--white);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:900;stroke-dashoffset:900;animation:draw 2.2s .4s var(--ease) forwards}
+.cup .fillc{fill:var(--amber);opacity:0;animation:fadeIn .8s 1.9s forwards}
+.cup .steam{fill:none;stroke:#e6f1ea;stroke-width:5;stroke-linecap:round;opacity:0;animation:steam 3.4s ease-in-out infinite}
+.cup .steam:nth-of-type(2){animation-delay:.9s}.cup .steam:nth-of-type(3){animation-delay:1.8s}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fadeIn{to{opacity:1}}
+@keyframes steam{0%{opacity:0;transform:translateY(14px)}35%{opacity:.9}100%{opacity:0;transform:translateY(-30px)}}
+
+.road{height:84px;background:var(--green2);position:relative;overflow:hidden;border-top:4px solid #05160f}
+.road .dashes{position:absolute;left:0;top:50%;height:8px;width:200%;margin-top:-4px;background:repeating-linear-gradient(90deg,var(--amber) 0 60px,transparent 60px 140px);animation:drive 7s linear infinite}
+@keyframes drive{to{transform:translateX(-140px)}}
+.road .car{position:absolute;left:0;top:14px;font-family:var(--disp);font-weight:700;letter-spacing:.2em;font-size:.85rem;color:#8fb0a0;text-transform:uppercase;padding-left:1.25rem}
+.road .car.b{top:auto;bottom:10px}
+
+/* entrance */
+.in{opacity:0;transform:translateY(30px);animation:up .9s var(--ease) forwards}
+.in.d1{animation-delay:.1s}.in.d2{animation-delay:.25s}.in.d3{animation-delay:.4s}.in.d4{animation-delay:.55s}.in.d5{animation-delay:.7s}
+@keyframes up{to{opacity:1;transform:none}}
+
+/* marquee */
+.marquee{background:var(--amber);color:#1a1400;overflow:hidden;white-space:nowrap;border-block:3px solid #1a1400;transform:rotate(-1deg);margin:-.4rem -2% 0;position:relative;z-index:2}
+.marquee .track{display:inline-flex;animation:scroll 32s linear infinite}
+.marquee span{font-family:var(--disp);font-weight:800;text-transform:uppercase;font-size:clamp(1.6rem,4vw,2.6rem);padding:.45rem 1.4rem;letter-spacing:.04em}
+.marquee span::after{content:"\2022";margin-left:2.8rem}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* offer */
+.offer{padding:7rem 0 5rem}
+h2{font-size:clamp(2.8rem,8vw,6rem);font-weight:800;margin:.4rem 0 2.2rem}
+.signs{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.sign{background:var(--green);color:var(--white);border-radius:14px;padding:1.6rem 1.6rem 2rem;border:4px solid var(--white);outline:3px solid var(--green);position:relative;transition:transform .4s var(--ease),box-shadow .4s}
+.sign:hover{transform:translateY(-8px) rotate(-.6deg);box-shadow:0 22px 40px -18px rgba(10,43,32,.6)}
+.sign .n{font-family:var(--disp);font-weight:800;font-size:5rem;color:var(--amber);line-height:.9}
+.sign h3{font-size:2.3rem;margin:.4rem 0 .5rem}
+.sign p{color:#d3e4da}
+.sign svg{position:absolute;right:1.2rem;top:1.2rem;width:54px;height:54px;stroke:var(--white);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;opacity:.9}
+
+/* menu */
+.menu{background:var(--green2);color:var(--white);padding:6rem 0}
+.menu h2{margin-bottom:1rem}
+.tag{display:inline-block;font-family:var(--disp);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.85rem;background:var(--amber);color:#1a1400;padding:.1rem .6rem;border-radius:4px;vertical-align:middle}
+.note{max-width:60ch;color:#d3e4da;border-left:4px solid var(--amber);padding:.2rem 0 .2rem 1rem;margin-bottom:3rem}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem}
+.cols h3{font-size:2.2rem;color:var(--amber);margin-bottom:1.1rem;display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;border-bottom:2px solid rgba(255,255,255,.25);padding-bottom:.6rem}
+.cols ul{list-style:none}
+.item{display:grid;grid-template-columns:auto 1fr auto;column-gap:.6rem;align-items:baseline;padding:.65rem .5rem;border-radius:8px;transition:background .25s,transform .3s var(--ease)}
+.item:hover{background:rgba(255,255,255,.07);transform:translateX(6px)}
+.item b{font-weight:600;font-size:1.1rem}
+.item .dots{border-bottom:2px dotted rgba(255,255,255,.35);transform:translateY(-4px);min-width:12px}
+.item .price{font-family:var(--disp);font-weight:700;font-size:1.35rem;color:var(--amber)}
+.item small{grid-column:1/-1;color:#b9d0c4}
+
+/* visit */
+.visit{padding:6rem 0}
+.vgrid{display:grid;grid-template-columns:.9fr 1.1fr;gap:3rem;align-items:start}
+.addrbox{background:var(--white);border:3px solid var(--ink);border-radius:12px;padding:1.3rem;margin-bottom:2rem;box-shadow:8px 8px 0 var(--green)}
+.addrbox address{font-style:normal;font-size:1.25rem;font-weight:500;margin-bottom:1rem}
+.copy{background:var(--green);color:var(--white);border-color:var(--green)}
+.hours{background:var(--white);border-radius:12px;padding:1.3rem;border:3px solid var(--ink)}
+.hours h3{font-size:1.9rem;display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin-bottom:.8rem}
+.hours dl{display:grid;grid-template-columns:auto 1fr}
+.hours dt,.hours dd{padding:.5rem 0;border-bottom:1px dashed #b6c2bb}
+.hours dt{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:1.15rem;padding-right:1.5rem}
+.hours dd{text-align:right}
+.map{border-radius:12px;overflow:hidden;border:3px solid var(--ink);background:var(--white)}
+.map iframe{display:block;width:100%;min-height:340px;border:0}
+.maplinks{display:flex;flex-wrap:wrap;gap:.6rem;padding:.8rem}
+.maplinks a{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:.08em;background:var(--green);color:var(--white);text-decoration:none;padding:.45rem 1rem;border-radius:6px;transition:transform .25s var(--ease)}
+.maplinks a:hover{transform:translateY(-2px)}
+.mapcredit{font-size:.75rem;color:var(--mute);padding:0 .8rem .7rem}
+.mapcredit a{color:inherit}
+
+/* contact */
+.contact{background:var(--amber);padding:5rem 0;text-align:center;border-block:4px solid #1a1400}
+.contact h2{margin-bottom:1rem;color:#1a1400}
+.contact p{max-width:46ch;margin:0 auto 1.6rem;font-size:1.2rem;color:#1a1400}
+.contact .row{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem}
+.contact .btn{background:#1a1400;color:var(--amber);border-color:#1a1400}
+
+/* cta */
+.ctaWrap{background:var(--green);padding:5rem 0}
+.np-cta{max-width:820px;margin:0 auto;background:var(--green2);color:var(--white);border:3px dashed var(--amber);border-radius:18px;padding:2.2rem;text-align:center}
+.np-cta h2,.np-cta h3{font-size:clamp(2rem,6vw,3.4rem);margin-bottom:.8rem;color:var(--amber)}
+.np-cta p{margin-bottom:1.2rem;color:#d3e4da}
+.np-cta .btn{margin:.3rem}
+.np-cta .btn.alt{color:var(--white)}
+
+footer{background:var(--green2);color:#a9c2b5;text-align:center;padding:2rem 1rem 2.5rem;font-size:.95rem}
+footer strong{font-family:var(--disp);font-size:1.6rem;color:var(--white);letter-spacing:.04em}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(34px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:calc(var(--i,0) * 110ms)}
+.js .rv.on{opacity:1;transform:none}
+
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .cupwrap{order:-1;max-width:220px;margin:0 0 -1rem auto}
+  .signs,.cols,.vgrid{grid-template-columns:1fr}
+  .hero{padding-top:7rem}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .in,.js .rv{opacity:1!important;transform:none!important}
+  .cup .draw{stroke-dashoffset:0}
+  .cup .fillc{opacity:1}
+  .cup .steam{opacity:.7}
+  .progress{display:none}
+  .marquee .track{flex-wrap:wrap;white-space:normal}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="top" id="top">
+  <div class="wrap nav">
+    <a class="logo" href="#home" aria-label="JC's, back to top">JC's <i>CAFÉ</i></a>
+    <nav id="nav" aria-label="Main">
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="navlist"><span></span></button>
+      <ul id="navlist">
+        <li><a href="#offer">The stop</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#visit">Visit</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="home">
+<section class="hero dark">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="route in"><b>US 52</b> Manchester, Ohio</div>
+      <h1 class="in d1">JC<em>'s</em></h1>
+      <p class="lead in d2">Coffee. Dine in, sit on the patio.</p>
+      <p class="addr in d3">8391 United States Route 52, Manchester, OH 45144</p>
+      <div class="actions in d4">
+        <a class="btn" href="#menu">See the menu</a>
+        <a class="btn alt" href="#visit">Find us</a>
+      </div>
+    </div>
+    <div class="cupwrap in d3" id="parallax" aria-hidden="true">
+      <svg class="cup" viewBox="0 0 300 300" role="img" aria-label="Steaming coffee cup">
+        <path class="steam" d="M110 90c-18-20 18-30 0-52"/>
+        <path class="steam" d="M150 90c-18-20 18-30 0-52"/>
+        <path class="steam" d="M190 90c-18-20 18-30 0-52"/>
+        <path class="fillc" d="M70 120h160v60c0 40-30 70-80 70s-80-30-80-70z"/>
+        <path class="draw" d="M70 120h160v60c0 40-30 70-80 70s-80-30-80-70z"/>
+        <path class="draw" d="M230 142h18c20 0 20 44 0 44h-24"/>
+        <path class="draw" d="M40 276h220"/>
+      </svg>
+    </div>
+  </div>
+  <div class="road" aria-hidden="true">
+    <span class="car">West</span>
+    <div class="dashes"></div>
+    <span class="car b">East</span>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Coffee</span><span>Dine in</span><span>Sit on the patio</span><span>US Route 52</span><span>Manchester, OH</span><span>JC's</span>
+    <span>Coffee</span><span>Dine in</span><span>Sit on the patio</span><span>US Route 52</span><span>Manchester, OH</span><span>JC's</span>
+  </div>
+</div>
+
+<section class="offer" id="offer">
+  <div class="wrap">
+    <p class="eyebrow rv">The next stop</p>
+    <h2 class="rv" style="--i:1">Pull off. Settle in.</h2>
+    <div class="signs">
+      <article class="sign rv" style="--i:1">
+        <svg viewBox="0 0 48 48"><path d="M10 18h24v10a10 10 0 0 1-10 10h-4a10 10 0 0 1-10-10z"/><path d="M34 21h4a4 4 0 0 1 0 8h-4"/><path d="M16 12c-2-3 2-4 0-7M24 12c-2-3 2-4 0-7"/></svg>
+        <div class="n">01</div>
+        <h3>Coffee</h3>
+        <p>The reason for the stop. A cup made for the road, or for staying.</p>
+      </article>
+      <article class="sign rv" style="--i:2">
+        <svg viewBox="0 0 48 48"><path d="M8 20h32M12 20v20M36 20v20M6 20l18-12 18 12"/></svg>
+        <div class="n">02</div>
+        <h3>Dine in</h3>
+        <p>Pull up a seat inside and take your time.</p>
+      </article>
+      <article class="sign rv" style="--i:3">
+        <svg viewBox="0 0 48 48"><path d="M24 8v8M12 16h24M24 16v22M14 38h20M8 30h8M32 30h8"/></svg>
+        <div class="n">03</div>
+        <h3>The patio</h3>
+        <p>Take your cup outside and sit a while.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="menu dark" id="menu">
+  <div class="wrap">
+    <p class="eyebrow rv">Menu <span class="tag">Example</span></p>
+    <h2 class="rv" style="--i:1">What's on the board</h2>
+    <p class="note rv" style="--i:2">This is an example menu that shows how your menu would look. Your real dishes and prices go here.</p>
+    <div class="cols">
+      <div class="rv" style="--i:1">
+        <h3>Coffee &amp; tea <span class="tag">Example</span></h3>
+        <ul>
+          <li class="item"><b>Drip coffee</b><span class="dots"></span><span class="price">$2.75</span><small>Fresh brewed</small></li>
+          <li class="item"><b>Latte</b><span class="dots"></span><span class="price">$4.50</span><small>Espresso with steamed milk</small></li>
+          <li class="item"><b>Cappuccino</b><span class="dots"></span><span class="price">$4.25</span></li>
+          <li class="item"><b>Iced coffee</b><span class="dots"></span><span class="price">$3.75</span></li>
+          <li class="item"><b>Hot tea</b><span class="dots"></span><span class="price">$2.75</span></li>
+        </ul>
+      </div>
+      <div class="rv" style="--i:2">
+        <h3>Pastries <span class="tag">Example</span></h3>
+        <ul>
+          <li class="item"><b>Blueberry muffin</b><span class="dots"></span><span class="price">$3.50</span></li>
+          <li class="item"><b>Butter croissant</b><span class="dots"></span><span class="price">$3.75</span></li>
+          <li class="item"><b>Cinnamon roll</b><span class="dots"></span><span class="price">$4.25</span><small>Warm, with icing</small></li>
+          <li class="item"><b>Chocolate chip cookie</b><span class="dots"></span><span class="price">$2.25</span></li>
+        </ul>
+      </div>
+      <div class="rv" style="--i:3">
+        <h3>Breakfast &amp; lunch <span class="tag">Example</span></h3>
+        <ul>
+          <li class="item"><b>Breakfast burrito</b><span class="dots"></span><span class="price">$8.50</span><small>Eggs, cheese, potatoes</small></li>
+          <li class="item"><b>Turkey &amp; Swiss</b><span class="dots"></span><span class="price">$9.50</span><small>Toasted sourdough</small></li>
+          <li class="item"><b>Soup of the day</b><span class="dots"></span><span class="price">$6.00</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="wrap">
+    <p class="eyebrow rv">Hours &amp; location</p>
+    <h2 class="rv" style="--i:1">Right off Route 52</h2>
+    <div class="vgrid">
+      <div>
+        <div class="addrbox rv">
+          <address id="addr">8391 United States Route 52, Manchester, OH 45144</address>
+          <button class="btn copy" id="copy" type="button">Copy address</button>
+        </div>
+        <div class="hours rv" style="--i:1">
+          <h3>Hours <span class="tag">Example hours</span></h3>
+          <dl>
+            <dt>Mon</dt><dd>7 AM – 3 PM</dd>
+            <dt>Tue</dt><dd>7 AM – 3 PM</dd>
+            <dt>Wed</dt><dd>7 AM – 3 PM</dd>
+            <dt>Thu</dt><dd>7 AM – 3 PM</dd>
+            <dt>Fri</dt><dd>7 AM – 8 PM</dd>
+            <dt>Sat</dt><dd>8 AM – 8 PM</dd>
+            <dt>Sun</dt><dd>Closed</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="rv" style="--i:2">
+        <iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-83.59848,38.68444,-83.58648,38.69644&amp;layer=mapnik&amp;marker=38.69044,-83.59248"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=38.69044&amp;mlon=-83.59248#map=17/38.69044/-83.59248" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=38.69044,-83.59248" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2 class="rv">Say hello</h2>
+    <p class="rv" style="--i:1">Questions about JC's? Send a note.</p>
+    <div class="row rv" style="--i:2">
+      <a class="btn" href="mailto:jcsontheriver@gmail.com">jcsontheriver@gmail.com</a>
+      
+    </div>
+  </div>
+</section>
+
+<section class="ctaWrap">
+  <div class="wrap rv">
+    <section class="np-cta" id="offer"><h2>Want this for JC&#x27;s?</h2><p>This is a free preview made for JC&#x27;s. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20JC%27s&amp;body=Yes%2C%20please%20make%20this%20site%20for%20JC%27s.">Make it mine</a></p></section>
+  </div>
+</section>
+</main>
+
+<footer>
+  <strong>JC's</strong><br>
+  8391 United States Route 52, Manchester, OH 45144
+</footer>
+
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · JC&#x27;s</div>
+<script>
+(function(){
+  var d=document,root=d.documentElement;
+  root.classList.add('js');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // header + progress + parallax
+  var head=d.getElementById('top'),bar=d.getElementById('progress'),par=d.getElementById('parallax'),tick=false;
+  function onScroll(){
+    var y=window.scrollY||0,h=root.scrollHeight-window.innerHeight;
+    head.classList.toggle('scrolled',y>40);
+    bar.style.transform='scaleX('+(h>0?Math.min(1,y/h):0)+')';
+    if(par&&!reduce&&y<900){par.style.transform='translateY('+(y*0.18)+'px) rotate('+(y*0.02)+'deg)';}
+    tick=false;
+  }
+  window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(onScroll);}},{passive:true});
+  onScroll();
+
+  // reveals
+  var els=d.querySelectorAll('.rv');
+  if('IntersectionObserver' in window&&!reduce){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});
+    },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    els.forEach(function(el){io.observe(el);});
+  }else{els.forEach(function(el){el.classList.add('on');});}
+
+  // mobile menu
+  var nav=d.getElementById('nav'),burger=d.getElementById('burger');
+  function setOpen(o){nav.classList.toggle('open',o);burger.setAttribute('aria-expanded',o);burger.setAttribute('aria-label',o?'Close menu':'Open menu');}
+  burger.addEventListener('click',function(){setOpen(!nav.classList.contains('open'));});
+  nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setOpen(false);});});
+  d.addEventListener('keydown',function(e){if(e.key==='Escape')setOpen(false);});
+
+  // copy address
+  var cb=d.getElementById('copy'),txt=d.getElementById('addr').textContent.trim();
+  cb.addEventListener('click',function(){
+    function done(){cb.textContent='Copied';setTimeout(function(){cb.textContent='Copy address';},2000);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,fallback);}else{fallback();}
+    function fallback(){var t=d.createElement('textarea');t.value=txt;t.style.position='fixed';t.style.opacity='0';d.body.appendChild(t);t.select();try{d.execCommand('copy');done();}catch(e){}d.body.removeChild(t);}
+  });
+
+  // magnetic buttons
+  if(!reduce&&window.matchMedia('(hover:hover)').matches){
+    d.querySelectorAll('.hero .btn,.contact .btn').forEach(function(b){
+      b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.18)+'px,'+((e.clientY-r.top-r.height/2)*.25-3)+'px)';});
+      b.addEventListener('mouseleave',function(){b.style.transform='';});
+    });
+  }
+})();
+</script>
+</body>
+</html>

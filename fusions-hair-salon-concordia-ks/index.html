@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fusions Hair Salon · Concordia, KS</title>
+<meta name="description" content="Fusions Hair Salon in Concordia, KS. Cuts, color and styling.">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#12211f;--paper:#f6f0e3;--coral:#ff5a3c;--teal:#0e7c7b;--butter:#ffd35c;--line:3px;--r:18px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--paper);color:var(--ink);font:400 1.05rem/1.6 'DM Sans',system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3,.disp{font-family:'Bricolage Grotesque','DM Sans',sans-serif;font-weight:800;line-height:.98;letter-spacing:-.02em;text-wrap:balance}
+a{color:inherit}
+img,svg{max-width:100%}
+.wrap{width:min(1180px,100% - 2.5rem);margin-inline:auto}
+.progress{position:fixed;left:0;top:0;height:5px;width:100%;background:var(--coral);transform:scaleX(0);transform-origin:left;z-index:100}
+
+/* slots */
+.np-banner{background:var(--ink);color:var(--paper);font-size:.82rem;text-align:center;padding:.5rem 1rem;border-bottom:var(--line) solid var(--coral)}
+.np-banner a{color:var(--butter)}
+header.top{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:var(--line) solid var(--ink);transition:transform .3s,box-shadow .3s}
+header.top.scrolled{box-shadow:0 6px 0 var(--ink)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.9rem 0;transition:padding .3s}
+header.top.scrolled .bar{padding:.5rem 0}
+.logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.35rem;text-decoration:none;display:flex;align-items:center;gap:.5rem}
+.logo i{width:26px;height:26px;border:var(--line) solid var(--ink);border-radius:50%;background:linear-gradient(90deg,var(--coral) 50%,var(--teal) 50%);display:inline-block}
+nav ul{list-style:none;display:flex;gap:1.6rem;align-items:center}
+nav a{text-decoration:none;font-weight:700;position:relative;padding:.2rem 0}
+nav a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:3px;background:var(--coral);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+nav a:hover::after,nav a:focus-visible::after{transform:scaleX(1)}
+.burger{display:none;background:var(--butter);border:var(--line) solid var(--ink);border-radius:12px;width:46px;height:46px;cursor:pointer;box-shadow:3px 3px 0 var(--ink)}
+.burger span{display:block;width:20px;height:3px;background:var(--ink);margin:4px auto;transition:transform .3s,opacity .3s}
+.burger[aria-expanded=true] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded=true] span:nth-child(2){opacity:0}
+.burger[aria-expanded=true] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+.btn,.np-cta .btn{display:inline-block;font:700 1rem 'DM Sans',sans-serif;text-decoration:none;background:var(--coral);color:var(--ink);border:var(--line) solid var(--ink);border-radius:999px;padding:.8rem 1.5rem;box-shadow:5px 5px 0 var(--ink);cursor:pointer;transition:transform .2s,box-shadow .2s;will-change:transform}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--ink)}
+.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+.btn.alt{background:var(--butter)}
+.btn:focus-visible,a:focus-visible,button:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:clamp(3rem,8vw,6rem) 0 clamp(3rem,7vw,5rem);border-bottom:var(--line) solid var(--ink)}
+.hero .wrap{position:relative;z-index:2}
+.eyebrow{display:inline-block;background:var(--ink);color:var(--paper);font-weight:700;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;padding:.4rem .9rem;border-radius:999px;margin-bottom:1.4rem}
+.hero h1{font-size:clamp(3.2rem,16vw,11.5rem);background:linear-gradient(90deg,#d63d20 0 50%,var(--teal) 50% 100%);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.08em}
+.hero h2{font-size:clamp(1.7rem,5vw,3.4rem);margin-top:.6rem;max-width:16ch}
+.hero p.lead{max-width:34rem;margin:1.4rem 0 2rem;font-size:1.15rem}
+.hero .actions{display:flex;gap:1rem;flex-wrap:wrap}
+.strands{position:absolute;right:-6%;top:0;height:100%;width:min(60%,640px);z-index:1;opacity:.95}
+.strands svg{width:100%;height:100%}
+.strand{fill:none;stroke-width:16;stroke-linecap:round}
+.js .strand{stroke-dasharray:1600;stroke-dashoffset:1600;animation:draw 2.6s .3s cubic-bezier(.6,.1,.2,1) forwards}
+.js .strand.b{animation-delay:.6s}
+@keyframes draw{to{stroke-dashoffset:0}}
+.js .hero .in{opacity:0;transform:translateY(30px);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--i)*.14s + .1s)}
+@keyframes rise{to{opacity:1;transform:none}}
+@media (max-width:760px){.strands{opacity:.28;width:100%;right:-20%}}
+
+/* marquee */
+.marquee{background:var(--ink);color:var(--butter);overflow:hidden;border-bottom:var(--line) solid var(--ink);white-space:nowrap}
+.track{display:inline-flex;animation:scroll 28s linear infinite;padding:.9rem 0}
+.track span{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.5rem;padding-right:1.4rem}
+.track span:nth-child(even){color:var(--coral)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+section{padding:clamp(3.5rem,8vw,6.5rem) 0}
+.kicker{font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.82rem;color:var(--teal);margin-bottom:.8rem}
+h2.sec{font-size:clamp(2.1rem,6vw,4.2rem);margin-bottom:2rem;max-width:18ch}
+
+/* offer */
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+.card{background:#fff;border:var(--line) solid var(--ink);border-radius:var(--r);padding:1.6rem;box-shadow:7px 7px 0 var(--ink);transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translate(-4px,-4px) rotate(-.6deg);box-shadow:12px 12px 0 var(--ink)}
+.card .ico{width:64px;height:64px;border:var(--line) solid var(--ink);border-radius:50%;display:grid;place-items:center;margin-bottom:1rem}
+.card:nth-child(1) .ico{background:var(--coral)}.card:nth-child(2) .ico{background:var(--butter)}.card:nth-child(3) .ico{background:#7fd1cf}
+.card h3{font-size:1.8rem;margin-bottom:.4rem}
+.card .ico svg{transition:transform .5s}
+.card:hover .ico svg{transform:rotate(25deg) scale(1.1)}
+
+/* services */
+#services{background:var(--teal);color:#fff;border-block:var(--line) solid var(--ink)}
+#services .kicker{color:var(--butter)}
+.tag{display:inline-block;background:var(--butter);color:var(--ink);font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;border:2px solid var(--ink);border-radius:999px;padding:.15rem .7rem;vertical-align:middle}
+.note{background:var(--paper);color:var(--ink);border:var(--line) solid var(--ink);border-radius:var(--r);padding:1rem 1.3rem;margin-bottom:2.2rem;max-width:44rem;box-shadow:5px 5px 0 var(--ink)}
+.menu{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+.panel{background:var(--paper);color:var(--ink);border:var(--line) solid var(--ink);border-radius:var(--r);padding:1.5rem;box-shadow:7px 7px 0 var(--ink)}
+.panel h3{font-size:2rem;margin-bottom:1rem;display:flex;justify-content:space-between;align-items:center;gap:.5rem}
+.panel ul{list-style:none}
+.panel li{display:flex;justify-content:space-between;gap:1rem;padding:.8rem .5rem;border-top:2px dashed var(--ink);transition:transform .25s,background .25s;border-radius:8px}
+.panel li:hover{transform:translateX(6px);background:var(--butter)}
+.panel li b{display:block}
+.panel li small{display:block;opacity:.8;font-size:.9rem}
+.price{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.4rem;white-space:nowrap}
+
+/* visit */
+.visit{display:grid;grid-template-columns:1fr 1.2fr;gap:2.5rem;align-items:start}
+.hours{background:#fff;border:var(--line) solid var(--ink);border-radius:var(--r);padding:1.4rem;box-shadow:7px 7px 0 var(--ink)}
+.hours h3{font-size:1.6rem;margin-bottom:.8rem;display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}
+.hours dl{display:grid;grid-template-columns:auto 1fr;gap:.45rem 1.2rem}
+.hours dt{font-weight:700}
+.copy{margin-top:1.2rem;display:inline-flex;gap:.6rem;align-items:center;background:var(--butter);border:var(--line) solid var(--ink);border-radius:12px;padding:.6rem 1rem;font:700 1rem 'DM Sans',sans-serif;cursor:pointer;box-shadow:4px 4px 0 var(--ink);transition:transform .2s,box-shadow .2s}
+.copy:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.map{border:var(--line) solid var(--ink);border-radius:var(--r);overflow:hidden;box-shadow:7px 7px 0 var(--ink);background:#fff}
+.map iframe{display:block;width:100%;min-height:320px;border:0}
+.maplinks{display:flex;gap:.8rem;flex-wrap:wrap;padding:.9rem}
+.maplinks a{font-weight:700}
+.mapcredit{font-size:.75rem;padding:0 .9rem .8rem;opacity:.75}
+
+/* contact */
+#contact{background:var(--butter);border-block:var(--line) solid var(--ink);text-align:center;position:relative;overflow:hidden}
+#contact h2{font-size:clamp(2.2rem,7vw,5rem);margin:0 auto 1.2rem;max-width:14ch}
+#contact p{max-width:30rem;margin:0 auto 1.6rem}
+.cbtns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.np-cta{max-width:880px;margin:0 auto;background:var(--ink);color:var(--paper);border:var(--line) solid var(--ink);border-radius:28px;padding:clamp(1.6rem,4vw,3rem);box-shadow:10px 10px 0 var(--coral);text-align:center}
+.np-cta h2,.np-cta h3{color:var(--butter);margin-bottom:.8rem}
+.np-cta p{margin-bottom:1.2rem}
+.np-cta .btn.alt{background:var(--butter)}
+.np-cta small,small{font-size:.85rem;opacity:.85}
+#offer{padding-bottom:clamp(3rem,6vw,5rem)}
+footer{padding:2rem 0;text-align:center;font-size:.9rem}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--d,0)*.12s)}
+.js .rv.on{opacity:1;transform:none}
+
+@media (max-width:900px){
+ .trio,.menu{grid-template-columns:1fr}
+ .visit{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+ .burger{display:block}
+ nav ul{position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);border-bottom:var(--line) solid var(--ink);display:none;padding:.5rem 1.25rem 1rem}
+ nav ul.open{display:flex}
+ nav li a{display:block;padding:.9rem 0;font-size:1.2rem;border-bottom:2px dashed var(--ink)}
+}
+@media (prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ *,*::before,*::after{animation:none!important;transition:none!important}
+ .js .rv,.js .hero .in{opacity:1!important;transform:none!important}
+ .js .strand{stroke-dashoffset:0!important}
+ .track{transform:none}
+ .marquee{overflow-x:hidden}
+}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div class="progress" id="progress"></div>
+<header class="top" id="top">
+ <div class="wrap bar">
+  <a class="logo" href="#home"><i></i>Fusions</a>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+  <nav aria-label="Main"><ul id="menu">
+   <li><a href="#offer">Salon</a></li>
+   <li><a href="#services">Services</a></li>
+   <li><a href="#visit">Visit</a></li>
+   <li><a href="#contact">Contact</a></li>
+  </ul></nav>
+ </div>
+</header>
+
+<main id="home">
+<div class="hero">
+ <div class="strands" aria-hidden="true" id="strands">
+  <svg viewBox="0 0 500 700" preserveAspectRatio="xMidYMid slice">
+   <path class="strand a" stroke="#ff5a3c" d="M60 -20 C 420 120, 40 260, 420 380 S 80 600, 380 730"/>
+   <path class="strand b" stroke="#0e7c7b" d="M440 -20 C 80 120, 460 260, 80 380 S 420 600, 120 730"/>
+   <circle cx="250" cy="190" r="14" fill="#ffd35c" stroke="#12211f" stroke-width="3"/>
+   <circle cx="250" cy="450" r="14" fill="#ffd35c" stroke="#12211f" stroke-width="3"/>
+  </svg>
+ </div>
+ <div class="wrap">
+  <span class="eyebrow in" style="--i:0">Hair salon · Concordia, KS</span>
+  <h1 class="in" style="--i:1">Fusions</h1>
+  <h2 class="in" style="--i:2">Where cut meets color.</h2>
+  <p class="lead in" style="--i:3">Cuts, color and styling in Concordia, Kansas. Come in with an idea, leave with your hair.</p>
+  <div class="actions in" style="--i:4">
+   <a class="btn" href="#services">See the services</a>
+   <a class="btn alt" href="#visit">Find the salon</a>
+  </div>
+ </div>
+</div>
+
+<div class="marquee" aria-hidden="true"><div class="track" id="track">
+ <span>Fusions Hair Salon</span><span>Cuts</span><span>Color</span><span>Styling</span><span>Concordia, KS</span>
+ <span>Fusions Hair Salon</span><span>Cuts</span><span>Color</span><span>Styling</span><span>Concordia, KS</span>
+</div></div>
+
+<section id="offer">
+ <div class="wrap">
+  <p class="kicker rv">The salon</p>
+  <h2 class="sec rv" style="--d:1">Three things, done with care.</h2>
+  <div class="trio">
+   <article class="card rv" style="--d:1">
+    <div class="ico"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#12211f" stroke-width="2.2" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.5 8 21 20M8.5 16 21 4"/></svg></div>
+    <h3>Cuts</h3><p>Women's, men's and kids' cuts.</p>
+   </article>
+   <article class="card rv" style="--d:2">
+    <div class="ico"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#12211f" stroke-width="2.2" stroke-linecap="round"><path d="M12 3c4 5 6 8 6 11a6 6 0 0 1-12 0c0-3 2-6 6-11z"/></svg></div>
+    <h3>Color</h3><p>Touch-ups, full color and highlights.</p>
+   </article>
+   <article class="card rv" style="--d:3">
+    <div class="ico"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#12211f" stroke-width="2.2" stroke-linecap="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/></svg></div>
+    <h3>Styling</h3><p>Blowouts, updos and conditioning.</p>
+   </article>
+  </div>
+ </div>
+</section>
+
+<section id="services">
+ <div class="wrap">
+  <p class="kicker rv">Services <span class="tag">Example</span></p>
+  <h2 class="sec rv" style="--d:1">A price list that reads like this.</h2>
+  <p class="note rv" style="--d:2">These are example services and prices that show how your price list would look. Your real services and prices go here.</p>
+  <div class="menu">
+   <div class="panel rv" style="--d:1">
+    <h3>Cuts <span class="tag">Example</span></h3>
+    <ul>
+     <li><span><b>Women's haircut</b><small>Shampoo, cut and style</small></span><span class="price">$45</span></li>
+     <li><span><b>Men's haircut</b></span><span class="price">$25</span></li>
+     <li><span><b>Kids' haircut</b><small>Ages 12 and under</small></span><span class="price">$18</span></li>
+    </ul>
+   </div>
+   <div class="panel rv" style="--d:2">
+    <h3>Color <span class="tag">Example</span></h3>
+    <ul>
+     <li><span><b>Root touch-up</b></span><span class="price">$65</span></li>
+     <li><span><b>Full color</b></span><span class="price">$95</span></li>
+     <li><span><b>Highlights</b><small>Partial or full</small></span><span class="price">$120</span></li>
+    </ul>
+   </div>
+   <div class="panel rv" style="--d:3">
+    <h3>Styling <span class="tag">Example</span></h3>
+    <ul>
+     <li><span><b>Blowout</b></span><span class="price">$35</span></li>
+     <li><span><b>Updo</b><small>For events</small></span><span class="price">$70</span></li>
+     <li><span><b>Deep conditioning</b></span><span class="price">$20</span></li>
+    </ul>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="visit">
+ <div class="wrap">
+  <p class="kicker rv">Hours &amp; location</p>
+  <h2 class="sec rv" style="--d:1">Find us in Concordia.</h2>
+  <div class="visit">
+   <div class="rv" style="--d:1">
+    <div class="hours">
+     <h3>Hours <span class="tag">Example hours</span></h3>
+     <dl>
+      <dt>Mon</dt><dd>7 AM – 3 PM</dd>
+      <dt>Tue</dt><dd>7 AM – 3 PM</dd>
+      <dt>Wed</dt><dd>7 AM – 3 PM</dd>
+      <dt>Thu</dt><dd>7 AM – 3 PM</dd>
+      <dt>Fri</dt><dd>7 AM – 8 PM</dd>
+      <dt>Sat</dt><dd>8 AM – 8 PM</dd>
+      <dt>Sun</dt><dd>Closed</dd>
+     </dl>
+    </div>
+    <button class="copy" id="copy" type="button" data-text="Fusions Hair Salon, Concordia, KS">
+     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#12211f" stroke-width="2.4" stroke-linecap="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M4 16V6a2 2 0 0 1 2-2h10"/></svg>
+     <span id="copylabel">Copy: Concordia, KS</span>
+    </button>
+   </div>
+   <div class="rv" style="--d:2"><iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-97.66744,39.56538,-97.65544,39.57738&amp;layer=mapnik&amp;marker=39.57138,-97.66144"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=39.57138&amp;mlon=-97.66144#map=17/39.57138/-97.66144" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=39.57138,-97.66144" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="contact">
+ <div class="wrap">
+  <h2 class="rv">Ready for a fresh look?</h2>
+  <p class="rv" style="--d:1">Send a note to Fusions Hair Salon and say what you have in mind.</p>
+  <div class="cbtns rv" style="--d:2"><a class="btn" href="mailto:jeni88j@yahoo.com">jeni88j@yahoo.com</a> </div>
+ </div>
+</section>
+
+<section id="offer-cta">
+ <div class="wrap rv"><section class="np-cta" id="offer"><h2>Want this for Fusions Hair Salon?</h2><p>This is a free preview made for Fusions Hair Salon. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20Fusions%20Hair%20Salon&amp;body=Yes%2C%20please%20make%20this%20site%20for%20Fusions%20Hair%20Salon.">Make it mine</a></p></section></div>
+</section>
+</main>
+
+<footer><div class="wrap">Fusions Hair Salon · Concordia, KS</div></footer>
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · Fusions Hair Salon</div>
+<script>
+(function(){
+ var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ var hdr=document.getElementById('top'),pg=document.getElementById('progress');
+ var strands=document.getElementById('strands');
+ function onScroll(){
+  var y=scrollY,h=document.documentElement.scrollHeight-innerHeight;
+  pg.style.transform='scaleX('+(h>0?y/h:0)+')';
+  hdr.classList.toggle('scrolled',y>30);
+  if(!rm&&strands&&y<1400)strands.style.transform='translateY('+(y*.18)+'px)';
+ }
+ addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+ var b=document.getElementById('burger'),m=document.getElementById('menu');
+ b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+ m.addEventListener('click',function(e){if(e.target.tagName==='A'){m.classList.remove('open');b.setAttribute('aria-expanded',false)}});
+
+ var els=document.querySelectorAll('.rv');
+ if('IntersectionObserver' in window&&!rm){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.12});
+  els.forEach(function(el){io.observe(el)});
+ }else{els.forEach(function(el){el.classList.add('on')})}
+
+ if(rm){document.getElementById('track').style.animation='none'}
+
+ if(!rm&&matchMedia('(hover:hover)').matches){
+  document.querySelectorAll('.btn').forEach(function(el){
+   el.addEventListener('pointermove',function(e){
+    var r=el.getBoundingClientRect(),x=(e.clientX-r.left-r.width/2)*.18,y=(e.clientY-r.top-r.height/2)*.28;
+    el.style.transform='translate('+x+'px,'+y+'px)';
+   });
+   el.addEventListener('pointerleave',function(){el.style.transform=''});
+  });
+ }
+
+ var c=document.getElementById('copy'),l=document.getElementById('copylabel');
+ c.addEventListener('click',function(){
+  var t=c.getAttribute('data-text');
+  function done(){l.textContent='Copied!';setTimeout(function(){l.textContent='Copy: Concordia, KS'},1800)}
+  if(navigator.clipboard){navigator.clipboard.writeText(t).then(done,done)}
+  else{var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(e){}a.remove();done()}
+ });
+})();
+</script>
+</body>
+</html>

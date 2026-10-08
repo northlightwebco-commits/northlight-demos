@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Queenhouse · Restaurant in Portland, MI</title>
+<meta name="description" content="Queenhouse, a restaurant at 7821 Ionia Road in Portland, Michigan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0c2326;--ink2:#123036;--ink3:#194047;
+  --gold:#d9ae55;--gold2:#f0d28c;--ivory:#f6efdd;--mute:#b9c7c3;
+  --line:rgba(217,174,85,.35);
+  --serif:'Italiana',Georgia,serif;--sans:'Jost',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--ink);color:var(--ivory);font-family:var(--sans);font-weight:300;font-size:1.0625rem;line-height:1.65;overflow-x:hidden}
+a{color:inherit}
+img,svg{max-width:100%}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.05;text-wrap:balance;overflow-wrap:break-word}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+.eyebrow{font-size:.78rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:500}
+h2{font-size:clamp(2rem,6vw,3.6rem);margin:.5rem 0 1rem}
+section{padding:clamp(64px,10vw,120px) 0;position:relative}
+
+/* slots */
+.np-banner{background:var(--gold);color:#1a1405;text-align:center;font-size:.82rem;padding:8px 14px;font-weight:500;letter-spacing:.02em}
+.np-banner a{color:inherit}
+.btn{display:inline-block;background:var(--gold);color:#1a1405;text-decoration:none;font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem;padding:15px 26px;border:1px solid var(--gold);cursor:pointer;transition:transform .35s cubic-bezier(.2,.8,.2,1),filter .3s;will-change:transform;font-family:var(--sans)}
+.btn:hover{filter:brightness(1.12);transform:translateY(-3px)}
+.btn.alt{background:transparent;color:var(--gold)}
+small{font-size:.8rem;color:var(--mute)}
+.np-cta{margin:0 auto;max-width:820px;padding:clamp(28px,5vw,56px);border:1px solid var(--gold);outline:1px solid var(--line);outline-offset:8px;background:linear-gradient(160deg,var(--ink2),var(--ink));text-align:center;display:flex;flex-direction:column;gap:16px;align-items:center}
+.np-cta h2,.np-cta h3{font-size:clamp(1.8rem,5vw,2.8rem)}
+.np-cta .btn{margin:4px}
+.map{border:1px solid var(--line);background:var(--ink2);padding:10px}
+.map iframe{width:100%;border:0;display:block;min-height:280px;filter:saturate(.7) contrast(1.05)}
+.maplinks{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.maplinks a{color:var(--gold);font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid var(--line);padding:4px 0}
+.maplinks a:hover{color:var(--gold2)}
+.mapcredit{font-size:.72rem;color:var(--mute);margin-top:8px}
+.mapcredit a{color:var(--mute)}
+
+/* progress + header */
+#bar{position:fixed;top:0;left:0;height:3px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:0 50%;z-index:100}
+header.nav{position:sticky;top:0;z-index:50;transition:background .4s,box-shadow .4s}
+header.nav .in{display:flex;align-items:center;justify-content:space-between;height:76px;transition:height .4s}
+header.nav.stuck{background:rgba(12,35,38,.94);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+header.nav.stuck .in{height:60px}
+.logo{font-family:var(--serif);font-size:1.6rem;text-decoration:none;color:var(--ivory);display:flex;align-items:center;gap:10px}
+.logo svg{width:26px;height:20px}
+nav ul{display:flex;gap:30px;list-style:none}
+nav a{text-decoration:none;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;position:relative;padding:6px 0}
+nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+nav a:hover::after{transform:scaleX(1)}
+.burger{display:none;background:none;border:1px solid var(--line);width:44px;height:44px;color:var(--gold);cursor:pointer}
+.burger span{display:block;width:20px;height:1px;background:currentColor;margin:6px auto;transition:transform .3s,opacity .3s}
+.burger[aria-expanded=true] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded=true] span:nth-child(2){opacity:0}
+.burger[aria-expanded=true] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:760px){
+  .burger{display:block}
+  nav{position:absolute;top:100%;left:0;right:0;background:var(--ink);border-bottom:1px solid var(--line);display:none}
+  nav.open{display:block}
+  nav ul{flex-direction:column;gap:0;padding:10px 20px 20px}
+  nav li a{display:block;padding:14px 0;border-bottom:1px solid rgba(217,174,85,.15)}
+}
+
+/* hero */
+.hero{min-height:calc(100svh - 76px);display:grid;place-items:center;text-align:center;overflow:hidden;padding:60px 0 80px}
+.rays{position:absolute;left:50%;top:50%;width:min(160vw,1500px);aspect-ratio:1;margin:calc(min(160vw,1500px)/-2) 0 0 calc(min(160vw,1500px)/-2);background:repeating-conic-gradient(from 0deg,rgba(217,174,85,.13) 0 3deg,transparent 3deg 12deg);-webkit-mask:radial-gradient(circle,#000 0,transparent 62%);mask:radial-gradient(circle,#000 0,transparent 62%);animation:spin 120s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero .wrap{position:relative;z-index:2}
+.crownwrap{width:clamp(110px,22vw,190px);margin:0 auto 18px;will-change:transform}
+.crown path,.crown line,.crown circle{fill:none;stroke:var(--gold);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.crown .draw{stroke-dasharray:400;stroke-dashoffset:400;animation:draw 2.4s .3s cubic-bezier(.6,0,.2,1) forwards}
+.crown .fill{fill:var(--gold);stroke:none;opacity:0;animation:fade .8s 2s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fade{to{opacity:1}}
+h1{font-size:clamp(2.7rem,13.5vw,9rem);letter-spacing:.02em;line-height:.95;color:var(--ivory)}
+h1 .l{display:inline-block;opacity:0;transform:translateY(40px);animation:up .9s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(.9s + var(--i)*.06s)}
+@keyframes up{to{opacity:1;transform:none}}
+.orn{display:flex;align-items:center;justify-content:center;gap:14px;margin:22px auto;color:var(--gold);max-width:420px;opacity:0;animation:fade 1s 1.8s forwards}
+.orn i{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.orn i:last-child{transform:scaleX(-1)}
+.orn b{width:9px;height:9px;transform:rotate(45deg);border:1px solid var(--gold)}
+.sub{font-size:clamp(1.05rem,2.6vw,1.35rem);max-width:34ch;margin:0 auto;opacity:0;animation:fade 1s 2s forwards}
+.sub strong{font-weight:500;color:var(--gold2)}
+.herobtns{margin-top:32px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;opacity:0;animation:fade 1s 2.3s forwards}
+
+/* marquee */
+.marq{border-block:1px solid var(--line);overflow:hidden;background:var(--ink2);padding:16px 0}
+.track{display:flex;width:max-content;animation:marq 40s linear infinite}
+.track span{font-family:var(--serif);font-size:clamp(1.3rem,3vw,2rem);padding:0 22px;white-space:nowrap;color:var(--gold2)}
+.track span:nth-child(even){color:var(--gold);font-size:1rem;align-self:center;padding:0}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* offer */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin-top:40px}
+.card{padding:34px 28px;border:1px solid var(--line);background:linear-gradient(180deg,var(--ink2),transparent);position:relative;transition:transform .45s cubic-bezier(.2,.8,.2,1),border-color .3s}
+.card::before{content:"";position:absolute;inset:6px;border:1px solid rgba(217,174,85,.15);pointer-events:none;transition:opacity .3s}
+.card:hover{transform:translateY(-8px);border-color:var(--gold)}
+.card .n{font-family:var(--serif);font-size:2.6rem;color:var(--gold)}
+.card h3{font-size:1.7rem;margin:6px 0 8px}
+.card p{color:var(--mute)}
+
+/* menu */
+.menu{background:var(--ink2)}
+.tag{display:inline-block;border:1px solid var(--gold);color:var(--gold);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;padding:3px 10px;margin-left:8px;vertical-align:middle;font-weight:500}
+.note{border-left:2px solid var(--gold);padding:10px 16px;color:var(--ivory);margin:18px 0 44px;max-width:62ch;background:rgba(217,174,85,.07)}
+.msecs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:30px 56px}
+.msec h3{font-size:2rem;color:var(--gold);padding-bottom:10px;border-bottom:1px solid var(--line);margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.msec h3::after{content:"";flex:1;height:1px;background:repeating-linear-gradient(90deg,var(--gold) 0 4px,transparent 4px 8px);opacity:.4}
+.mi{display:flex;justify-content:space-between;gap:18px;padding:14px 10px;margin:0 -10px;transition:transform .35s,background .3s}
+.mi:hover{transform:translateX(8px);background:rgba(217,174,85,.07)}
+.mi h4{font-weight:500;font-size:1.08rem;letter-spacing:.02em}
+.mi p{color:var(--mute);font-size:.95rem}
+.mi .pr{font-family:var(--serif);font-size:1.4rem;color:var(--gold2);white-space:nowrap}
+
+/* hours */
+.hl{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:48px;align-items:start;margin-top:30px}
+.hours{list-style:none;border:1px solid var(--line);padding:8px 22px;outline:1px solid var(--line);outline-offset:6px}
+.hours li{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(217,174,85,.15)}
+.hours li:last-child{border:0}
+.hours li span:first-child{letter-spacing:.2em;text-transform:uppercase;font-size:.85rem;color:var(--gold)}
+.addr{margin:22px 0 0;font-style:normal;font-size:1.15rem}
+.copy{margin-top:12px;background:none;border:1px solid var(--line);color:var(--gold);padding:10px 16px;cursor:pointer;font:inherit;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;transition:transform .3s,border-color .3s}
+.copy:hover{transform:translateY(-2px);border-color:var(--gold)}
+
+/* contact */
+.contact{text-align:center}
+.contact p{max-width:46ch;margin:0 auto 26px;color:var(--mute)}
+.crow{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+footer{padding:30px 0;text-align:center;color:var(--mute);font-size:.85rem;border-top:1px solid var(--line)}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--d,0)*90ms)}
+.js .rv.in{opacity:1;transform:none}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  h1 .l,.orn,.sub,.herobtns,.crown .fill{opacity:1!important;transform:none!important}
+  .crown .draw{stroke-dashoffset:0!important}
+  .js .rv{opacity:1;transform:none}
+  .track{flex-wrap:wrap;width:auto;justify-content:center}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div id="bar"></div>
+<header class="nav" id="nav">
+  <div class="wrap in">
+    <a class="logo" href="#top" aria-label="Queenhouse, top of page">
+      <svg viewBox="0 0 26 20" aria-hidden="true"><path d="M2 17 L4 5 L9 11 L13 2 L17 11 L22 5 L24 17 Z" fill="none" stroke="#d9ae55" stroke-width="1.5" stroke-linejoin="round"/></svg>
+      Queenhouse
+    </a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav id="menu" aria-label="Main">
+      <ul>
+        <li><a href="#offer">Table</a></li>
+        <li><a href="#menu-sec">Menu</a></li>
+        <li><a href="#visit">Visit</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="rays" id="rays" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="crownwrap" id="crown">
+      <svg class="crown" viewBox="0 0 120 90" role="img" aria-label="A crown">
+        <path class="draw" d="M14 72 L8 24 L36 46 L60 10 L84 46 L112 24 L106 72 Z"/>
+        <line class="draw" x1="14" y1="82" x2="106" y2="82"/>
+        <line class="draw" x1="22" y1="72" x2="98" y2="72"/>
+        <circle class="fill" cx="8" cy="20" r="4"/><circle class="fill" cx="60" cy="6" r="4.5"/><circle class="fill" cx="112" cy="20" r="4"/>
+      </svg>
+    </div>
+    <p class="eyebrow" style="margin-bottom:14px">Restaurant · Portland, Michigan</p>
+    <h1 aria-label="Queenhouse"><span class="l" style="--i:0" aria-hidden="true">Q</span><span class="l" style="--i:1" aria-hidden="true">u</span><span class="l" style="--i:2" aria-hidden="true">e</span><span class="l" style="--i:3" aria-hidden="true">e</span><span class="l" style="--i:4" aria-hidden="true">n</span><span class="l" style="--i:5" aria-hidden="true">h</span><span class="l" style="--i:6" aria-hidden="true">o</span><span class="l" style="--i:7" aria-hidden="true">u</span><span class="l" style="--i:8" aria-hidden="true">s</span><span class="l" style="--i:9" aria-hidden="true">e</span></h1>
+    <div class="orn" aria-hidden="true"><i></i><b></b><i></i></div>
+    <p class="sub">A seat at the table on <strong>Ionia Road</strong>.</p>
+    <div class="herobtns">
+      <a class="btn" href="#menu-sec">See the menu</a>
+      <a class="btn alt" href="#visit">Find us</a>
+    </div>
+  </div>
+</section>
+
+<div class="marq" aria-hidden="true">
+  <div class="track">
+    <span>Queenhouse</span><span>◆</span><span>Restaurant</span><span>◆</span><span>Portland</span><span>◆</span><span>Michigan</span><span>◆</span><span>Ionia Road</span><span>◆</span>
+    <span>Queenhouse</span><span>◆</span><span>Restaurant</span><span>◆</span><span>Portland</span><span>◆</span><span>Michigan</span><span>◆</span><span>Ionia Road</span><span>◆</span>
+  </div>
+</div>
+
+<section id="offer">
+  <div class="wrap">
+    <p class="eyebrow rv">What awaits</p>
+    <h2 class="rv" style="--d:1">Fit for a queen. Set for everyone.</h2>
+    <div class="cards">
+      <article class="card rv" style="--d:1"><div class="n">I</div><h3>A restaurant</h3><p>Queenhouse is a sit-down restaurant in Portland, Michigan.</p></article>
+      <article class="card rv" style="--d:2"><div class="n">II</div><h3>On Ionia Road</h3><p>Find us at 7821 Ionia Road, Portland, MI 48875.</p></article>
+      <article class="card rv" style="--d:3"><div class="n">III</div><h3>Say hello</h3><p>Questions? Send a note by e-mail and we will get back to you.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu-sec">
+  <div class="wrap">
+    <p class="eyebrow rv">Menu <span class="tag">Example</span></p>
+    <h2 class="rv" style="--d:1">From first light to last course</h2>
+    <p class="note rv">This is an example menu that shows how your menu would look. Your real dishes and prices go here.</p>
+    <div class="msecs">
+      <div class="msec rv"><h3>Breakfast</h3>
+        <div class="mi"><div><h4>Two-egg breakfast</h4><p>Eggs your way, hash browns, toast</p></div><span class="pr">$8.99</span></div>
+        <div class="mi"><div><h4>Buttermilk pancakes</h4><p>Short stack with syrup</p></div><span class="pr">$7.99</span></div>
+        <div class="mi"><div><h4>Biscuits &amp; gravy</h4></div><span class="pr">$8.49</span></div>
+      </div>
+      <div class="msec rv" style="--d:1"><h3>Lunch</h3>
+        <div class="mi"><div><h4>Classic cheeseburger</h4><p>Served with fries</p></div><span class="pr">$10.99</span></div>
+        <div class="mi"><div><h4>Club sandwich</h4><p>Turkey, bacon, lettuce, tomato</p></div><span class="pr">$10.49</span></div>
+        <div class="mi"><div><h4>Grilled chicken salad</h4></div><span class="pr">$10.99</span></div>
+      </div>
+      <div class="msec rv"><h3>Dinner</h3>
+        <div class="mi"><div><h4>Chicken fried steak</h4><p>Mashed potatoes and country gravy</p></div><span class="pr">$13.99</span></div>
+        <div class="mi"><div><h4>Meatloaf</h4></div><span class="pr">$12.99</span></div>
+        <div class="mi"><div><h4>Fish &amp; chips</h4></div><span class="pr">$13.49</span></div>
+      </div>
+      <div class="msec rv" style="--d:1"><h3>Dessert</h3>
+        <div class="mi"><div><h4>Homemade pie</h4><p>Ask about today's flavors</p></div><span class="pr">$4.99</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap">
+    <p class="eyebrow rv">Hours &amp; location</p>
+    <h2 class="rv" style="--d:1">Come on in</h2>
+    <div class="hl">
+      <div class="rv">
+        <p class="eyebrow" style="margin-bottom:12px">Hours <span class="tag">Example hours</span></p>
+        <ul class="hours">
+          <li><span>Mon</span><span>7 AM – 3 PM</span></li>
+          <li><span>Tue</span><span>7 AM – 3 PM</span></li>
+          <li><span>Wed</span><span>7 AM – 3 PM</span></li>
+          <li><span>Thu</span><span>7 AM – 3 PM</span></li>
+          <li><span>Fri</span><span>7 AM – 8 PM</span></li>
+          <li><span>Sat</span><span>8 AM – 8 PM</span></li>
+          <li><span>Sun</span><span>Closed</span></li>
+        </ul>
+        <address class="addr">7821 Ionia Road<br>Portland, MI 48875</address>
+        <button class="copy" id="copy" type="button">Copy address</button>
+      </div>
+      <div class="rv" style="--d:2"><iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-84.92422,42.87300,-84.91222,42.88500&amp;layer=mapnik&amp;marker=42.87900,-84.91822"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=42.87900&amp;mlon=-84.91822#map=17/42.87900/-84.91822" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=42.87900,-84.91822" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow rv">Contact</p>
+    <h2 class="rv" style="--d:1">Write to the house</h2>
+    <p class="rv" style="--d:2">A question, a note, a hello. Send us an e-mail.</p>
+    <div class="crow rv" style="--d:3"><a class="btn" href="mailto:angie.hpmachining@gmail.com">angie.hpmachining@gmail.com</a> </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap rv"><section class="np-cta" id="offer"><h2>Want this for Queenhouse?</h2><p>This is a free preview made for Queenhouse. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20Queenhouse&amp;body=Yes%2C%20please%20make%20this%20site%20for%20Queenhouse.">Make it mine</a></p></section></div>
+</section>
+</main>
+
+<footer><div class="wrap">Queenhouse · 7821 Ionia Road, Portland, MI 48875</div></footer>
+
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · Queenhouse</div>
+<script>
+(function(){
+  var d=document,root=d.documentElement;root.classList.add('js');
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var nav=d.getElementById('nav'),bar=d.getElementById('bar'),crown=d.getElementById('crown'),rays=d.getElementById('rays');
+  function onScroll(){
+    var y=scrollY,h=d.documentElement.scrollHeight-innerHeight;
+    nav.classList.toggle('stuck',y>30);
+    bar.style.transform='scaleX('+(h>0?Math.min(1,y/h):0)+')';
+    if(!reduce&&y<innerHeight*1.2){crown.style.transform='translateY('+(y*.25)+'px)';}
+  }
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+  var b=d.getElementById('burger'),m=d.getElementById('menu');
+  b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+  m.addEventListener('click',function(e){if(e.target.tagName==='A'){m.classList.remove('open');b.setAttribute('aria-expanded',false)}});
+  var els=d.querySelectorAll('.rv');
+  if('IntersectionObserver' in window&&!reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+    els.forEach(function(el){io.observe(el)});
+  }else{els.forEach(function(el){el.classList.add('in')})}
+  var cp=d.getElementById('copy');
+  cp.addEventListener('click',function(){
+    var t='7821 Ionia Road, Portland, MI 48875';
+    function ok(){cp.textContent='Copied';setTimeout(function(){cp.textContent='Copy address'},1800)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,ok)}
+    else{var a=d.createElement('textarea');a.value=t;d.body.appendChild(a);a.select();try{d.execCommand('copy')}catch(e){}a.remove();ok()}
+  });
+  if(!reduce&&matchMedia('(hover:hover)').matches){
+    d.querySelectorAll('.btn').forEach(function(el){
+      el.addEventListener('mousemove',function(e){var r=el.getBoundingClientRect();el.style.transform='translate('+((e.clientX-r.left-r.width/2)*.18)+'px,'+((e.clientY-r.top-r.height/2)*.28-3)+'px)'});
+      el.addEventListener('mouseleave',function(){el.style.transform=''});
+    });
+  }
+})();
+</script>
+</body>
+</html>

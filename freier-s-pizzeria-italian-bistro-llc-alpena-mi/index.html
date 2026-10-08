@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Freier's Pizzeria Italian Bistro · Alpena, MI</title>
+<meta name="description" content="Pizza. Dine in, sit on the patio. Freier's Pizzeria Italian Bistro at 424 West Chisholm Street, Alpena, MI.">
+<meta name="theme-color" content="#0f2a20">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,800;1,9..144,500;1,9..144,800&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#0f2a20;--green2:#0a1f17;--green3:#16392c;
+  --cream:#f6efe0;--paper:#f3ead6;--tomato:#ff5a3c;--tomato-d:#b52f17;
+  --gold:#f2c46d;--ink:#10261c;--muted:#b9c8bd;
+  --serif:'Fraunces',Georgia,serif;--sans:'Figtree',system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px;-webkit-text-size-adjust:100%}
+body{background:var(--green);color:var(--cream);font-family:var(--sans);font-size:1.0625rem;line-height:1.6;overflow-x:hidden}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);line-height:1;text-wrap:balance;overflow-wrap:break-word}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{width:min(1180px,100% - 2.5rem);margin-inline:auto}
+
+/* banner slot */
+.np-banner{background:var(--gold);color:var(--ink);font-size:.8rem;font-weight:500;text-align:center;padding:.45rem 1rem;line-height:1.35}
+.np-banner a{color:var(--ink);font-weight:700}
+
+/* progress */
+.progress{position:fixed;inset:0 0 auto 0;height:4px;background:var(--tomato);transform:scaleX(0);transform-origin:left;z-index:100;pointer-events:none}
+
+/* header */
+header.site{position:sticky;top:0;z-index:50;transition:background .4s,box-shadow .4s}
+header.site .bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:76px;transition:height .4s var(--ease)}
+header.site.scrolled{background:rgba(10,31,23,.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(246,239,224,.12)}
+header.site.scrolled .bar{height:60px}
+.logo{font-family:var(--serif);font-weight:800;font-size:1.4rem;text-decoration:none;display:flex;align-items:center;gap:.5rem;letter-spacing:-.01em}
+.logo i{width:.8rem;height:.8rem;border-radius:50%;background:var(--tomato);display:inline-block}
+nav ul{display:flex;gap:2rem;list-style:none;align-items:center}
+nav a{text-decoration:none;font-weight:500;position:relative;padding:.3rem 0}
+nav a:not(.nav-cta)::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--tomato);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+nav a:not(.nav-cta):hover::after{transform:scaleX(1)}
+.nav-cta{background:var(--tomato);color:#1a0d08;padding:.55rem 1.1rem!important;border-radius:99px;font-weight:700;transition:transform .3s var(--ease)}
+.nav-cta:hover{transform:translateY(-2px) rotate(-2deg)}
+.burger{display:none;background:none;border:0;color:var(--cream);width:44px;height:44px;cursor:pointer;position:relative}
+.burger span{position:absolute;left:10px;right:10px;height:2px;background:currentColor;transition:transform .35s var(--ease),opacity .2s}
+.burger span:nth-child(1){top:15px}.burger span:nth-child(2){top:21px}.burger span:nth-child(3){top:27px}
+.burger[aria-expanded=true] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded=true] span:nth-child(2){opacity:0}
+.burger[aria-expanded=true] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+/* buttons (also slot) */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;background:var(--tomato);color:#1a0d08;font:700 1rem var(--sans);text-decoration:none;padding:.9rem 1.6rem;border-radius:99px;border:2px solid var(--tomato);cursor:pointer;transition:transform .3s var(--ease),box-shadow .3s,background .3s;will-change:transform}
+.btn:hover{box-shadow:0 10px 24px -8px rgba(255,90,60,.7);transform:translateY(-3px)}
+.btn.alt{background:transparent;color:var(--cream);border-color:var(--cream)}
+.btn.alt:hover{background:var(--cream);color:var(--ink);box-shadow:none}
+small{font-size:.85rem}
+
+/* hero */
+.hero{position:relative;overflow:hidden;margin-top:-76px;padding:calc(76px + 4.5rem) 0 4rem;background:radial-gradient(ellipse at 75% 45%,var(--green3),var(--green) 65%)}
+.lights{position:absolute;top:0;left:0;width:100%;height:150px;pointer-events:none}
+.lights .bulb{animation:twinkle 3.2s ease-in-out infinite;animation-delay:var(--t,0s)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:2rem;align-items:center;position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem;color:var(--gold)}
+.eyebrow::before{content:"";width:2.2rem;height:2px;background:var(--gold)}
+.hero h1{font-weight:800;font-size:clamp(2.9rem,12.5vw,8.6rem);letter-spacing:-.035em;margin:1.2rem 0 1rem}
+.hero h1 span{display:block}
+.hero h1 .l2{font-style:italic;font-weight:500;color:var(--tomato)}
+.hero .sub{font-family:var(--serif);font-size:clamp(1.15rem,2.6vw,1.6rem);font-style:italic;color:var(--cream);margin-bottom:.6rem}
+.hero p.lead{max-width:34ch;color:var(--muted);margin-bottom:2rem}
+.hero .actions{display:flex;flex-wrap:wrap;gap:.8rem}
+.pz{position:relative;width:min(100%,540px);margin-inline:auto;aspect-ratio:1}
+.pz-par{width:100%;height:100%;will-change:transform}
+.pz-spin{width:100%;height:100%;animation:spin 90s linear infinite}
+.pz svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 30px 40px rgba(0,0,0,.45))}
+.pz .ring{fill:none;stroke:var(--gold);stroke-width:2;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.2s var(--ease) .3s forwards}
+.pz .base{animation:fade .9s ease 1.4s both}
+.pz .top{transform-box:fill-box;transform-origin:center;animation:pop .7s var(--ease) both;animation-delay:calc(1.6s + var(--i)*.09s)}
+.pz .cut{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.2s ease 2.8s forwards}
+.sticker{position:absolute;right:2%;bottom:4%;background:var(--gold);color:var(--ink);width:7.2rem;height:7.2rem;border-radius:50%;display:grid;place-items:center;text-align:center;font-family:var(--serif);font-weight:800;font-size:1rem;line-height:1.05;transform:rotate(-12deg);animation:pop .8s var(--ease) 3.2s both;padding:.5rem}
+.sticker em{font-weight:500;display:block;font-size:.85rem}
+
+/* hero entrance */
+.in1,.in2,.in3,.in4,.in5{animation:rise .9s var(--ease) both}
+.in1{animation-delay:.1s}.in2{animation-delay:.25s}.in3{animation-delay:.4s}.in4{animation-delay:.55s}.in5{animation-delay:.7s}
+
+/* marquee */
+.marquee{background:var(--tomato);color:#1a0d08;overflow:hidden;white-space:nowrap;border-block:2px solid var(--green2);transform:rotate(-1deg);margin:-1rem -2rem 0;position:relative;z-index:2}
+.marquee .track{display:inline-flex;animation:marq 38s linear infinite;padding:.8rem 0}
+.marquee span{font-family:var(--serif);font-weight:800;font-size:clamp(1.3rem,3vw,2rem);padding-right:2rem;display:inline-flex;align-items:center;gap:2rem}
+.marquee span::after{content:"✦";font-size:.8em}
+
+section{padding:clamp(4rem,9vw,7rem) 0}
+.kicker{font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem;color:var(--gold);margin-bottom:1rem}
+h2{font-size:clamp(2.2rem,6.5vw,4.6rem);font-weight:800;letter-spacing:-.025em}
+h2 em{font-weight:500;color:var(--tomato)}
+.tag{display:inline-block;background:var(--ink);color:var(--gold);font:700 .72rem var(--sans);letter-spacing:.1em;text-transform:uppercase;padding:.28rem .7rem;border-radius:99px;vertical-align:middle}
+
+/* offers */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3rem}
+.card{background:var(--green3);border:1px solid rgba(246,239,224,.14);border-radius:22px;padding:2rem 1.6rem 2.2rem;position:relative;overflow:hidden;transition:transform .45s var(--ease),border-color .3s,background .3s}
+.card:hover{transform:translateY(-8px) rotate(-.6deg);border-color:var(--tomato);background:#1b4333}
+.card .num{font-family:var(--serif);font-weight:800;font-size:4.5rem;color:transparent;-webkit-text-stroke:1.5px var(--gold);line-height:.9;margin-bottom:1rem;transition:transform .5s var(--ease)}
+.card:hover .num{transform:translateX(8px) scale(1.06)}
+.card h3{font-size:1.9rem;margin-bottom:.6rem}
+.card p{color:var(--muted)}
+
+/* menu */
+.menu{background:var(--paper);color:var(--ink);position:relative}
+.menu::before,.menu::after{content:"";position:absolute;left:0;right:0;height:22px;background:
+  repeating-linear-gradient(90deg,var(--tomato-d) 0 22px,var(--paper) 22px 44px);opacity:.9}
+.menu::before{top:0}.menu::after{bottom:0}
+.menu .kicker{color:var(--tomato-d)}
+.menu h2 em{color:var(--tomato-d)}
+.menu-head{display:flex;flex-wrap:wrap;gap:1rem 2rem;align-items:end;justify-content:space-between}
+.menu .note{margin-top:1.2rem;font-weight:500;max-width:60ch;border-left:4px solid var(--tomato-d);padding-left:1rem}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem}
+.msec{background:#fffaf0;border:2px solid var(--ink);border-radius:18px;padding:1.6rem 1.5rem 1.2rem;box-shadow:6px 6px 0 var(--ink);transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.msec:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--tomato-d)}
+.msec h3{font-size:2rem;display:flex;justify-content:space-between;align-items:center;gap:.5rem;flex-wrap:wrap;margin-bottom:.8rem}
+.msec ul{list-style:none}
+.msec li{padding:.8rem 0;border-top:1px dashed rgba(16,38,28,.35);transition:transform .3s var(--ease)}
+.msec li:hover{transform:translateX(6px)}
+.row{display:flex;align-items:baseline;gap:.5rem}
+.row b{font-family:var(--serif);font-size:1.2rem;font-weight:800}
+.row i{flex:1;border-bottom:2px dotted rgba(16,38,28,.4);transform:translateY(-4px);min-width:1rem}
+.row span{font-weight:700;color:var(--tomato-d)}
+.msec p{font-size:.95rem;opacity:.85}
+
+/* hours */
+.hl{display:grid;grid-template-columns:1fr 1.1fr;gap:3rem;margin-top:3rem;align-items:start}
+.hours{background:var(--green3);border-radius:22px;padding:1.8rem;border:1px solid rgba(246,239,224,.14)}
+.hours .tag{background:var(--gold);color:var(--ink);margin-bottom:1rem}
+.hours table{width:100%;border-collapse:collapse}
+.hours td{padding:.7rem 0;border-top:1px solid rgba(246,239,224,.14)}
+.hours td:last-child{text-align:right;font-weight:700}
+.hours tr:first-child td{border-top:0}
+.hours tr.closed td:last-child{color:var(--muted)}
+.addr{margin-top:1.5rem;font-style:normal}
+.addr strong{font-family:var(--serif);font-size:1.4rem;display:block;line-height:1.25;margin-bottom:.8rem}
+.copy{background:none;border:2px solid var(--cream);color:var(--cream);padding:.55rem 1.1rem;border-radius:99px;font:700 .9rem var(--sans);cursor:pointer;transition:background .3s,color .3s,transform .3s var(--ease)}
+.copy:hover{background:var(--cream);color:var(--ink);transform:translateY(-2px)}
+.map{border-radius:22px;overflow:hidden;border:1px solid rgba(246,239,224,.2);background:var(--green3)}
+.map iframe{width:100%;min-height:340px;border:0;display:block}
+.maplinks{display:flex;flex-wrap:wrap;gap:.6rem;padding:.9rem}
+.maplinks a{color:var(--cream);font-weight:700;font-size:.9rem;text-decoration:none;border:2px solid rgba(246,239,224,.5);border-radius:99px;padding:.45rem 1rem;transition:background .3s,color .3s}
+.maplinks a:hover{background:var(--cream);color:var(--ink)}
+.mapcredit{font-size:.75rem;color:var(--muted);padding:0 .9rem .8rem}
+.mapcredit a{color:var(--muted)}
+
+/* contact */
+.contact{background:var(--green2);text-align:center}
+.contact h2{margin-bottom:1rem}
+.contact p{color:var(--muted);max-width:44ch;margin:0 auto 2rem}
+.contact .acts{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center}
+
+/* cta slot */
+.ctasec{padding-top:0;background:var(--green2)}
+.np-cta{background:var(--gold);color:var(--ink);border-radius:28px;padding:clamp(1.8rem,5vw,3.5rem);position:relative;overflow:hidden;box-shadow:10px 10px 0 var(--tomato)}
+.np-cta h2,.np-cta h3{font-size:clamp(1.8rem,4.5vw,3rem);margin-bottom:.8rem}
+.np-cta p{margin-bottom:1.2rem;max-width:56ch}
+.np-cta .btn{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.np-cta .btn.alt{background:transparent;color:var(--ink)}
+.np-cta .btn.alt:hover{background:var(--ink);color:var(--cream)}
+.np-cta small{display:block;margin-top:1rem;opacity:.8}
+
+footer{background:var(--green2);padding:2rem 0 2.5rem;text-align:center;color:var(--muted);font-size:.9rem;border-top:1px solid rgba(246,239,224,.1)}
+
+/* reveal (JS only) */
+.js .rv{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+.js .rv.in.card:hover{transition-delay:0s}
+
+@keyframes rise{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes pop{from{opacity:0;transform:scale(.2) rotate(-40deg)}to{opacity:1;transform:none}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes marq{to{transform:translateX(-50%)}}
+@keyframes twinkle{0%,100%{opacity:1}50%{opacity:.45}}
+
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .pz{width:min(86%,440px)}
+  .cards,.menu-grid,.hl{grid-template-columns:1fr}
+  .burger{display:block}
+  nav ul{position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:var(--green2);padding:.5rem 1.25rem 1.5rem;transform:translateY(-12px);opacity:0;visibility:hidden;transition:transform .35s var(--ease),opacity .3s,visibility .3s;align-items:stretch}
+  nav ul.open{transform:none;opacity:1;visibility:visible}
+  nav li a{display:block;padding:1rem 0;border-bottom:1px solid rgba(246,239,224,.12)}
+  nav li a.nav-cta{text-align:center;margin-top:1rem;border:0}
+  header.site{background:rgba(10,31,23,.85);backdrop-filter:blur(8px)}
+  .hero{padding-top:calc(76px + 3rem)}
+}
+@media (max-width:480px){
+  .sticker{width:5.6rem;height:5.6rem;font-size:.82rem}
+  .hero .actions .btn{width:100%}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv{opacity:1;transform:none}
+  .pz .ring,.pz .cut{stroke-dasharray:none;stroke-dashoffset:0}
+  .marquee .track{flex-wrap:wrap;white-space:normal}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="site" id="top">
+  <div class="wrap bar">
+    <a class="logo" href="#top"><i></i>Freier's</a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-list"><span></span><span></span><span></span></button>
+    <nav aria-label="Main">
+      <ul id="nav-list">
+        <li><a href="#offer">The place</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#visit">Hours &amp; location</a></li>
+        <li><a class="nav-cta" href="#contact">Get in touch</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" style="padding-bottom:5rem">
+  <svg class="lights" viewBox="0 0 1200 150" preserveAspectRatio="xMidYMin slice" aria-hidden="true">
+    <path d="M-20 20 Q150 110 300 40 T600 40 T900 40 T1220 30" fill="none" stroke="#b9c8bd" stroke-opacity=".5" stroke-width="2"/>
+    <g fill="#f2c46d">
+      <circle class="bulb" cx="95" cy="68" r="7" style="--t:0s"/>
+      <circle class="bulb" cx="200" cy="82" r="7" style="--t:.6s"/>
+      <circle class="bulb" cx="320" cy="62" r="7" style="--t:1.2s"/>
+      <circle class="bulb" cx="450" cy="62" r="7" style="--t:1.8s"/>
+      <circle class="bulb" cx="580" cy="62" r="7" style="--t:.3s"/>
+      <circle class="bulb" cx="700" cy="62" r="7" style="--t:.9s"/>
+      <circle class="bulb" cx="830" cy="62" r="7" style="--t:1.5s"/>
+      <circle class="bulb" cx="960" cy="62" r="7" style="--t:2.1s"/>
+      <circle class="bulb" cx="1090" cy="56" r="7" style="--t:.4s"/>
+    </g>
+  </svg>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow in1">Alpena, Michigan</div>
+      <h1 class="in2"><span>Freier's</span><span class="l2">Pizzeria</span></h1>
+      <p class="sub in3">Italian Bistro</p>
+      <p class="lead in3">Pizza. Dine in, sit on the patio.</p>
+      <div class="actions in4">
+        <a class="btn" href="#menu">See the menu</a>
+        <a class="btn alt" href="#visit">Find us</a>
+      </div>
+    </div>
+    <div class="pz in5" data-par>
+      <div class="pz-par" id="pzpar">
+        <div class="pz-spin">
+          <svg viewBox="0 0 400 400" role="img" aria-label="Illustration of a pizza with pepperoni and basil">
+            <g class="base">
+              <circle cx="200" cy="200" r="188" fill="#e2a657"/>
+              <circle cx="200" cy="200" r="160" fill="#d63a22"/>
+              <circle cx="200" cy="200" r="150" fill="#f4d58a" opacity=".92"/>
+            </g>
+            <circle class="ring" pathLength="1" cx="200" cy="200" r="194"/>
+            <g stroke="#0f2a20" stroke-opacity=".35" stroke-width="2" fill="none">
+              <path class="cut" pathLength="1" d="M200 12V388"/>
+              <path class="cut" pathLength="1" d="M12 200H388"/>
+              <path class="cut" pathLength="1" d="M67 67L333 333"/>
+              <path class="cut" pathLength="1" d="M333 67L67 333"/>
+            </g>
+            <g fill="#c22b17" stroke="#8f1d0e" stroke-width="2">
+              <circle class="top" style="--i:1" cx="135" cy="120" r="24"/>
+              <circle class="top" style="--i:2" cx="265" cy="110" r="24"/>
+              <circle class="top" style="--i:3" cx="310" cy="205" r="24"/>
+              <circle class="top" style="--i:4" cx="260" cy="295" r="24"/>
+              <circle class="top" style="--i:5" cx="140" cy="290" r="24"/>
+              <circle class="top" style="--i:6" cx="92" cy="205" r="24"/>
+              <circle class="top" style="--i:7" cx="200" cy="200" r="26"/>
+            </g>
+            <g fill="#2f8a52" stroke="#0f2a20" stroke-width="1.5">
+              <path class="top" style="--i:8" d="M190 120q22-30 40 0q-18 24-40 0z"/>
+              <path class="top" style="--i:9" d="M105 245q30-14 42 14q-26 14-42-14z"/>
+              <path class="top" style="--i:10" d="M270 240q26-18 42 8q-22 20-42-8z"/>
+              <path class="top" style="--i:11" d="M195 275q8-30 34-20q-4 28-34 20z"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div class="sticker">Dine in<em>+ patio</em></div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Pizza</span><span>Dine in</span><span>Sit on the patio</span><span>Italian bistro</span><span>Alpena, Michigan</span><span>West Chisholm Street</span>
+    <span>Pizza</span><span>Dine in</span><span>Sit on the patio</span><span>Italian bistro</span><span>Alpena, Michigan</span><span>West Chisholm Street</span>
+  </div>
+</div>
+
+<section id="offer">
+  <div class="wrap">
+    <p class="kicker rv">The place</p>
+    <h2 class="rv" style="--d:.08s">Pull up a chair.<br><em>Pizza's coming.</em></h2>
+    <div class="cards">
+      <article class="card rv" style="--d:.05s">
+        <div class="num">01</div>
+        <h3>Pizza</h3>
+        <p>It's right there in the name, and it's what we're about.</p>
+      </article>
+      <article class="card rv" style="--d:.18s">
+        <div class="num">02</div>
+        <h3>Dine in</h3>
+        <p>Grab a table inside our Italian bistro and take your time.</p>
+      </article>
+      <article class="card rv" style="--d:.31s">
+        <div class="num">03</div>
+        <h3>The patio</h3>
+        <p>Prefer fresh air? Sit on the patio.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="menu-head">
+      <div>
+        <p class="kicker rv">Menu</p>
+        <h2 class="rv" style="--d:.08s">Something to <em>look forward to</em></h2>
+      </div>
+      <span class="tag rv" style="--d:.15s">Example</span>
+    </div>
+    <p class="note rv">This is an example menu that shows how your menu would look. Your real dishes and prices go here.</p>
+    <div class="menu-grid">
+      <div class="msec rv" style="--d:.05s">
+        <h3>Pizza <span class="tag">Example</span></h3>
+        <ul>
+          <li><div class="row"><b>Margherita</b><i></i><span>$12.00</span></div><p>Tomato, mozzarella, basil</p></li>
+          <li><div class="row"><b>Pepperoni</b><i></i><span>$13.50</span></div></li>
+          <li><div class="row"><b>Supreme</b><i></i><span>$16.00</span></div></li>
+        </ul>
+      </div>
+      <div class="msec rv" style="--d:.18s">
+        <h3>Pasta <span class="tag">Example</span></h3>
+        <ul>
+          <li><div class="row"><b>Spaghetti &amp; meatballs</b><i></i><span>$13.50</span></div></li>
+          <li><div class="row"><b>Fettuccine Alfredo</b><i></i><span>$13.00</span></div></li>
+          <li><div class="row"><b>Baked lasagna</b><i></i><span>$14.50</span></div></li>
+        </ul>
+      </div>
+      <div class="msec rv" style="--d:.31s">
+        <h3>Starters <span class="tag">Example</span></h3>
+        <ul>
+          <li><div class="row"><b>Garlic bread</b><i></i><span>$5.00</span></div></li>
+          <li><div class="row"><b>House salad</b><i></i><span>$6.50</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap">
+    <p class="kicker rv">Hours &amp; location</p>
+    <h2 class="rv" style="--d:.08s">Find us on <em>Chisholm</em></h2>
+    <div class="hl">
+      <div class="rv">
+        <div class="hours">
+          <span class="tag">Example hours</span>
+          <table>
+            <tbody>
+              <tr><td>Mon</td><td>7 AM – 3 PM</td></tr>
+              <tr><td>Tue</td><td>7 AM – 3 PM</td></tr>
+              <tr><td>Wed</td><td>7 AM – 3 PM</td></tr>
+              <tr><td>Thu</td><td>7 AM – 3 PM</td></tr>
+              <tr><td>Fri</td><td>7 AM – 8 PM</td></tr>
+              <tr><td>Sat</td><td>8 AM – 8 PM</td></tr>
+              <tr class="closed"><td>Sun</td><td>Closed</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <address class="addr">
+          <strong id="addr">424 West Chisholm Street,<br>Alpena, MI 49707</strong>
+          <button class="copy" id="copy" type="button">Copy address</button>
+          <span id="copied" role="status" aria-live="polite" style="margin-left:.8rem;color:var(--gold);font-weight:700"></span>
+        </address>
+      </div>
+      <div class="rv" style="--d:.15s">
+        <iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-83.44376,45.05978,-83.43176,45.07178&amp;layer=mapnik&amp;marker=45.06578,-83.43776"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=45.06578&amp;mlon=-83.43776#map=17/45.06578/-83.43776" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=45.06578,-83.43776" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <p class="kicker rv">Contact</p>
+    <h2 class="rv" style="--d:.08s">Say <em>hello.</em></h2>
+    <p class="rv" style="--d:.15s">Questions about Freier's? Drop us a line.</p>
+    <div class="acts rv" style="--d:.22s">
+      <a class="btn" href="mailto:freiers_za@yahoo.com">freiers_za@yahoo.com</a>
+      
+    </div>
+  </div>
+</section>
+
+<section class="ctasec" style="padding-top:clamp(3rem,7vw,5rem)">
+  <div class="wrap rv">
+    <section class="np-cta" id="offer"><h2>Want this for Freier&#x27;s Pizzeria Italian Bistro LLC?</h2><p>This is a free preview made for Freier&#x27;s Pizzeria Italian Bistro LLC. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20Freier%27s%20Pizzeria%20Italian%20Bistro%20LLC&amp;body=Yes%2C%20please%20make%20this%20site%20for%20Freier%27s%20Pizzeria%20Italian%20Bistro%20LLC.">Make it mine</a></p></section>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">Freier's Pizzeria Italian Bistro · 424 West Chisholm Street, Alpena, MI 49707</div>
+</footer>
+
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · Freier&#x27;s Pizzeria Italian Bistro LLC</div>
+
+<script>
+(function(){
+  var d=document,root=d.documentElement;
+  root.classList.add('js');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* reveals */
+  var rv=[].slice.call(d.querySelectorAll('.rv'));
+  if(reduce||!('IntersectionObserver' in window)){rv.forEach(function(e){e.classList.add('in')})}
+  else{
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    rv.forEach(function(e){io.observe(e)});
+  }
+
+  /* header, progress, parallax */
+  var header=d.querySelector('header.site'),prog=d.getElementById('progress'),par=d.getElementById('pzpar'),tick=false;
+  function onScroll(){
+    var y=window.scrollY||0,h=root.scrollHeight-window.innerHeight;
+    header.classList.toggle('scrolled',y>40);
+    if(!reduce){
+      prog.style.transform='scaleX('+(h>0?Math.min(1,y/h):0)+')';
+      if(y<1400&&par)par.style.transform='translate3d(0,'+(y*.14)+'px,0)';
+    }
+    tick=false;
+  }
+  window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(onScroll)}},{passive:true});
+  onScroll();
+
+  /* mobile menu */
+  var b=d.getElementById('burger'),list=d.getElementById('nav-list');
+  function closeMenu(){list.classList.remove('open');b.setAttribute('aria-expanded','false')}
+  b.addEventListener('click',function(){var o=list.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+  list.addEventListener('click',function(e){if(e.target.closest('a'))closeMenu()});
+  d.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu()});
+
+  /* copy address */
+  var cb=d.getElementById('copy'),msg=d.getElementById('copied'),addr='424 West Chisholm Street, Alpena, MI 49707';
+  cb.addEventListener('click',function(){
+    function ok(){msg.textContent='Copied!';setTimeout(function(){msg.textContent=''},2200)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(addr).then(ok,fallback)}else fallback();
+    function fallback(){
+      var t=d.createElement('textarea');t.value=addr;t.style.position='fixed';t.style.opacity='0';d.body.appendChild(t);t.select();
+      try{d.execCommand('copy');ok()}catch(e){msg.textContent='Press Ctrl+C to copy'}
+      d.body.removeChild(t);
+    }
+  });
+
+  /* magnetic buttons */
+  if(!reduce&&window.matchMedia('(pointer: fine)').matches){
+    [].slice.call(d.querySelectorAll('.btn')).forEach(function(el){
+      el.addEventListener('pointermove',function(e){
+        var r=el.getBoundingClientRect(),x=(e.clientX-r.left-r.width/2)*.18,y=(e.clientY-r.top-r.height/2)*.28;
+        el.style.transform='translate('+x+'px,'+(y-3)+'px)';
+      });
+      el.addEventListener('pointerleave',function(){el.style.transform=''});
+    });
+  }
+})();
+</script>
+</body>
+</html>

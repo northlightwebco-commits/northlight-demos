@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Lucky Brake | Auto repair in Glencoe, MN</title>
+<meta name="description" content="The Lucky Brake, auto repair shop at 2108 8th Street East in Glencoe, MN.">
+<meta name="theme-color" content="#0a0c12">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0c12;--bg2:#10131c;--card:#141826;--line:#2a3047;
+  --text:#eef0f6;--mute:#aab0c4;
+  --amber:#ffb224;--red:#ff4766;--green:#41ffa6;
+  --head:'Bungee',Impact,sans-serif;--body:'Space Grotesk',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:1.05rem;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+.wrap{width:min(1180px,100% - 2.5rem);margin-inline:auto}
+h1,h2,h3{font-family:var(--head);font-weight:400;line-height:1;text-wrap:balance;overflow-wrap:break-word}
+h2{font-size:clamp(1.9rem,6.2vw,3.6rem);margin-bottom:1rem}
+.eyebrow{font-family:var(--body);font-weight:700;letter-spacing:.22em;text-transform:uppercase;font-size:.8rem;color:var(--green);margin-bottom:1rem;display:flex;align-items:center;gap:.7rem}
+.eyebrow::before{content:"";width:2.2rem;height:2px;background:var(--green);box-shadow:0 0 10px var(--green)}
+.glow-a{color:var(--amber);text-shadow:0 0 6px rgba(255,178,36,.7),0 0 24px rgba(255,178,36,.45)}
+.glow-r{color:var(--red);text-shadow:0 0 6px rgba(255,71,102,.7),0 0 28px rgba(255,71,102,.5)}
+.glow-g{color:var(--green);text-shadow:0 0 6px rgba(65,255,166,.6),0 0 24px rgba(65,255,166,.4)}
+section{position:relative;padding:clamp(4rem,9vw,7rem) 0}
+
+/* progress + header */
+.progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:100;background:linear-gradient(90deg,var(--red),var(--amber),var(--green));transform-origin:0 50%;transform:scaleX(0);box-shadow:0 0 10px var(--amber)}
+header.top{position:sticky;top:0;z-index:50;transition:background .3s,box-shadow .3s}
+header.top .bar{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 0;transition:padding .3s}
+header.top.scrolled{background:rgba(10,12,18,.88);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+header.top.scrolled .bar{padding:.6rem 0}
+.logo{font-family:var(--head);text-decoration:none;font-size:1.15rem;display:flex;align-items:center;gap:.6rem}
+.logo svg{width:28px;height:28px}
+nav ul{list-style:none;display:flex;gap:1.8rem;align-items:center}
+nav a{text-decoration:none;font-weight:500;font-size:.95rem;position:relative;padding:.3rem 0}
+nav a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--amber);box-shadow:0 0 8px var(--amber);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+nav a:hover::after,nav a:focus-visible::after{transform:scaleX(1)}
+.burger{display:none;background:none;border:2px solid var(--amber);color:var(--amber);width:46px;height:46px;border-radius:10px;cursor:pointer;position:relative}
+.burger span,.burger span::before,.burger span::after{position:absolute;left:11px;right:11px;height:2px;background:currentColor;content:"";transition:transform .3s,opacity .3s}
+.burger span{top:21px}.burger span::before{left:0;right:0;top:-7px}.burger span::after{left:0;right:0;top:7px}
+.burger[aria-expanded=true] span{background:transparent}
+.burger[aria-expanded=true] span::before{transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded=true] span::after{transform:translateY(-7px) rotate(-45deg)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-family:var(--body);font-weight:700;font-size:1rem;text-decoration:none;color:var(--bg);background:var(--amber);border:2px solid var(--amber);padding:.85rem 1.5rem;border-radius:999px;cursor:pointer;box-shadow:0 0 18px rgba(255,178,36,.45);transition:transform .25s,box-shadow .25s,background .25s,color .25s;will-change:transform}
+.btn:hover,.btn:focus-visible{transform:translateY(-3px);box-shadow:0 0 30px rgba(255,178,36,.8)}
+.btn.alt{background:transparent;color:var(--amber);box-shadow:none}
+.btn.alt:hover,.btn.alt:focus-visible{background:rgba(255,178,36,.12);box-shadow:0 0 20px rgba(255,178,36,.4)}
+small{font-size:.85rem;color:var(--mute)}
+:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+
+/* hero */
+.hero{min-height:calc(100svh - 70px);display:flex;align-items:center;padding:3rem 0 7rem;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:2rem;align-items:center;position:relative;z-index:2}
+.hero h1{font-size:clamp(2.7rem,13vw,8.2rem);letter-spacing:-.01em;margin:.3rem 0 1.4rem}
+.hero h1 .the{display:block;font-size:.34em;letter-spacing:.3em;color:var(--mute);margin-bottom:.35em}
+.hero h1 .l{display:block}
+.hero p.lead{font-size:clamp(1.05rem,2.4vw,1.35rem);max-width:30rem;color:var(--mute);margin-bottom:2rem}
+.hero p.lead b{color:var(--text);font-weight:500}
+.cta-row{display:flex;flex-wrap:wrap;gap:.9rem}
+.sky{position:absolute;inset:0;background:radial-gradient(60% 50% at 78% 38%,rgba(255,71,102,.22),transparent 70%),radial-gradient(40% 40% at 10% 10%,rgba(65,255,166,.1),transparent 70%);z-index:0;pointer-events:none}
+.floor{position:absolute;left:-30%;right:-30%;bottom:0;height:42%;perspective:420px;z-index:1;overflow:hidden;pointer-events:none;-webkit-mask-image:linear-gradient(to top,#000 20%,transparent);mask-image:linear-gradient(to top,#000 20%,transparent)}
+.floor .plane{position:absolute;left:0;right:0;top:-40%;bottom:-100px;transform:rotateX(62deg);transform-origin:50% 100%;overflow:hidden}
+.floor .grid{position:absolute;left:0;right:0;top:-80px;bottom:0;background-image:linear-gradient(var(--red) 2px,transparent 2px),linear-gradient(90deg,var(--red) 2px,transparent 2px);background-size:80px 80px;opacity:.55;animation:roll 3s linear infinite}
+@keyframes roll{to{transform:translateY(80px)}}
+
+.rotor-wrap{position:relative;display:grid;place-items:center;transition:transform .2s ease-out;will-change:transform}
+.rotor-wrap svg{width:min(100%,460px);height:auto;overflow:visible;filter:drop-shadow(0 0 14px rgba(255,71,102,.55))}
+.rotor{transform-origin:200px 200px;animation:spin 14s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ring{stroke-dasharray:1;stroke-dashoffset:0;animation:draw 2.2s .4s ease-out both}
+@keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+.clover{transform-origin:200px 200px;animation:pop 1s 1.2s cubic-bezier(.3,1.6,.5,1) both}
+@keyframes pop{from{transform:scale(0) rotate(-90deg);opacity:0}to{transform:none;opacity:1}}
+.caliper{animation:squeeze 4s 2s ease-in-out infinite}
+@keyframes squeeze{0%,80%,100%{transform:translateX(0)}88%{transform:translateX(-5px)}}
+.flick{animation:flick 6s 2.4s infinite}
+@keyframes flick{0%,18%,22%,60%,64%,100%{opacity:1}20%,62%{opacity:.35}21%{opacity:.9}63%{opacity:.5}}
+
+/* entrance */
+.in{animation:rise .9s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i,0)*.12s + .1s)}
+@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+
+/* marquee */
+.marquee{border-block:2px solid var(--line);background:var(--bg2);overflow:hidden;padding:1rem 0;white-space:nowrap}
+.marquee .track{display:inline-flex;gap:2rem;animation:slide 32s linear infinite;padding-left:2rem}
+.marquee span{font-family:var(--head);font-size:clamp(1.1rem,3vw,1.8rem);display:inline-flex;gap:2rem;align-items:center}
+.marquee i{color:var(--amber);font-style:normal;text-shadow:0 0 10px var(--amber)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* shop */
+.shop .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.4rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:1.8rem;transition:transform .35s,border-color .35s,box-shadow .35s}
+.card:hover{transform:translateY(-8px) rotate(-.6deg);border-color:var(--amber);box-shadow:0 0 28px rgba(255,178,36,.25)}
+.card .ic{width:54px;height:54px;margin-bottom:1.1rem}
+.card h3{font-size:1.25rem;margin-bottom:.6rem}
+.card p{color:var(--mute)}
+.shop .intro{max-width:36rem;color:var(--mute)}
+
+/* services */
+.services{background:var(--bg2)}
+.note{display:flex;gap:.8rem;align-items:flex-start;border:1px dashed var(--amber);border-radius:14px;padding:1rem 1.2rem;margin:1.2rem 0 2.6rem;max-width:44rem;color:var(--text)}
+.note b{color:var(--bg);background:var(--amber);border-radius:6px;padding:.1rem .5rem;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.panel{background:var(--bg);border:1px solid var(--line);border-radius:18px;padding:1.6rem}
+.panel h3{font-size:1.2rem;margin-bottom:1rem;padding-bottom:.9rem;border-bottom:2px solid var(--line)}
+.panel:nth-child(1) h3{color:var(--green)}.panel:nth-child(2) h3{color:var(--red)}.panel:nth-child(3) h3{color:var(--amber)}
+.item{display:grid;grid-template-columns:1fr auto;gap:.2rem .8rem;padding:.9rem .6rem;margin:0 -.6rem;border-radius:10px;transition:background .25s,transform .25s}
+.item:hover{background:rgba(255,255,255,.05);transform:translateX(6px)}
+.item .n{font-weight:700}
+.item .d{grid-column:1;color:var(--mute);font-size:.93rem}
+.item .p{font-family:var(--head);font-size:.92rem;color:var(--amber);text-align:right;grid-row:1}
+.tag{grid-column:1/-1;justify-self:start;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--mute);color:var(--mute);border-radius:999px;padding:0 .55rem;margin-top:.2rem}
+
+/* hours + location */
+.loc .cols{display:grid;grid-template-columns:.9fr 1.1fr;gap:2.4rem;align-items:start;margin-top:1.6rem}
+.hours{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:1.6rem}
+.hours .tag{margin:0 0 1rem}
+.hours ul{list-style:none}
+.hours li{display:flex;justify-content:space-between;gap:1rem;padding:.65rem 0;border-bottom:1px solid var(--line)}
+.hours li:last-child{border:0}
+.hours li span:last-child{color:var(--amber);font-weight:500;text-align:right}
+.addr{margin-top:1.4rem;font-style:normal;font-size:1.15rem}
+.copy{margin-top:.8rem;background:none;border:2px solid var(--green);color:var(--green);padding:.55rem 1.1rem;border-radius:999px;font:700 .92rem var(--body);cursor:pointer;transition:background .25s,transform .25s}
+.copy:hover{background:rgba(65,255,166,.12);transform:translateY(-2px)}
+.map{border-radius:18px;overflow:hidden;border:2px solid var(--line)}
+.map iframe{width:100%;border:0;min-height:320px;display:block}
+.maplinks{display:flex;flex-wrap:wrap;gap:.7rem;padding:.9rem 0}
+.maplinks a{color:var(--green);font-weight:700}
+.mapcredit{font-size:.8rem;color:var(--mute)}
+
+/* contact */
+.contact{text-align:center;overflow:hidden}
+.contact h2{margin-inline:auto;max-width:14ch}
+.contact p{color:var(--mute);max-width:32rem;margin:0 auto 1.8rem}
+.contact .row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.np-cta{max-width:880px;margin:0 auto;padding:clamp(1.6rem,4vw,3rem);text-align:center;border:2px solid var(--red);border-radius:24px;background:linear-gradient(160deg,#1a1020,#0f1320);box-shadow:0 0 40px rgba(255,71,102,.35),inset 0 0 30px rgba(255,71,102,.1);animation:buzz 5s infinite}
+.np-cta h2,.np-cta h3{color:var(--red);text-shadow:0 0 14px rgba(255,71,102,.6)}
+.np-cta p{color:var(--mute);margin:.6rem 0 1.2rem}
+.np-cta .btn{margin:.3rem}
+@keyframes buzz{0%,92%,100%{box-shadow:0 0 40px rgba(255,71,102,.35),inset 0 0 30px rgba(255,71,102,.1)}94%{box-shadow:0 0 14px rgba(255,71,102,.2),inset 0 0 10px rgba(255,71,102,.05)}96%{box-shadow:0 0 50px rgba(255,71,102,.5),inset 0 0 30px rgba(255,71,102,.15)}}
+.cta-sec{padding-top:0}
+.np-banner{background:var(--amber);color:#0a0c12;text-align:center;font-size:.88rem;font-weight:500;padding:.5rem 1rem}
+.np-banner a{color:inherit}
+footer{border-top:1px solid var(--line);padding:2rem 0;color:var(--mute);font-size:.92rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem}
+
+/* toast */
+.toast{position:fixed;left:50%;bottom:1.4rem;transform:translate(-50%,40px);opacity:0;background:var(--green);color:#04120b;font-weight:700;padding:.7rem 1.2rem;border-radius:999px;transition:transform .3s,opacity .3s;z-index:120;pointer-events:none}
+.toast.show{transform:translate(-50%,0);opacity:1}
+
+/* reveal (JS only) */
+.js .rv{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--d,0)*.1s)}
+.js .rv.on{opacity:1;transform:none}
+.js .card.rv.on:hover{transform:translateY(-8px) rotate(-.6deg);transition-delay:0s}
+
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr}
+  .rotor-wrap{order:-1;max-width:300px;margin:0 auto}
+  .hero{padding-top:1rem}
+  .shop .cards,.sgrid,.loc .cols{grid-template-columns:1fr}
+  .burger{display:block}
+  nav{position:absolute;left:0;right:0;top:100%;background:rgba(10,12,18,.97);border-bottom:1px solid var(--line);max-height:0;overflow:hidden;visibility:hidden;transition:max-height .4s,visibility .4s}
+  nav.open{max-height:320px;visibility:visible}
+  nav ul{flex-direction:column;align-items:flex-start;gap:0;padding:.6rem 1.25rem 1.2rem}
+  nav li{width:100%}
+  nav a{display:block;padding:.8rem 0;font-size:1.1rem}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv{opacity:1;transform:none}
+  .ring{stroke-dashoffset:0}
+  .marquee{overflow-x:auto}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="top" id="top">
+  <div class="wrap bar">
+    <a href="#home" class="logo" aria-label="The Lucky Brake, home">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><g fill="#41ffa6"><circle cx="14" cy="14" r="7"/><circle cx="26" cy="14" r="7"/><circle cx="14" cy="26" r="7"/><circle cx="26" cy="26" r="7"/></g><circle cx="20" cy="20" r="4" fill="#0a0c12"/></svg>
+      <span class="glow-a">Lucky Brake</span>
+    </a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Menu"><span></span></button>
+    <nav id="nav" aria-label="Main">
+      <ul>
+        <li><a href="#shop">The shop</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#visit">Hours &amp; location</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="sky"></div>
+  <div class="floor" aria-hidden="true"><div class="plane"><div class="grid"></div></div></div>
+  <div class="wrap">
+    <div>
+      <p class="eyebrow in" style="--i:0">Auto repair · Glencoe, MN</p>
+      <h1 aria-label="The Lucky Brake">
+        <span class="the in" style="--i:1">The</span>
+        <span class="l glow-a in" style="--i:2">Lucky</span>
+        <span class="l glow-r flick in" style="--i:3">Brake</span>
+      </h1>
+      <p class="lead in" style="--i:4">Your car's <b>home away from the road</b> on 8th Street East. Bring it in, we'll take a look.</p>
+      <div class="cta-row in" style="--i:5">
+        <a href="#services" class="btn mag">See the services</a>
+        <a href="#visit" class="btn alt mag">Find the shop</a>
+      </div>
+    </div>
+    <div class="rotor-wrap in" style="--i:3" id="rotorWrap">
+      <svg viewBox="0 0 400 400" role="img" aria-label="Glowing brake rotor with a four-leaf clover at its center">
+        <g class="rotor">
+          <circle class="ring" pathLength="1" cx="200" cy="200" r="180" fill="none" stroke="#ff4766" stroke-width="8"/>
+          <circle cx="200" cy="200" r="140" fill="none" stroke="#ff4766" stroke-width="3" opacity=".6"/>
+          <circle cx="200" cy="200" r="110" fill="none" stroke="#ffb224" stroke-width="10" stroke-dasharray="0 28.8" stroke-linecap="round"/>
+          <circle cx="200" cy="200" r="150" fill="none" stroke="#ffb224" stroke-width="7" stroke-dasharray="0 39.3" stroke-linecap="round" opacity=".8"/>
+          <circle cx="200" cy="200" r="70" fill="#0a0c12" stroke="#ffb224" stroke-width="4"/>
+          <g stroke="#ffb224" stroke-width="3" opacity=".7"><path d="M200 130v-30M200 270v30M130 200h-30M270 200h30"/></g>
+        </g>
+        <g class="caliper"><path d="M318 128 q38 72 0 144 l-34 -10 q22 -62 0 -124z" fill="#10131c" stroke="#41ffa6" stroke-width="4" stroke-linejoin="round"/></g>
+        <g class="clover">
+          <g fill="#41ffa6"><circle cx="186" cy="186" r="15"/><circle cx="214" cy="186" r="15"/><circle cx="186" cy="214" r="15"/><circle cx="214" cy="214" r="15"/></g>
+          <circle cx="200" cy="200" r="6" fill="#0a0c12"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>The Lucky Brake <i>✦</i> Auto repair <i>✦</i> Glencoe <i>✦</i> Minnesota <i>✦</i> 8th Street East <i>✦</i> 2108 <i>✦</i></span>
+    <span>The Lucky Brake <i>✦</i> Auto repair <i>✦</i> Glencoe <i>✦</i> Minnesota <i>✦</i> 8th Street East <i>✦</i> 2108 <i>✦</i></span>
+    <span>The Lucky Brake <i>✦</i> Auto repair <i>✦</i> Glencoe <i>✦</i> Minnesota <i>✦</i> 8th Street East <i>✦</i> 2108 <i>✦</i></span>
+    <span>The Lucky Brake <i>✦</i> Auto repair <i>✦</i> Glencoe <i>✦</i> Minnesota <i>✦</i> 8th Street East <i>✦</i> 2108 <i>✦</i></span>
+  </div>
+</div>
+
+<section class="shop" id="shop">
+  <div class="wrap">
+    <p class="eyebrow rv">The shop</p>
+    <h2 class="rv" style="--d:1">A neighborhood <span class="glow-g">garage</span> with a lucky name.</h2>
+    <p class="intro rv" style="--d:2">The Lucky Brake is an auto repair shop in Glencoe, Minnesota. Here's what you need to know.</p>
+    <div class="cards">
+      <article class="card rv" style="--d:1">
+        <svg class="ic" viewBox="0 0 54 54" fill="none" stroke="#ffb224" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="27" cy="27" r="20"/><circle cx="27" cy="27" r="7"/><path d="M27 7v8M27 39v8M7 27h8M39 27h8"/></svg>
+        <h3>Auto repair</h3>
+        <p>A full-service repair shop for the car in your driveway.</p>
+      </article>
+      <article class="card rv" style="--d:2">
+        <svg class="ic" viewBox="0 0 54 54" fill="none" stroke="#ff4766" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M27 48C15 36 8 29 8 19a10 10 0 0 1 19-4 10 10 0 0 1 19 4c0 10-7 17-19 29z"/></svg>
+        <h3>Right in Glencoe</h3>
+        <p>Find us at 2108 8th Street East. Local roads, local shop.</p>
+      </article>
+      <article class="card rv" style="--d:3">
+        <svg class="ic" viewBox="0 0 54 54" fill="none" stroke="#41ffa6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="12" width="42" height="30" rx="5"/><path d="M8 15l19 15 19-15"/></svg>
+        <h3>Ask us anything</h3>
+        <p>Have a question about your car? Drop us a line by e-mail below.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <p class="eyebrow rv">Services</p>
+    <h2 class="rv" style="--d:1">What goes <span class="glow-r">under the hood.</span></h2>
+    <div class="note rv" style="--d:2"><b>Example</b><span>These are example services and prices that show how your service list would look. Your real services and prices go here.</span></div>
+    <div class="sgrid">
+      <div class="panel rv" style="--d:1">
+        <h3>Maintenance</h3>
+        <div class="item"><span class="n">Oil change</span><span class="p">from $49</span><span class="d">Oil and filter</span><span class="tag">Example</span></div>
+        <div class="item"><span class="n">Tire rotation</span><span class="p">from $25</span><span class="tag">Example</span></div>
+        <div class="item"><span class="n">Fluid check</span><span class="p">from $20</span><span class="tag">Example</span></div>
+      </div>
+      <div class="panel rv" style="--d:2">
+        <h3>Repairs</h3>
+        <div class="item"><span class="n">Brake service</span><span class="p">from $120</span><span class="d">Inspection and pads</span><span class="tag">Example</span></div>
+        <div class="item"><span class="n">Battery test &amp; replacement</span><span class="p">from $30</span><span class="tag">Example</span></div>
+        <div class="item"><span class="n">Check-engine diagnostics</span><span class="p">from $95</span><span class="tag">Example</span></div>
+      </div>
+      <div class="panel rv" style="--d:3">
+        <h3>Tires &amp; more</h3>
+        <div class="item"><span class="n">Tire mounting &amp; balance</span><span class="p">from $20 per tire</span><span class="tag">Example</span></div>
+        <div class="item"><span class="n">Wheel alignment</span><span class="p">from $89</span><span class="tag">Example</span></div>
+        <div class="item"><span class="n">A/C check</span><span class="p">from $59</span><span class="tag">Example</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="loc" id="visit">
+  <div class="wrap">
+    <p class="eyebrow rv">Hours &amp; location</p>
+    <h2 class="rv" style="--d:1">Pull in at <span class="glow-a">2108.</span></h2>
+    <div class="cols">
+      <div>
+        <div class="hours rv">
+          <span class="tag">Example hours</span>
+          <ul>
+            <li><span>Mon</span><span>7 AM – 3 PM</span></li>
+            <li><span>Tue</span><span>7 AM – 3 PM</span></li>
+            <li><span>Wed</span><span>7 AM – 3 PM</span></li>
+            <li><span>Thu</span><span>7 AM – 3 PM</span></li>
+            <li><span>Fri</span><span>7 AM – 8 PM</span></li>
+            <li><span>Sat</span><span>8 AM – 8 PM</span></li>
+            <li><span>Sun</span><span>Closed</span></li>
+          </ul>
+        </div>
+        <address class="addr rv" id="addr">2108 8th Street East, Glencoe, MN</address>
+        <button class="copy rv" id="copyBtn" type="button">Copy address</button>
+      </div>
+      <div class="rv" style="--d:2"><iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-94.13904,44.76101,-94.12704,44.77301&amp;layer=mapnik&amp;marker=44.76701,-94.13304"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=44.76701&amp;mlon=-94.13304#map=17/44.76701/-94.13304" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=44.76701,-94.13304" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow rv" style="justify-content:center">Contact</p>
+    <h2 class="rv" style="--d:1">Got a <span class="glow-g">rattle?</span> Write us.</h2>
+    <p class="rv" style="--d:2">Send a note about your car and we'll get back to you.</p>
+    <div class="row rv" style="--d:3"><a class="btn" href="mailto:theluckybrake@gmail.com">theluckybrake@gmail.com</a> </div>
+  </div>
+</section>
+
+<section class="cta-sec">
+  <div class="wrap rv"><section class="np-cta" id="offer"><h2>Want this for The Lucky Brake?</h2><p>This is a free preview made for The Lucky Brake. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20The%20Lucky%20Brake&amp;body=Yes%2C%20please%20make%20this%20site%20for%20The%20Lucky%20Brake.">Make it mine</a></p></section></div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>The Lucky Brake · Auto repair</span>
+    <span>2108 8th Street East, Glencoe, MN</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite">Address copied</div>
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · The Lucky Brake</div>
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var header=document.getElementById('top'),prog=document.getElementById('progress'),wrap=document.getElementById('rotorWrap');
+  var ticking=false;
+  function onScroll(){
+    var y=window.scrollY||0,h=document.documentElement.scrollHeight-window.innerHeight;
+    header.classList.toggle('scrolled',y>30);
+    prog.style.transform='scaleX('+(h>0?Math.min(1,y/h):0)+')';
+    if(!reduce&&wrap&&y<window.innerHeight*1.2){wrap.style.transform='translateY('+(y*0.12)+'px)'}
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(onScroll)}},{passive:true});
+  onScroll();
+
+  var items=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window&&!reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+    items.forEach(function(el){io.observe(el)});
+  }else{items.forEach(function(el){el.classList.add('on')})}
+
+  var burger=document.getElementById('burger'),nav=document.getElementById('nav');
+  function setMenu(o){nav.classList.toggle('open',o);burger.setAttribute('aria-expanded',o)}
+  burger.addEventListener('click',function(){setMenu(!nav.classList.contains('open'))});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A')setMenu(false)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')setMenu(false)});
+
+  if(!reduce){
+    document.querySelectorAll('.mag').forEach(function(b){
+      b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.2)+'px,'+((e.clientY-r.top-r.height/2)*.3-3)+'px)'});
+      b.addEventListener('mouseleave',function(){b.style.transform=''});
+    });
+  }
+
+  var toast=document.getElementById('toast');
+  function say(m){toast.textContent=m;toast.classList.add('show');setTimeout(function(){toast.classList.remove('show')},2000)}
+  document.getElementById('copyBtn').addEventListener('click',function(){
+    var t=document.getElementById('addr').textContent.trim();
+    function fb(){var a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy');say('Address copied')}catch(e){say('Copy failed')}document.body.removeChild(a)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){say('Address copied')},fb)}else fb();
+  });
+})();
+</script>
+</body>
+</html>

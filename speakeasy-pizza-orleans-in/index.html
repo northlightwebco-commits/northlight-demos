@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Speakeasy Pizza · Orleans, IN</title>
+<meta name="description" content="Speakeasy Pizza at 120 West Jefferson Street in Orleans, Indiana. Pizza. Dine in, sit on the patio.">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,800;1,6..96,500&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#120c0a;--panel:#1c1411;--panel2:#251a16;--brass:#d2a94f;--brass-d:#8f6f2a;
+  --cream:#f1e6cc;--mute:#c4b597;--blood:#8c2229;--tom:#e2553a;
+  --serif:'Bodoni Moda',Georgia,serif;--sans:'Josefin Sans',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--ink);color:var(--cream);font-family:var(--sans);font-size:1.0625rem;line-height:1.6;overflow-x:hidden;min-width:320px}
+img,svg,iframe{max-width:100%;display:block}
+a{color:inherit}
+section{scroll-margin-top:72px}
+.wrap{width:min(1180px,100% - 2.5rem);margin-inline:auto}
+h1,h2,h3{font-family:var(--serif);font-weight:800;line-height:1.02;text-wrap:balance;overflow-wrap:break-word}
+.eyebrow{font-size:.78rem;letter-spacing:.32em;text-transform:uppercase;color:var(--brass);font-weight:600}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.9rem 1.6rem;background:var(--brass);color:#1a1209;border:1.5px solid var(--brass);font:600 .85rem/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease,filter .25s ease;will-change:transform}
+.btn:hover{box-shadow:0 10px 28px rgba(210,169,79,.28);filter:brightness(1.08)}
+.btn.alt{background:transparent;color:var(--brass)}
+.btn:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid var(--tom);outline-offset:3px}
+small{font-size:.85em;color:var(--mute)}
+
+/* preview banner */
+.np-banner{background:var(--brass);color:#1a1209;text-align:center;font-size:.8rem;letter-spacing:.06em;padding:.45rem 1rem;font-weight:600}
+.np-banner a{color:inherit}
+
+/* progress */
+.prog{position:fixed;left:0;right:0;top:0;height:3px;z-index:60;background:var(--tom);transform:scaleX(0);transform-origin:0 50%}
+
+/* header */
+header.hd{position:sticky;top:0;z-index:50;padding:1rem 0;transition:padding .3s ease}
+header.hd::before{content:"";position:absolute;inset:0;background:rgba(18,12,10,.94);border-bottom:1px solid var(--brass-d);opacity:0;transition:opacity .3s ease;z-index:-1}
+header.hd.solid::before{opacity:1}
+header.hd.solid{padding:.6rem 0}
+.hd .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.logo{font-family:var(--serif);font-weight:800;font-size:1.15rem;text-decoration:none;letter-spacing:.02em;display:flex;align-items:center;gap:.6rem}
+.logo svg{width:26px;height:26px}
+nav.main ul{list-style:none;display:flex;gap:2rem}
+nav.main a{text-decoration:none;font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;position:relative;padding:.3rem 0}
+nav.main a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--brass);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+nav.main a:hover::after{transform:scaleX(1)}
+.burger{display:none;background:none;border:1.5px solid var(--brass);color:var(--brass);width:44px;height:44px;cursor:pointer;position:relative}
+.burger span{position:absolute;left:11px;right:11px;height:2px;background:currentColor;transition:transform .3s ease,opacity .3s ease}
+.burger span:nth-child(1){transform:translateY(-6px)}
+.burger span:nth-child(3){transform:translateY(6px)}
+.burger[aria-expanded=true] span:nth-child(1){transform:rotate(45deg)}
+.burger[aria-expanded=true] span:nth-child(2){opacity:0}
+.burger[aria-expanded=true] span:nth-child(3){transform:rotate(-45deg)}
+.burger span{top:50%;margin-top:-1px}
+
+/* hero */
+.hero{position:relative;min-height:calc(100svh - 70px);display:flex;align-items:center;padding:3rem 0 5rem;overflow:hidden;isolation:isolate;margin-top:-70px;padding-top:7rem}
+.rays{position:absolute;left:50%;top:46%;width:150vmax;height:150vmax;margin:-75vmax 0 0 -75vmax;z-index:-1;opacity:.5;pointer-events:none}
+.rays svg{width:100%;height:100%}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,transparent 0,var(--ink) 75%);z-index:-1}
+.hero .wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:2.5rem;align-items:center}
+.hero h1{font-size:clamp(2.7rem,12.5vw,8.2rem);letter-spacing:-.01em;margin:1rem 0 1.4rem}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.08em}
+.hero h1 .ln>span{display:block}
+.hero h1 em{font-style:italic;font-weight:500;color:var(--brass)}
+.lead{font-size:clamp(1.15rem,2.4vw,1.5rem);max-width:30ch;color:var(--cream);font-weight:300}
+.hero .acts{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2rem}
+.door{position:relative;justify-self:center;width:min(300px,70vw);aspect-ratio:3/4.4}
+.door svg{width:100%;height:100%;overflow:visible}
+.shutter{transform-box:fill-box}
+.glow{filter:blur(14px)}
+
+/* entrance */
+@keyframes rise{from{transform:translateY(110%)}to{transform:none}}
+@keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes openL{to{transform:translateX(-102%)}}
+@keyframes openR{to{transform:translateX(102%)}}
+@keyframes flick{0%,100%{opacity:.85}50%{opacity:1}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes roll{to{transform:translateX(-50%)}}
+.hero h1 .ln>span{animation:rise 1s cubic-bezier(.2,.8,.2,1) both}
+.hero h1 .ln:nth-child(2)>span{animation-delay:.15s}
+.hero .eyebrow{animation:fade .8s .05s both}
+.hero .lead{animation:fade .9s .55s both}
+.hero .acts{animation:fade .9s .75s both}
+.door{animation:fade 1s .4s both}
+.shutter.l{animation:openL 1.1s 1.2s cubic-bezier(.7,0,.2,1) forwards}
+.shutter.r{animation:openR 1.1s 1.2s cubic-bezier(.7,0,.2,1) forwards}
+.glow{animation:flick 3.2s 2s infinite ease-in-out}
+.rays svg{animation:spin 160s linear infinite}
+.draw{stroke-dasharray:var(--len,600);stroke-dashoffset:var(--len,600);animation:draw 2.4s .3s ease forwards}
+
+/* marquee */
+.tick{border-block:1px solid var(--brass-d);background:var(--panel);overflow:hidden;padding:1rem 0}
+.tick .tr{display:flex;width:max-content;animation:roll 38s linear infinite}
+.tick span{font-family:var(--serif);font-style:italic;font-size:clamp(1.2rem,3vw,1.8rem);white-space:nowrap;padding-right:1.5rem;color:var(--cream)}
+.tick span i{color:var(--tom);font-style:normal;padding-left:1.5rem}
+
+/* reveals */
+.js .rv{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+
+/* sections */
+.sec{padding:clamp(4rem,9vw,7.5rem) 0}
+.sec h2{font-size:clamp(2rem,6.5vw,4.4rem);margin:.8rem 0 1.2rem}
+.sec .intro{max-width:46ch;color:var(--mute)}
+
+/* offer */
+.offer{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3rem}
+.card{position:relative;background:var(--panel);border:1px solid var(--brass-d);padding:2rem 1.6rem 2.2rem;transition:transform .35s ease,border-color .35s ease;overflow:hidden}
+.card:hover{transform:translateY(-8px);border-color:var(--brass)}
+.card .n{font-family:var(--serif);font-size:3.6rem;font-weight:800;color:var(--brass);line-height:1;display:block;margin-bottom:1rem;transition:transform .4s ease}
+.card:hover .n{transform:scale(1.08) rotate(-3deg)}
+.card h3{font-size:1.7rem;margin-bottom:.5rem}
+.card p{color:var(--mute)}
+.card svg{width:54px;height:54px;margin-bottom:1rem}
+
+/* menu */
+.menu{background:var(--panel)}
+.tag{display:inline-block;border:1px solid var(--tom);color:var(--tom);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;padding:.15rem .5rem;font-weight:600;white-space:nowrap}
+.mnote{margin-top:1.2rem;padding:1rem 1.2rem;border-left:3px solid var(--tom);background:var(--ink);max-width:62ch}
+.mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;margin-top:3rem}
+.mgrid h3{font-size:2rem;padding-bottom:.7rem;border-bottom:2px solid var(--brass);margin-bottom:.6rem}
+.mi{display:grid;grid-template-columns:1fr auto;gap:.2rem 1rem;padding:1rem .6rem;border-bottom:1px dotted var(--brass-d);transition:transform .3s ease,background .3s ease}
+.mi:hover{transform:translateX(8px);background:var(--panel2)}
+.mi b{font-family:var(--serif);font-size:1.25rem;font-weight:500}
+.mi .pr{font-family:var(--serif);color:var(--brass);font-size:1.25rem;text-align:right}
+.mi p{grid-column:1;color:var(--mute);font-size:.95rem}
+.mi .tag{grid-column:1;justify-self:start;margin-top:.3rem}
+
+/* visit */
+.visit{display:grid;grid-template-columns:.9fr 1.1fr;gap:3rem;margin-top:2.5rem;align-items:start}
+.hours{list-style:none;margin-top:1rem}
+.hours li{display:flex;justify-content:space-between;gap:1rem;padding:.7rem 0;border-bottom:1px dotted var(--brass-d)}
+.hours li span:last-child{font-family:var(--serif);color:var(--cream)}
+.addr{display:block;width:100%;text-align:left;background:var(--panel);color:var(--cream);border:1px solid var(--brass-d);padding:1.1rem 1.2rem;font:inherit;cursor:pointer;margin:1rem 0 .4rem;transition:transform .25s ease,border-color .25s ease}
+.addr:hover{transform:translateY(-3px);border-color:var(--brass)}
+.addr strong{display:block;font-family:var(--serif);font-size:1.3rem;font-weight:500}
+.addr em{font-style:normal;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brass)}
+.map{margin-top:1rem;border:1px solid var(--brass-d);background:var(--panel);overflow:hidden}
+.map iframe{width:100%;min-height:320px;border:0;filter:grayscale(.6) contrast(1.05) brightness(.9)}
+.maplinks{display:flex;flex-wrap:wrap;gap:.8rem;padding:.8rem}
+.maplinks a{color:var(--brass);font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+.mapcredit{padding:0 .8rem .8rem;font-size:.75rem;color:var(--mute)}
+.mapcredit a{color:var(--mute)}
+
+/* contact */
+.contact{text-align:center;background:var(--blood)}
+.contact .intro{margin-inline:auto;color:var(--cream)}
+.contact .acts{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:2rem}
+.contact .eyebrow{color:var(--cream)}
+
+/* cta */
+.cta-sec{padding:clamp(3rem,7vw,5rem) 0}
+.np-cta{position:relative;border:1.5px solid var(--brass);padding:clamp(1.6rem,4vw,3rem);background:linear-gradient(160deg,var(--panel2),var(--panel));text-align:center;outline:1px solid var(--brass-d);outline-offset:8px}
+.np-cta h2,.np-cta h3{font-family:var(--serif);margin-bottom:.8rem}
+.np-cta p{color:var(--mute);margin-bottom:1rem}
+.np-cta .btn{margin:.3rem}
+
+footer{padding:2rem 0 3rem;text-align:center;color:var(--mute);font-size:.9rem}
+
+/* responsive */
+@media(max-width:900px){
+  .hero .wrap{grid-template-columns:1fr}
+  .door{order:-1;width:min(190px,48vw);justify-self:start}
+  .offer,.mgrid{grid-template-columns:1fr}
+  .visit{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  .burger{display:block}
+  nav.main{position:fixed;left:0;right:0;top:0;padding:5.5rem 1.5rem 2rem;background:var(--ink);border-bottom:1px solid var(--brass);transform:translateY(-110%);transition:transform .4s cubic-bezier(.2,.8,.2,1);z-index:-2}
+  nav.main.open{transform:none}
+  nav.main ul{flex-direction:column;gap:1.2rem}
+  nav.main a{font-size:1rem}
+  .burger{position:relative;z-index:2}
+  .logo{position:relative;z-index:2}
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv{opacity:1!important;transform:none!important}
+  .draw{stroke-dashoffset:0}
+  .shutter.l{transform:translateX(-102%)}
+  .shutter.r{transform:translateX(102%)}
+  .tick .tr{flex-wrap:wrap;width:auto}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div class="prog" id="prog" aria-hidden="true"></div>
+
+<header class="hd" id="hd">
+  <div class="wrap">
+    <a href="#home" class="logo" aria-label="Speakeasy Pizza, home">
+      <svg viewBox="0 0 32 32" fill="none" stroke="#d2a94f" stroke-width="1.6" aria-hidden="true"><path d="M5 29V13a11 11 0 0 1 22 0v16z"/><rect x="11" y="12" width="10" height="4"/><path d="M16 4v5M9 29V20M23 29V20"/></svg>
+      Speakeasy Pizza
+    </a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="mainnav" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav class="main" id="mainnav" aria-label="Main">
+      <ul>
+        <li><a href="#offer">The house</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#visit">Hours &amp; location</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="home">
+<section class="hero">
+  <div class="rays" id="rays" aria-hidden="true">
+    <svg viewBox="-100 -100 200 200"><g stroke="#d2a94f" stroke-width=".35" opacity=".5" id="raylines"></g></svg>
+  </div>
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Orleans, Indiana</p>
+      <h1 aria-label="Speakeasy Pizza"><span class="ln"><span>Speakeasy</span></span><span class="ln"><span><em>Pizza</em></span></span></h1>
+      <p class="lead">Pizza. Dine in, sit on the patio.</p>
+      <div class="acts">
+        <a class="btn mag" href="#menu">See the menu</a>
+        <a class="btn alt mag" href="#visit">Find the door</a>
+      </div>
+    </div>
+    <div class="door" id="door" aria-hidden="true">
+      <svg viewBox="0 0 300 440">
+        <defs>
+          <clipPath id="slotclip"><rect x="95" y="120" width="110" height="46"/></clipPath>
+          <linearGradient id="wood" x1="0" x2="1"><stop offset="0" stop-color="#2b1b15"/><stop offset=".5" stop-color="#3a251c"/><stop offset="1" stop-color="#241712"/></linearGradient>
+        </defs>
+        <path class="draw" style="--len:1200" d="M10 430V150a140 140 0 0 1 280 0v280z" fill="none" stroke="#d2a94f" stroke-width="3"/>
+        <path d="M24 424V152a126 126 0 0 1 252 0v272z" fill="url(#wood)" stroke="#8f6f2a" stroke-width="1.5"/>
+        <path class="draw" style="--len:500" d="M48 400V170a102 102 0 0 1 204 0v230z" fill="none" stroke="#8f6f2a" stroke-width="1.2"/>
+        <path class="draw" style="--len:300" d="M60 330h180M60 360h180" stroke="#8f6f2a" stroke-width="1" fill="none"/>
+        <rect x="95" y="120" width="110" height="46" fill="#e2a23a" class="glow"/>
+        <g clip-path="url(#slotclip)">
+          <rect x="95" y="120" width="110" height="46" fill="#ffcf6b"/>
+          <circle cx="150" cy="143" r="16" fill="#e2553a"/>
+          <circle cx="144" cy="138" r="3" fill="#8c2229"/><circle cx="157" cy="147" r="3" fill="#8c2229"/><circle cx="152" cy="136" r="2.4" fill="#8c2229"/>
+          <rect class="shutter l" x="95" y="120" width="56" height="46" fill="#1c1411" stroke="#8f6f2a"/>
+          <rect class="shutter r" x="149" y="120" width="56" height="46" fill="#1c1411" stroke="#8f6f2a"/>
+        </g>
+        <rect x="95" y="120" width="110" height="46" fill="none" stroke="#d2a94f" stroke-width="2.5"/>
+        <circle cx="222" cy="290" r="9" fill="#d2a94f"/>
+        <text x="150" y="222" text-anchor="middle" font-family="Bodoni Moda, serif" font-size="15" letter-spacing="6" fill="#d2a94f">PIZZA</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="tick" aria-hidden="true">
+  <div class="tr" id="tr">
+    <span>Pizza<i>✦</i></span><span>Dine in<i>✦</i></span><span>Patio seating<i>✦</i></span><span>Orleans, Indiana<i>✦</i></span><span>120 West Jefferson Street<i>✦</i></span>
+    <span>Pizza<i>✦</i></span><span>Dine in<i>✦</i></span><span>Patio seating<i>✦</i></span><span>Orleans, Indiana<i>✦</i></span><span>120 West Jefferson Street<i>✦</i></span>
+  </div>
+</div>
+
+<section class="sec" id="offer">
+  <div class="wrap">
+    <p class="eyebrow rv">The house</p>
+    <h2 class="rv" style="--d:.08s">Come in. Stay a while.</h2>
+    <p class="intro rv" style="--d:.16s">A pizza place on West Jefferson Street with a seat for you inside and one out on the patio.</p>
+    <div class="offer">
+      <article class="card rv" style="--d:.1s">
+        <svg viewBox="0 0 54 54" fill="none" stroke="#d2a94f" stroke-width="1.6" aria-hidden="true"><path d="M5 12a30 30 0 0 1 44 0L27 50z"/><circle cx="24" cy="21" r="3"/><circle cx="32" cy="27" r="3"/><circle cx="26" cy="34" r="2.5"/></svg>
+        <span class="n">01</span>
+        <h3>Pizza</h3>
+        <p>The reason for the knock.</p>
+      </article>
+      <article class="card rv" style="--d:.2s">
+        <svg viewBox="0 0 54 54" fill="none" stroke="#d2a94f" stroke-width="1.6" aria-hidden="true"><path d="M8 24h38M12 24v22M42 24v22M16 24c0-10 6-14 11-14s11 4 11 14"/></svg>
+        <span class="n">02</span>
+        <h3>Dine in</h3>
+        <p>Pull up a chair and eat it hot.</p>
+      </article>
+      <article class="card rv" style="--d:.3s">
+        <svg viewBox="0 0 54 54" fill="none" stroke="#d2a94f" stroke-width="1.6" aria-hidden="true"><path d="M27 6v10M10 16h34L27 6zM27 16v32M17 48h20"/></svg>
+        <span class="n">03</span>
+        <h3>The patio</h3>
+        <p>Take your table outside.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec menu" id="menu">
+  <div class="wrap">
+    <p class="eyebrow rv">Menu <span class="tag" style="margin-left:.6rem">Example</span></p>
+    <h2 class="rv" style="--d:.08s">What's on the table</h2>
+    <p class="mnote rv" style="--d:.16s">This is an example menu that shows how your menu would look. Your real dishes and prices go here.</p>
+    <div class="mgrid">
+      <div class="rv">
+        <h3>Pizza</h3>
+        <div class="mi"><b>Margherita</b><span class="pr">$12.00</span><p>Tomato, mozzarella, basil</p><span class="tag">Example</span></div>
+        <div class="mi"><b>Pepperoni</b><span class="pr">$13.50</span><span class="tag">Example</span></div>
+        <div class="mi"><b>Supreme</b><span class="pr">$16.00</span><span class="tag">Example</span></div>
+      </div>
+      <div class="rv" style="--d:.12s">
+        <h3>Pasta</h3>
+        <div class="mi"><b>Spaghetti &amp; meatballs</b><span class="pr">$13.50</span><span class="tag">Example</span></div>
+        <div class="mi"><b>Fettuccine Alfredo</b><span class="pr">$13.00</span><span class="tag">Example</span></div>
+        <div class="mi"><b>Baked lasagna</b><span class="pr">$14.50</span><span class="tag">Example</span></div>
+      </div>
+      <div class="rv" style="--d:.24s">
+        <h3>Starters</h3>
+        <div class="mi"><b>Garlic bread</b><span class="pr">$5.00</span><span class="tag">Example</span></div>
+        <div class="mi"><b>House salad</b><span class="pr">$6.50</span><span class="tag">Example</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="visit">
+  <div class="wrap">
+    <p class="eyebrow rv">Hours &amp; location</p>
+    <h2 class="rv" style="--d:.08s">Find the door</h2>
+    <div class="visit">
+      <div class="rv">
+        <span class="tag">Example hours</span>
+        <ul class="hours">
+          <li><span>Mon</span><span>7 AM – 3 PM</span></li>
+          <li><span>Tue</span><span>7 AM – 3 PM</span></li>
+          <li><span>Wed</span><span>7 AM – 3 PM</span></li>
+          <li><span>Thu</span><span>7 AM – 3 PM</span></li>
+          <li><span>Fri</span><span>7 AM – 8 PM</span></li>
+          <li><span>Sat</span><span>8 AM – 8 PM</span></li>
+          <li><span>Sun</span><span>Closed</span></li>
+        </ul>
+      </div>
+      <div class="rv" style="--d:.15s">
+        <button class="addr" id="addr" type="button" data-copy="120 West Jefferson Street, Orleans, IN 47452">
+          <em>Address · tap to copy</em>
+          <strong>120 West Jefferson Street<br>Orleans, IN 47452</strong>
+        </button>
+        <small id="copied" role="status" aria-live="polite">&nbsp;</small>
+        <iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-86.45917,38.65680,-86.44717,38.66880&amp;layer=mapnik&amp;marker=38.66280,-86.45317"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=38.66280&amp;mlon=-86.45317#map=17/38.66280/-86.45317" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=38.66280,-86.45317" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow rv">Contact</p>
+    <h2 class="rv" style="--d:.08s">Drop us a line</h2>
+    <p class="intro rv" style="--d:.16s">Questions about Speakeasy Pizza in Orleans? Send a note.</p>
+    <div class="acts rv" style="--d:.24s"><a class="btn" href="mailto:speakeasypizzallc@gmail.com">speakeasypizzallc@gmail.com</a> </div>
+  </div>
+</section>
+
+<section class="cta-sec">
+  <div class="wrap rv"><section class="np-cta" id="offer"><h2>Want this for Speakeasy Pizza?</h2><p>This is a free preview made for Speakeasy Pizza. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20Speakeasy%20Pizza&amp;body=Yes%2C%20please%20make%20this%20site%20for%20Speakeasy%20Pizza.">Make it mine</a></p></section></div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">Speakeasy Pizza · 120 West Jefferson Street · Orleans, IN 47452</div>
+</footer>
+
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · Speakeasy Pizza</div>
+<script>
+(function(){
+  var rootEl=document.documentElement;
+  rootEl.classList.add('js');
+  var calm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* sunburst rays */
+  var rayG=document.getElementById('raylines');
+  if(rayG){
+    var rayHtml='';
+    for(var k=0;k<48;k++){
+      var ang=k*Math.PI*2/48;
+      rayHtml+='<line x1="'+(Math.cos(ang)*14).toFixed(2)+'" y1="'+(Math.sin(ang)*14).toFixed(2)+'" x2="'+(Math.cos(ang)*100).toFixed(2)+'" y2="'+(Math.sin(ang)*100).toFixed(2)+'"/>';
+    }
+    rayG.innerHTML=rayHtml;
+  }
+
+  /* header, progress, parallax */
+  var hdEl=document.getElementById('hd');
+  var progEl=document.getElementById('prog');
+  var raysEl=document.getElementById('rays');
+  var doorEl=document.getElementById('door');
+  var ticking=false;
+  function paint(){
+    var sy=window.pageYOffset||0;
+    var maxScroll=Math.max(1,document.documentElement.scrollHeight-window.innerHeight);
+    hdEl.classList.toggle('solid',sy>40);
+    progEl.style.transform='scaleX('+Math.min(1,sy/maxScroll).toFixed(4)+')';
+    if(!calm&&sy<window.innerHeight*1.4){
+      if(raysEl)raysEl.style.transform='translate3d(0,'+(sy*0.18).toFixed(1)+'px,0)';
+      if(doorEl)doorEl.style.transform='translate3d(0,'+(sy*-0.08).toFixed(1)+'px,0)';
+    }
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(paint);}},{passive:true});
+  window.addEventListener('resize',paint);
+  paint();
+
+  /* mobile menu */
+  var burgerEl=document.getElementById('burger');
+  var navEl=document.getElementById('mainnav');
+  function setMenu(isOpen){
+    burgerEl.setAttribute('aria-expanded',isOpen?'true':'false');
+    navEl.classList.toggle('open',isOpen);
+  }
+  burgerEl.addEventListener('click',function(){setMenu(burgerEl.getAttribute('aria-expanded')!=='true');});
+  navEl.addEventListener('click',function(ev){if(ev.target.tagName==='A')setMenu(false);});
+  document.addEventListener('keydown',function(ev){if(ev.key==='Escape')setMenu(false);});
+
+  /* reveals */
+  var revealList=document.querySelectorAll('.rv');
+  if(calm||!('IntersectionObserver' in window)){
+    revealList.forEach(function(el){el.classList.add('in');});
+  }else{
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
+      });
+    },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    revealList.forEach(function(el){io.observe(el);});
+  }
+
+  /* magnetic buttons */
+  if(!calm&&window.matchMedia('(hover:hover)').matches){
+    document.querySelectorAll('.btn').forEach(function(bt){
+      bt.addEventListener('mousemove',function(ev){
+        var box=bt.getBoundingClientRect();
+        var dx=(ev.clientX-box.left-box.width/2)*0.22;
+        var dy=(ev.clientY-box.top-box.height/2)*0.3;
+        bt.style.transform='translate('+dx.toFixed(1)+'px,'+(dy-2).toFixed(1)+'px)';
+      });
+      bt.addEventListener('mouseleave',function(){bt.style.transform='';});
+    });
+  }
+
+  /* click to copy address */
+  var addrBtn=document.getElementById('addr');
+  var copiedEl=document.getElementById('copied');
+  function say(msg){
+    copiedEl.textContent=msg;
+    setTimeout(function(){copiedEl.innerHTML='&nbsp;';},2400);
+  }
+  addrBtn.addEventListener('click',function(){
+    var text=addrBtn.getAttribute('data-copy');
+    function fallback(){
+      var ta=document.createElement('textarea');
+      ta.value=text;ta.setAttribute('readonly','');
+      ta.style.cssText='position:fixed;opacity:0;left:0;top:0';
+      document.body.appendChild(ta);ta.select();
+      var okCopy=false;
+      try{okCopy=document.execCommand('copy');}catch(err){okCopy=false;}
+      document.body.removeChild(ta);
+      say(okCopy?'Address copied.':'Press and hold to copy the address.');
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){say('Address copied.');},fallback);
+    }else{fallback();}
+  });
+})();
+</script>
+</body>
+</html>

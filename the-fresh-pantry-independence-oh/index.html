@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Fresh Pantry · Café in Independence, OH</title>
+<meta name="description" content="The Fresh Pantry, a café on Rockside Road in Independence, Ohio. Coffee and sandwiches.">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f1f3ea;--paper2:#e6e9dd;--ink:#12231c;--ink2:#1b3328;--mute:#46564d;
+  --acc:#ff5b2e;--acc-d:#b83410;--line:rgba(18,35,28,.18);
+  --f-head:'Bricolage Grotesque',system-ui,sans-serif;--f-mono:'DM Mono',ui-monospace,monospace;
+  --pad:clamp(1.1rem,4vw,3.5rem);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-head);font-size:1.0625rem;line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+.mono{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+.wrap{padding-inline:var(--pad);max-width:1440px;margin-inline:auto}
+h1,h2,h3{text-wrap:balance;overflow-wrap:break-word}
+
+/* banner slot */
+.np-banner{background:var(--acc);color:var(--ink);font-family:var(--f-mono);font-size:.75rem;letter-spacing:.04em;text-align:center;padding:.5rem var(--pad);line-height:1.4}
+.np-banner a{color:inherit;font-weight:500}
+
+/* progress */
+.progress{position:fixed;left:0;top:0;height:4px;width:100%;background:var(--acc);transform:scaleX(0);transform-origin:0 50%;z-index:100;pointer-events:none}
+
+/* header */
+header.site{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--line);transition:box-shadow .3s,background .3s}
+header.site .in{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:1.05rem;transition:padding .3s}
+header.site.scrolled{box-shadow:0 8px 30px -18px rgba(18,35,28,.5);background:rgba(241,243,234,.92);backdrop-filter:blur(10px)}
+header.site.scrolled .in{padding-block:.55rem}
+.logo{font-weight:800;font-size:1.15rem;text-decoration:none;letter-spacing:-.02em;display:flex;align-items:center;gap:.55rem}
+.logo i{width:.8rem;height:.8rem;background:var(--acc);border-radius:50%;display:block;transition:transform .4s}
+.logo:hover i{transform:scale(1.6)}
+nav.main ul{display:flex;gap:1.8rem;list-style:none}
+nav.main a{font-family:var(--f-mono);font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;text-decoration:none;position:relative;padding:.3rem 0}
+nav.main a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--acc);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+nav.main a:hover::after,nav.main a:focus-visible::after{transform:scaleX(1)}
+.burger{display:none;background:none;border:1px solid var(--ink);width:44px;height:44px;border-radius:50%;cursor:pointer;position:relative;color:var(--ink)}
+.burger span{position:absolute;left:12px;right:12px;height:2px;background:currentColor;transition:transform .3s,opacity .3s}
+.burger span:nth-child(1){top:16px}.burger span:nth-child(2){top:21px}.burger span:nth-child(3){top:26px}
+.burger[aria-expanded=true] span:nth-child(1){transform:translateY(5px) rotate(45deg)}
+.burger[aria-expanded=true] span:nth-child(2){opacity:0}
+.burger[aria-expanded=true] span:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
+@media(max-width:760px){
+  .burger{display:block}
+  nav.main{position:absolute;left:0;right:0;top:100%;background:var(--paper);border-bottom:1px solid var(--line);display:none}
+  nav.main.open{display:block}
+  nav.main ul{flex-direction:column;gap:0;padding:.5rem var(--pad) 1.2rem}
+  nav.main a{display:block;padding:.9rem 0;font-size:.95rem;border-bottom:1px solid var(--line)}
+}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:.6rem;background:var(--acc);color:var(--ink);font-family:var(--f-head);font-weight:600;font-size:1rem;padding:.85rem 1.5rem;border-radius:999px;border:2px solid var(--ink);text-decoration:none;cursor:pointer;transition:transform .25s,box-shadow .25s,background .25s;will-change:transform}
+.btn:hover,.btn:focus-visible{transform:translateY(-3px);box-shadow:0 10px 0 -4px var(--ink)}
+.btn.alt{background:transparent;color:inherit;border-color:currentColor}
+small,.small{font-size:.85rem}
+
+/* hero */
+.hero{background:var(--ink);color:var(--paper);position:relative;overflow:hidden}
+.hero .grid{display:grid;grid-template-columns:1.25fr .75fr;gap:2rem;align-items:center;padding-block:clamp(2.5rem,7vw,6rem) clamp(2.5rem,6vw,5rem);min-height:min(80vh,780px)}
+.hero .eyebrow{color:var(--acc);display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1.6rem}
+.hero h1{font-weight:800;font-size:clamp(3.2rem,13.5vw,10.5rem);line-height:.88;letter-spacing:-.045em}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1 .ln span{display:block}
+.hero h1 .ln:last-child{color:var(--acc)}
+.hero .lead{font-size:clamp(1.3rem,3vw,2rem);margin-top:1.8rem;font-weight:400;max-width:22ch;letter-spacing:-.01em}
+.hero .acts{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2rem}
+.hero .btn.alt{color:var(--paper)}
+.hero .btn{border-color:var(--paper)}
+.hero .btn:hover{box-shadow:0 10px 0 -4px var(--paper)}
+.art{position:relative;justify-self:center;width:100%;max-width:460px;will-change:transform}
+.art svg{width:100%;height:auto;overflow:visible}
+.draw{fill:none;stroke:var(--paper);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:0}
+.steam{fill:none;stroke:var(--acc);stroke-width:4;stroke-linecap:round;opacity:.9}
+.numeral-bg{position:absolute;right:-2vw;bottom:-6vw;font-weight:800;font-size:clamp(10rem,32vw,28rem);line-height:1;color:var(--ink2);letter-spacing:-.06em;pointer-events:none;user-select:none}
+.hero .wrap{position:relative;z-index:1}
+@media(max-width:860px){.hero .grid{grid-template-columns:1fr;min-height:0}.art{max-width:300px;justify-self:start}}
+
+/* marquee */
+.marquee{background:var(--acc);color:var(--ink);border-block:2px solid var(--ink);overflow:hidden;white-space:nowrap}
+.marquee .track{display:inline-flex;animation:mq 32s linear infinite;padding-block:.8rem}
+.marquee span{font-weight:800;font-size:clamp(1.2rem,3vw,1.9rem);letter-spacing:-.02em;padding-inline:1.4rem;display:inline-flex;align-items:center;gap:2.8rem}
+.marquee span::after{content:"";width:.55em;height:.55em;background:var(--ink);border-radius:50%}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* sections */
+section{padding-block:clamp(3.5rem,9vw,8rem)}
+.sec-head{display:grid;grid-template-columns:auto 1fr;gap:1rem 2rem;align-items:end;margin-bottom:clamp(2rem,5vw,4rem);border-bottom:2px solid var(--ink);padding-bottom:1.2rem}
+.sec-head .n{font-weight:800;font-size:clamp(3rem,9vw,7rem);line-height:.8;color:var(--acc-d);letter-spacing:-.05em}
+.sec-head h2{font-weight:800;font-size:clamp(2.1rem,6.5vw,5rem);line-height:.95;letter-spacing:-.035em}
+
+/* offer */
+.offer{display:grid;grid-template-columns:1fr 1fr;gap:0;border:2px solid var(--ink)}
+.cell{padding:clamp(1.5rem,4vw,3.2rem);position:relative;overflow:hidden;transition:background .4s,color .4s;min-height:260px;display:flex;flex-direction:column;justify-content:space-between;gap:2rem}
+.cell+.cell{border-left:2px solid var(--ink)}
+.cell h3{font-weight:800;font-size:clamp(2.4rem,7vw,5.5rem);line-height:.9;letter-spacing:-.04em}
+.cell p{max-width:30ch;color:inherit}
+.cell svg{width:64px;height:64px;transition:transform .5s}
+.cell:hover{background:var(--ink);color:var(--paper)}
+.cell:hover svg{transform:rotate(-10deg) scale(1.15)}
+.cell svg *{fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:700px){.offer{grid-template-columns:1fr}.cell+.cell{border-left:0;border-top:2px solid var(--ink)}.cell{min-height:200px}}
+
+/* menu */
+.menu{background:var(--paper2)}
+.note{display:flex;gap:.9rem;align-items:flex-start;background:var(--ink);color:var(--paper);padding:1rem 1.2rem;border-radius:4px;margin-bottom:2.5rem;max-width:62ch}
+.tag{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;background:var(--acc);color:var(--ink);padding:.2rem .55rem;border-radius:3px;white-space:nowrap;font-weight:500;display:inline-block}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.5rem,3vw,3rem)}
+.col{border-top:2px solid var(--ink);padding-top:1rem}
+.col h3{display:flex;justify-content:space-between;align-items:baseline;gap:.8rem;flex-wrap:wrap;font-weight:800;font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-.03em;line-height:1.05;margin-bottom:1rem}
+.col ul{list-style:none}
+.item{padding:.8rem .5rem;margin-inline:-.5rem;border-bottom:1px dashed var(--line);display:grid;grid-template-columns:1fr auto;gap:.1rem 1rem;transition:transform .3s,background .3s}
+.item:hover{transform:translateX(8px);background:rgba(255,91,46,.16)}
+.item b{font-weight:600}
+.item .p{font-family:var(--f-mono);font-weight:500}
+.item em{grid-column:1/-1;font-style:normal;color:var(--mute);font-size:.92rem}
+@media(max-width:900px){.cols{grid-template-columns:1fr}}
+
+/* hours */
+.hl{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(2rem,5vw,4.5rem);align-items:start}
+.hours{list-style:none;margin-top:1rem}
+.hours li{display:flex;justify-content:space-between;gap:1rem;padding:.8rem 0;border-bottom:1px solid var(--line);font-size:1.1rem;transition:padding .3s}
+.hours li:hover{padding-left:.6rem}
+.hours li span:last-child{font-family:var(--f-mono);font-size:.95rem}
+.hours li.today{font-weight:800;color:var(--acc-d)}
+.addr{font-style:normal;font-weight:800;font-size:clamp(1.5rem,3.4vw,2.4rem);line-height:1.1;letter-spacing:-.03em;margin-block:1rem 1.2rem}
+.copy{background:none;border:2px solid var(--ink);color:var(--ink);border-radius:999px;padding:.5rem 1.1rem;font-family:var(--f-mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:background .25s,color .25s,transform .25s}
+.copy:hover,.copy:focus-visible{background:var(--ink);color:var(--paper);transform:translateY(-2px)}
+.map{margin-top:1.6rem;border:2px solid var(--ink);overflow:hidden;background:var(--paper2)}
+.map iframe{display:block;width:100%;min-height:300px;border:0}
+.maplinks{display:flex;flex-wrap:wrap;gap:.7rem;padding:.8rem;border-top:2px solid var(--ink)}
+.maplinks a{font-family:var(--f-mono);font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;font-weight:500;padding:.5rem .9rem;border:2px solid var(--ink);border-radius:999px;text-decoration:none;transition:background .25s,color .25s}
+.maplinks a:hover{background:var(--ink);color:var(--paper)}
+.mapcredit{font-size:.72rem;color:var(--mute);padding:0 .8rem .7rem}
+.mapcredit a{color:inherit}
+@media(max-width:860px){.hl{grid-template-columns:1fr}}
+
+/* contact */
+.contact{background:var(--acc);border-block:2px solid var(--ink)}
+.contact .box{display:grid;grid-template-columns:1.3fr 1fr;gap:2rem;align-items:center}
+.contact h2{font-weight:800;font-size:clamp(2.4rem,8vw,6.5rem);line-height:.9;letter-spacing:-.045em}
+.contact .actions{display:flex;flex-wrap:wrap;gap:1rem}
+.contact .btn{background:var(--ink);color:var(--paper)}
+.contact .btn:hover{box-shadow:0 10px 0 -4px var(--paper)}
+@media(max-width:800px){.contact .box{grid-template-columns:1fr}}
+
+/* CTA */
+.ctasec{background:var(--ink);color:var(--paper)}
+.np-cta{border:2px dashed var(--acc);padding:clamp(1.5rem,4vw,3.2rem);border-radius:6px;position:relative;transition:transform .4s}
+.np-cta:hover{transform:rotate(-.4deg)}
+.np-cta h2,.np-cta h3{font-weight:800;font-size:clamp(1.8rem,5vw,3.4rem);line-height:1;letter-spacing:-.03em;margin-bottom:.8rem}
+.np-cta p{max-width:52ch;margin-bottom:1.2rem;color:#d3dbd0}
+.np-cta .btn{border-color:var(--paper)}
+.np-cta .btn.alt{color:var(--paper)}
+.np-cta a{color:inherit}
+footer.f{padding-block:1.6rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;color:var(--mute)}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(32px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0)*90ms)}
+.js .rv.in{opacity:1;transform:none}
+
+/* hero entrance */
+.js .hero h1 .ln span{transform:translateY(105%);animation:up 1s cubic-bezier(.2,.8,.2,1) forwards}
+.js .hero h1 .ln:nth-child(1) span{animation-delay:.1s}
+.js .hero h1 .ln:nth-child(2) span{animation-delay:.25s}
+.js .hero h1 .ln:nth-child(3) span{animation-delay:.4s}
+.js .hero .fade{opacity:0;animation:fadeup .9s ease forwards;animation-delay:calc(.7s + var(--d,0s))}
+@keyframes up{to{transform:none}}
+@keyframes fadeup{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.steam{animation:steam 3.2s ease-in-out infinite}
+.steam.s2{animation-delay:.8s}.steam.s3{animation-delay:1.6s}
+@keyframes steam{0%{opacity:0;transform:translateY(14px)}40%{opacity:.95}100%{opacity:0;transform:translateY(-22px)}}
+.draw{stroke-dasharray:var(--len,900);animation:dr 2.4s .3s ease forwards}
+.js .draw{stroke-dashoffset:var(--len,900)}
+@keyframes dr{to{stroke-dashoffset:0}}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv,.js .hero .fade,.js .hero h1 .ln span{opacity:1!important;transform:none!important}
+  .js .draw{stroke-dashoffset:0!important}
+  .steam{opacity:.8}
+  .marquee .track{transform:none}
+  .marquee{overflow-x:auto}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="site" id="top">
+  <div class="wrap in">
+    <a class="logo" href="#top"><i></i>The Fresh Pantry</a>
+    <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+    <nav class="main" id="nav" aria-label="Main">
+      <ul>
+        <li><a href="#offer">What we serve</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#visit">Hours &amp; location</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="hero">
+  <div class="numeral-bg" aria-hidden="true">01</div>
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="eyebrow mono fade"><span>Café</span><span>/</span><span>Independence, OH</span></div>
+        <h1 aria-label="The Fresh Pantry"><span class="ln"><span>The</span></span><span class="ln"><span>Fresh</span></span><span class="ln"><span>Pantry</span></span></h1>
+        <p class="lead fade" style="--d:.1s">Coffee and sandwiches.</p>
+        <div class="acts fade" style="--d:.25s">
+          <a class="btn mag" href="#menu">See the menu <span aria-hidden="true">→</span></a>
+          <a class="btn alt mag" href="#visit">Find us</a>
+        </div>
+      </div>
+      <div class="art" id="art" aria-hidden="true">
+        <svg viewBox="0 0 400 420" role="img">
+          <path class="steam" d="M150 120 C130 90 170 70 150 40"/>
+          <path class="steam s2" d="M200 125 C180 90 220 65 200 30"/>
+          <path class="steam s3" d="M250 120 C230 90 270 70 250 40"/>
+          <path class="draw" style="--len:1000" d="M80 160 H320 V260 C320 320 280 350 200 350 C120 350 80 320 80 260 Z"/>
+          <path class="draw" style="--len:300" d="M320 190 H345 C375 190 375 270 340 270 H318"/>
+          <path class="draw" style="--len:600" d="M40 385 H360"/>
+          <path class="draw" style="--len:300" d="M120 215 H280 M120 245 H240"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Coffee</span><span>Sandwiches</span><span>The Fresh Pantry</span><span>Rockside Road</span><span>Independence, OH</span><span>Café</span>
+    <span>Coffee</span><span>Sandwiches</span><span>The Fresh Pantry</span><span>Rockside Road</span><span>Independence, OH</span><span>Café</span>
+  </div>
+</div>
+
+<section id="offer">
+  <div class="wrap">
+    <div class="sec-head rv"><div class="n">02</div><h2>On the shelf</h2></div>
+    <div class="offer">
+      <div class="cell rv" style="--i:0">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 24h34v14c0 10-7 16-17 16S12 48 12 38z"/><path d="M46 28h4c6 0 6 12 0 12h-4"/><path d="M22 16c-3-4 3-6 0-10M32 16c-3-4 3-6 0-10"/></svg>
+        <div><h3>Coffee</h3><p>Fresh cups, made for the morning rush or a slow afternoon.</p></div>
+      </div>
+      <div class="cell rv" style="--i:1">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 28c0-10 48-10 48 0z"/><path d="M8 36h48"/><path d="M10 42c4 4 8-4 12 0s8-4 12 0 8-4 12 0 6-2 8 0"/><path d="M8 50c0 6 48 6 48 0z"/></svg>
+        <div><h3>Sandwiches</h3><p>Built to order and made to hold in one hand.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="sec-head rv"><div class="n">03</div><h2>Menu</h2></div>
+    <div class="note rv"><span class="tag">Example</span><p>This is an example menu that shows how your menu would look. Your real dishes and prices go here.</p></div>
+    <div class="cols">
+      <div class="col rv" style="--i:0">
+        <h3>Coffee &amp; tea <span class="tag">Example</span></h3>
+        <ul>
+          <li class="item"><b>Drip coffee</b><span class="p">$2.75</span><em>Fresh brewed</em></li>
+          <li class="item"><b>Latte</b><span class="p">$4.50</span><em>Espresso with steamed milk</em></li>
+          <li class="item"><b>Cappuccino</b><span class="p">$4.25</span></li>
+          <li class="item"><b>Iced coffee</b><span class="p">$3.75</span></li>
+          <li class="item"><b>Hot tea</b><span class="p">$2.75</span></li>
+        </ul>
+      </div>
+      <div class="col rv" style="--i:1">
+        <h3>Pastries <span class="tag">Example</span></h3>
+        <ul>
+          <li class="item"><b>Blueberry muffin</b><span class="p">$3.50</span></li>
+          <li class="item"><b>Butter croissant</b><span class="p">$3.75</span></li>
+          <li class="item"><b>Cinnamon roll</b><span class="p">$4.25</span><em>Warm, with icing</em></li>
+          <li class="item"><b>Chocolate chip cookie</b><span class="p">$2.25</span></li>
+        </ul>
+      </div>
+      <div class="col rv" style="--i:2">
+        <h3>Breakfast &amp; lunch <span class="tag">Example</span></h3>
+        <ul>
+          <li class="item"><b>Breakfast burrito</b><span class="p">$8.50</span><em>Eggs, cheese, potatoes</em></li>
+          <li class="item"><b>Turkey &amp; Swiss</b><span class="p">$9.50</span><em>Toasted sourdough</em></li>
+          <li class="item"><b>Soup of the day</b><span class="p">$6.00</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap">
+    <div class="sec-head rv"><div class="n">04</div><h2>Hours &amp; location</h2></div>
+    <div class="hl">
+      <div class="rv">
+        <span class="tag">Example hours</span>
+        <ul class="hours" id="hours">
+          <li data-d="1"><span>Mon</span><span>7 AM – 3 PM</span></li>
+          <li data-d="2"><span>Tue</span><span>7 AM – 3 PM</span></li>
+          <li data-d="3"><span>Wed</span><span>7 AM – 3 PM</span></li>
+          <li data-d="4"><span>Thu</span><span>7 AM – 3 PM</span></li>
+          <li data-d="5"><span>Fri</span><span>7 AM – 8 PM</span></li>
+          <li data-d="6"><span>Sat</span><span>8 AM – 8 PM</span></li>
+          <li data-d="0"><span>Sun</span><span>Closed</span></li>
+        </ul>
+      </div>
+      <div class="rv" style="--i:1">
+        <span class="mono">Find us</span>
+        <address class="addr" id="addr">5001 Rockside Road,<br>Independence, OH 44131</address>
+        <button class="copy" id="copy" type="button" data-text="5001 Rockside Road, Independence, OH 44131">Copy address</button>
+        <span class="mono small" id="copied" role="status" aria-live="polite" style="margin-left:.6rem"></span>
+        <iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-81.66096,41.39235,-81.64896,41.40435&amp;layer=mapnik&amp;marker=41.39835,-81.65496"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=41.39835&amp;mlon=-81.65496#map=17/41.39835/-81.65496" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=41.39835,-81.65496" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="box">
+      <h2 class="rv">Say hello.</h2>
+      <div class="actions rv" style="--i:1"><a class="btn" href="mailto:thefreshpantry@yahoo.com">thefreshpantry@yahoo.com</a> </div>
+    </div>
+  </div>
+</section>
+
+<section class="ctasec">
+  <div class="wrap rv">
+    <section class="np-cta" id="offer"><h2>Want this for The Fresh Pantry?</h2><p>This is a free preview made for The Fresh Pantry. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20The%20Fresh%20Pantry&amp;body=Yes%2C%20please%20make%20this%20site%20for%20The%20Fresh%20Pantry.">Make it mine</a></p></section>
+  </div>
+</section>
+</main>
+
+<div class="wrap" style="background:var(--paper)"><footer class="f mono"><span>The Fresh Pantry</span><span>5001 Rockside Road, Independence, OH</span></footer></div>
+
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · The Fresh Pantry</div>
+<script>
+(function(){
+  var d=document,root=d.documentElement;
+  root.classList.add('js');
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // reveal
+  var rv=[].slice.call(d.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window && !rm){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+    rv.forEach(function(el){io.observe(el)});
+  } else rv.forEach(function(el){el.classList.add('in')});
+
+  // header, progress, parallax
+  var hd=d.querySelector('header.site'),pg=d.getElementById('progress'),art=d.getElementById('art'),tick=false;
+  function onScroll(){
+    var y=window.scrollY||0,h=root.scrollHeight-window.innerHeight;
+    hd.classList.toggle('scrolled',y>20);
+    pg.style.transform='scaleX('+(h>0?Math.min(1,y/h):0)+')';
+    if(art&&!rm&&y<1400)art.style.transform='translateY('+(y*.14)+'px)';
+    tick=false;
+  }
+  window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(onScroll)}},{passive:true});
+  onScroll();
+
+  // mobile menu
+  var bg=d.getElementById('burger'),nav=d.getElementById('nav');
+  bg.addEventListener('click',function(){var o=nav.classList.toggle('open');bg.setAttribute('aria-expanded',o)});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A'){nav.classList.remove('open');bg.setAttribute('aria-expanded','false')}});
+
+  // copy address
+  var cp=d.getElementById('copy'),msg=d.getElementById('copied');
+  cp.addEventListener('click',function(){
+    var t=cp.getAttribute('data-text');
+    function ok(){msg.textContent='Copied';setTimeout(function(){msg.textContent=''},2200)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,fb)}else fb();
+    function fb(){var a=d.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';d.body.appendChild(a);a.select();try{d.execCommand('copy');ok()}catch(e){}d.body.removeChild(a)}
+  });
+
+  // highlight today's row in example hours
+  var today=new Date().getDay(),row=d.querySelector('#hours li[data-d="'+today+'"]');
+  if(row)row.classList.add('today');
+
+  // magnetic buttons
+  if(!rm&&window.matchMedia('(hover:hover)').matches){
+    d.querySelectorAll('.btn').forEach(function(b){
+      b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.18)+'px,'+((e.clientY-r.top-r.height/2)*.25-3)+'px)'});
+      b.addEventListener('mouseleave',function(){b.style.transform=''});
+    });
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Nest · Restaurant in Alpena, MI</title>
+<meta name="description" content="The Nest, a restaurant at 628 West Chisholm Street in Alpena, Michigan. Burgers and sandwiches. Dine in, sit on the patio.">
+<meta name="theme-color" content="#1b1510">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#1b1510;--bg2:#241c15;--bg3:#2e241b;
+  --ink:#f5ecda;--mute:#cdbfa6;
+  --yolk:#f4b82e;--yolk2:#ffd36b;--egg:#8fd6c9;--twig:#a9825a;
+  --line:rgba(245,236,218,.16);
+  --head:'Alfa Slab One',Georgia,serif;
+  --body:'DM Sans',system-ui,-apple-system,Segoe UI,sans-serif;
+  --hh:68px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6;overflow-x:hidden;min-height:100vh}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+section[id]{scroll-margin-top:var(--hh)}
+.wrap{width:min(1180px,100% - 2.5rem);margin-inline:auto}
+h1,h2,h3{font-family:var(--head);font-weight:400;line-height:1.02;text-wrap:balance;overflow-wrap:break-word}
+h2{font-size:clamp(2.1rem,6.5vw,4rem);margin-bottom:.6rem}
+.eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--yolk);font-weight:700;margin-bottom:1rem;display:flex;align-items:center;gap:.7rem}
+.eyebrow::before{content:"";width:2.2rem;height:2px;background:var(--yolk)}
+.lede{color:var(--mute);max-width:46ch}
+
+/* progress */
+.progress{position:fixed;left:0;top:0;height:3px;width:100%;background:var(--yolk);transform:scaleX(0);transform-origin:0 50%;z-index:100;will-change:transform}
+
+/* slots */
+.np-banner{background:var(--yolk);color:#1b1510;font-size:.82rem;font-weight:500;text-align:center;padding:.5rem 1rem;line-height:1.4;position:relative;z-index:60}
+.np-banner a{font-weight:700}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;background:var(--yolk);color:#1b1510;text-decoration:none;font-weight:700;font-family:var(--body);font-size:1rem;padding:.85rem 1.5rem;border-radius:999px;border:2px solid var(--yolk);cursor:pointer;transition:transform .25s ease,background .25s ease,box-shadow .25s ease;will-change:transform}
+.btn:hover,.btn:focus-visible{background:var(--yolk2);box-shadow:0 10px 28px -10px rgba(244,184,46,.7)}
+.btn.alt{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.alt:hover,.btn.alt:focus-visible{border-color:var(--yolk);color:var(--yolk);background:transparent;box-shadow:none}
+.btn:focus-visible,a:focus-visible,button:focus-visible{outline:3px solid var(--egg);outline-offset:3px}
+small,.small{font-size:.85rem;color:var(--mute)}
+
+/* header */
+.site-head{position:sticky;top:0;z-index:50;height:var(--hh);display:flex;align-items:center;transition:background .35s ease,box-shadow .35s ease,height .35s ease;background:rgba(27,21,16,0)}
+.site-head.stuck{background:rgba(27,21,16,.92);box-shadow:0 1px 0 var(--line),0 12px 30px -18px #000;--hh:58px;height:58px}
+@supports(backdrop-filter:blur(8px)){.site-head.stuck{backdrop-filter:blur(10px)}}
+.head-in{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.logo{font-family:var(--head);font-size:1.5rem;text-decoration:none;display:flex;align-items:center;gap:.55rem;line-height:1}
+.logo svg{width:30px;height:22px}
+.nav{display:flex;gap:1.8rem;align-items:center}
+.nav a{text-decoration:none;font-weight:500;font-size:.95rem;position:relative;padding:.3rem 0}
+.nav a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--yolk);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+.nav a:not(.btn):hover::after{transform:scaleX(1)}
+.nav .btn{padding:.55rem 1.1rem;font-size:.92rem}
+.burger{display:none;background:none;border:2px solid var(--line);color:var(--ink);width:46px;height:46px;border-radius:50%;cursor:pointer;position:relative}
+.burger span{position:absolute;left:12px;right:12px;height:2px;background:currentColor;transition:transform .3s ease,opacity .2s}
+.burger span:nth-child(1){top:16px}.burger span:nth-child(2){top:22px}.burger span:nth-child(3){top:28px}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+/* hero */
+.hero{position:relative;padding:clamp(1.5rem,5vw,3.5rem) 0 clamp(3rem,7vw,6rem);margin-top:calc(var(--hh) * -1);padding-top:calc(var(--hh) + clamp(2rem,6vw,4.5rem));overflow:hidden;
+  background:radial-gradient(60% 60% at 78% 40%,rgba(244,184,46,.14),transparent 70%),radial-gradient(40% 40% at 10% 90%,rgba(143,214,201,.07),transparent 70%),var(--bg)}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center}
+.hero h1{font-size:clamp(3.4rem,13vw,9.5rem);letter-spacing:-.01em;margin:.3rem 0 1.2rem}
+.hero h1 .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.06em}
+.hero h1 .w>span{display:inline-block}
+.hero h1 .yolk{color:var(--yolk)}
+.hero .lead{font-size:clamp(1.15rem,2.6vw,1.5rem);max-width:30ch;color:var(--ink);margin-bottom:1.6rem}
+.hero .addr{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}
+.hero .where{color:var(--mute);font-size:.95rem;margin-top:1.2rem}
+.nest-art{position:relative;aspect-ratio:1/1;width:min(100%,520px);justify-self:center}
+.nest-art svg{width:100%;height:100%;overflow:visible}
+.parallax{will-change:transform}
+.twig{fill:none;stroke:var(--twig);stroke-width:3;stroke-linecap:round}
+.twig.l2{stroke:#c79d6d;stroke-width:2.2}
+.twig.l3{stroke:#7d5e3e;stroke-width:3.4}
+.egg{fill:var(--egg);transform-box:fill-box;transform-origin:50% 100%}
+.egg.e2{fill:#b6e8df}
+.egg.e3{fill:#74c4b6}
+.spark{fill:var(--yolk)}
+
+/* hero entrance (JS-enabled only so no-JS stays visible) */
+.js .twig{stroke-dasharray:1;stroke-dashoffset:1}
+.js.go .twig{animation:draw 2.2s cubic-bezier(.6,.1,.2,1) forwards;animation-delay:calc(var(--i,0) * 60ms + .2s)}
+.js .egg{transform:scale(0);opacity:0}
+.js.go .egg{animation:pop .9s cubic-bezier(.3,1.6,.5,1) forwards;animation-delay:calc(1.7s + var(--e,0) * 160ms)}
+.js .spark{opacity:0}
+.js.go .spark{animation:twinkle 3.2s ease-in-out infinite;animation-delay:calc(2.6s + var(--e,0) * 400ms)}
+.js .hero h1 .w>span{transform:translateY(110%)}
+.js.go .hero h1 .w>span{animation:rise 1s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--d,0) * 120ms + .1s)}
+.js .hero .fade{opacity:0;transform:translateY(18px)}
+.js.go .hero .fade{animation:fadeUp .9s ease forwards;animation-delay:calc(.55s + var(--d,0) * 130ms)}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes pop{to{transform:scale(1);opacity:1}}
+@keyframes rise{to{transform:translateY(0)}}
+@keyframes fadeUp{to{opacity:1;transform:none}}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(.4)}50%{opacity:1;transform:scale(1)}}
+.spark{transform-box:fill-box;transform-origin:center}
+.bob{animation:bob 6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-6px)}}
+
+/* marquee */
+.marquee{border-block:1px solid var(--line);background:var(--bg2);overflow:hidden;padding:1rem 0}
+.mq-track{display:flex;width:max-content;animation:mq 38s linear infinite}
+.marquee:hover .mq-track{animation-play-state:paused}
+.mq-track span{font-family:var(--head);font-size:clamp(1.3rem,3.5vw,2rem);white-space:nowrap;padding-right:1.6rem;display:flex;align-items:center;gap:1.6rem;color:var(--ink)}
+.mq-track span::after{content:"";width:.7rem;height:.9rem;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:var(--egg);flex:none}
+.mq-track span:nth-child(3n)::after{background:var(--yolk)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* sections */
+.sec{padding:clamp(3.5rem,9vw,7rem) 0}
+.offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.4rem}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:22px;padding:2rem 1.6rem 2.2rem;position:relative;overflow:hidden;transition:transform .35s ease,border-color .35s ease,background .35s ease}
+.card:hover{transform:translateY(-8px);border-color:var(--yolk);background:var(--bg3)}
+.card .num{font-family:var(--head);font-size:3.2rem;color:var(--yolk);line-height:1;display:block;margin-bottom:1rem;transition:transform .4s ease}
+.card:hover .num{transform:scale(1.12) rotate(-4deg)}
+.card h3{font-size:1.6rem;margin-bottom:.5rem}
+.card p{color:var(--mute)}
+
+/* menu */
+.menu{background:var(--bg2);border-block:1px solid var(--line)}
+.menu-head{display:flex;flex-wrap:wrap;gap:1rem 2rem;justify-content:space-between;align-items:end;margin-bottom:2.2rem}
+.tag{display:inline-block;background:var(--egg);color:#10231f;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.28rem .7rem;border-radius:999px}
+.note{border:1.5px dashed var(--yolk);border-radius:14px;padding:.9rem 1.1rem;color:var(--ink);max-width:62ch;margin-bottom:2.2rem;background:rgba(244,184,46,.07)}
+.tickets{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem}
+.ticket{position:relative;background:var(--bg);border:1px solid var(--line);border-radius:18px;padding:1.8rem 1.6rem 1.4rem;transition:transform .35s ease,border-color .35s ease}
+.ticket:hover{transform:translateY(-5px) rotate(-.4deg);border-color:var(--yolk)}
+.ticket::before,.ticket::after{content:"";position:absolute;top:3.6rem;width:22px;height:22px;border-radius:50%;background:var(--bg2);border:1px solid var(--line)}
+.ticket::before{left:-12px;clip-path:inset(0 0 0 50%)}
+.ticket::after{right:-12px;clip-path:inset(0 50% 0 0)}
+.ticket header{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding-bottom:1.2rem;margin-bottom:.6rem;border-bottom:2px dashed var(--line)}
+.ticket h3{font-size:1.9rem;color:var(--yolk)}
+.item{display:flex;justify-content:space-between;gap:1rem;padding:.8rem .4rem;border-radius:10px;transition:background .25s ease,transform .25s ease}
+.item:hover{background:rgba(245,236,218,.06);transform:translateX(6px)}
+.item b{font-weight:700;display:block;line-height:1.3}
+.item span.d{color:var(--mute);font-size:.93rem;display:block}
+.item .p{font-family:var(--head);color:var(--ink);white-space:nowrap;padding-left:.5rem}
+.menu .foot{margin-top:1.6rem;color:var(--mute);font-size:.9rem}
+
+/* hours */
+.loc-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(1.5rem,4vw,3.5rem);margin-top:2.2rem;align-items:start}
+.hours{list-style:none;background:var(--bg2);border:1px solid var(--line);border-radius:22px;padding:1rem 1.4rem}
+.hours li{display:flex;justify-content:space-between;gap:1rem;padding:.7rem 0;border-bottom:1px solid var(--line)}
+.hours li:last-child{border-bottom:0}
+.hours li.today{color:var(--yolk);font-weight:700}
+.hours li span:first-child{font-weight:700}
+.addr-box{margin-top:1.4rem;background:var(--bg2);border:1px solid var(--line);border-radius:22px;padding:1.3rem 1.4rem}
+.addr-box address{font-style:normal;margin-bottom:.9rem;font-size:1.1rem}
+.copy-ok{display:inline-block;margin-left:.7rem;color:var(--egg);font-size:.9rem;opacity:0;transition:opacity .3s}
+.copy-ok.show{opacity:1}
+.map{border-radius:22px;overflow:hidden;border:1px solid var(--line);background:var(--bg2)}
+.map iframe{display:block;width:100%;min-height:340px;border:0}
+.maplinks{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem;padding:.9rem 1.1rem}
+.maplinks a{color:var(--yolk);font-weight:700}
+.mapcredit{padding:0 1.1rem 1rem;font-size:.8rem;color:var(--mute)}
+.mapcredit a{color:var(--mute)}
+
+/* contact */
+.contact{background:var(--yolk);color:#1b1510;position:relative;overflow:hidden}
+.contact .eyebrow{color:#1b1510}.contact .eyebrow::before{background:#1b1510}
+.contact h2{font-size:clamp(2.2rem,7vw,4.6rem)}
+.contact p{max-width:44ch;margin-bottom:1.6rem}
+.contact .btns{display:flex;flex-wrap:wrap;gap:.8rem}
+.contact .btn{background:#1b1510;color:var(--yolk2);border-color:#1b1510}
+.contact .btn:hover{background:#000;box-shadow:0 10px 28px -10px rgba(0,0,0,.6)}
+.contact .btn.alt{background:transparent;color:#1b1510}
+.contact .ghost-egg{position:absolute;right:-40px;bottom:-60px;width:min(46vw,340px);opacity:.18}
+
+/* cta */
+.np-cta{margin:clamp(2.5rem,6vw,4.5rem) auto;width:min(1180px,100% - 2.5rem);background:linear-gradient(135deg,var(--bg3),var(--bg2));border:1.5px solid var(--yolk);border-radius:28px;padding:clamp(1.6rem,4vw,3rem);position:relative;overflow:hidden;box-shadow:0 30px 60px -35px rgba(244,184,46,.5)}
+.np-cta::before{content:"";position:absolute;inset:-40% auto auto -20%;width:60%;aspect-ratio:1;background:radial-gradient(circle,rgba(244,184,46,.18),transparent 65%);pointer-events:none}
+.np-cta h2,.np-cta h3{font-size:clamp(1.8rem,5vw,3rem);margin-bottom:.6rem}
+.np-cta p{color:var(--mute);margin-bottom:1rem;max-width:56ch}
+.np-cta .btn{margin:.3rem .5rem .3rem 0}
+
+footer{padding:2rem 0 2.5rem;color:var(--mute);font-size:.9rem;border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem 2rem}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--s,0) * 100ms)}
+.js .rv.in{opacity:1;transform:none}
+
+/* responsive */
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .nest-art{max-width:380px;order:-1;margin-bottom:-.5rem}
+  .offer-grid{grid-template-columns:1fr}
+  .tickets{grid-template-columns:1fr}
+  .loc-grid{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .burger{display:block}
+  .nav{position:fixed;inset:var(--hh) 0 auto 0;flex-direction:column;align-items:stretch;gap:0;background:rgba(27,21,16,.98);padding:.5rem 1.25rem 1.5rem;border-bottom:1px solid var(--line);transform:translateY(-12px);opacity:0;visibility:hidden;transition:transform .3s ease,opacity .3s ease,visibility .3s}
+  .nav.open{transform:none;opacity:1;visibility:visible}
+  .nav a{padding:1rem 0;border-bottom:1px solid var(--line);font-size:1.1rem}
+  .nav a:not(.btn)::after{display:none}
+  .nav .btn{margin-top:1rem;text-align:center;border-bottom:2px solid var(--yolk)}
+}
+@media (max-width:420px){
+  .item{flex-direction:column;gap:.1rem}
+  .item .p{padding-left:0}
+  .ticket{padding-inline:1.1rem}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .twig{stroke-dashoffset:0!important}
+  .js .egg,.js .rv,.js .hero .fade,.js .hero h1 .w>span{opacity:1!important;transform:none!important}
+  .js .spark{opacity:.8!important}
+  .progress{display:none}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div class="progress" id="nbProgress" aria-hidden="true"></div>
+
+<header class="site-head" id="nbHead">
+  <div class="wrap head-in">
+    <a class="logo" href="#top-of-page" aria-label="The Nest, back to top">
+      <svg viewBox="0 0 60 44" aria-hidden="true"><path d="M4 22c4 16 16 20 26 20s22-4 26-20" fill="none" stroke="#a9825a" stroke-width="3" stroke-linecap="round"/><path d="M8 24c8 7 36 7 44 0" fill="none" stroke="#c79d6d" stroke-width="2.4" stroke-linecap="round"/><ellipse cx="22" cy="17" rx="7" ry="9" fill="#8fd6c9"/><ellipse cx="38" cy="17" rx="7" ry="9" fill="#f4b82e"/></svg>
+      The Nest
+    </a>
+    <button class="burger" id="nbBurger" aria-label="Open menu" aria-expanded="false" aria-controls="nbNav"><span></span><span></span><span></span></button>
+    <nav class="nav" id="nbNav" aria-label="Main">
+      <a href="#offer">What we serve</a>
+      <a href="#menu">Menu</a>
+      <a href="#visit">Hours &amp; location</a>
+      <a href="#contact" class="btn">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top-of-page">
+<section class="hero" aria-labelledby="nbTitle">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow fade" style="--d:0">Restaurant · Alpena, Michigan</p>
+      <h1 id="nbTitle"><span class="w" style="--d:0"><span>The</span></span> <span class="w" style="--d:1"><span class="yolk">Nest</span></span></h1>
+      <p class="lead fade" style="--d:2">Burgers and sandwiches. Dine in, sit on the patio.</p>
+      <div class="addr fade" style="--d:3">
+        <a class="btn" href="#menu">See the menu</a>
+        <a class="btn alt" href="#visit">Find us</a>
+      </div>
+      <p class="where fade" style="--d:4">628 West Chisholm Street, Alpena, MI 49707</p>
+    </div>
+
+    <div class="nest-art" aria-hidden="true">
+      <div class="parallax" id="nbPar">
+        <svg viewBox="0 0 400 400" role="presentation" focusable="false">
+          <g class="bob">
+            <g>
+              <ellipse class="egg e3" cx="132" cy="196" rx="34" ry="44" style="--e:0" transform="rotate(-14 132 196)"/>
+              <ellipse class="egg" cx="200" cy="178" rx="38" ry="50" style="--e:1"/>
+              <ellipse class="egg e2" cx="268" cy="196" rx="34" ry="44" style="--e:2" transform="rotate(14 268 196)"/>
+            </g>
+            <g>
+              <path class="twig l3" pathLength="1" style="--i:0" d="M40 210C60 330 140 360 200 360S340 330 360 210"/>
+              <path class="twig l3" pathLength="1" style="--i:1" d="M52 232C120 292 280 292 348 232"/>
+              <path class="twig l2" pathLength="1" style="--i:2" d="M30 226C110 316 290 316 370 226"/>
+              <path class="twig" pathLength="1" style="--i:3" d="M70 266C130 330 270 330 330 266"/>
+              <path class="twig l2" pathLength="1" style="--i:4" d="M48 200C90 250 150 262 210 258"/>
+              <path class="twig" pathLength="1" style="--i:5" d="M352 200C310 250 250 262 190 258"/>
+              <path class="twig l3" pathLength="1" style="--i:6" d="M96 300C140 346 260 346 304 300"/>
+              <path class="twig l2" pathLength="1" style="--i:7" d="M24 240l40-18M376 240l-40-18M92 330l36-22M308 330l-36-22"/>
+              <path class="twig" pathLength="1" style="--i:8" d="M120 256C160 280 240 280 280 256"/>
+            </g>
+          </g>
+          <g>
+            <path class="spark" style="--e:0" d="M330 90l5 14 14 5-14 5-5 14-5-14-14-5 14-5z"/>
+            <path class="spark" style="--e:1" d="M70 110l4 10 10 4-10 4-4 10-4-10-10-4 10-4z"/>
+            <path class="spark" style="--e:2" d="M210 50l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="mq-track">
+    <span>Burgers</span><span>Sandwiches</span><span>Dine in</span><span>The patio</span><span>Breakfast</span><span>Lunch</span><span>Dinner</span><span>Dessert</span><span>Alpena</span><span>Chisholm Street</span>
+    <span>Burgers</span><span>Sandwiches</span><span>Dine in</span><span>The patio</span><span>Breakfast</span><span>Lunch</span><span>Dinner</span><span>Dessert</span><span>Alpena</span><span>Chisholm Street</span>
+  </div>
+</div>
+
+<section class="sec" id="offer" aria-labelledby="offerH">
+  <div class="wrap">
+    <p class="eyebrow rv">What we serve</p>
+    <h2 id="offerH" class="rv" style="--s:1">Come hungry. Pick your perch.</h2>
+    <div class="offer-grid">
+      <article class="card rv" style="--s:1"><span class="num">01</span><h3>Burgers</h3><p>Hot off the grill, built for a proper sit-down meal.</p></article>
+      <article class="card rv" style="--s:2"><span class="num">02</span><h3>Sandwiches</h3><p>Stacked, handheld and made to be finished.</p></article>
+      <article class="card rv" style="--s:3"><span class="num">03</span><h3>Dine in or patio</h3><p>Grab a table inside, or take your plate out to the patio.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec menu" id="menu" aria-labelledby="menuH">
+  <div class="wrap">
+    <div class="menu-head">
+      <div>
+        <p class="eyebrow rv">Menu</p>
+        <h2 id="menuH" class="rv" style="--s:1">Order up.</h2>
+      </div>
+      <span class="tag rv" style="--s:2">Example</span>
+    </div>
+    <p class="note rv">This is an example menu that shows how your menu would look. Your real dishes and prices go here.</p>
+
+    <div class="tickets">
+      <article class="ticket rv">
+        <header><h3>Breakfast</h3><span class="tag">Example</span></header>
+        <div class="item"><div><b>Two-egg breakfast</b><span class="d">Eggs your way, hash browns, toast</span></div><span class="p">$8.99</span></div>
+        <div class="item"><div><b>Buttermilk pancakes</b><span class="d">Short stack with syrup</span></div><span class="p">$7.99</span></div>
+        <div class="item"><div><b>Biscuits &amp; gravy</b></div><span class="p">$8.49</span></div>
+      </article>
+      <article class="ticket rv" style="--s:1">
+        <header><h3>Lunch</h3><span class="tag">Example</span></header>
+        <div class="item"><div><b>Classic cheeseburger</b><span class="d">Served with fries</span></div><span class="p">$10.99</span></div>
+        <div class="item"><div><b>Club sandwich</b><span class="d">Turkey, bacon, lettuce, tomato</span></div><span class="p">$10.49</span></div>
+        <div class="item"><div><b>Grilled chicken salad</b></div><span class="p">$10.99</span></div>
+      </article>
+      <article class="ticket rv">
+        <header><h3>Dinner</h3><span class="tag">Example</span></header>
+        <div class="item"><div><b>Chicken fried steak</b><span class="d">Mashed potatoes and country gravy</span></div><span class="p">$13.99</span></div>
+        <div class="item"><div><b>Meatloaf</b></div><span class="p">$12.99</span></div>
+        <div class="item"><div><b>Fish &amp; chips</b></div><span class="p">$13.49</span></div>
+      </article>
+      <article class="ticket rv" style="--s:1">
+        <header><h3>Dessert</h3><span class="tag">Example</span></header>
+        <div class="item"><div><b>Homemade pie</b><span class="d">Ask about today's flavors</span></div><span class="p">$4.99</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="visit" aria-labelledby="visitH">
+  <div class="wrap">
+    <p class="eyebrow rv">Hours &amp; location</p>
+    <h2 id="visitH" class="rv" style="--s:1">Find the nest.</h2>
+    <div class="loc-grid">
+      <div>
+        <div class="rv"><span class="tag">Example hours</span></div>
+        <ul class="hours rv" style="--s:1" id="nbHours" aria-label="Example hours">
+          <li data-d="1"><span>Mon</span><span>7 AM – 3 PM</span></li>
+          <li data-d="2"><span>Tue</span><span>7 AM – 3 PM</span></li>
+          <li data-d="3"><span>Wed</span><span>7 AM – 3 PM</span></li>
+          <li data-d="4"><span>Thu</span><span>7 AM – 3 PM</span></li>
+          <li data-d="5"><span>Fri</span><span>7 AM – 8 PM</span></li>
+          <li data-d="6"><span>Sat</span><span>8 AM – 8 PM</span></li>
+          <li data-d="0"><span>Sun</span><span>Closed</span></li>
+        </ul>
+        <div class="addr-box rv" style="--s:2">
+          <address id="nbAddr">628 West Chisholm Street<br>Alpena, MI 49707</address>
+          <button class="btn alt" type="button" id="nbCopy">Copy address</button><span class="copy-ok" id="nbCopyOk" role="status"></span>
+        </div>
+      </div>
+      <div class="rv" style="--s:2">
+        <iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-83.44623,45.06164,-83.43423,45.07364&amp;layer=mapnik&amp;marker=45.06764,-83.44023"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=45.06764&amp;mlon=-83.44023#map=17/45.06764/-83.44023" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=45.06764,-83.44023" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec contact" id="contact" aria-labelledby="contactH">
+  <svg class="ghost-egg" viewBox="0 0 100 130" aria-hidden="true"><ellipse cx="50" cy="70" rx="42" ry="56" fill="#1b1510"/></svg>
+  <div class="wrap" style="position:relative">
+    <p class="eyebrow rv">Contact</p>
+    <h2 id="contactH" class="rv" style="--s:1">Say hello.</h2>
+    <p class="rv" style="--s:2">Questions for The Nest? Send a note by e-mail.</p>
+    <div class="btns rv" style="--s:3">
+      <a class="btn" href="mailto:owlsnest989@gmail.com">owlsnest989@gmail.com</a> 
+    </div>
+  </div>
+</section>
+
+<section class="np-cta" id="offer"><h2>Want this for The Nest?</h2><p>This is a free preview made for The Nest. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20The%20Nest&amp;body=Yes%2C%20please%20make%20this%20site%20for%20The%20Nest.">Make it mine</a></p></section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>The Nest · 628 West Chisholm Street, Alpena, MI 49707</span>
+    <a href="#top-of-page">Back to top</a>
+  </div>
+</footer>
+
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · The Nest</div>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  root.classList.add('js');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // hero entrance
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){ root.classList.add('go'); }); });
+
+  var nbHead = document.getElementById('nbHead');
+  var nbBar = document.getElementById('nbProgress');
+  var nbPar = document.getElementById('nbPar');
+  var ticking = false;
+
+  function onScroll(){
+    var y = window.pageYOffset || document.documentElement.scrollTop || 0;
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    if(nbHead){ nbHead.classList.toggle('stuck', y > 30); }
+    if(nbBar && max > 0){ nbBar.style.transform = 'scaleX(' + Math.min(1, y / max).toFixed(4) + ')'; }
+    if(nbPar && !reduceMotion && y < window.innerHeight * 1.5){
+      nbPar.style.transform = 'translate3d(0,' + (y * 0.12).toFixed(1) + 'px,0) rotate(' + (y * 0.012).toFixed(2) + 'deg)';
+    }
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ ticking = true; requestAnimationFrame(onScroll); }
+  }, {passive:true});
+  onScroll();
+
+  // reveals
+  var revealEls = document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window && !reduceMotion){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -6% 0px'});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  // mobile menu
+  var nbBurger = document.getElementById('nbBurger');
+  var nbNav = document.getElementById('nbNav');
+  function setMenu(isOpen){
+    nbNav.classList.toggle('open', isOpen);
+    nbBurger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    nbBurger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+  }
+  nbBurger.addEventListener('click', function(){ setMenu(!nbNav.classList.contains('open')); });
+  nbNav.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
+  document.addEventListener('keydown', function(ev){ if(ev.key === 'Escape'){ setMenu(false); } });
+
+  // highlight today in the example hours (no open/closed badge: no real hours given)
+  var todayIdx = new Date().getDay();
+  document.querySelectorAll('#nbHours li').forEach(function(li){
+    if(Number(li.getAttribute('data-d')) === todayIdx){ li.classList.add('today'); }
+  });
+
+  // click to copy address
+  var nbCopy = document.getElementById('nbCopy');
+  var nbCopyOk = document.getElementById('nbCopyOk');
+  var addrText = '628 West Chisholm Street, Alpena, MI 49707';
+  function flash(msg){
+    nbCopyOk.textContent = msg;
+    nbCopyOk.classList.add('show');
+    setTimeout(function(){ nbCopyOk.classList.remove('show'); }, 2200);
+  }
+  nbCopy.addEventListener('click', function(){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(addrText).then(function(){ flash('Address copied'); }, function(){ flash('Copy failed'); });
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = addrText; ta.setAttribute('readonly','');
+      ta.style.position = 'absolute'; ta.style.left = '-9999px';
+      document.body.appendChild(ta); ta.select();
+      try{ document.execCommand('copy'); flash('Address copied'); }catch(err){ flash('Copy failed'); }
+      document.body.removeChild(ta);
+    }
+  });
+
+  // magnetic buttons
+  if(!reduceMotion && window.matchMedia('(hover: hover)').matches){
+    document.querySelectorAll('.btn').forEach(function(btn){
+      btn.addEventListener('pointermove', function(ev){
+        var r = btn.getBoundingClientRect();
+        var dx = (ev.clientX - (r.left + r.width / 2)) * 0.18;
+        var dy = (ev.clientY - (r.top + r.height / 2)) * 0.28;
+        btn.style.transform = 'translate(' + dx.toFixed(1) + 'px,' + (dy - 2).toFixed(1) + 'px)';
+      });
+      btn.addEventListener('pointerleave', function(){ btn.style.transform = ''; });
+    });
+  }
+})();
+</script>
+</body>
+</html>

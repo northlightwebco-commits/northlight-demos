@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Star 57 Diner · American in Tuscola, IL</title>
+<meta name="description" content="Star 57 Diner, American food at 1104 Tuscola Boulevard in Tuscola, Illinois.">
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0e1530;--ink2:#16204a;--ink3:#1f2b5e;
+  --paper:#f6efe0;--mute:#b9c0dc;
+  --red:#ff5a4a;--amber:#ffc857;
+  --display:'Bungee',Impact,sans-serif;
+  --cond:'Barlow Condensed','Arial Narrow',sans-serif;
+  --body:'Barlow',system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px;-webkit-text-size-adjust:100%}
+body{background:var(--ink);color:var(--paper);font-family:var(--body);font-size:1.0625rem;line-height:1.6;overflow-x:hidden}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.02;text-wrap:balance;overflow-wrap:break-word}
+.wrap{width:min(1180px,100% - 2.5rem);margin-inline:auto}
+.eyebrow{font-family:var(--cond);font-weight:600;letter-spacing:.22em;text-transform:uppercase;font-size:.95rem;color:var(--amber)}
+.check{height:16px;background:repeating-conic-gradient(var(--paper) 0 25%,var(--ink) 0 50%) 0 0/32px 32px}
+
+/* progress */
+.progress{position:fixed;inset:0 0 auto 0;height:4px;z-index:100;background:linear-gradient(90deg,var(--red),var(--amber));transform:scaleX(0);transform-origin:0 50%}
+
+/* slots */
+.np-banner{background:var(--amber);color:#0e1530;font-family:var(--cond);font-weight:600;letter-spacing:.06em;text-align:center;padding:.45rem 1rem;font-size:.95rem;position:relative;z-index:60}
+.np-banner a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;background:var(--red);color:#0e1530;font-family:var(--cond);font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;font-size:1.05rem;padding:.85rem 1.5rem;border-radius:999px;border:2px solid var(--red);cursor:pointer;transition:transform .35s var(--ease),box-shadow .35s var(--ease),filter .3s;will-change:transform}
+.btn:hover,.btn:focus-visible{box-shadow:0 0 0 4px rgba(255,90,74,.25),0 10px 30px -8px rgba(255,90,74,.7);filter:brightness(1.08)}
+.btn.alt{background:transparent;color:var(--paper);border-color:var(--paper)}
+.btn.alt:hover,.btn.alt:focus-visible{box-shadow:0 0 0 4px rgba(246,239,224,.15)}
+small,.small{font-size:.85rem;color:var(--mute)}
+.map{border-radius:18px;overflow:hidden;border:2px solid var(--ink3);background:var(--ink2)}
+.map iframe{display:block;width:100%;height:340px;border:0}
+.maplinks{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.9rem}
+.maplinks a{font-family:var(--cond);font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:2px solid var(--amber);color:var(--amber);padding:.5rem 1rem;border-radius:999px;transition:transform .3s var(--ease),background .3s,color .3s}
+.maplinks a:hover{background:var(--amber);color:#0e1530;transform:translateY(-3px)}
+.mapcredit{font-size:.8rem;color:var(--mute);margin-top:.6rem}
+.mapcredit a{color:var(--mute)}
+.np-cta{position:relative;margin:0 auto;max-width:900px;text-align:center;padding:clamp(2rem,5vw,3.5rem);border-radius:24px;background:var(--ink2);border:2px solid var(--amber);box-shadow:0 0 0 6px var(--ink),0 0 0 8px var(--red),0 0 60px -10px rgba(255,90,74,.55);overflow:hidden}
+.np-cta h2,.np-cta h3{font-size:clamp(1.6rem,5vw,2.8rem);margin-bottom:.8rem;color:var(--paper)}
+.np-cta p{color:var(--mute);margin-bottom:1.2rem}
+.np-cta .btn{margin:.3rem}
+
+/* header */
+header.site{position:sticky;top:0;z-index:50;transition:background .4s,box-shadow .4s,padding .4s}
+.bar{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 0;transition:padding .4s var(--ease)}
+header.site.scrolled{background:rgba(14,21,48,.92);backdrop-filter:blur(10px);box-shadow:0 8px 30px -12px #000}
+header.site.scrolled .bar{padding:.6rem 0}
+.brand{font-family:var(--display);text-decoration:none;font-size:1.15rem;display:flex;align-items:center;gap:.5rem;color:var(--paper)}
+.brand svg{width:26px;height:26px;color:var(--red);filter:drop-shadow(0 0 6px var(--red))}
+nav ul{display:flex;gap:2rem;list-style:none;align-items:center}
+nav a{font-family:var(--cond);font-weight:600;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;font-size:1rem;position:relative;padding:.3rem 0}
+nav a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--amber);transform:scaleX(0);transform-origin:0 50%;transition:transform .4s var(--ease)}
+nav a:hover::after,nav a:focus-visible::after{transform:scaleX(1)}
+.burger{display:none;background:none;border:2px solid var(--paper);color:var(--paper);width:46px;height:46px;border-radius:12px;cursor:pointer;position:relative}
+.burger span,.burger span::before,.burger span::after{position:absolute;left:11px;right:11px;height:2px;background:currentColor;content:"";transition:transform .35s var(--ease),opacity .2s}
+.burger span{top:21px}.burger span::before{left:0;right:0;top:-7px}.burger span::after{left:0;right:0;top:7px}
+.burger[aria-expanded=true] span{background:transparent}
+.burger[aria-expanded=true] span::before{transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded=true] span::after{transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:760px){
+  .burger{display:block}
+  nav{position:absolute;left:0;right:0;top:100%;background:var(--ink);border-bottom:4px solid var(--red);transform:translateY(-8px);opacity:0;visibility:hidden;transition:transform .4s var(--ease),opacity .3s,visibility .3s}
+  nav.open{transform:none;opacity:1;visibility:visible}
+  nav ul{flex-direction:column;align-items:flex-start;gap:0;padding:.5rem 1.25rem 1.2rem}
+  nav li{width:100%}
+  nav a{display:block;padding:.9rem 0;font-size:1.3rem;border-bottom:1px solid var(--ink3)}
+}
+
+/* hero */
+.hero{position:relative;padding:clamp(2rem,6vw,4rem) 0 clamp(3.5rem,8vw,6rem);overflow:hidden;margin-top:-72px;padding-top:calc(72px + clamp(2rem,6vw,4rem))}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 60% at 75% 40%,rgba(255,90,74,.22),transparent 70%),radial-gradient(50% 50% at 10% 100%,rgba(255,200,87,.1),transparent 70%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:2rem;align-items:center;position:relative}
+.hero h1{font-size:clamp(3rem,13.5vw,8.5rem);letter-spacing:-.01em;margin:.8rem 0 1.2rem;text-shadow:0 0 28px rgba(255,90,74,.45)}
+.hero h1 .l1{display:block;color:var(--paper)}
+.hero h1 .l2{display:block;font-size:.5em;color:var(--red);text-shadow:0 0 18px rgba(255,90,74,.8),0 0 50px rgba(255,90,74,.5);letter-spacing:.14em;margin-top:.1em}
+.hero p.lead{font-size:clamp(1.15rem,2.4vw,1.45rem);max-width:30ch;color:var(--paper)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.8rem;align-items:center}
+.addr{margin-top:1.6rem;display:inline-flex;align-items:center;gap:.7rem;background:none;border:1px dashed var(--mute);color:var(--paper);padding:.6rem 1rem;border-radius:12px;font:inherit;font-size:.98rem;cursor:pointer;text-align:left;transition:border-color .3s,transform .3s var(--ease)}
+.addr:hover{border-color:var(--amber);transform:translateY(-2px)}
+.addr b{font-family:var(--cond);letter-spacing:.14em;text-transform:uppercase;color:var(--amber);font-size:.85rem;white-space:nowrap}
+.sign{position:relative;display:grid;place-items:center;will-change:transform}
+.sign svg{width:min(100%,460px);height:auto;overflow:visible}
+.star-line{fill:none;stroke:var(--red);stroke-width:7;stroke-linejoin:round;stroke-linecap:round;filter:drop-shadow(0 0 6px var(--red)) drop-shadow(0 0 18px rgba(255,90,74,.8))}
+.star-fill{fill:rgba(255,90,74,.08)}
+.star-inner{fill:none;stroke:var(--amber);stroke-width:2;stroke-linejoin:round;opacity:.7}
+.ring{fill:none;stroke:var(--amber);stroke-width:5;stroke-linecap:round;stroke-dasharray:1 17;opacity:.9;filter:drop-shadow(0 0 5px var(--amber))}
+.ring-wrap{transform-origin:200px 200px;transform-box:view-box}
+.num{font-family:var(--display);font-size:50px;fill:var(--amber);filter:drop-shadow(0 0 8px rgba(255,200,87,.8))}
+
+/* motion (enabled) */
+@media(prefers-reduced-motion:no-preference){
+  .star-line{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.4s .3s var(--ease) forwards,flick 5s 3.2s infinite}
+  .star-fill,.num,.star-inner{animation:fadeup 1s 1.8s both}
+  .ring-wrap{animation:spin 60s linear infinite}
+  .hero .in{opacity:0;transform:translateY(26px);animation:fadeup .9s var(--ease) forwards}
+  .hero .in:nth-child(1){animation-delay:.1s}.hero .in:nth-child(2){animation-delay:.25s}.hero .in:nth-child(3){animation-delay:.45s}.hero .in:nth-child(4){animation-delay:.6s}.hero .in:nth-child(5){animation-delay:.75s}
+  .hero h1 .l2{animation:glow 4s 2.5s infinite}
+  .js .reveal{opacity:0;transform:translateY(32px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:calc(var(--i,0)*90ms)}
+  .js .reveal.show{opacity:1;transform:none}
+  .marquee-track{animation:marq 38s linear infinite}
+  .marquee:hover .marquee-track{animation-play-state:paused}
+}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fadeup{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes flick{0%,92%,100%{opacity:1}93%{opacity:.55}94%{opacity:1}96%{opacity:.7}97%{opacity:1}}
+@keyframes glow{0%,100%{filter:brightness(1)}50%{filter:brightness(1.25)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes marq{to{transform:translateX(-50%)}}
+@media(max-width:860px){
+  .hero-grid{grid-template-columns:1fr}
+  .sign{order:-1;max-width:300px;margin-inline:auto}
+  .hero{margin-top:-64px;padding-top:calc(64px + 1rem)}
+}
+
+/* marquee */
+.marquee{background:var(--red);color:#0e1530;overflow:hidden;transform:rotate(-1.2deg);margin:0 -2%;border-block:3px solid var(--paper)}
+.marquee-track{display:flex;width:max-content}
+.marquee-track span{font-family:var(--display);font-size:clamp(1.1rem,3vw,1.7rem);padding:.7rem 1.4rem;white-space:nowrap;display:flex;align-items:center;gap:2.8rem}
+.marquee-track span::after{content:"★";font-size:.9em}
+
+/* sections */
+section{padding:clamp(4rem,9vw,7rem) 0;position:relative}
+.sec-head{margin-bottom:2.5rem}
+.sec-head h2{font-size:clamp(2rem,6.5vw,4rem);margin-top:.5rem}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.4rem}
+.card{background:var(--ink2);border:2px solid var(--ink3);border-radius:20px;padding:1.8rem;transition:transform .45s var(--ease),border-color .3s,box-shadow .45s var(--ease)}
+.card:hover{transform:translateY(-8px) rotate(-.6deg);border-color:var(--red);box-shadow:0 20px 40px -20px rgba(255,90,74,.6)}
+.card .ic{width:44px;height:44px;color:var(--amber);margin-bottom:1rem}
+.card h3{font-size:1.5rem;margin-bottom:.6rem;color:var(--paper)}
+.card p{color:var(--mute)}
+.card a{color:var(--amber)}
+
+/* menu */
+#menu{background:var(--paper);color:#0e1530}
+#menu .eyebrow{color:#b3261e}
+.note{display:flex;gap:.8rem;align-items:flex-start;background:#0e1530;color:var(--paper);padding:1rem 1.2rem;border-radius:14px;margin-bottom:2.2rem;max-width:62ch}
+.tag{display:inline-block;font-family:var(--cond);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem;background:var(--amber);color:#0e1530;padding:.15rem .6rem;border-radius:999px;white-space:nowrap}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:1.6rem}
+.ticket{background:#fffaf0;border:2px solid #0e1530;border-radius:6px;padding:1.6rem 1.5rem 1.4rem;position:relative;box-shadow:6px 6px 0 #0e1530;transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.ticket:hover{transform:translate(-3px,-3px);box-shadow:10px 10px 0 #b3261e}
+.ticket h3{font-size:1.7rem;display:flex;justify-content:space-between;align-items:center;gap:.8rem;flex-wrap:wrap;padding-bottom:.8rem;border-bottom:3px double #0e1530;margin-bottom:.4rem}
+.item{display:grid;grid-template-columns:1fr auto;gap:.2rem 1rem;padding:.85rem 0;border-bottom:1px dashed #8a8fa8;transition:transform .3s var(--ease),padding .3s}
+.item:last-child{border-bottom:0}
+.item:hover{transform:translateX(6px)}
+.item h4{font-family:var(--cond);font-weight:700;font-size:1.25rem;letter-spacing:.03em;text-transform:uppercase}
+.item .p{font-family:var(--display);font-size:1.05rem;color:#b3261e}
+.item p{grid-column:1;color:#3b4160;font-size:.98rem;line-height:1.4}
+
+/* visit */
+.visit-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:start}
+@media(max-width:860px){.visit-grid{grid-template-columns:1fr}}
+.hours{list-style:none;background:var(--ink2);border:2px solid var(--ink3);border-radius:20px;padding:1rem 1.5rem}
+.hours li{display:flex;justify-content:space-between;gap:1rem;padding:.7rem 0;border-bottom:1px solid var(--ink3);font-family:var(--cond);font-size:1.25rem;letter-spacing:.05em;transition:transform .3s var(--ease)}
+.hours li:hover{transform:translateX(6px)}
+.hours li:last-child{border:0}
+.hours li.today{color:var(--amber)}
+.hours li span:last-child{text-align:right}
+.hours-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:.8rem;gap:.8rem;flex-wrap:wrap}
+.addr-block{margin-top:1.4rem}
+.addr-block address{font-style:normal;margin-bottom:.8rem}
+
+/* contact */
+#contact{text-align:center;background:linear-gradient(180deg,var(--ink),var(--ink2))}
+#contact h2{font-size:clamp(2rem,6.5vw,4rem);margin:.6rem auto 1rem;max-width:16ch}
+#contact p{color:var(--mute);max-width:40ch;margin:0 auto 1.6rem}
+.contact-actions{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center}
+
+footer{padding:2rem 0 2.5rem;text-align:center;color:var(--mute);font-size:.95rem}
+footer strong{font-family:var(--display);font-weight:400;color:var(--paper)}
+.toast{position:fixed;left:50%;bottom:1.5rem;transform:translate(-50%,30px);background:var(--amber);color:#0e1530;font-family:var(--cond);font-weight:700;letter-spacing:.08em;padding:.6rem 1.2rem;border-radius:999px;opacity:0;pointer-events:none;transition:transform .4s var(--ease),opacity .3s;z-index:120}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .star-line{stroke-dasharray:none}
+  .marquee-track{flex-wrap:wrap;width:auto}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="site" id="siteHeader">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="Star 57 Diner, back to top">
+      <svg viewBox="0 0 400 400" aria-hidden="true"><path d="M200 50 235.27 151.46 342.66 153.65 257.06 218.54 288.17 321.35 200 260 111.83 321.35 142.94 218.54 57.34 153.65 164.73 151.46Z" fill="none" stroke="currentColor" stroke-width="26" stroke-linejoin="round"/></svg>
+      Star 57
+    </a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Menu"><span></span></button>
+    <nav id="nav" aria-label="Main">
+      <ul>
+        <li><a href="#about">The diner</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#visit">Hours &amp; location</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow in">American · Tuscola, IL</p>
+      <h1 class="in"><span class="l1">Star 57</span><span class="l2">Diner</span></h1>
+      <p class="lead in">American food on Tuscola Boulevard.</p>
+      <div class="hero-cta in">
+        <a class="btn" href="#menu" data-magnet>See the menu</a>
+        <a class="btn alt" href="#visit" data-magnet>Find us</a>
+      </div>
+      <button class="addr in" type="button" id="copyAddr" data-addr="1104 Tuscola Boulevard, Tuscola, IL 61953" aria-label="Copy address">
+        <b>Copy address</b><span>1104 Tuscola Boulevard, Tuscola, IL 61953</span>
+      </button>
+    </div>
+    <div class="sign" id="sign" aria-hidden="true">
+      <svg viewBox="0 0 400 400">
+        <g class="ring-wrap"><circle class="ring" cx="200" cy="200" r="185" pathLength="100" stroke-dasharray="0.01 1.6"/></g>
+        <path class="star-fill" d="M200 50 235.27 151.46 342.66 153.65 257.06 218.54 288.17 321.35 200 260 111.83 321.35 142.94 218.54 57.34 153.65 164.73 151.46Z"/>
+        <path class="star-line" pathLength="1" d="M200 50 235.27 151.46 342.66 153.65 257.06 218.54 288.17 321.35 200 260 111.83 321.35 142.94 218.54 57.34 153.65 164.73 151.46Z"/>
+        <path class="star-inner" d="M200 86 224 156 298 158 239 203 260 273 200 231 140 273 161 203 102 158 176 156Z"/>
+        <text class="num" x="200" y="222" text-anchor="middle">57</text>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="track">
+    <span>Star 57 Diner</span><span>American</span><span>Tuscola, IL</span><span>1104 Tuscola Boulevard</span><span>Menu</span><span>Hours &amp; location</span>
+    <span>Star 57 Diner</span><span>American</span><span>Tuscola, IL</span><span>1104 Tuscola Boulevard</span><span>Menu</span><span>Hours &amp; location</span>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">The diner</p>
+      <h2>Come on in,<br>Tuscola.</h2>
+    </div>
+    <div class="cards">
+      <article class="card reveal" style="--i:0">
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 20h32a0 0 0 0 1 0 0c0 9-7 16-16 16S8 29 8 20Z"/><path d="M16 12c0 3 3 3 3 6M24 10c0 3 3 3 3 8M32 12c0 3 3 3 3 6" opacity=".8"/><path d="M14 40h20"/></svg>
+        <h3>American</h3>
+        <p>Star 57 Diner serves American food, plain and simple.</p>
+      </article>
+      <article class="card reveal" style="--i:1">
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 43S9 30 9 19a15 15 0 0 1 30 0c0 11-15 24-15 24Z"/><circle cx="24" cy="19" r="5"/></svg>
+        <h3>On Tuscola Boulevard</h3>
+        <p>You'll find us at 1104 Tuscola Boulevard, Tuscola, Illinois.</p>
+      </article>
+      <article class="card reveal" style="--i:2">
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="11" width="36" height="26" rx="4"/><path d="m8 14 16 13 16-13"/></svg>
+        <h3>Say hello</h3>
+        <p>Questions for the diner? <a href="#contact">Send a note</a>.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="check" aria-hidden="true"></div>
+
+<section id="menu">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Menu <span class="tag">Example</span></p>
+      <h2>What's cooking</h2>
+    </div>
+    <p class="note reveal"><span class="tag">Example</span><span>This is an example menu that shows how your menu would look. Your real dishes and prices go here.</span></p>
+    <div class="menu-grid">
+      <article class="ticket reveal" style="--i:0">
+        <h3>Breakfast <span class="tag">Example</span></h3>
+        <div class="item"><h4>Two-egg breakfast</h4><span class="p">$8.99</span><p>Eggs your way, hash browns, toast</p></div>
+        <div class="item"><h4>Buttermilk pancakes</h4><span class="p">$7.99</span><p>Short stack with syrup</p></div>
+        <div class="item"><h4>Biscuits &amp; gravy</h4><span class="p">$8.49</span></div>
+      </article>
+      <article class="ticket reveal" style="--i:1">
+        <h3>Lunch <span class="tag">Example</span></h3>
+        <div class="item"><h4>Classic cheeseburger</h4><span class="p">$10.99</span><p>Served with fries</p></div>
+        <div class="item"><h4>Club sandwich</h4><span class="p">$10.49</span><p>Turkey, bacon, lettuce, tomato</p></div>
+        <div class="item"><h4>Grilled chicken salad</h4><span class="p">$10.99</span></div>
+      </article>
+      <article class="ticket reveal" style="--i:2">
+        <h3>Dinner <span class="tag">Example</span></h3>
+        <div class="item"><h4>Chicken fried steak</h4><span class="p">$13.99</span><p>Mashed potatoes and country gravy</p></div>
+        <div class="item"><h4>Meatloaf</h4><span class="p">$12.99</span></div>
+        <div class="item"><h4>Fish &amp; chips</h4><span class="p">$13.49</span></div>
+      </article>
+      <article class="ticket reveal" style="--i:3">
+        <h3>Dessert <span class="tag">Example</span></h3>
+        <div class="item"><h4>Homemade pie</h4><span class="p">$4.99</span><p>Ask about today's flavors</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="check" aria-hidden="true"></div>
+
+<section id="visit">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Hours &amp; location</p>
+      <h2>Find the star</h2>
+    </div>
+    <div class="visit-grid">
+      <div class="reveal">
+        <div class="hours-top"><span class="eyebrow">Week at a glance</span><span class="tag">Example hours</span></div>
+        <ul class="hours" id="hours">
+          <li data-d="1"><span>Mon</span><span>7 AM – 3 PM</span></li>
+          <li data-d="2"><span>Tue</span><span>7 AM – 3 PM</span></li>
+          <li data-d="3"><span>Wed</span><span>7 AM – 3 PM</span></li>
+          <li data-d="4"><span>Thu</span><span>7 AM – 3 PM</span></li>
+          <li data-d="5"><span>Fri</span><span>7 AM – 8 PM</span></li>
+          <li data-d="6"><span>Sat</span><span>8 AM – 8 PM</span></li>
+          <li data-d="0"><span>Sun</span><span>Closed</span></li>
+        </ul>
+        <div class="addr-block">
+          <address>1104 Tuscola Boulevard<br>Tuscola, IL 61953</address>
+          <button class="btn alt" type="button" id="copyAddr2" data-addr="1104 Tuscola Boulevard, Tuscola, IL 61953" data-magnet>Copy address</button>
+        </div>
+      </div>
+      <div class="reveal" style="--i:1"><iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-88.27446,39.78516,-88.26246,39.79716&amp;layer=mapnik&amp;marker=39.79116,-88.26846"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=39.79116&amp;mlon=-88.26846#map=17/39.79116/-88.26846" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=39.79116,-88.26846" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <p class="eyebrow reveal">Contact</p>
+    <h2 class="reveal">Drop us a line</h2>
+    <p class="reveal">Send a note to Star 57 Diner by e-mail.</p>
+    <div class="contact-actions reveal"><a class="btn" href="mailto:star57diner@hotmail.com">star57diner@hotmail.com</a> </div>
+  </div>
+</section>
+
+<section style="padding-top:0;background:var(--ink2)">
+  <div class="wrap reveal" style="padding-top:clamp(3rem,7vw,5rem)"><section class="np-cta" id="offer"><h2>Want this for Star 57 Diner?</h2><p>This is a free preview made for Star 57 Diner. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20Star%2057%20Diner&amp;body=Yes%2C%20please%20make%20this%20site%20for%20Star%2057%20Diner.">Make it mine</a></p></section></div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Star 57 Diner</strong> · 1104 Tuscola Boulevard, Tuscola, IL 61953</p>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite">Address copied</div>
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · Star 57 Diner</div>
+
+<script>
+(function(){
+  var d=document,root=d.documentElement;
+  root.classList.add('js');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* header + progress + parallax */
+  var header=d.getElementById('siteHeader'),prog=d.getElementById('progress'),sign=d.getElementById('sign'),ticking=false;
+  function onScroll(){
+    var y=window.scrollY||0,h=root.scrollHeight-window.innerHeight;
+    header.classList.toggle('scrolled',y>30);
+    prog.style.transform='scaleX('+(h>0?Math.min(1,y/h):0)+')';
+    if(!reduce&&sign&&y<900){sign.style.transform='translate3d(0,'+(y*0.18).toFixed(1)+'px,0) rotate('+(y*0.02).toFixed(2)+'deg)'}
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(onScroll)}},{passive:true});
+  onScroll();
+
+  /* mobile menu */
+  var burger=d.getElementById('burger'),nav=d.getElementById('nav');
+  function closeNav(){nav.classList.remove('open');burger.setAttribute('aria-expanded','false')}
+  burger.addEventListener('click',function(){
+    var o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o?'true':'false');
+  });
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A')closeNav()});
+  d.addEventListener('keydown',function(e){if(e.key==='Escape')closeNav()});
+
+  /* reveals */
+  var items=d.querySelectorAll('.reveal');
+  if(reduce||!('IntersectionObserver' in window)){
+    items.forEach(function(el){el.classList.add('show')});
+  }else{
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('show');io.unobserve(en.target)}});
+    },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+    items.forEach(function(el){io.observe(el)});
+  }
+
+  /* copy address */
+  var toast=d.getElementById('toast'),tt;
+  function copy(text){
+    function done(){toast.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('on')},1800)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,fallback)}else fallback();
+    function fallback(){
+      var t=d.createElement('textarea');t.value=text;t.style.position='fixed';t.style.opacity='0';d.body.appendChild(t);t.select();
+      try{d.execCommand('copy');done()}catch(e){}
+      d.body.removeChild(t);
+    }
+  }
+  ['copyAddr','copyAddr2'].forEach(function(id){
+    var b=d.getElementById(id);if(b)b.addEventListener('click',function(){copy(b.getAttribute('data-addr'))});
+  });
+
+  /* magnetic buttons */
+  if(!reduce&&window.matchMedia('(hover:hover)').matches){
+    d.querySelectorAll('[data-magnet],.btn').forEach(function(b){
+      b.addEventListener('mousemove',function(e){
+        var r=b.getBoundingClientRect(),x=(e.clientX-r.left-r.width/2)*.22,y=(e.clientY-r.top-r.height/2)*.35;
+        b.style.transform='translate('+x.toFixed(1)+'px,'+(y-2).toFixed(1)+'px)';
+      });
+      b.addEventListener('mouseleave',function(){b.style.transform=''});
+    });
+  }
+
+  /* highlight today in the example hours */
+  var today=new Date().getDay(),li=d.querySelector('#hours li[data-d="'+today+'"]');
+  if(li)li.classList.add('today');
+})();
+</script>
+</body>
+</html>

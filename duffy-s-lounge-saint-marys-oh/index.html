@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Duffy's Lounge | Pizza in Saint Marys, OH</title>
+<meta name="description" content="Duffy's Lounge, a restaurant serving pizza at 1321 Celina Road in Saint Marys, Ohio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=Pacifico&display=swap" rel="stylesheet">
+<script>document.documentElement.className+=' js';</script>
+<style>
+:root{
+  --bg:#0e1a16;--bg2:#13231d;--card:#172b23;--line:#2b4439;
+  --ink:#f4ead8;--mut:#b9c6bb;--neon:#ff6a4a;--amber:#ffc247;
+  --ff-s:'Pacifico',cursive;--ff-b:'Archivo',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--bg);color:var(--ink);font-family:var(--ff-b);font-size:1.0625rem;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,svg,iframe{max-width:100%}
+a{color:inherit}
+h1,h2,h3{text-wrap:balance;overflow-wrap:break-word;font-weight:400}
+.wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+.sr{position:absolute;left:-9999px}
+
+/* banner slot */
+.np-banner{background:var(--amber);color:#1a1405;font-size:.82rem;font-weight:600;text-align:center;padding:.45rem 1rem;line-height:1.35}
+.np-banner a{color:inherit}
+
+/* progress */
+.prog{position:fixed;left:0;top:0;height:3px;width:100%;background:linear-gradient(90deg,var(--neon),var(--amber));transform:scaleX(0);transform-origin:0 50%;z-index:100}
+
+/* header */
+.hdr{position:sticky;top:0;z-index:50;transition:background .3s,box-shadow .3s}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;transition:height .3s}
+.hdr.sc{background:rgba(14,26,22,.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+.hdr.sc .wrap{height:56px}
+.logo{font-family:var(--ff-s);font-size:1.45rem;text-decoration:none;color:var(--neon);text-shadow:0 0 12px rgba(255,106,74,.55)}
+.nav{display:flex;gap:1.6rem;list-style:none}
+.nav a{text-decoration:none;font-weight:600;font-size:.95rem;letter-spacing:.04em;position:relative;padding:.3rem 0}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--neon);transform:scaleX(0);transform-origin:0 50%;transition:transform .3s}
+.nav a:hover::after,.nav a:focus-visible::after{transform:scaleX(1)}
+.burger{display:none;background:none;border:1px solid var(--line);color:var(--ink);width:44px;height:44px;border-radius:50%;cursor:pointer;align-items:center;justify-content:center}
+.burger span,.burger span::before,.burger span::after{display:block;width:18px;height:2px;background:currentColor;position:relative;transition:transform .3s}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+@media(max-width:760px){
+  .js .burger{display:inline-flex}
+  .js .nav{position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid var(--line);padding:.5rem 1.25rem 1rem;display:none}
+  .js .nav.open{display:flex}
+  .js .nav a{display:block;padding:.8rem 0;font-size:1.1rem}
+  .nav{gap:1rem;font-size:.9rem}
+  html:not(.js) .nav{gap:.9rem}
+  html:not(.js) .logo{display:none}
+}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--neon);color:#1a0904;font-weight:800;font-family:var(--ff-b);text-decoration:none;border:2px solid var(--neon);border-radius:999px;padding:.8rem 1.5rem;cursor:pointer;font-size:1rem;transition:transform .25s,box-shadow .25s;will-change:transform}
+.btn:hover,.btn:focus-visible{transform:translateY(-3px);box-shadow:0 8px 24px -6px rgba(255,106,74,.7)}
+.btn.alt{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.alt:hover{box-shadow:0 8px 24px -8px rgba(244,234,216,.5)}
+.btn small,small{font-size:.8em;font-weight:600}
+
+/* hero */
+.hero{position:relative;min-height:calc(100svh - 68px);display:grid;align-items:center;padding:3rem 0 4rem;overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(60% 55% at 70% 45%,rgba(255,106,74,.18),transparent 70%),radial-gradient(40% 40% at 15% 90%,rgba(255,194,71,.10),transparent 70%)}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:2rem;align-items:center}
+.eyebrow{font-weight:800;letter-spacing:.28em;text-transform:uppercase;font-size:.8rem;color:var(--amber)}
+.h1{font-family:var(--ff-s);font-size:clamp(3.4rem,15vw,9.5rem);line-height:1.05;color:var(--neon);text-shadow:0 0 6px rgba(255,160,140,.8),0 0 22px rgba(255,106,74,.7),0 0 60px rgba(255,106,74,.45);margin:.6rem 0 0;padding-right:.1em}
+.h1b{display:block;font-family:var(--ff-b);font-weight:800;text-transform:uppercase;letter-spacing:.42em;font-size:clamp(1.3rem,6.2vw,3.2rem);color:var(--amber);text-shadow:0 0 14px rgba(255,194,71,.55);margin-top:.1em}
+.lead{font-size:clamp(1.15rem,2.6vw,1.5rem);max-width:30ch;margin:1.4rem 0 1.8rem;color:var(--ink)}
+.acts{display:flex;flex-wrap:wrap;gap:.8rem}
+.pz{width:100%;max-width:440px;justify-self:center;will-change:transform}
+.pz svg{width:100%;height:auto;display:block;overflow:visible}
+.pz .dr{fill:none;stroke:var(--neon);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 6px rgba(255,106,74,.8))}
+.pz .am{stroke:var(--amber);filter:drop-shadow(0 0 6px rgba(255,194,71,.7))}
+.spin{transform-origin:200px 200px;animation:spin 60s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:860px){
+  .hero .wrap{grid-template-columns:1fr}
+  .pz{max-width:320px;order:-1}
+  .hero{min-height:0;padding-top:1.5rem}
+}
+
+/* entrance */
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes flick{0%,18%,22%,62%,66%,100%{opacity:1}20%,64%{opacity:.35}21%{opacity:.8}65%{opacity:.5}}
+.in{animation:rise .9s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i,0)*.14s + .1s)}
+.dr{stroke-dasharray:1;stroke-dashoffset:0;animation:draw 2.2s ease-out both;animation-delay:calc(var(--d,0)*.18s + .3s)}
+.h1b{animation:rise .9s .5s both,flick 7s 2s infinite}
+
+/* marquee */
+.mq{border-block:1px solid var(--line);background:var(--bg2);overflow:hidden;padding:.9rem 0}
+.mq-t{display:flex;width:max-content;animation:mq 34s linear infinite}
+.mq-t span{font-family:var(--ff-s);font-size:clamp(1.3rem,3vw,1.9rem);padding:0 1.4rem;white-space:nowrap;color:var(--ink)}
+.mq-t span:nth-child(even){color:var(--amber)}
+.mq-t i{font-style:normal;color:var(--neon)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* sections */
+section{padding:clamp(3.5rem,9vw,7rem) 0}
+.h2{font-family:var(--ff-s);font-size:clamp(2.1rem,7.5vw,4.4rem);line-height:1.15;color:var(--ink);margin:.4rem 0 1.2rem}
+.h2 em{font-style:normal;color:var(--neon);text-shadow:0 0 18px rgba(255,106,74,.5)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:1.6rem;transition:transform .35s,border-color .35s,box-shadow .35s}
+.card:hover{transform:translateY(-6px) rotate(-.6deg);border-color:var(--neon);box-shadow:0 18px 40px -22px rgba(255,106,74,.7)}
+.card h3{font-family:var(--ff-s);font-size:1.7rem;color:var(--amber);margin-bottom:.4rem}
+.card p{color:var(--mut)}
+@media(max-width:860px){.cards{grid-template-columns:1fr}}
+
+/* menu */
+#menu{background:var(--bg2);position:relative}
+.tag{display:inline-block;border:1.5px dashed var(--amber);color:var(--amber);border-radius:999px;font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:.15rem .7rem;vertical-align:middle}
+.note{margin:.4rem 0 2.2rem;color:var(--mut);max-width:60ch;border-left:3px solid var(--neon);padding-left:1rem}
+.mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem 2.5rem}
+.msec h3{font-family:var(--ff-s);font-size:1.9rem;color:var(--neon);margin-bottom:.8rem;display:flex;flex-wrap:wrap;align-items:center;gap:.6rem}
+.msec ul{list-style:none}
+.mi{padding:.8rem .6rem;border-bottom:1px dashed var(--line);display:grid;grid-template-columns:1fr auto;gap:.1rem 1rem;transition:transform .3s,background .3s;border-radius:8px}
+.mi:hover{transform:translateX(6px);background:rgba(255,255,255,.04)}
+.mi b{font-weight:800}
+.mi span.pr{font-weight:800;color:var(--amber);font-variant-numeric:tabular-nums}
+.mi p{grid-column:1/-1;color:var(--mut);font-size:.95rem}
+@media(max-width:960px){.mgrid{grid-template-columns:1fr}}
+
+/* hours */
+.hl{display:grid;grid-template-columns:.9fr 1.1fr;gap:3rem;align-items:start}
+.hrs{list-style:none;margin-top:1rem}
+.hrs li{display:flex;justify-content:space-between;gap:1rem;padding:.7rem .8rem;border-bottom:1px solid var(--line);border-radius:8px}
+.hrs li.today{background:var(--card);box-shadow:inset 3px 0 0 var(--neon)}
+.hrs li span:last-child{font-variant-numeric:tabular-nums;color:var(--mut)}
+.hrs li.today span{color:var(--ink);font-weight:600}
+.addr{display:inline-flex;flex-wrap:wrap;align-items:center;gap:.7rem;margin-top:1.4rem;background:var(--card);border:1px solid var(--line);color:var(--ink);font:inherit;text-align:left;border-radius:14px;padding:.8rem 1rem;cursor:pointer;transition:border-color .3s,transform .3s}
+.addr:hover{border-color:var(--amber);transform:translateY(-2px)}
+.addr em{font-style:normal;font-size:.75rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--amber)}
+.map{border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--card)}
+.map iframe{display:block;width:100%;min-height:340px;border:0}
+.maplinks{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.9rem}
+.maplinks a{color:var(--ink);font-weight:600;border:1px solid var(--line);border-radius:999px;padding:.4rem 1rem;text-decoration:none;transition:border-color .3s,transform .3s}
+.maplinks a:hover{border-color:var(--neon);transform:translateY(-2px)}
+.mapcredit{font-size:.78rem;color:var(--mut);margin-top:.6rem}
+.mapcredit a{color:var(--mut)}
+@media(max-width:900px){.hl{grid-template-columns:1fr;gap:2rem}}
+
+/* contact */
+#contact{text-align:center;border-top:1px solid var(--line)}
+#contact p{color:var(--mut);max-width:44ch;margin:0 auto 1.6rem}
+#contact .acts{justify-content:center}
+
+/* cta */
+.np-cta{margin:0 auto;width:min(960px,100% - 2.5rem);padding:clamp(1.8rem,5vw,3.2rem);border-radius:26px;border:2px solid var(--neon);background:radial-gradient(80% 120% at 100% 0,rgba(255,106,74,.22),transparent 60%),var(--card);box-shadow:0 0 0 6px var(--bg),0 0 0 7px var(--line),0 0 50px -10px rgba(255,106,74,.55);text-align:center}
+.np-cta h2,.np-cta h3{font-family:var(--ff-s);font-size:clamp(1.8rem,5.5vw,3rem);color:var(--amber);margin-bottom:.6rem}
+.np-cta p{color:var(--ink);margin-bottom:1.2rem}
+.np-cta .btn{margin:.3rem}
+
+footer{padding:2rem 0 3rem;text-align:center;color:var(--mut);font-size:.9rem}
+footer .logo{display:inline-block;margin-bottom:.4rem}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--s,0)*.1s)}
+.js .rv.on{opacity:1;transform:none}
+
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv{opacity:1;transform:none}
+  .dr{stroke-dashoffset:0}
+  .mq-t{flex-wrap:wrap;width:auto}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div class="prog" id="prog" aria-hidden="true"></div>
+
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a class="logo" href="#top-of-page">Duffy's</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+    <ul class="nav" id="nav">
+      <li><a href="#pizza">Pizza</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#visit">Hours &amp; location</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top-of-page">
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow in" style="--i:0">Restaurant · Saint Marys, Ohio</p>
+      <h1 class="h1 in" style="--i:1">Duffy's<span class="h1b">Lounge</span></h1>
+      <p class="lead in" style="--i:3">Pizza. Pull up a seat on Celina Road.</p>
+      <div class="acts in" style="--i:4">
+        <a class="btn mag" href="#menu">See the menu</a>
+        <a class="btn alt mag" href="#visit">Find us</a>
+      </div>
+    </div>
+    <div class="pz in" id="pz" style="--i:2" aria-hidden="true">
+      <svg viewBox="0 0 400 400" role="img" focusable="false">
+        <g class="spin">
+          <circle class="dr" pathLength="1" style="--d:0" cx="200" cy="200" r="180"/>
+          <circle class="dr am" pathLength="1" style="--d:1" cx="200" cy="200" r="150"/>
+          <path class="dr" pathLength="1" style="--d:2" d="M200 50V350M50 200H350M94 94L306 306M306 94L94 306"/>
+          <circle class="dr am" pathLength="1" style="--d:3" cx="250" cy="130" r="22"/>
+          <circle class="dr am" pathLength="1" style="--d:4" cx="140" cy="150" r="20"/>
+          <circle class="dr am" pathLength="1" style="--d:5" cx="270" cy="260" r="24"/>
+          <circle class="dr am" pathLength="1" style="--d:6" cx="150" cy="270" r="21"/>
+          <circle class="dr am" pathLength="1" style="--d:7" cx="205" cy="205" r="16"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<div class="mq" aria-hidden="true">
+  <div class="mq-t">
+    <span>Pizza</span><span><i>✦</i></span><span>Duffy's Lounge</span><span><i>✦</i></span><span>Saint Marys, Ohio</span><span><i>✦</i></span><span>1321 Celina Road</span><span><i>✦</i></span><span>Menu</span><span><i>✦</i></span><span>Hours</span><span><i>✦</i></span>
+    <span>Pizza</span><span><i>✦</i></span><span>Duffy's Lounge</span><span><i>✦</i></span><span>Saint Marys, Ohio</span><span><i>✦</i></span><span>1321 Celina Road</span><span><i>✦</i></span><span>Menu</span><span><i>✦</i></span><span>Hours</span><span><i>✦</i></span>
+  </div>
+</div>
+
+<section id="pizza">
+  <div class="wrap">
+    <p class="eyebrow rv">What's on</p>
+    <h2 class="h2 rv" style="--s:1">It starts with <em>pizza.</em></h2>
+    <div class="cards">
+      <article class="card rv" style="--s:1">
+        <h3>Pizza</h3>
+        <p>The thing Duffy's Lounge is known for. Come hungry.</p>
+      </article>
+      <article class="card rv" style="--s:2">
+        <h3>A table in town</h3>
+        <p>A restaurant and lounge at 1321 Celina Road in Saint Marys.</p>
+      </article>
+      <article class="card rv" style="--s:3">
+        <h3>Your menu, here</h3>
+        <p>Dishes and prices get their own spot just below, ready for the real thing.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="wrap">
+    <p class="eyebrow rv">Menu <span class="tag">Example</span></p>
+    <h2 class="h2 rv" style="--s:1">Something <em>to order.</em></h2>
+    <p class="note rv" style="--s:2">This is an example menu that shows how your menu would look. Your real dishes and prices go here.</p>
+    <div class="mgrid">
+      <div class="msec rv" style="--s:1">
+        <h3>Pizza <span class="tag">Example</span></h3>
+        <ul>
+          <li class="mi"><b>Margherita</b><span class="pr">$12.00</span><p>Tomato, mozzarella, basil</p></li>
+          <li class="mi"><b>Pepperoni</b><span class="pr">$13.50</span></li>
+          <li class="mi"><b>Supreme</b><span class="pr">$16.00</span></li>
+        </ul>
+      </div>
+      <div class="msec rv" style="--s:2">
+        <h3>Pasta <span class="tag">Example</span></h3>
+        <ul>
+          <li class="mi"><b>Spaghetti &amp; meatballs</b><span class="pr">$13.50</span></li>
+          <li class="mi"><b>Fettuccine Alfredo</b><span class="pr">$13.00</span></li>
+          <li class="mi"><b>Baked lasagna</b><span class="pr">$14.50</span></li>
+        </ul>
+      </div>
+      <div class="msec rv" style="--s:3">
+        <h3>Starters <span class="tag">Example</span></h3>
+        <ul>
+          <li class="mi"><b>Garlic bread</b><span class="pr">$5.00</span></li>
+          <li class="mi"><b>House salad</b><span class="pr">$6.50</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap hl">
+    <div>
+      <p class="eyebrow rv">Hours &amp; location <span class="tag">Example hours</span></p>
+      <h2 class="h2 rv" style="--s:1">Come <em>find us.</em></h2>
+      <ul class="hrs rv" style="--s:2" id="hrs">
+        <li data-d="1"><span>Mon</span><span>7 AM – 3 PM</span></li>
+        <li data-d="2"><span>Tue</span><span>7 AM – 3 PM</span></li>
+        <li data-d="3"><span>Wed</span><span>7 AM – 3 PM</span></li>
+        <li data-d="4"><span>Thu</span><span>7 AM – 3 PM</span></li>
+        <li data-d="5"><span>Fri</span><span>7 AM – 8 PM</span></li>
+        <li data-d="6"><span>Sat</span><span>8 AM – 8 PM</span></li>
+        <li data-d="0"><span>Sun</span><span>Closed</span></li>
+      </ul>
+      <button class="addr rv" style="--s:3" id="addr" type="button" data-copy="1321 Celina Road, Saint Marys, OH 45885" aria-label="Copy address">
+        <span>1321 Celina Road, Saint Marys, OH 45885</span>
+        <em id="addrmsg">Tap to copy</em>
+      </button>
+    </div>
+    <div class="rv" style="--s:2">
+      <iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-84.41033,40.53731,-84.39833,40.54931&amp;layer=mapnik&amp;marker=40.54331,-84.40433"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=40.54331&amp;mlon=-84.40433#map=17/40.54331/-84.40433" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=40.54331,-84.40433" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <p class="eyebrow rv">Say hello</p>
+    <h2 class="h2 rv" style="--s:1">Drop us <em>a line.</em></h2>
+    <p class="rv" style="--s:2">Questions for Duffy's Lounge? Send a message by e-mail.</p>
+    <div class="acts rv" style="--s:3">
+      <a class="btn" href="mailto:abvistmarys@gmail.com">abvistmarys@gmail.com</a>
+      
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <section class="np-cta" id="offer"><h2>Want this for Duffy&#x27;s Lounge?</h2><p>This is a free preview made for Duffy&#x27;s Lounge. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20Duffy%27s%20Lounge&amp;body=Yes%2C%20please%20make%20this%20site%20for%20Duffy%27s%20Lounge.">Make it mine</a></p></section>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#top-of-page">Duffy's Lounge</a>
+    <p>1321 Celina Road, Saint Marys, OH 45885</p>
+  </div>
+</footer>
+
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · Duffy&#x27;s Lounge</div>
+
+<script>
+(function(){
+  'use strict';
+  var reduceMo = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hdrEl = document.getElementById('hdr');
+  var progEl = document.getElementById('prog');
+  var pizzaEl = document.getElementById('pz');
+  var navEl = document.getElementById('nav');
+  var burgerEl = document.getElementById('burger');
+
+  /* scroll: header state, progress bar, parallax */
+  var ticking = false;
+  function onScrollFrame(){
+    var y = window.pageYOffset || document.documentElement.scrollTop || 0;
+    var maxY = document.documentElement.scrollHeight - window.innerHeight;
+    hdrEl.classList.toggle('sc', y > 30);
+    progEl.style.transform = 'scaleX(' + (maxY > 0 ? Math.min(1, y / maxY) : 0) + ')';
+    if(pizzaEl && !reduceMo && y < window.innerHeight * 1.2){
+      pizzaEl.style.transform = 'translate3d(0,' + (y * 0.16).toFixed(1) + 'px,0) rotate(' + (y * 0.03).toFixed(2) + 'deg)';
+    }
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ ticking = true; window.requestAnimationFrame(onScrollFrame); }
+  }, {passive:true});
+  onScrollFrame();
+
+  /* mobile menu */
+  function setMenu(openIt){
+    navEl.classList.toggle('open', openIt);
+    burgerEl.setAttribute('aria-expanded', String(openIt));
+    burgerEl.setAttribute('aria-label', openIt ? 'Close menu' : 'Open menu');
+  }
+  burgerEl.addEventListener('click', function(){ setMenu(!navEl.classList.contains('open')); });
+  navEl.addEventListener('click', function(ev){
+    if(ev.target.closest && ev.target.closest('a')) setMenu(false);
+  });
+  document.addEventListener('keydown', function(ev){ if(ev.key === 'Escape') setMenu(false); });
+
+  /* reveals */
+  var revealEls = document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window && !reduceMo){
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('on'); obs.unobserve(en.target); }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -6% 0px'});
+    revealEls.forEach(function(el){ obs.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('on'); });
+  }
+
+  /* magnetic buttons */
+  if(!reduceMo && window.matchMedia('(hover: hover)').matches){
+    document.querySelectorAll('.mag, .np-cta .btn').forEach(function(btnEl){
+      btnEl.addEventListener('mousemove', function(ev){
+        var box = btnEl.getBoundingClientRect();
+        var dx = (ev.clientX - box.left - box.width / 2) * 0.18;
+        var dy = (ev.clientY - box.top - box.height / 2) * 0.28;
+        btnEl.style.transform = 'translate(' + dx.toFixed(1) + 'px,' + (dy - 3).toFixed(1) + 'px)';
+      });
+      btnEl.addEventListener('mouseleave', function(){ btnEl.style.transform = ''; });
+    });
+  }
+
+  /* highlight today in example hours */
+  var dayNum = String(new Date().getDay());
+  document.querySelectorAll('#hrs li').forEach(function(li){
+    if(li.getAttribute('data-d') === dayNum) li.classList.add('today');
+  });
+
+  /* click to copy address */
+  var addrBtn = document.getElementById('addr');
+  var addrMsg = document.getElementById('addrmsg');
+  function showCopied(ok){
+    addrMsg.textContent = ok ? 'Copied!' : 'Press Ctrl+C to copy';
+    window.setTimeout(function(){ addrMsg.textContent = 'Tap to copy'; }, 2200);
+  }
+  function fallbackCopy(txt){
+    var ta = document.createElement('textarea');
+    ta.value = txt; ta.setAttribute('readonly','');
+    ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch(err){ ok = false; }
+    document.body.removeChild(ta);
+    showCopied(ok);
+  }
+  addrBtn.addEventListener('click', function(){
+    var txt = addrBtn.getAttribute('data-copy');
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){ showCopied(true); }, function(){ fallbackCopy(txt); });
+    } else { fallbackCopy(txt); }
+  });
+})();
+</script>
+</body>
+</html>

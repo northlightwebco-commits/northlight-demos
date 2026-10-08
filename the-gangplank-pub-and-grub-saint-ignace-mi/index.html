@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Gangplank Pub &amp; Grub — Saint Ignace, MI</title>
+<meta name="description" content="The Gangplank Pub &amp; Grub, 100 South State Street, Saint Ignace, Michigan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070d1a;--bg2:#0c1730;--ink:#e9f1f5;--mute:#a9b9c8;
+  --amber:#ffb23e;--teal:#3ef0d0;--red:#ff5c7a;
+  --line:rgba(233,241,245,.16);
+  --disp:'Bungee',Impact,sans-serif;--body:'Figtree',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img,svg{max-width:100%}
+h1,h2,h3{font-family:var(--disp);font-weight:400;line-height:1.02;text-wrap:balance;overflow-wrap:break-word}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+section{position:relative;padding:clamp(64px,10vw,120px) 0}
+
+/* progress */
+.progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:100;background:linear-gradient(90deg,var(--teal),var(--amber),var(--red));transform:scaleX(0);transform-origin:0 50%}
+
+/* banner slot */
+.np-banner{background:var(--amber);color:#1a1100;font-size:.82rem;font-weight:700;text-align:center;padding:8px 14px;letter-spacing:.02em}
+.np-banner a{color:inherit}
+
+/* header */
+header.top{position:sticky;top:0;z-index:50;transition:background .3s,box-shadow .3s,backdrop-filter .3s}
+header.top.solid{background:rgba(7,13,26,.88);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.logo{font-family:var(--disp);text-decoration:none;font-size:1.05rem;color:var(--amber);text-shadow:0 0 12px rgba(255,178,62,.6);white-space:nowrap}
+nav ul{display:flex;gap:26px;list-style:none;align-items:center}
+nav a{text-decoration:none;font-weight:700;font-size:.95rem;color:var(--mute);position:relative;padding:6px 0;transition:color .2s}
+nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--teal);box-shadow:0 0 8px var(--teal);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+nav a:hover,nav a:focus-visible{color:var(--ink)}
+nav a:hover::after,nav a:focus-visible::after{transform:scaleX(1)}
+.burger{display:none;background:none;border:2px solid var(--line);color:var(--ink);width:44px;height:44px;border-radius:10px;cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px}
+.burger span{display:block;width:20px;height:2px;background:currentColor;transition:transform .3s,opacity .3s}
+.burger[aria-expanded=true] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded=true] span:nth-child(2){opacity:0}
+.burger[aria-expanded=true] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--disp);font-size:.95rem;text-decoration:none;color:#1a1100;background:var(--amber);border:2px solid var(--amber);padding:14px 24px;border-radius:999px;cursor:pointer;box-shadow:0 0 22px rgba(255,178,62,.45);transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s,filter .25s;will-change:transform}
+.btn:hover,.btn:focus-visible{transform:translateY(-3px);box-shadow:0 8px 32px rgba(255,178,62,.65);filter:brightness(1.07)}
+.btn.alt{background:transparent;color:var(--teal);border-color:var(--teal);box-shadow:0 0 18px rgba(62,240,208,.3),inset 0 0 14px rgba(62,240,208,.15)}
+.btn.alt:hover{box-shadow:0 8px 30px rgba(62,240,208,.5),inset 0 0 18px rgba(62,240,208,.25)}
+small,.small{font-size:.85rem;color:var(--mute)}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+
+/* hero */
+.hero{min-height:calc(100svh - 68px);display:flex;align-items:center;padding-top:40px;padding-bottom:140px;overflow:hidden;background:radial-gradient(ellipse at 75% 20%,#14284f 0,transparent 55%),var(--bg)}
+.stars{position:absolute;inset:0;pointer-events:none}
+.stars i{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;opacity:.7;animation:tw 4s ease-in-out infinite}
+@keyframes tw{50%{opacity:.15}}
+.moon{position:absolute;right:8%;top:8%;width:clamp(70px,12vw,150px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff7e0,#ffd98a 70%);box-shadow:0 0 80px rgba(255,217,138,.45);opacity:.9}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
+.kicker{display:inline-block;font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:.8rem;color:var(--teal);margin-bottom:18px}
+.sign{font-size:clamp(2.35rem,10.6vw,7rem);color:#fff4dd;text-shadow:0 0 6px #fff4dd,0 0 22px var(--amber),0 0 52px var(--amber);letter-spacing:.01em}
+.sign .the{display:block;font-size:.34em;color:var(--teal);text-shadow:0 0 8px var(--teal),0 0 26px var(--teal);margin-bottom:.15em}
+.sign .word{display:block;animation:flick 7s infinite}
+.sign .sub{display:block;font-size:.3em;margin-top:.5em;color:var(--red);text-shadow:0 0 8px var(--red),0 0 28px var(--red);letter-spacing:.05em}
+@keyframes flick{0%,18%,22%,62%,64%,100%{opacity:1}20%{opacity:.82}63%{opacity:.6}}
+.lead{max-width:34ch;margin:26px 0 30px;font-size:1.2rem;color:var(--ink)}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.plank{width:100%;height:auto;overflow:visible}
+.plank .draw{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.2s .6s forwards cubic-bezier(.6,0,.2,1)}
+@keyframes draw{to{stroke-dashoffset:0}}
+.hero-art{will-change:transform}
+.waves{position:absolute;left:0;right:0;bottom:-2px;height:150px;z-index:1;pointer-events:none}
+.waves svg{position:absolute;bottom:0;left:0;width:200%;height:100%;animation:drift 18s linear infinite}
+.waves svg:nth-child(2){animation-duration:11s;animation-direction:reverse;opacity:.8}
+@keyframes drift{to{transform:translateX(-50%)}}
+
+/* marquee */
+.marquee{overflow:hidden;border-block:1px solid var(--line);background:var(--bg2);padding:16px 0}
+.track{display:flex;width:max-content;animation:mq 34s linear infinite}
+.track span{font-family:var(--disp);font-size:1.25rem;white-space:nowrap;padding-right:34px;color:var(--ink)}
+.track span:nth-child(3n+1){color:var(--amber)}.track span:nth-child(3n+2){color:var(--teal)}.track span:nth-child(3n){color:var(--red)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* headings */
+.eyebrow{font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:.78rem;color:var(--teal);margin-bottom:12px;display:block}
+h2{font-size:clamp(1.9rem,6vw,3.6rem);margin-bottom:18px;color:#fff4dd;text-shadow:0 0 18px rgba(255,178,62,.35)}
+.intro{max-width:52ch;color:var(--mute);margin-bottom:44px}
+.tag{display:inline-block;font-weight:700;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;border:1.5px solid var(--amber);color:var(--amber);padding:3px 10px;border-radius:999px;vertical-align:middle}
+
+/* offer cards */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{position:relative;border:1.5px solid var(--line);border-radius:20px;padding:30px 26px;background:linear-gradient(160deg,rgba(20,40,79,.6),rgba(12,23,48,.6));transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .3s}
+.card:hover{transform:translateY(-8px) rotate(-.4deg);border-color:var(--teal);box-shadow:0 14px 40px rgba(62,240,208,.18)}
+.card svg{width:46px;height:46px;margin-bottom:18px;stroke:var(--amber);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 6px var(--amber))}
+.card h3{font-size:1.35rem;margin-bottom:8px}
+.card p{color:var(--mute)}
+
+/* menu */
+#menu{background:var(--bg2)}
+.note{border-left:4px solid var(--amber);padding:12px 18px;background:rgba(255,178,62,.08);border-radius:0 12px 12px 0;margin-bottom:44px;max-width:62ch}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+.menu-col h3{font-size:1.5rem;color:var(--teal);text-shadow:0 0 14px rgba(62,240,208,.5);margin-bottom:14px;padding-bottom:12px;border-bottom:2px dashed var(--line)}
+.item{display:flex;align-items:baseline;gap:10px;padding:12px 10px;margin-inline:-10px;border-radius:10px;transition:background .25s,transform .25s}
+.item:hover{background:rgba(255,255,255,.05);transform:translateX(6px)}
+.item .n{font-weight:700}
+.item .dots{flex:1;border-bottom:2px dotted var(--line);transform:translateY(-4px);min-width:12px}
+.item .p{font-family:var(--disp);color:var(--amber)}
+.item .d{display:block;font-size:.9rem;color:var(--mute);font-weight:400}
+.ex{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);border:1px solid var(--amber);border-radius:999px;padding:1px 7px;margin-left:6px;vertical-align:middle}
+
+/* hours */
+.hl{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:start}
+.hours{list-style:none;margin:18px 0 28px;border:1.5px solid var(--line);border-radius:18px;overflow:hidden}
+.hours li{display:flex;justify-content:space-between;gap:12px;padding:12px 20px;border-bottom:1px solid var(--line)}
+.hours li:last-child{border-bottom:0}
+.hours li:nth-child(even){background:rgba(255,255,255,.03)}
+.hours b{font-family:var(--disp);font-weight:400;color:var(--teal)}
+address{font-style:normal;margin-bottom:14px;font-size:1.15rem}
+.copy{margin-top:6px}
+.map{border:1.5px solid var(--line);border-radius:20px;overflow:hidden;background:var(--bg2)}
+.map iframe{display:block;width:100%;min-height:340px;border:0}
+.maplinks{display:flex;flex-wrap:wrap;gap:10px 18px;padding:14px 18px}
+.maplinks a{color:var(--teal);font-weight:700}
+.mapcredit{font-size:.75rem;color:var(--mute);padding:0 18px 14px}
+.mapcredit a{color:inherit}
+
+/* contact */
+#contact{text-align:center;background:radial-gradient(ellipse at 50% 100%,rgba(255,92,122,.18),transparent 60%)}
+#contact .intro{margin-inline:auto}
+.contact-row{display:flex;flex-wrap:wrap;gap:16px;justify-content:center}
+
+/* CTA slot */
+.np-cta{width:min(920px,100% - 40px);margin:clamp(40px,8vw,90px) auto;padding:clamp(28px,5vw,56px);border-radius:28px;border:2px solid var(--amber);background:linear-gradient(135deg,rgba(255,178,62,.14),rgba(62,240,208,.1));box-shadow:0 0 50px rgba(255,178,62,.25),inset 0 0 40px rgba(255,178,62,.08);text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px;animation:glow 4s ease-in-out infinite}
+.np-cta h2,.np-cta h3{color:#fff4dd}
+.np-cta p{max-width:50ch;color:var(--ink)}
+.np-cta .btn{margin:4px}
+@keyframes glow{50%{box-shadow:0 0 80px rgba(255,178,62,.4),inset 0 0 40px rgba(255,178,62,.12)}}
+
+footer{padding:36px 0 60px;text-align:center;color:var(--mute);font-size:.9rem;border-top:1px solid var(--line)}
+
+/* reveal (only when JS is on) */
+.js .rv{opacity:0;transform:translateY(32px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0)*110ms)}
+.js .rv.in{opacity:1;transform:none}
+.js .enter{opacity:0;transform:translateY(26px);animation:up .9s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--d,0)*150ms + 100ms)}
+@keyframes up{to{opacity:1;transform:none}}
+
+/* responsive */
+@media (max-width:900px){
+  .hero-grid,.hl{grid-template-columns:1fr}
+  .hero-art{max-width:420px;margin-inline:auto;order:-1}
+  .cards,.menu-grid{grid-template-columns:1fr}
+  .moon{right:6%;top:4%}
+}
+@media (max-width:760px){
+  .burger{display:flex}
+  nav{position:absolute;top:68px;left:0;right:0;background:rgba(7,13,26,.97);border-bottom:1px solid var(--line);max-height:0;overflow:hidden;visibility:hidden;transition:max-height .4s,visibility .4s}
+  nav.open{max-height:360px;visibility:visible}
+  nav ul{flex-direction:column;align-items:flex-start;gap:0;padding:8px 20px 20px}
+  nav li{width:100%}
+  nav a{display:block;padding:14px 0;font-size:1.05rem;border-bottom:1px solid var(--line)}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv,.js .enter{opacity:1!important;transform:none!important}
+  .plank .draw{stroke-dashoffset:0}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="top" id="top">
+  <div class="wrap bar">
+    <a class="logo" href="#hero">Gangplank</a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+    <nav id="nav" aria-label="Main">
+      <ul>
+        <li><a href="#offer">The Deck</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#visit">Hours &amp; location</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="hero">
+  <div class="stars" aria-hidden="true" id="stars"></div>
+  <div class="moon" aria-hidden="true" data-par="0.25"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker enter" style="--d:0">Saint Ignace, Michigan</span>
+      <h1 class="sign enter" style="--d:1">
+        <span class="the">The</span>
+        <span class="word">Gangplank</span>
+        <span class="sub">Pub &amp; Grub</span>
+      </h1>
+      <p class="lead enter" style="--d:2">Step aboard on South State Street. Bring an appetite.</p>
+      <div class="cta-row enter" style="--d:3">
+        <a class="btn magnet" href="#menu">See the menu</a>
+        <a class="btn alt magnet" href="#visit">Find the dock</a>
+      </div>
+    </div>
+    <div class="hero-art enter" style="--d:2" data-par="-0.12" aria-hidden="true">
+      <svg class="plank" viewBox="0 0 400 340" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <g stroke="#3ef0d0" stroke-width="3" style="filter:drop-shadow(0 0 6px #3ef0d0)">
+          <path class="draw" pathLength="1" d="M30 250 L370 130"/>
+          <path class="draw" pathLength="1" d="M20 280 L360 160"/>
+          <path class="draw" pathLength="1" d="M30 250 L20 280"/>
+          <path class="draw" pathLength="1" d="M370 130 L360 160"/>
+          <path class="draw" pathLength="1" d="M95 227 L85 257 M165 202 L155 232 M235 178 L225 208 M305 153 L295 183"/>
+        </g>
+        <g stroke="#ffb23e" stroke-width="3" style="filter:drop-shadow(0 0 6px #ffb23e)">
+          <path class="draw" pathLength="1" d="M60 240 L60 120 M330 143 L330 23"/>
+          <path class="draw" pathLength="1" d="M60 130 Q195 130 330 33"/>
+          <path class="draw" pathLength="1" d="M60 170 Q195 190 330 83"/>
+        </g>
+        <g stroke="#ff5c7a" stroke-width="3" style="filter:drop-shadow(0 0 6px #ff5c7a)">
+          <circle class="draw" pathLength="1" cx="330" cy="14" r="9"/>
+          <circle class="draw" pathLength="1" cx="60" cy="111" r="9"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <div class="waves" aria-hidden="true">
+    <svg viewBox="0 0 1200 150" preserveAspectRatio="none"><path fill="#0c1730" d="M0 70 Q75 30 150 70 T300 70 T450 70 T600 70 T750 70 T900 70 T1050 70 T1200 70 V150 H0Z"/></svg>
+    <svg viewBox="0 0 1200 150" preserveAspectRatio="none"><path fill="#070d1a" d="M0 95 Q75 65 150 95 T300 95 T450 95 T600 95 T750 95 T900 95 T1050 95 T1200 95 V150 H0Z" opacity=".9"/></svg>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track" id="track">
+    <span>Pub &amp; Grub</span><span>Saint Ignace</span><span>Wings</span><span>South State Street</span><span>On tap</span><span>Burgers</span><span>Michigan</span><span>Onion rings</span>
+  </div>
+</div>
+
+<section id="offer">
+  <div class="wrap">
+    <span class="eyebrow rv">Welcome aboard</span>
+    <h2 class="rv">Grub, pints, and a good seat</h2>
+    <p class="intro rv">A pub and grill in downtown Saint Ignace. Here is how the menu is laid out, shown with example dishes.</p>
+    <div class="cards">
+      <article class="card rv" style="--i:0">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 20h32M12 20c0 10 5 16 12 16s12-6 12-16M16 12c0-3 3-3 3-6M24 12c0-3 3-3 3-6M32 12c0-3 3-3 3-6"/></svg>
+        <h3>Starters</h3>
+        <p>Nachos, wings, onion rings. Things to share while you decide.</p>
+        <p class="small" style="margin-top:10px"><span class="tag">Example</span></p>
+      </article>
+      <article class="card rv" style="--i:1">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 24c0-8 8-14 18-14s18 6 18 14zM6 30h36M8 36c4 4 28 4 32 0"/></svg>
+        <h3>Mains</h3>
+        <p>Burgers, fish sandwiches and tenders. Pub grub, plain and proud.</p>
+        <p class="small" style="margin-top:10px"><span class="tag">Example</span></p>
+      </article>
+      <article class="card rv" style="--i:2">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M13 10h18v26a4 4 0 0 1-4 4h-10a4 4 0 0 1-4-4zM31 16h5a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3h-5M13 18h18"/></svg>
+        <h3>On tap</h3>
+        <p>A lager and a pale ale to wash it all down.</p>
+        <p class="small" style="margin-top:10px"><span class="tag">Example</span></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="wrap">
+    <span class="eyebrow rv">Menu <span class="tag" style="margin-left:8px">Example</span></span>
+    <h2 class="rv">What's on the board</h2>
+    <p class="note rv">This is an example menu that shows how your menu would look. Your real dishes and prices go here.</p>
+    <div class="menu-grid">
+      <div class="menu-col rv" style="--i:0">
+        <h3>Starters</h3>
+        <div class="item"><span class="n">Loaded nachos<span class="ex">Example</span></span><span class="dots"></span><span class="p">$10.00</span></div>
+        <div class="item"><span class="n">Wings<span class="ex">Example</span><span class="d">Your choice of sauce</span></span><span class="dots"></span><span class="p">$11.00</span></div>
+        <div class="item"><span class="n">Onion rings<span class="ex">Example</span></span><span class="dots"></span><span class="p">$7.00</span></div>
+      </div>
+      <div class="menu-col rv" style="--i:1">
+        <h3>Mains</h3>
+        <div class="item"><span class="n">Bacon cheeseburger<span class="ex">Example</span></span><span class="dots"></span><span class="p">$12.50</span></div>
+        <div class="item"><span class="n">Fish sandwich<span class="ex">Example</span></span><span class="dots"></span><span class="p">$11.50</span></div>
+        <div class="item"><span class="n">Chicken tenders<span class="ex">Example</span></span><span class="dots"></span><span class="p">$10.50</span></div>
+      </div>
+      <div class="menu-col rv" style="--i:2">
+        <h3>On tap</h3>
+        <div class="item"><span class="n">Local lager<span class="ex">Example</span></span><span class="dots"></span><span class="p">$5.00</span></div>
+        <div class="item"><span class="n">Pale ale<span class="ex">Example</span></span><span class="dots"></span><span class="p">$5.50</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap hl">
+    <div>
+      <span class="eyebrow rv">Hours &amp; location</span>
+      <h2 class="rv">Find the dock</h2>
+      <address class="rv">100 South State Street<br>Saint Ignace, MI 49781</address>
+      <button class="btn alt copy rv" id="copy" type="button" data-addr="100 South State Street, Saint Ignace, MI 49781">Copy address</button>
+      <p class="rv" style="margin-top:34px"><span class="tag">Example hours</span></p>
+      <ul class="hours rv" aria-label="Example hours">
+        <li><span>Mon</span><b>7 AM – 3 PM</b></li>
+        <li><span>Tue</span><b>7 AM – 3 PM</b></li>
+        <li><span>Wed</span><b>7 AM – 3 PM</b></li>
+        <li><span>Thu</span><b>7 AM – 3 PM</b></li>
+        <li><span>Fri</span><b>7 AM – 8 PM</b></li>
+        <li><span>Sat</span><b>8 AM – 8 PM</b></li>
+        <li><span>Sun</span><b>Closed</b></li>
+      </ul>
+    </div>
+    <div class="rv" style="--i:1">
+      <iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-84.72654,45.86013,-84.71454,45.87213&amp;layer=mapnik&amp;marker=45.86613,-84.72054"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=45.86613&amp;mlon=-84.72054#map=17/45.86613/-84.72054" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=45.86613,-84.72054" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <span class="eyebrow rv">Contact</span>
+    <h2 class="rv">Drop us a line</h2>
+    <p class="intro rv">Questions about The Gangplank? Send a note by e-mail.</p>
+    <div class="contact-row rv">
+      <a class="btn" href="mailto:gangplankstignace@gmail.com">gangplankstignace@gmail.com</a>
+      
+    </div>
+  </div>
+</section>
+
+<section class="np-cta" id="offer"><h2>Want this for The Gangplank Pub &amp; Grub?</h2><p>This is a free preview made for The Gangplank Pub &amp; Grub. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20The%20Gangplank%20Pub%20%26%20Grub&amp;body=Yes%2C%20please%20make%20this%20site%20for%20The%20Gangplank%20Pub%20%26%20Grub.">Make it mine</a></p></section>
+</main>
+
+<footer>
+  <div class="wrap">The Gangplank Pub &amp; Grub · 100 South State Street · Saint Ignace, MI 49781</div>
+</footer>
+
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · The Gangplank Pub &amp; Grub</div>
+
+<script>
+(function(){
+  var d=document,root=d.documentElement;
+  root.classList.add('js');
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // stars
+  var st=d.getElementById('stars');
+  for(var i=0;i<38;i++){var s=d.createElement('i');s.style.left=(Math.random()*100)+'%';s.style.top=(Math.random()*70)+'%';s.style.animationDelay=(Math.random()*4)+'s';s.style.width=s.style.height=(1+Math.random()*2.5)+'px';st.appendChild(s);}
+
+  // marquee duplicate
+  var tr=d.getElementById('track');
+  tr.innerHTML=tr.innerHTML+tr.innerHTML;
+
+  // mobile menu
+  var b=d.getElementById('burger'),nav=d.getElementById('nav');
+  function close(){nav.classList.remove('open');b.setAttribute('aria-expanded','false');}
+  b.addEventListener('click',function(){var o=nav.classList.toggle('open');b.setAttribute('aria-expanded',o);});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A')close();});
+  d.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+
+  // reveal
+  var rv=d.querySelectorAll('.rv');
+  if('IntersectionObserver' in window&&!reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.15,rootMargin:'0px 0px -6% 0px'});
+    rv.forEach(function(el){io.observe(el);});
+  }else{rv.forEach(function(el){el.classList.add('in');});}
+
+  // scroll: progress, header, parallax
+  var hd=d.getElementById('top'),pg=d.getElementById('progress'),par=d.querySelectorAll('[data-par]'),tick=false;
+  function onScroll(){
+    var y=window.scrollY||0,h=root.scrollHeight-innerHeight;
+    pg.style.transform='scaleX('+(h>0?Math.min(1,y/h):0)+')';
+    hd.classList.toggle('solid',y>30);
+    if(!reduce&&y<innerHeight*1.5){par.forEach(function(el){el.style.transform='translate3d(0,'+(y*parseFloat(el.dataset.par))+'px,0)';});}
+    tick=false;
+  }
+  addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(onScroll);}},{passive:true});
+  onScroll();
+
+  // magnetic buttons
+  if(!reduce&&matchMedia('(hover:hover)').matches){
+    d.querySelectorAll('.magnet').forEach(function(el){
+      el.addEventListener('mousemove',function(e){var r=el.getBoundingClientRect();el.style.transform='translate('+((e.clientX-r.left-r.width/2)*.2)+'px,'+((e.clientY-r.top-r.height/2)*.3-3)+'px)';});
+      el.addEventListener('mouseleave',function(){el.style.transform='';});
+    });
+  }
+
+  // copy address
+  var c=d.getElementById('copy');
+  c.addEventListener('click',function(){
+    var t=c.dataset.addr,orig='Copy address';
+    function done(ok){c.textContent=ok?'Copied!':'Press Ctrl+C to copy';setTimeout(function(){c.textContent=orig;},2000);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){done(true);},function(){done(false);});}
+    else{var a=d.createElement('textarea');a.value=t;d.body.appendChild(a);a.select();var ok=false;try{ok=d.execCommand('copy');}catch(e){}d.body.removeChild(a);done(ok);}
+  });
+})();
+</script>
+</body>
+</html>

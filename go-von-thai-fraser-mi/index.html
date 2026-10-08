@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Go Von Thai | Thai in Fraser, MI</title>
+<meta name="description" content="Go Von Thai, a Thai restaurant at 16716 15 Mile Road in Fraser, Michigan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,800;1,9..144,500;1,9..144,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#12100d;--ink2:#1c1813;--paper:#f4ead7;--paper2:#e9dcc2;
+  --gold:#f2b233;--chili:#ff5a3c;--chili-d:#b5301a;--jade:#2f7d5b;
+  --serif:"Fraunces",Georgia,serif;--sans:"Instrument Sans",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:1.0625rem;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:var(--serif);font-weight:800;line-height:1;text-wrap:balance;overflow-wrap:break-word}
+.eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600;display:flex;align-items:center;gap:.7rem}
+.eyebrow::before{content:"";width:34px;height:2px;background:currentColor}
+h2{font-size:clamp(2.2rem,6.5vw,4.6rem);margin:.9rem 0 1.2rem}
+h2 em{font-style:italic;color:var(--gold);font-weight:500}
+
+/* preview banner slots */
+.np-banner{background:var(--gold);color:#1a1205;font-size:.82rem;text-align:center;padding:.5rem 1rem;font-weight:600;position:relative;z-index:60}
+.np-banner a{color:inherit}
+
+/* progress */
+.progress{position:fixed;left:0;top:0;height:3px;width:100%;background:linear-gradient(90deg,var(--chili),var(--gold));transform:scaleX(0);transform-origin:0 50%;z-index:100}
+
+/* header */
+header.top{position:sticky;top:0;z-index:50;transition:background .35s,box-shadow .35s}
+header.top .bar{display:flex;align-items:center;justify-content:space-between;height:76px;transition:height .35s}
+header.top.scrolled{background:rgba(18,16,13,.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(242,178,51,.25)}
+header.top.scrolled .bar{height:62px}
+.logo{font-family:var(--serif);font-weight:800;font-size:1.35rem;text-decoration:none;display:flex;align-items:center;gap:.55rem}
+.logo i{width:12px;height:12px;border-radius:50%;background:var(--chili);box-shadow:0 0 14px var(--chili);display:block}
+nav ul{display:flex;gap:2rem;list-style:none;align-items:center}
+nav a{text-decoration:none;font-weight:500;font-size:.95rem;position:relative;padding:.3rem 0}
+nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+nav a:hover::after,nav a:focus-visible::after{transform:scaleX(1)}
+.burger{display:none;background:none;border:1px solid rgba(244,234,215,.4);color:var(--paper);width:46px;height:46px;border-radius:50%;cursor:pointer;position:relative}
+.burger span,.burger span::before{position:absolute;left:13px;width:18px;height:2px;background:currentColor;transition:transform .3s}
+.burger span{top:22px}.burger span::before{content:"";left:0;top:-6px}
+.burger[aria-expanded=true] span{transform:rotate(45deg)}
+.burger[aria-expanded=true] span::before{transform:translateY(6px) rotate(-90deg)}
+@media(max-width:800px){
+  .burger{display:block}
+  nav{position:fixed;inset:0 0 auto 0;top:0;background:var(--ink);padding:96px 24px 36px;transform:translateY(-102%);transition:transform .5s cubic-bezier(.7,0,.2,1);z-index:-1;border-bottom:2px solid var(--gold)}
+  nav.open{transform:none}
+  nav ul{flex-direction:column;align-items:flex-start;gap:1.2rem}
+  nav a{font-family:var(--serif);font-size:2rem;font-weight:800}
+}
+
+/* hero */
+.hero{position:relative;min-height:calc(100vh - 76px);min-height:calc(100svh - 76px);display:flex;align-items:center;overflow:hidden;margin-top:-76px;padding:140px 0 90px}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 55% at 72% 38%,rgba(255,90,60,.22),transparent 70%),radial-gradient(40% 40% at 20% 85%,rgba(242,178,51,.12),transparent 70%)}
+.hero .wrap{position:relative;z-index:2}
+.hero h1{font-size:clamp(4rem,19vw,13.5rem);letter-spacing:-.03em;margin:1.2rem 0 1.4rem}
+.hero h1 .w{display:block;white-space:nowrap}
+.hero h1 .w:nth-child(2){font-style:italic;font-weight:500;color:var(--gold);padding-left:.5em}
+.hero h1 .w span{display:inline-block}
+.hero p.lead{font-size:clamp(1.15rem,2.6vw,1.6rem);max-width:30ch;color:var(--paper2)}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+.pill{display:inline-block;text-decoration:none;padding:.9rem 1.6rem;border-radius:99px;font-weight:600;border:1.5px solid var(--paper);transition:transform .25s,background .25s,color .25s;will-change:transform}
+.pill.solid{background:var(--chili);border-color:var(--chili);color:#190603}
+.pill:hover,.pill:focus-visible{background:var(--gold);border-color:var(--gold);color:#1a1205}
+.lanterns{position:absolute;inset:0;z-index:1;pointer-events:none}
+.lanterns .par{position:absolute;right:max(2vw,0px);top:0;width:min(560px,70vw);height:100%}
+.lantern{position:absolute;top:0;transform-origin:50% 0;animation:swing 6s ease-in-out infinite alternate}
+.lantern svg{overflow:visible}
+@keyframes swing{from{transform:rotate(-5deg)}to{transform:rotate(5deg)}}
+.ring{position:absolute;right:-12vw;bottom:-18vw;width:min(70vw,720px);opacity:.5}
+.ring circle{fill:none;stroke:var(--gold);stroke-width:1.2;stroke-dasharray:1;stroke-dashoffset:1}
+.scrollcue{position:absolute;left:50%;bottom:22px;z-index:2;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--paper2);transform:translateX(-50%)}
+@media(max-width:700px){.lanterns .par{opacity:.4;right:-60px}.scrollcue{display:none}}
+
+/* marquee */
+.marquee{background:var(--chili);color:#190603;overflow:hidden;border-block:2px solid var(--ink);transform:rotate(-1.2deg);margin:-14px -10px 0;position:relative;z-index:3}
+.marquee .track{display:flex;width:max-content;animation:mq 32s linear infinite}
+.marquee span{font-family:var(--serif);font-weight:800;font-size:clamp(1.3rem,3.2vw,2rem);padding:.8rem 1.4rem;white-space:nowrap}
+.marquee span::after{content:"✦";margin-left:2.8rem;color:var(--ink)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+section{padding:clamp(70px,11vw,140px) 0}
+
+/* offer */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.2rem;margin-top:2.5rem}
+.card{background:var(--ink2);border:1px solid rgba(244,234,215,.14);border-radius:20px;padding:2rem 1.6rem 2.2rem;position:relative;overflow:hidden;transition:transform .4s,border-color .4s}
+.card:hover{transform:translateY(-8px);border-color:var(--gold)}
+.card .n{font-family:var(--serif);font-style:italic;font-size:4.2rem;color:var(--chili);line-height:1;display:block;margin-bottom:1rem;transition:transform .5s}
+.card:hover .n{transform:scale(1.15) rotate(-6deg)}
+.card h3{font-size:1.7rem;margin-bottom:.5rem}
+.card p{color:var(--paper2)}
+
+/* menu */
+.menu{background:var(--paper);color:#1d1710}
+.menu .eyebrow{color:var(--chili-d)}
+.menu h2 em{color:var(--chili-d)}
+.tag{display:inline-block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;border:1.5px dashed currentColor;padding:.15rem .6rem;border-radius:99px;color:var(--chili-d);vertical-align:middle}
+.note{max-width:56ch;margin:0 0 2.6rem;padding:1rem 1.2rem;border-left:4px solid var(--chili-d);background:var(--paper2)}
+.msecs{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:3rem 4rem}
+.msec h3{font-size:2rem;border-bottom:3px double #1d1710;padding-bottom:.6rem;margin-bottom:.4rem}
+.msec ul{list-style:none}
+.msec li{display:flex;align-items:baseline;gap:.6rem;padding:.9rem .5rem;transition:transform .3s,background .3s;border-radius:8px}
+.msec li:hover{transform:translateX(8px);background:rgba(181,48,26,.08)}
+.msec .nm{font-weight:600;font-size:1.12rem}
+.msec .ds{display:block;font-size:.9rem;color:#5b4f3f;font-weight:400}
+.msec .dots{flex:1;border-bottom:2px dotted rgba(29,23,16,.4);transform:translateY(-4px);min-width:16px}
+.msec .pr{font-family:var(--serif);font-weight:800;font-size:1.2rem;color:var(--chili-d)}
+
+/* hours */
+.hl{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:start}
+@media(max-width:860px){.hl{grid-template-columns:1fr}}
+.hours{list-style:none;margin-top:1.4rem;border-top:1px solid rgba(244,234,215,.2)}
+.hours li{display:flex;justify-content:space-between;padding:.8rem .2rem;border-bottom:1px solid rgba(244,234,215,.2);transition:padding .3s,color .3s}
+.hours li:hover{padding-left:.9rem;color:var(--gold)}
+.hours .tag{color:var(--gold);margin-top:1rem}
+.addr{margin-top:1.6rem;font-style:normal;font-size:1.2rem}
+.copy{margin-top:.8rem;background:none;border:1.5px solid var(--gold);color:var(--gold);padding:.6rem 1.2rem;border-radius:99px;font:600 .95rem var(--sans);cursor:pointer;transition:background .25s,color .25s,transform .25s}
+.copy:hover,.copy:focus-visible{background:var(--gold);color:#1a1205;transform:translateY(-3px)}
+.map{margin-top:1rem;border-radius:20px;overflow:hidden;border:1px solid rgba(244,234,215,.2)}
+.map iframe{width:100%;min-height:340px;border:0;display:block}
+.maplinks{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1rem}
+.maplinks a{color:var(--gold);font-weight:600}
+.mapcredit{font-size:.78rem;color:var(--paper2);margin-top:.6rem}
+.mapcredit a{color:inherit}
+
+/* contact */
+.contact{text-align:center;background:var(--ink2);position:relative;overflow:hidden}
+.contact h2{font-size:clamp(2.4rem,8vw,6rem)}
+.contact .slots{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem}
+.btn{display:inline-block;text-decoration:none;background:var(--chili);color:#190603;font-weight:600;padding:.9rem 1.7rem;border-radius:99px;border:1.5px solid var(--chili);transition:transform .25s,background .25s;cursor:pointer;font-family:var(--sans);font-size:1rem;will-change:transform}
+.btn:hover,.btn:focus-visible{background:var(--gold);border-color:var(--gold)}
+.btn.alt{background:transparent;color:var(--paper);border-color:var(--paper)}
+.btn.alt:hover,.btn.alt:focus-visible{background:var(--paper);color:var(--ink)}
+
+/* CTA */
+.np-cta{width:min(1000px,100% - 40px);margin:clamp(50px,8vw,100px) auto;padding:clamp(1.8rem,5vw,3.5rem);border-radius:28px;background:linear-gradient(135deg,var(--gold),#e8892a);color:#1a1205;position:relative;overflow:hidden;box-shadow:0 30px 80px rgba(242,178,51,.18)}
+.np-cta::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;border:2px solid rgba(26,18,5,.25);box-shadow:0 0 0 24px rgba(26,18,5,.06)}
+.np-cta h2,.np-cta h3{font-size:clamp(1.8rem,5vw,3rem);margin-bottom:.6rem}
+.np-cta p{max-width:52ch;position:relative;z-index:1}
+.np-cta .btn{background:#1a1205;color:var(--paper);border-color:#1a1205;margin:.4rem .4rem 0 0;position:relative;z-index:1}
+.np-cta .btn.alt{background:transparent;color:#1a1205}
+.np-cta .btn:hover{background:var(--paper);color:#1a1205;border-color:var(--paper)}
+.np-cta small{display:block;margin-top:1rem;opacity:.8}
+
+footer{padding:2rem 0 3rem;text-align:center;color:var(--paper2);font-size:.9rem}
+
+/* reveal: only hidden when JS is running */
+.js .rv{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0)*110ms)}
+.js .rv.in{opacity:1;transform:none}
+.js .hero h1 .w span{opacity:0;transform:translateY(100%) rotate(4deg);animation:rise 1s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(.2s + var(--d)*.12s)}
+.js .hero h1 .w{overflow:hidden;padding-bottom:.08em}
+.js .hero .fade{opacity:0;animation:fadeup .9s ease forwards;animation-delay:calc(.8s + var(--d,0)*.12s)}
+.js .ring circle{animation:draw 4s ease forwards .4s}
+@keyframes rise{to{opacity:1;transform:none}}
+@keyframes fadeup{from{transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes draw{to{stroke-dashoffset:0}}
+.ring circle{stroke-dashoffset:0}
+.js .ring circle{stroke-dashoffset:1}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv,.js .hero h1 .w span,.js .hero .fade{opacity:1!important;transform:none!important}
+  .js .ring circle{stroke-dashoffset:0!important}
+  .marquee .track{transform:none}
+  .progress{display:none}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div class="progress" id="progress"></div>
+
+<header class="top" id="top">
+  <div class="wrap bar">
+    <a class="logo" href="#home"><i></i>Go Von Thai</a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+    <nav id="nav" aria-label="Main">
+      <ul>
+        <li><a href="#about">The Place</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#visit">Hours &amp; location</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home" style="padding-block:140px 90px">
+  <svg class="ring" viewBox="0 0 200 200" aria-hidden="true" data-par="0.12">
+    <circle cx="100" cy="100" r="96" pathLength="1"/>
+    <circle cx="100" cy="100" r="74" pathLength="1"/>
+    <circle cx="100" cy="100" r="52" pathLength="1"/>
+    <circle cx="100" cy="100" r="30" pathLength="1"/>
+  </svg>
+  <div class="lanterns" aria-hidden="true">
+    <div class="par" id="par">
+      <div class="lantern" style="left:18%;animation-duration:5.2s">
+        <svg width="110" height="300" viewBox="0 0 110 300"><line x1="55" y1="0" x2="55" y2="150" stroke="#f4ead7" stroke-opacity=".5"/><rect x="40" y="150" width="30" height="8" rx="3" fill="#f2b233"/><ellipse cx="55" cy="200" rx="46" ry="46" fill="#ff5a3c"/><path d="M55 154c-22 14-22 78 0 92M55 154c22 14 22 78 0 92" fill="none" stroke="#190603" stroke-opacity=".35" stroke-width="2"/><rect x="40" y="244" width="30" height="8" rx="3" fill="#f2b233"/><path d="M55 252v34M48 252v26M62 252v26" stroke="#f2b233" stroke-width="2"/></svg>
+      </div>
+      <div class="lantern" style="left:50%;animation-duration:6.4s;animation-delay:-2s">
+        <svg width="140" height="420" viewBox="0 0 110 300" style="height:420px"><line x1="55" y1="0" x2="55" y2="150" stroke="#f4ead7" stroke-opacity=".5"/><rect x="40" y="150" width="30" height="8" rx="3" fill="#ff5a3c"/><ellipse cx="55" cy="200" rx="46" ry="46" fill="#f2b233"/><path d="M55 154c-22 14-22 78 0 92M55 154c22 14 22 78 0 92" fill="none" stroke="#1a1205" stroke-opacity=".3" stroke-width="2"/><rect x="40" y="244" width="30" height="8" rx="3" fill="#ff5a3c"/><path d="M55 252v34M48 252v26M62 252v26" stroke="#ff5a3c" stroke-width="2"/></svg>
+      </div>
+      <div class="lantern" style="left:80%;animation-duration:4.8s;animation-delay:-1s">
+        <svg width="90" height="220" viewBox="0 0 110 300" style="height:240px"><line x1="55" y1="0" x2="55" y2="150" stroke="#f4ead7" stroke-opacity=".5"/><rect x="40" y="150" width="30" height="8" rx="3" fill="#f2b233"/><ellipse cx="55" cy="200" rx="46" ry="46" fill="#ff5a3c"/><path d="M55 154c-22 14-22 78 0 92M55 154c22 14 22 78 0 92" fill="none" stroke="#190603" stroke-opacity=".35" stroke-width="2"/><rect x="40" y="244" width="30" height="8" rx="3" fill="#f2b233"/><path d="M55 252v34M48 252v26M62 252v26" stroke="#f2b233" stroke-width="2"/></svg>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="eyebrow fade" style="--d:0">Restaurant &middot; Fraser, Michigan</div>
+    <h1 aria-label="Go Von Thai">
+      <span class="w" aria-hidden="true"><span style="--d:1">Go Von</span></span>
+      <span class="w" aria-hidden="true"><span style="--d:2">Thai.</span></span>
+    </h1>
+    <p class="lead fade" style="--d:2">Thai, on 15 Mile Road.</p>
+    <div class="ctas fade" style="--d:3">
+      <a class="pill solid mag" href="#menu">See the menu</a>
+      <a class="pill mag" href="#visit">Find us</a>
+    </div>
+  </div>
+  <div class="scrollcue">Scroll</div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Go Von Thai</span><span>Thai</span><span>Fraser, MI</span><span>15 Mile Road</span><span>Menu</span><span>Hours &amp; location</span>
+    <span>Go Von Thai</span><span>Thai</span><span>Fraser, MI</span><span>15 Mile Road</span><span>Menu</span><span>Hours &amp; location</span>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap">
+    <div class="eyebrow rv">The place</div>
+    <h2 class="rv" style="--i:1">A Thai table in <em>Fraser.</em></h2>
+    <div class="cards">
+      <article class="card rv" style="--i:1"><span class="n">01</span><h3>Thai</h3><p>That's the whole idea, and it's right there in the name.</p></article>
+      <article class="card rv" style="--i:2"><span class="n">02</span><h3>Fraser, MI</h3><p>A neighborhood restaurant in Macomb County, Michigan.</p></article>
+      <article class="card rv" style="--i:3"><span class="n">03</span><h3>15 Mile Road</h3><p>You'll find us at 16716 15 Mile Road, ZIP 48026.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="eyebrow rv">Menu</div>
+    <h2 class="rv" style="--i:1">What's <em>cooking</em> <span class="tag">Example</span></h2>
+    <p class="note rv" style="--i:2">This is an example menu that shows how your menu would look. Your real dishes and prices go here.</p>
+    <div class="msecs">
+      <div class="msec rv">
+        <h3>Starters</h3>
+        <ul>
+          <li><span class="nm">Egg rolls<span class="ds">Two pieces</span></span><span class="dots"></span><span class="pr">$4.50</span></li>
+          <li><span class="nm">Crab rangoon</span><span class="dots"></span><span class="pr">$5.50</span></li>
+          <li><span class="nm">Hot &amp; sour soup</span><span class="dots"></span><span class="pr">$4.00</span></li>
+        </ul>
+      </div>
+      <div class="msec rv" style="--i:1">
+        <h3>Entrees</h3>
+        <ul>
+          <li><span class="nm">General Tso's chicken</span><span class="dots"></span><span class="pr">$13.50</span></li>
+          <li><span class="nm">Beef &amp; broccoli</span><span class="dots"></span><span class="pr">$14.00</span></li>
+          <li><span class="nm">Vegetable lo mein</span><span class="dots"></span><span class="pr">$11.50</span></li>
+        </ul>
+      </div>
+      <div class="msec rv" style="--i:2">
+        <h3>Sides</h3>
+        <ul>
+          <li><span class="nm">Steamed rice</span><span class="dots"></span><span class="pr">$2.50</span></li>
+          <li><span class="nm">Fried rice</span><span class="dots"></span><span class="pr">$4.50</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap hl">
+    <div>
+      <div class="eyebrow rv">Hours &amp; location</div>
+      <h2 class="rv" style="--i:1">Come <em>find us.</em></h2>
+      <ul class="hours rv" style="--i:2">
+        <li><span>Mon</span><span>7 AM – 3 PM</span></li>
+        <li><span>Tue</span><span>7 AM – 3 PM</span></li>
+        <li><span>Wed</span><span>7 AM – 3 PM</span></li>
+        <li><span>Thu</span><span>7 AM – 3 PM</span></li>
+        <li><span>Fri</span><span>7 AM – 8 PM</span></li>
+        <li><span>Sat</span><span>8 AM – 8 PM</span></li>
+        <li><span>Sun</span><span>Closed</span></li>
+      </ul>
+      <span class="tag">Example hours</span>
+      <address class="addr rv">16716 15 Mile Road<br>Fraser, MI 48026</address>
+      <button class="copy" id="copy" type="button" data-addr="16716 15 Mile Road, Fraser, MI 48026">Copy address</button>
+      <span id="copied" role="status" aria-live="polite" style="margin-left:.8rem;color:var(--gold);font-size:.9rem"></span>
+    </div>
+    <div class="rv" style="--i:2"><iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-82.95773,42.54703,-82.94573,42.55903&amp;layer=mapnik&amp;marker=42.55303,-82.95173"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=42.55303&amp;mlon=-82.95173#map=17/42.55303/-82.95173" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=42.55303,-82.95173" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p></div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="eyebrow rv" style="justify-content:center">Contact</div>
+    <h2 class="rv" style="--i:1">Say <em>hello.</em></h2>
+    <p class="rv" style="--i:2;color:var(--paper2)">Send a note to Go Von Thai by e-mail.</p>
+    <div class="slots rv" style="--i:3"><a class="btn" href="mailto:govonthai@gmail.com">govonthai@gmail.com</a> </div>
+  </div>
+</section>
+
+<section class="np-cta" id="offer"><h2>Want this for Go Von Thai?</h2><p>This is a free preview made for Go Von Thai. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20Go%20Von%20Thai&amp;body=Yes%2C%20please%20make%20this%20site%20for%20Go%20Von%20Thai.">Make it mine</a></p></section>
+</main>
+
+<footer><div class="wrap">Go Von Thai &middot; 16716 15 Mile Road, Fraser, MI 48026</div></footer>
+
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · Go Von Thai</div>
+<script>
+(function(){
+  var d=document,root=d.documentElement;
+  root.classList.add('js');
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // reveals
+  var rv=[].slice.call(d.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window && !rm){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+    },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    rv.forEach(function(el){io.observe(el)});
+  }else{rv.forEach(function(el){el.classList.add('in')});}
+
+  // header, progress, parallax
+  var hd=d.getElementById('top'),pg=d.getElementById('progress'),par=d.getElementById('par');
+  var rings=d.querySelector('.ring'),tick=false;
+  function onScroll(){
+    var y=window.scrollY||0,h=root.scrollHeight-window.innerHeight;
+    hd.classList.toggle('scrolled',y>30);
+    pg.style.transform='scaleX('+(h>0?Math.min(y/h,1):0)+')';
+    if(!rm&&y<window.innerHeight*1.2){
+      if(par)par.style.transform='translate3d(0,'+(y*.18)+'px,0)';
+      if(rings)rings.style.transform='translate3d(0,'+(-y*.12)+'px,0) rotate('+(y*.03)+'deg)';
+    }
+    tick=false;
+  }
+  window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(onScroll);}},{passive:true});
+  onScroll();
+
+  // mobile menu
+  var b=d.getElementById('burger'),nav=d.getElementById('nav');
+  function setMenu(o){nav.classList.toggle('open',o);b.setAttribute('aria-expanded',o);}
+  b.addEventListener('click',function(){setMenu(!nav.classList.contains('open'))});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A')setMenu(false)});
+  d.addEventListener('keydown',function(e){if(e.key==='Escape')setMenu(false)});
+
+  // copy address
+  var cb=d.getElementById('copy'),msg=d.getElementById('copied');
+  cb.addEventListener('click',function(){
+    var t=cb.getAttribute('data-addr');
+    function ok(){msg.textContent='Copied';setTimeout(function(){msg.textContent=''},2200);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,fb);}else fb();
+    function fb(){var a=d.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';d.body.appendChild(a);a.select();try{d.execCommand('copy');ok();}catch(e){msg.textContent=t;}d.body.removeChild(a);}
+  });
+
+  // magnetic buttons
+  if(!rm&&window.matchMedia('(hover:hover)').matches){
+    [].forEach.call(d.querySelectorAll('.mag,.btn,.np-cta .btn'),function(el){
+      el.addEventListener('mousemove',function(e){
+        var r=el.getBoundingClientRect(),x=(e.clientX-r.left-r.width/2)*.25,y=(e.clientY-r.top-r.height/2)*.35;
+        el.style.transform='translate('+x+'px,'+y+'px)';
+      });
+      el.addEventListener('mouseleave',function(){el.style.transform='';});
+    });
+  }
+})();
+</script>
+</body>
+</html>

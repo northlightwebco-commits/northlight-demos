@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Once Upon A Bean · Café in Orleans, IN</title>
+<meta name="description" content="Once Upon A Bean, a café at 100 West Jefferson Street in Orleans, Indiana. Coffee.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400;1,9..144,700&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#12202a;--night2:#1a2d39;--night3:#233b4a;
+  --paper:#f3ead8;--paper2:#e9dcc2;--ink:#12202a;
+  --amber:#f4b53f;--bean:#7a4629;--bean-d:#4a2a17;--mut:#b9c4c9;
+  --serif:'Fraunces',Georgia,serif;--sans:'Karla',system-ui,sans-serif;
+  --pad:clamp(20px,5vw,72px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:var(--sans);background:var(--night);color:var(--paper);line-height:1.6;font-size:1.0625rem;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:800;line-height:1;text-wrap:balance;overflow-wrap:break-word}
+.wrap{max-width:1200px;margin:0 auto;padding:0 var(--pad)}
+.eyebrow{font-family:var(--sans);font-weight:700;letter-spacing:.22em;text-transform:uppercase;font-size:.78rem;color:var(--amber);display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:36px;height:2px;background:currentColor}
+.paper .eyebrow{color:var(--bean)}
+
+/* banner slot */
+.np-banner{background:var(--amber);color:var(--ink);font-size:.85rem;font-weight:700;text-align:center;padding:8px 14px;line-height:1.4}
+.np-banner a{color:inherit}
+
+/* progress + header */
+.progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:100;transform-origin:left;transform:scaleX(0);background:var(--amber);pointer-events:none}
+header.site{position:sticky;top:0;z-index:90;transition:background .35s,box-shadow .35s,padding .35s;padding:18px 0}
+header.site.scrolled{background:rgba(18,32,42,.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(243,234,216,.12);padding:10px 0}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--serif);font-weight:800;font-style:italic;text-decoration:none;font-size:1.25rem;display:flex;align-items:center;gap:10px}
+.logo svg{width:22px;height:28px;flex:none}
+.links{display:flex;gap:28px;list-style:none;align-items:center}
+.links a{text-decoration:none;font-weight:500;font-size:.95rem;position:relative;padding:4px 0}
+.links a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--amber);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.links a:hover::after,.links a:focus-visible::after{transform:scaleX(1)}
+.burger{display:none;background:none;border:1.5px solid var(--paper);color:var(--paper);width:44px;height:44px;border-radius:50%;cursor:pointer;position:relative}
+.burger span,.burger span::before{position:absolute;left:12px;width:18px;height:2px;background:currentColor;transition:transform .3s}
+.burger span{top:20px}.burger span::before{content:"";left:0;top:-6px}
+.burger[aria-expanded=true] span{transform:rotate(45deg)}
+.burger[aria-expanded=true] span::before{transform:translateY(6px) rotate(-90deg)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--amber);color:var(--ink);font-family:var(--sans);font-weight:700;font-size:1rem;text-decoration:none;padding:14px 26px;border-radius:999px;border:2px solid var(--amber);cursor:pointer;transition:transform .25s,box-shadow .25s,filter .25s;will-change:transform}
+.btn:hover,.btn:focus-visible{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.3)}
+.btn.alt{background:transparent;color:inherit;border-color:currentColor}
+small{font-size:.85rem}
+
+/* hero */
+.hero{position:relative;min-height:calc(100svh - 70px);display:flex;align-items:center;overflow:hidden;padding:40px 0 90px}
+.hero .wrap{display:grid;grid-template-columns:1.25fr .9fr;gap:30px;align-items:center;width:100%}
+.hero h1{font-size:clamp(3rem,10.5vw,8.6rem);letter-spacing:-.02em}
+.hero h1 .l{display:block;overflow:hidden;padding-bottom:.08em}
+.hero h1 .l span{display:inline-block}
+.hero h1 em{font-weight:700;color:var(--amber)}
+.hero p.lead{font-size:clamp(1.1rem,2.2vw,1.35rem);max-width:30ch;margin:26px 0 30px;color:var(--mut)}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:14px}
+.stage{position:relative;aspect-ratio:1/1.1;width:100%;max-width:480px;justify-self:center}
+.stage svg{width:100%;height:100%;overflow:visible}
+.parallax{will-change:transform}
+.bean-float{animation:float 6s ease-in-out infinite;transform-origin:50% 50%}
+.star{animation:tw 3s ease-in-out infinite}
+.steam{stroke-dasharray:200;stroke-dashoffset:200;animation:steam 4s ease-in-out infinite}
+.steam:nth-child(2){animation-delay:.8s}.steam:nth-child(3){animation-delay:1.6s}
+.moon{position:absolute;right:-6%;top:-4%;width:28%;aspect-ratio:1;border-radius:50%;background:var(--paper);box-shadow:inset -14px -6px 0 var(--paper2);opacity:.9}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-16px) rotate(4deg)}}
+@keyframes tw{0%,100%{opacity:.25;transform:scale(.8)}50%{opacity:1;transform:scale(1.15)}}
+@keyframes steam{0%{stroke-dashoffset:200;opacity:0}30%{opacity:1}70%{stroke-dashoffset:0;opacity:.8}100%{stroke-dashoffset:-200;opacity:0}}
+.scrollcue{position:absolute;left:50%;bottom:22px;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);transform:translateX(-50%)}
+
+/* hero entrance */
+.js .hero h1 .l span{transform:translateY(110%);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
+.js .hero h1 .l:nth-child(2) span{animation-delay:.12s}
+.js .hero h1 .l:nth-child(3) span{animation-delay:.24s}
+.js .hero .fade{opacity:0;transform:translateY(18px);animation:up .8s .55s ease forwards}
+.js .hero .fade.d2{animation-delay:.75s}
+.js .stage{opacity:0;animation:up 1.2s .3s ease forwards}
+@keyframes rise{to{transform:none}}
+@keyframes up{to{opacity:1;transform:none}}
+
+/* marquee */
+.marquee{background:var(--amber);color:var(--ink);overflow:hidden;border-block:2px solid var(--ink);transform:rotate(-1.2deg);margin:-20px -10px 0;position:relative;z-index:2}
+.track{display:flex;width:max-content;animation:mq 38s linear infinite}
+.track span{font-family:var(--serif);font-style:italic;font-weight:700;font-size:clamp(1.3rem,3vw,2rem);padding:14px 26px;white-space:nowrap}
+.track span::after{content:"✦";margin-left:52px;font-style:normal;font-size:.7em;vertical-align:middle}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+section{padding:clamp(70px,10vw,130px) 0;position:relative}
+.paper{background:var(--paper);color:var(--ink)}
+h2{font-size:clamp(2.2rem,6vw,4.5rem);margin:14px 0 22px;letter-spacing:-.015em}
+h2 em{font-style:italic;color:var(--amber);font-weight:700}
+.paper h2 em{color:var(--bean)}
+.chapter{font-family:var(--serif);font-style:italic;color:var(--mut)}
+
+/* offer */
+.books{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.book{background:var(--night2);border:1px solid rgba(243,234,216,.14);border-radius:6px 18px 18px 6px;padding:30px 26px 34px;position:relative;border-left:10px solid var(--bean);transition:transform .35s,border-color .35s,background .35s}
+.book:hover{transform:translateY(-8px) rotate(-.8deg);border-left-color:var(--amber);background:var(--night3)}
+.book .no{font-family:var(--serif);font-style:italic;color:var(--amber);font-size:1rem}
+.book h3{font-size:1.9rem;margin:10px 0 10px}
+.book p{color:var(--mut)}
+.intro{max-width:52ch;color:var(--mut);font-size:1.15rem}
+
+/* menu */
+.tag{display:inline-block;background:var(--ink);color:var(--amber);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:4px 10px;border-radius:999px;vertical-align:middle}
+.note{margin:18px 0 0;max-width:60ch;padding:14px 18px;border-left:4px solid var(--bean);background:var(--paper2);font-weight:500}
+.menu{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,56px);margin-top:50px}
+.menu h3{font-size:1.8rem;font-style:italic;border-bottom:2px solid var(--ink);padding-bottom:12px;margin-bottom:8px}
+.menu ul{list-style:none}
+.menu li{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:14px 8px;border-bottom:1px dashed rgba(18,32,42,.35);transition:transform .3s,background .3s}
+.menu li:hover{transform:translateX(8px);background:rgba(244,181,63,.28)}
+.menu b{font-family:var(--serif);font-size:1.15rem}
+.menu .pr{font-weight:700;color:var(--bean-d)}
+.menu li span.d{grid-column:1/-1;font-size:.95rem;color:#3e4a50}
+.menu .tg{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--bean);margin-left:6px}
+
+/* hours */
+.hl{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(30px,6vw,80px);margin-top:40px;align-items:start}
+.hours{list-style:none;border-top:1px solid rgba(243,234,216,.25)}
+.hours li{display:flex;justify-content:space-between;gap:14px;padding:13px 4px;border-bottom:1px solid rgba(243,234,216,.25);transition:background .3s,padding .3s}
+.hours li:hover{background:var(--night2);padding-inline:14px}
+.hours li.today{color:var(--amber);font-weight:700}
+.addr{margin-top:28px;font-family:var(--serif);font-size:1.4rem;font-style:normal}
+.copy{margin-top:12px;background:none;border:1.5px solid var(--paper);color:var(--paper);font:inherit;font-weight:700;font-size:.9rem;padding:9px 18px;border-radius:999px;cursor:pointer;transition:background .25s,color .25s}
+.copy:hover,.copy:focus-visible{background:var(--paper);color:var(--ink)}
+.map{border-radius:18px;overflow:hidden;border:1px solid rgba(243,234,216,.2);background:var(--night2)}
+.map iframe{display:block;width:100%;border:0;min-height:320px}
+.maplinks{display:flex;flex-wrap:wrap;gap:10px;padding:14px}
+.maplinks a{color:var(--amber);font-weight:700}
+.mapcredit{font-size:.78rem;color:var(--mut);padding:0 14px 12px}
+.mapcredit a{color:inherit}
+
+/* about/contact */
+.story{text-align:center;max-width:760px;margin:0 auto}
+.story h2{font-size:clamp(2.2rem,7vw,5rem)}
+.story p{font-size:1.25rem;font-family:var(--serif);font-style:italic}
+.story .eyebrow{justify-content:center}
+.contact{text-align:center}
+.contact .row{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:26px}
+.np-cta{margin:clamp(40px,6vw,70px) auto 0;max-width:900px;border:2px dashed var(--amber);border-radius:26px;padding:clamp(26px,5vw,52px);background:var(--night2);text-align:center;position:relative}
+.np-cta .btn{margin:6px}
+.np-cta h2,.np-cta h3{margin-top:0}
+footer{padding:36px 0 50px;text-align:center;color:var(--mut);font-size:.9rem}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i,0)*110ms)}
+.js .rv.in{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .hero .wrap{grid-template-columns:1fr}
+  .stage{max-width:320px;order:-1}
+  .books,.menu,.hl{grid-template-columns:1fr}
+  .hero{padding-top:10px}
+  .burger{display:block}
+  .links{position:absolute;left:0;right:0;top:100%;background:var(--night);flex-direction:column;gap:0;padding:8px var(--pad) 20px;display:none;border-bottom:1px solid rgba(243,234,216,.2)}
+  .links.open{display:flex}
+  .links li{width:100%}.links a{display:block;padding:14px 0;font-size:1.1rem}
+  .scrollcue{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv,.js .hero .fade,.js .stage,.js .hero h1 .l span{opacity:1!important;transform:none!important}
+  .steam{stroke-dashoffset:0;opacity:.7}
+  .track{flex-wrap:wrap;width:auto}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div class="progress" id="progress"></div>
+
+<header class="site" id="top">
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="Once Upon A Bean, home">
+      <svg viewBox="0 0 40 52" aria-hidden="true"><ellipse cx="20" cy="26" rx="15" ry="22" fill="#7a4629" transform="rotate(18 20 26)"/><path d="M14 6C26 18 10 32 26 46" fill="none" stroke="#f4b53f" stroke-width="3" stroke-linecap="round"/></svg>
+      Once Upon A Bean
+    </a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="links" aria-label="Menu"><span></span></button>
+    <ul class="links" id="links">
+      <li><a href="#offer">The Story</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#visit">Hours &amp; location</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+<section class="hero" style="padding-bottom:90px">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow fade">Café · Orleans, IN</div>
+      <h1 aria-label="Once upon a bean.">
+        <span class="l"><span>Once</span></span>
+        <span class="l"><span>upon <em>a</em></span></span>
+        <span class="l"><span><em>bean.</em></span></span>
+      </h1>
+      <p class="lead fade">Coffee. A good place to start the next chapter of your day.</p>
+      <div class="ctas fade d2">
+        <a class="btn" href="#menu">See the menu</a>
+        <a class="btn alt" href="#visit">Find the door</a>
+      </div>
+    </div>
+    <div class="stage" aria-hidden="true">
+      <div class="moon parallax" data-speed="-0.05"></div>
+      <div class="parallax" data-speed="0.08" style="height:100%">
+      <svg viewBox="0 0 400 440">
+        <g fill="#f3ead8">
+          <path class="star" d="M60 70l4 12 12 4-12 4-4 12-4-12-12-4 12-4z"/>
+          <path class="star" style="animation-delay:1s" d="M330 190l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/>
+          <path class="star" style="animation-delay:2s" d="M40 290l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/>
+          <path class="star" style="animation-delay:.5s" d="M310 380l4 11 11 4-11 4-4 11-4-11-11-4 11-4z"/>
+        </g>
+        <g fill="none" stroke="#f4b53f" stroke-width="4" stroke-linecap="round">
+          <path class="steam" d="M150 80c-24 30 24 50 0 80"/>
+          <path class="steam" d="M200 50c-28 36 28 60 0 96"/>
+          <path class="steam" d="M250 80c-24 30 24 50 0 80"/>
+        </g>
+        <g class="bean-float" style="transform-box:fill-box">
+          <ellipse cx="200" cy="270" rx="118" ry="150" fill="#7a4629" transform="rotate(18 200 270)"/>
+          <ellipse cx="200" cy="270" rx="118" ry="150" fill="none" stroke="#4a2a17" stroke-width="6" transform="rotate(18 200 270)"/>
+          <path d="M165 135C245 210 130 300 235 400" fill="none" stroke="#f4b53f" stroke-width="12" stroke-linecap="round"/>
+          <path d="M120 250c14-30 40-48 62-52" fill="none" stroke="#a46a43" stroke-width="6" stroke-linecap="round" opacity=".7"/>
+        </g>
+      </svg>
+      </div>
+    </div>
+  </div>
+  <div class="scrollcue">Turn the page ↓</div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Coffee</span><span>Once Upon A Bean</span><span>Orleans, Indiana</span><span>Coffee &amp; tea</span><span>Pastries</span><span>Breakfast &amp; lunch</span><span>100 West Jefferson Street</span>
+    <span>Coffee</span><span>Once Upon A Bean</span><span>Orleans, Indiana</span><span>Coffee &amp; tea</span><span>Pastries</span><span>Breakfast &amp; lunch</span><span>100 West Jefferson Street</span>
+  </div>
+</div>
+
+<section id="offer">
+  <div class="wrap">
+    <div class="eyebrow rv">Chapter one</div>
+    <h2 class="rv" style="--i:1">A café, a cup, <em>a seat.</em></h2>
+    <p class="intro rv" style="--i:2">Once Upon A Bean is a café on West Jefferson Street in Orleans, Indiana. It all starts with coffee. Here is how the menu is laid out, shown with example items.</p>
+    <div class="books">
+      <article class="book rv" style="--i:1"><span class="no">I.</span><h3>Coffee &amp; tea</h3><p>Hot, iced, or steamed with milk. The first line of every good story.</p></article>
+      <article class="book rv" style="--i:2"><span class="no">II.</span><h3>Pastries</h3><p>Something sweet to sit beside the cup.</p></article>
+      <article class="book rv" style="--i:3"><span class="no">III.</span><h3>Breakfast &amp; lunch</h3><p>Something more substantial when the plot thickens.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="menu" class="paper">
+  <div class="wrap">
+    <div class="eyebrow rv">Chapter two</div>
+    <h2 class="rv" style="--i:1">The <em>Menu</em> <span class="tag">Example</span></h2>
+    <p class="note rv" style="--i:2">This is an example menu that shows how your menu would look. Your real dishes and prices go here.</p>
+    <div class="menu">
+      <div class="rv" style="--i:1"><h3>Coffee &amp; tea</h3><ul>
+        <li><b>Drip coffee</b><span class="pr">$2.75</span><span class="d">Fresh brewed</span></li>
+        <li><b>Latte</b><span class="pr">$4.50</span><span class="d">Espresso with steamed milk</span></li>
+        <li><b>Cappuccino</b><span class="pr">$4.25</span></li>
+        <li><b>Iced coffee</b><span class="pr">$3.75</span></li>
+        <li><b>Hot tea</b><span class="pr">$2.75</span></li></ul></div>
+      <div class="rv" style="--i:2"><h3>Pastries</h3><ul>
+        <li><b>Blueberry muffin</b><span class="pr">$3.50</span></li>
+        <li><b>Butter croissant</b><span class="pr">$3.75</span></li>
+        <li><b>Cinnamon roll</b><span class="pr">$4.25</span><span class="d">Warm, with icing</span></li>
+        <li><b>Chocolate chip cookie</b><span class="pr">$2.25</span></li></ul></div>
+      <div class="rv" style="--i:3"><h3>Breakfast &amp; lunch</h3><ul>
+        <li><b>Breakfast burrito</b><span class="pr">$8.50</span><span class="d">Eggs, cheese, potatoes</span></li>
+        <li><b>Turkey &amp; Swiss</b><span class="pr">$9.50</span><span class="d">Toasted sourdough</span></li>
+        <li><b>Soup of the day</b><span class="pr">$6.00</span></li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap">
+    <div class="eyebrow rv">Chapter three</div>
+    <h2 class="rv" style="--i:1">Hours &amp; <em>location</em></h2>
+    <div class="hl">
+      <div class="rv" style="--i:1">
+        <p style="margin-bottom:14px"><span class="tag" style="background:var(--amber);color:var(--ink)">Example hours</span></p>
+        <ul class="hours" id="hours">
+          <li data-d="1"><span>Mon</span><span>7 AM – 3 PM</span></li>
+          <li data-d="2"><span>Tue</span><span>7 AM – 3 PM</span></li>
+          <li data-d="3"><span>Wed</span><span>7 AM – 3 PM</span></li>
+          <li data-d="4"><span>Thu</span><span>7 AM – 3 PM</span></li>
+          <li data-d="5"><span>Fri</span><span>7 AM – 8 PM</span></li>
+          <li data-d="6"><span>Sat</span><span>8 AM – 8 PM</span></li>
+          <li data-d="0"><span>Sun</span><span>Closed</span></li>
+        </ul>
+        <address class="addr">100 West Jefferson Street<br>Orleans, IN 47452</address>
+        <button class="copy" id="copy" type="button" data-addr="100 West Jefferson Street, Orleans, IN 47452">Copy address</button>
+        <span id="copied" role="status" style="margin-left:10px;color:var(--amber);font-weight:700;font-size:.9rem"></span>
+      </div>
+      <div class="rv" style="--i:2"><iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-86.45902,38.65680,-86.44702,38.66880&amp;layer=mapnik&amp;marker=38.66280,-86.45302"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=38.66280&amp;mlon=-86.45302#map=17/38.66280/-86.45302" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=38.66280,-86.45302" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="paper">
+  <div class="wrap story">
+    <div class="eyebrow rv">Chapter four</div>
+    <h2 class="rv" style="--i:1">Every good day <em>starts somewhere.</em></h2>
+    <p class="rv" style="--i:2">In Orleans, it can start with a cup at Once Upon A Bean. Pull up a seat and see where the day goes.</p>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="eyebrow rv" style="justify-content:center">The end. Or the beginning.</div>
+    <h2 class="rv" style="--i:1">Say <em>hello.</em></h2>
+    <p class="intro rv" style="--i:2;margin-inline:auto">Questions for Once Upon A Bean? Send a note.</p>
+    <div class="row rv" style="--i:3"><a class="btn" href="mailto:onceuponabean812@gmail.com">onceuponabean812@gmail.com</a> </div>
+    <section class="np-cta" id="offer"><h2>Want this for Once Upon A Bean?</h2><p>This is a free preview made for Once Upon A Bean. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20Once%20Upon%20A%20Bean&amp;body=Yes%2C%20please%20make%20this%20site%20for%20Once%20Upon%20A%20Bean.">Make it mine</a></p></section>
+  </div>
+</section>
+</main>
+
+<footer>Once Upon A Bean · 100 West Jefferson Street, Orleans, IN 47452</footer>
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · Once Upon A Bean</div>
+
+<script>
+(function(){
+  var d=document,root=d.documentElement;
+  root.classList.add('js');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var bar=d.getElementById('progress'),hdr=d.querySelector('header.site');
+  var paras=[].slice.call(d.querySelectorAll('.parallax'));
+  var tick=false;
+  function onScroll(){
+    if(tick)return;tick=true;
+    requestAnimationFrame(function(){
+      var y=window.scrollY||0,h=root.scrollHeight-window.innerHeight;
+      bar.style.transform='scaleX('+(h>0?Math.min(y/h,1):0)+')';
+      hdr.classList.toggle('scrolled',y>30);
+      if(!reduce&&y<window.innerHeight*1.2){
+        paras.forEach(function(p){p.style.transform='translate3d(0,'+(y*parseFloat(p.dataset.speed||0))+'px,0)'});
+      }
+      tick=false;
+    });
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  var burger=d.getElementById('burger'),links=d.getElementById('links');
+  burger.addEventListener('click',function(){
+    var o=links.classList.toggle('open');burger.setAttribute('aria-expanded',o);
+  });
+  links.addEventListener('click',function(e){
+    if(e.target.tagName==='A'){links.classList.remove('open');burger.setAttribute('aria-expanded','false')}
+  });
+
+  var rv=d.querySelectorAll('.rv');
+  if('IntersectionObserver' in window&&!reduce){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+    },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    rv.forEach(function(el){io.observe(el)});
+  }else{rv.forEach(function(el){el.classList.add('in')})}
+
+  var t=d.querySelector('#hours li[data-d="'+new Date().getDay()+'"]');
+  if(t)t.classList.add('today');
+
+  var cb=d.getElementById('copy'),msg=d.getElementById('copied');
+  cb.addEventListener('click',function(){
+    var a=cb.dataset.addr;
+    function ok(){msg.textContent='Copied!';setTimeout(function(){msg.textContent=''},2200)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(a).then(ok,function(){msg.textContent=a})}
+    else{var ta=d.createElement('textarea');ta.value=a;d.body.appendChild(ta);ta.select();try{d.execCommand('copy');ok()}catch(e){msg.textContent=a}d.body.removeChild(ta)}
+  });
+
+  if(!reduce){
+    d.querySelectorAll('.btn').forEach(function(b){
+      b.addEventListener('mousemove',function(e){
+        var r=b.getBoundingClientRect(),x=(e.clientX-r.left-r.width/2)*.18,y=(e.clientY-r.top-r.height/2)*.25;
+        b.style.transform='translate('+x+'px,'+(y-3)+'px)';
+      });
+      b.addEventListener('mouseleave',function(){b.style.transform=''});
+    });
+  }
+})();
+</script>
+</body>
+</html>

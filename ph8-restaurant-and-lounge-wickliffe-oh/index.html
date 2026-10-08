@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PH8 Restaurant & Lounge · Wickliffe, OH</title>
+<meta name="description" content="PH8 Restaurant & Lounge at 30310 Euclid Avenue in Wickliffe, Ohio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Limelight&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{
+  --ink:#0a0c0f;--ink2:#11151a;--ink3:#171c22;
+  --gold:#d9b45b;--gold2:#f0d792;--neon:#ff6a4d;
+  --text:#efe9dc;--mute:#b6af9f;--line:rgba(217,180,91,.35);
+  --disp:'Limelight',serif;--body:'Josefin Sans',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--ink);color:var(--text);font-family:var(--body);font-weight:300;font-size:1.0625rem;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--disp);font-weight:400;line-height:1.05;text-wrap:balance;overflow-wrap:break-word}
+.wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+.eyebrow{font-weight:600;font-size:.78rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold)}
+section{position:relative;padding:clamp(4.5rem,10vw,8rem) 0}
+h2{font-size:clamp(2rem,6.5vw,3.6rem);color:var(--gold2);margin:.6rem 0 1rem}
+.lead{color:var(--mute);max-width:46ch}
+
+/* progress */
+#prog{position:fixed;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--neon));transform:scaleX(0);transform-origin:0 50%;z-index:100}
+
+/* banner slot */
+.np-banner{background:var(--gold);color:#14100a;text-align:center;font-size:.85rem;font-weight:600;letter-spacing:.04em;padding:.5rem 1rem;position:relative;z-index:60}
+.np-banner a{color:inherit}
+
+/* header */
+header.site{position:sticky;top:0;z-index:50;transition:background .4s,box-shadow .4s,transform .4s}
+header.site .bar{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 0;transition:padding .4s}
+header.site.scrolled{background:rgba(10,12,15,.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+header.site.scrolled .bar{padding:.55rem 0}
+.logo{font-family:var(--disp);font-size:1.6rem;color:var(--gold2);text-decoration:none;letter-spacing:.04em}
+nav ul{display:flex;gap:2rem;list-style:none}
+nav a{text-decoration:none;font-size:.8rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;position:relative;padding:.4rem 0}
+nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--gold);transform:scaleX(0);transition:transform .35s}
+nav a:hover::after,nav a:focus-visible::after{transform:scaleX(1)}
+.burger{display:none;background:none;border:1px solid var(--line);color:var(--gold2);width:44px;height:44px;cursor:pointer;font:inherit}
+.burger span{display:block;width:20px;height:1.5px;background:currentColor;margin:5px auto;transition:transform .3s,opacity .3s}
+.burger[aria-expanded=true] span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.burger[aria-expanded=true] span:nth-child(2){opacity:0}
+.burger[aria-expanded=true] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+@media(max-width:780px){
+  .burger{display:block}
+  nav{position:absolute;left:0;right:0;top:100%;background:var(--ink);border-bottom:1px solid var(--line);display:none}
+  nav.open{display:block}
+  nav ul{flex-direction:column;gap:0;padding:.5rem 1.25rem 1.25rem}
+  nav a{display:block;padding:.9rem 0}
+}
+
+/* buttons */
+.btn{display:inline-block;background:var(--gold);color:#15110a;border:1px solid var(--gold);padding:.9rem 1.6rem;font:600 .8rem var(--body);letter-spacing:.22em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:transform .3s,background .3s,color .3s,filter .3s;will-change:transform}
+.btn:hover,.btn:focus-visible{transform:translateY(-3px);filter:brightness(1.08)}
+.btn.alt{background:transparent;color:var(--gold2)}
+.btn.alt:hover{background:rgba(217,180,91,.12)}
+.btn.small,.small{font-size:.72rem;padding:.6rem 1rem}
+
+/* hero */
+.hero{min-height:calc(100svh - 40px);display:grid;place-items:center;text-align:center;overflow:hidden;padding:7rem 0 5rem;margin-top:-76px;isolation:isolate}
+.rays{position:absolute;left:50%;top:50%;width:190vmax;height:190vmax;margin:-95vmax 0 0 -95vmax;z-index:-2;
+  background:repeating-conic-gradient(from 0deg,rgba(217,180,91,.13) 0 3deg,transparent 3deg 10deg);
+  -webkit-mask-image:radial-gradient(circle,#000 0,transparent 32%);mask-image:radial-gradient(circle,#000 0,transparent 32%);
+  animation:spin 140s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero::before{content:"";position:absolute;inset:0;z-index:-3;background:radial-gradient(ellipse at 50% 45%,#1b2229 0,var(--ink) 65%)}
+.arches{position:absolute;left:50%;top:50%;width:min(560px,92vw);transform:translate(-50%,-50%);z-index:-1;opacity:.9}
+.arches-in{will-change:transform}
+.arches path{fill:none;stroke:var(--gold);stroke-width:1.5;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.8s cubic-bezier(.6,.1,.2,1) forwards}
+.arches path:nth-child(2){animation-delay:.3s;opacity:.7}
+.arches path:nth-child(3){animation-delay:.6s;opacity:.45}
+.arches path:nth-child(4){animation-delay:.9s;opacity:.25}
+@keyframes draw{to{stroke-dashoffset:0}}
+.hero-copy{position:relative}
+.hero h1{font-size:clamp(5.5rem,27vw,15rem);color:var(--gold2);letter-spacing:.02em;line-height:.95;text-shadow:0 0 18px rgba(255,106,77,.55),0 0 60px rgba(255,106,77,.3);animation:flicker 6s 2.5s infinite}
+.hero h1 span{display:inline-block}
+@keyframes flicker{0%,18%,22%,62%,64%,100%{filter:brightness(1)}20%{filter:brightness(.7)}63%{filter:brightness(.8)}}
+.sub{font-weight:600;font-size:clamp(.78rem,3.2vw,1.1rem);letter-spacing:.38em;text-transform:uppercase;margin-top:.8rem;text-wrap:balance}
+.orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:1.5rem auto;color:var(--gold)}
+.orn i{height:1px;width:clamp(40px,12vw,110px);background:var(--gold);display:block}
+.orn b{width:10px;height:10px;transform:rotate(45deg);border:1px solid var(--gold);display:block}
+.place{color:var(--mute);letter-spacing:.12em}
+.hero .actions{margin-top:2rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.scrollcue{position:absolute;bottom:1.5rem;left:50%;width:1px;height:48px;background:linear-gradient(var(--gold),transparent);animation:cue 2.2s ease-in-out infinite}
+@keyframes cue{0%,100%{transform:translateX(-50%) scaleY(.4);transform-origin:top}50%{transform:translateX(-50%) scaleY(1);transform-origin:top}}
+
+/* hero entrance */
+.js .hero .in{opacity:0;transform:translateY(24px);animation:rise 1s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(.25s + var(--i,0)*.15s)}
+@keyframes rise{to{opacity:1;transform:none}}
+
+/* marquee */
+.marq{border-block:1px solid var(--line);background:var(--ink2);overflow:hidden;padding:1rem 0}
+.track{display:flex;width:max-content;animation:slide 38s linear infinite}
+.track span{font-family:var(--disp);font-size:clamp(1.1rem,3vw,1.6rem);color:var(--gold);white-space:nowrap;padding-right:1.2rem}
+.track span::after{content:"◆";font-size:.6em;margin-left:1.2rem;color:var(--neon);vertical-align:middle}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* offers */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-top:2.5rem}
+.card{position:relative;padding:2rem 1.6rem;background:var(--ink2);border:1px solid var(--line);transition:transform .45s,border-color .45s;
+  clip-path:polygon(14px 0,calc(100% - 14px) 0,100% 14px,100% calc(100% - 14px),calc(100% - 14px) 100%,14px 100%,0 calc(100% - 14px),0 14px)}
+.card:hover{transform:translateY(-8px);border-color:var(--gold)}
+.card .num{font-family:var(--disp);color:var(--neon);font-size:1.1rem}
+.card h3{font-size:1.7rem;color:var(--gold2);margin:.5rem 0}
+.card p{color:var(--mute)}
+
+/* menu */
+#menu{background:var(--ink2)}
+.tag{display:inline-block;border:1px solid var(--neon);color:#ff9a85;font-size:.68rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;padding:.15rem .55rem;vertical-align:middle}
+.note{margin-top:1.2rem;padding:1rem 1.2rem;border-left:2px solid var(--neon);background:rgba(255,106,77,.07);max-width:62ch}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2.5rem;margin-top:3rem}
+.msec h3{font-size:1.9rem;color:var(--gold2);padding-bottom:.8rem;border-bottom:3px double var(--line);margin-bottom:.4rem}
+.item{display:grid;grid-template-columns:1fr auto;gap:.2rem 1rem;padding:1rem .6rem;border-bottom:1px solid rgba(217,180,91,.15);transition:transform .35s,background .35s}
+.item:hover{transform:translateX(8px);background:rgba(217,180,91,.06)}
+.item strong{font-weight:600;font-size:1.1rem;letter-spacing:.03em}
+.item .pr{font-family:var(--disp);color:var(--gold);white-space:nowrap}
+.item small{grid-column:1;color:var(--mute);font-size:.92rem}
+.item .tag{margin-left:.5rem}
+
+/* hours */
+.hl{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:3rem;align-items:start;margin-top:2.5rem}
+.hours{list-style:none;border:1px solid var(--line);padding:.5rem 1.4rem}
+.hours li{display:flex;justify-content:space-between;gap:1rem;padding:.75rem 0;border-bottom:1px dashed rgba(217,180,91,.2)}
+.hours li:last-child{border:0}
+.hours li span:first-child{font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.85rem}
+.addr{font-style:normal;font-size:1.25rem;margin:1rem 0 1.2rem}
+.copied{display:inline-block;margin-left:.8rem;color:var(--gold2);opacity:0;transition:opacity .3s;font-size:.9rem}
+.copied.show{opacity:1}
+.map{margin-top:1.6rem;border:1px solid var(--line);padding:.5rem;background:var(--ink2)}
+.map iframe{width:100%;height:320px;border:0;display:block;filter:grayscale(.6) contrast(1.05)}
+.maplinks{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem;margin-top:.8rem}
+.maplinks a{color:var(--gold2);font-size:.9rem}
+.mapcredit{font-size:.75rem;color:var(--mute);margin-top:.4rem}
+.mapcredit a{color:inherit}
+
+/* contact */
+#contact{text-align:center;background:radial-gradient(ellipse at 50% 100%,#1e1814,var(--ink) 70%)}
+#contact .lead{margin-inline:auto}
+.cbtns{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:2rem}
+
+/* cta */
+.np-cta{width:min(760px,100% - 2.5rem);margin:0 auto clamp(3rem,8vw,6rem);padding:clamp(1.8rem,5vw,3rem);text-align:center;background:var(--ink3);position:relative;border:1px solid var(--gold);outline:1px solid var(--line);outline-offset:8px}
+.np-cta h2,.np-cta h3{color:var(--gold2)}
+.np-cta p{color:var(--mute);margin:.6rem auto 1.2rem;max-width:48ch}
+.np-cta .btn{margin:.3rem}
+
+footer{padding:2rem 0 1rem;text-align:center;color:var(--mute);font-size:.85rem;border-top:1px solid var(--line)}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(32px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--d,0)*110ms)}
+.js .rv.on{opacity:1;transform:none}
+
+@media(max-width:480px){.item .tag{display:block;margin:.3rem 0 0;width:max-content}}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv,.js .hero .in{opacity:1!important;transform:none!important}
+  .arches path{stroke-dashoffset:0}
+  .track{flex-wrap:wrap;width:auto;justify-content:center}
+  .track span:nth-child(n+8){display:none}
+}
+</style>
+</head>
+<body>
+<div class="np-banner">Preview created by Northlight Web. Not the official website.</div>
+<div id="prog" aria-hidden="true"></div>
+
+<header class="site" id="top">
+  <div class="wrap bar">
+    <a href="#top" class="logo" aria-label="PH8 home">PH8</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+    <nav id="nav" aria-label="Main">
+      <ul>
+        <li><a href="#offer">The Room</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#visit">Hours &amp; Location</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" aria-label="PH8 Restaurant &amp; Lounge">
+  <div class="rays" aria-hidden="true"></div>
+  <svg class="arches" viewBox="0 0 300 400" aria-hidden="true"><g class="arches-in" id="arches">
+    <path pathLength="1" d="M20 390V160A130 130 0 0 1 280 160V390"/>
+    <path pathLength="1" d="M40 390V160A110 110 0 0 1 260 160V390"/>
+    <path pathLength="1" d="M60 390V160A90 90 0 0 1 240 160V390"/>
+    <path pathLength="1" d="M80 390V160A70 70 0 0 1 220 160V390"/>
+  </g></svg>
+  <div class="wrap hero-copy" id="heroCopy">
+    <p class="eyebrow in" style="--i:0">Wickliffe, Ohio</p>
+    <h1 class="in" style="--i:1"><span>PH8</span></h1>
+    <p class="sub in" style="--i:2">Restaurant &amp; Lounge</p>
+    <div class="orn in" style="--i:3" aria-hidden="true"><i></i><b></b><i></i></div>
+    <p class="place in" style="--i:3">30310 Euclid Avenue</p>
+    <div class="actions in" style="--i:4">
+      <a class="btn" href="#menu" data-mag>See the menu</a>
+      <a class="btn alt" href="#visit" data-mag>Find us</a>
+    </div>
+  </div>
+  <div class="scrollcue" aria-hidden="true"></div>
+</section>
+
+<div class="marq" aria-hidden="true">
+  <div class="track">
+    <span>Restaurant</span><span>Lounge</span><span>Wickliffe</span><span>Euclid Avenue</span><span>Starters</span><span>Mains</span><span>On tap</span>
+    <span>Restaurant</span><span>Lounge</span><span>Wickliffe</span><span>Euclid Avenue</span><span>Starters</span><span>Mains</span><span>On tap</span>
+  </div>
+</div>
+
+<section id="offer">
+  <div class="wrap">
+    <p class="eyebrow rv">The room</p>
+    <h2 class="rv" style="--d:1">Dinner, then the lounge.</h2>
+    <p class="lead rv" style="--d:2">PH8 is a restaurant and a lounge on Euclid Avenue in Wickliffe. One address, two ways to spend the evening.</p>
+    <div class="cards">
+      <article class="card rv" style="--d:1"><span class="num">I</span><h3>Restaurant</h3><p>Starters and mains, laid out on a menu made for sharing a table.</p></article>
+      <article class="card rv" style="--d:2"><span class="num">II</span><h3>Lounge</h3><p>Settle in after the plates are cleared. The night is yours to stretch.</p></article>
+      <article class="card rv" style="--d:3"><span class="num">III</span><h3>On tap</h3><p>Draft pours sit right alongside the food on the menu below.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="wrap">
+    <p class="eyebrow rv">Menu <span class="tag">Example</span></p>
+    <h2 class="rv" style="--d:1">At the table</h2>
+    <p class="note rv" style="--d:2">This is an example menu that shows how your menu would look. Your real dishes and prices go here.</p>
+    <div class="menu-grid">
+      <div class="msec rv" style="--d:1">
+        <h3>Starters</h3>
+        <div class="item"><strong>Loaded nachos<span class="tag">Example</span></strong><span class="pr">$10.00</span></div>
+        <div class="item"><strong>Wings<span class="tag">Example</span></strong><span class="pr">$11.00</span><small>Your choice of sauce</small></div>
+        <div class="item"><strong>Onion rings<span class="tag">Example</span></strong><span class="pr">$7.00</span></div>
+      </div>
+      <div class="msec rv" style="--d:2">
+        <h3>Mains</h3>
+        <div class="item"><strong>Bacon cheeseburger<span class="tag">Example</span></strong><span class="pr">$12.50</span></div>
+        <div class="item"><strong>Fish sandwich<span class="tag">Example</span></strong><span class="pr">$11.50</span></div>
+        <div class="item"><strong>Chicken tenders<span class="tag">Example</span></strong><span class="pr">$10.50</span></div>
+      </div>
+      <div class="msec rv" style="--d:3">
+        <h3>On tap</h3>
+        <div class="item"><strong>Local lager<span class="tag">Example</span></strong><span class="pr">$5.00</span></div>
+        <div class="item"><strong>Pale ale<span class="tag">Example</span></strong><span class="pr">$5.50</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap">
+    <p class="eyebrow rv">Hours &amp; location</p>
+    <h2 class="rv" style="--d:1">Come on in</h2>
+    <div class="hl">
+      <div class="rv" style="--d:1">
+        <p class="eyebrow" style="margin-bottom:.8rem">Hours <span class="tag">Example hours</span></p>
+        <ul class="hours">
+          <li><span>Mon</span><span>7 AM – 3 PM</span></li>
+          <li><span>Tue</span><span>7 AM – 3 PM</span></li>
+          <li><span>Wed</span><span>7 AM – 3 PM</span></li>
+          <li><span>Thu</span><span>7 AM – 3 PM</span></li>
+          <li><span>Fri</span><span>7 AM – 8 PM</span></li>
+          <li><span>Sat</span><span>8 AM – 8 PM</span></li>
+          <li><span>Sun</span><span>Closed</span></li>
+        </ul>
+      </div>
+      <div class="rv" style="--d:2">
+        <p class="eyebrow">Address</p>
+        <address class="addr" id="addr">30310 Euclid Avenue<br>Wickliffe, OH 44092</address>
+        <button class="btn alt small" id="copy" type="button" data-mag>Copy address</button><span class="copied" id="copied" role="status" aria-live="polite">Copied</span>
+        <iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-81.46479,41.61132,-81.45279,41.62332&amp;layer=mapnik&amp;marker=41.61732,-81.45879"></iframe><p class="maplinks"><a href="https://www.openstreetmap.org/?mlat=41.61732&amp;mlon=-81.45879#map=17/41.61732/-81.45879" target="_blank" rel="noopener noreferrer">View larger map</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=41.61732,-81.45879" target="_blank" rel="noopener noreferrer">Get directions</a></p><p class="mapcredit">Map © OpenStreetMap contributors</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <p class="eyebrow rv">Contact</p>
+    <h2 class="rv" style="--d:1">Say hello</h2>
+    <p class="lead rv" style="--d:2">Questions about PH8? Send a note by e-mail.</p>
+    <div class="cbtns rv" style="--d:3">
+      <a class="btn" href="mailto:ph8restaurantandlounge@gmail.com">ph8restaurantandlounge@gmail.com</a> 
+    </div>
+  </div>
+</section>
+
+<section class="np-cta" id="offer"><h2>Want this for PH8 Restaurant &amp; Lounge?</h2><p>This is a free preview made for PH8 Restaurant &amp; Lounge. A site like this is <b>$299</b> one time, ready in days. Reply to my email, or use the button.<br><small>Half up front, half when you're happy. You buy your own domain (about $12 a year). Optional care plan: $29 a month for hosting help and small changes. Cancel any time.</small></p><p class="btns"><a class="btn" href="mailto:northlightwebco@gmail.com?subject=Website%20for%20PH8%20Restaurant%20%26%20Lounge&amp;body=Yes%2C%20please%20make%20this%20site%20for%20PH8%20Restaurant%20%26%20Lounge.">Make it mine</a></p></section>
+</main>
+
+<footer><div class="wrap">PH8 Restaurant &amp; Lounge · 30310 Euclid Avenue, Wickliffe, OH 44092</div></footer>
+
+<div class="np-banner">Preview created by Northlight Web. Not the official website. · PH8 Restaurant &amp; Lounge</div>
+
+<script>
+(function(){
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hd=document.querySelector('header.site'),prog=document.getElementById('prog'),
+      arches=document.getElementById('arches'),hc=document.getElementById('heroCopy');
+  var ticking=false;
+  function onScroll(){
+    var y=window.scrollY||0,h=document.documentElement.scrollHeight-window.innerHeight;
+    hd.classList.toggle('scrolled',y>40);
+    prog.style.transform='scaleX('+(h>0?Math.min(1,y/h):0)+')';
+    if(!rm&&y<window.innerHeight*1.2){
+      arches.style.transform='translateY('+(y*.18)+'px)';
+      hc.style.transform='translateY('+(y*-.08)+'px)';
+    }
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(onScroll)}},{passive:true});
+  onScroll();
+
+  /* reveals */
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window&&!rm){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    els.forEach(function(el){io.observe(el)});
+  }else{els.forEach(function(el){el.classList.add('on')})}
+
+  /* mobile menu */
+  var bg=document.querySelector('.burger'),nav=document.getElementById('nav');
+  bg.addEventListener('click',function(){var o=nav.classList.toggle('open');bg.setAttribute('aria-expanded',o)});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A'){nav.classList.remove('open');bg.setAttribute('aria-expanded','false')}});
+
+  /* copy address */
+  var cp=document.getElementById('copy'),msg=document.getElementById('copied');
+  cp.addEventListener('click',function(){
+    var t='30310 Euclid Avenue, Wickliffe, OH 44092';
+    function done(){msg.textContent='Copied';msg.classList.add('show');setTimeout(function(){msg.classList.remove('show')},2000)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,fb)}else fb();
+    function fb(){var a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy');done()}catch(e){msg.textContent=t;msg.classList.add('show')}document.body.removeChild(a)}
+  });
+
+  /* magnetic buttons */
+  if(!rm&&window.matchMedia('(hover:hover)').matches){
+    document.querySelectorAll('.btn,[data-mag]').forEach(function(b){
+      b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();
+        b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.18)+'px,'+((e.clientY-r.top-r.height/2)*.3-3)+'px)'});
+      b.addEventListener('mouseleave',function(){b.style.transform=''});
+    });
+  }
+})();
+</script>
+</body>
+</html>
